@@ -11,7 +11,7 @@ const navItems = {
 export function Navbar() {
   return (
     <nav className="flex justify-between p-12">
-      <div>
+      <div className="h-32 w-48">
         <h1>
           <Link href="/" title="https://www.opensource.construction">
             <Image
