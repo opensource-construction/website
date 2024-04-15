@@ -56,13 +56,22 @@ const corbert = localFont({
   display: "swap",
 });
 
+const glyphter = localFont({
+  src: "./fonts/Glyphter.woff",
+  display: "swap",
+  variable: "--font-glyphter",
+});
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${corbert.className} scroll-smooth font-bold`}>
+    <html
+      lang="en"
+      className={`${corbert.className} ${glyphter.variable} scroll-smooth font-bold`}
+    >
       <body>
         <header>
           <Navbar />
