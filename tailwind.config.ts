@@ -7,7 +7,12 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  theme: {},
+  theme: {
+    fontSize: {
+      "2xl": ["3rem", "1.1"],
+      xl: ["2rem", "1.1"],
+    },
+  },
   plugins: [typography],
 };
 export default config;

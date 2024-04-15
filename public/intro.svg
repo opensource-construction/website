@@ -1,0 +1,58 @@
+<svg
+    id="bg-mid"
+    data-animate-y-space="100"
+    data-animate-y-space2="11.9"
+    viewBox="0 0 543.25 835.68"
+    xmlns="http://www.w3.org/2000/svg"
+>
+    <g
+        class="group1"
+        data-move="up"
+        style="transform: translateY(-11.1685%);"
+    >
+        <path
+            fill="#fdef93"
+            d="M418.23,436,413.59,684.1l129.66,30.74-.85-235.22Z"
+        ></path>
+        <path
+            fill="#f4d530"
+            d="M297.63,707.52l116-23.42,129.66,30.74L428.62,735.68Z"
+        ></path>
+        <path
+            fill="#fbe536"
+            d="M418.23,436,413.59,684.1l-116,23.42,9.23-239Z"
+        ></path>
+    </g>
+    <g
+        class="group2"
+        data-move="down"
+        style="transform: translateY(11.1685%);"
+    >
+        <path
+            fill="#f4d530"
+            d="M103.29,475.91l146.82,29.54-103.68,22L0,500Z"
+        ></path>
+        <path
+            fill="#fdef93"
+            d="M121.67,229.58l139.7,42.87-11.26,233L103.29,475.91Z"
+        ></path>
+        <path
+            fill="#ffed00"
+            d="M21.75,263.62l99.92-34L103.29,475.91,0,500Z"
+        ></path>
+    </g>
+    <g class="group3">
+        <path
+            fill="#f4d530"
+            d="M284.39,657.61l115.73-23.82L253.64,599.07l-116,27Z"
+        ></path>
+        <path
+            fill="#fdef93"
+            d="M277,100l133.21,60L400.12,633.8,253.64,599.07Z"
+        ></path>
+        <path
+            fill="#ffed00"
+            d="M137.68,626.08l116-27L277,100,169.6,147.53Z"
+        ></path>
+    </g>
+</svg>
