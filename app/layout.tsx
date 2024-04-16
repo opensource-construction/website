@@ -70,7 +70,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${corbert.className} ${glyphter.variable} scroll-smooth font-bold`}
+      className={`${corbert.className} ${glyphter.variable} scroll-smooth font-bold selection:bg-osc-primary selection:bg-opacity-70`}
     >
       <body>
         <header>
