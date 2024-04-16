@@ -15,7 +15,9 @@ export default function Button({
     <div className="mb-16">
       <Link
         href={href}
-        className={`${type === "secondary" ? "bg-osc-gray-500" : "bg-black text-white"} px-8 py-3`}
+        className={`${type === "secondary" ? "bg-osc-gray-500" : "bg-black font-bold text-white no-underline hover:text-white"} px-8 py-3`}
+        target={type === "primary" ? "_blank" : "_self"}
+        rel="noopener noreferrer"
       >
         <span>
           {icon === "left" ? (
