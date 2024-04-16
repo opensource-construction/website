@@ -4,15 +4,15 @@ import svgIntro from "@/public/intro.svg";
 
 export default function Home() {
   return (
-    <div className="prose-h2:mt-0 prose-h2:text-2xl prose-h3:text-xl">
-      <section className="py-12" id="opensource">
+    <div className="prose-h2:mt-0 md:prose-h2:text-2xl md:prose-h3:text-xl">
+      <section className="py-6" id="opensource">
         <Image
           src={svgHero}
           alt="hero animation"
-          className="absolute -z-10 mx-auto -mt-48 box-border flex justify-center px-14"
+          className="absolute -z-10 mx-auto -mt-48 box-border flex w-96 justify-center px-14 md:w-full"
         />
-        <div className="prose mx-auto flex h-screen max-w-screen-xl gap-28 px-10">
-          <div className="w-7/12 px-4">
+        <div className="prose mx-auto flex max-w-screen-xl flex-col items-end px-2 md:h-screen md:px-10 lg:flex-row lg:items-start">
+          <div className="w-full px-4 lg:w-7/12">
             <h2>
               Sharing and learning is becoming the driver of radical innovation
             </h2>
@@ -22,13 +22,13 @@ export default function Home() {
               world of open source tools and open data.
             </p>
           </div>
-          <div className="w-5/12 px-14">
-            <div className="flex aspect-square w-full items-center justify-center rounded-full bg-black p-2 text-center text-2xl text-white">
+          <div className="px-14 lg:w-5/12">
+            <div className="hidden aspect-square w-64 items-center justify-center rounded-full bg-black p-2 text-center text-xl text-white md:flex lg:w-full xl:text-2xl">
               Open Source in AEC
             </div>
           </div>
         </div>
-        <div className="prose mx-auto max-w-screen-xl px-10 py-64">
+        <div className="prose mx-auto max-w-screen-xl px-2 py-64 md:px-10">
           <div className="mx-auto mt-12 w-8/12 px-8">
             <h2>Open source in the construction industry</h2>
             <p>

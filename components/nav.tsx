@@ -10,7 +10,7 @@ const navItems = {
 
 export function Navbar() {
   return (
-    <nav className="flex justify-between p-12">
+    <nav className="flex justify-between p-6 md:p-10">
       <div className="h-32 w-48">
         <h1>
           <Link href="/" title="https://www.opensource.construction">
@@ -24,7 +24,7 @@ export function Navbar() {
         </h1>
       </div>
       <div className="flex-grow"></div>
-      <div>
+      <div className="hidden md:block">
         <ul className="flex">
           {Object.entries(navItems).map(([path, { name }]) => {
             return (
