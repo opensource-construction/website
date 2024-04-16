@@ -1,7 +1,10 @@
-import type { Metadata } from "next";
 import "./globals.css";
+import localFont from "next/font/local";
+import type { Metadata } from "next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
+import { Navbar } from "@/components/nav";
+import { Footer } from "@/components/footer";
 
 export const metadata: Metadata = {
   title: {
@@ -27,17 +30,56 @@ export const metadata: Metadata = {
   },
 };
 
+const corbert = localFont({
+  src: [
+    {
+      path: "./fonts/Corbert-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./fonts/Corbert-RegularItalic.woff2",
+      weight: "400",
+      style: "italic",
+    },
+    {
+      path: "./fonts/Corbert-Bold.woff2",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "./fonts/Corbert-BoldItalic.woff2",
+      weight: "700",
+      style: "italic",
+    },
+  ],
+  display: "swap",
+});
+
+const glyphter = localFont({
+  src: "./fonts/Glyphter.woff",
+  display: "swap",
+  variable: "--font-glyphter",
+});
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      className={`${corbert.className} ${glyphter.variable} scroll-smooth font-bold selection:bg-osc-primary selection:bg-opacity-70`}
+    >
       <body>
-        <header></header>
+        <header>
+          <Navbar />
+        </header>
         <main>{children}</main>
-        <footer></footer>
+        <footer>
+          <Footer />
+        </footer>
         <SpeedInsights />
         <Analytics />
       </body>
