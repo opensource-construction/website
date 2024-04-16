@@ -33,11 +33,19 @@ function readMDXFile(filePath: string) {
   return parseFrontmatter(rawContent);
 }
 
+export function parseSlug(fileBasename: string) {
+  let prefix = fileBasename.indexOf("-");
+  if (prefix && +fileBasename.slice(0, prefix)) {
+    return fileBasename.slice(prefix + 1);
+  }
+  return fileBasename;
+}
+
 function getMDXData(dir: string) {
   let mdxFiles = getMDXFiles(dir);
   return mdxFiles.map((file) => {
     let { metadata, content } = readMDXFile(path.join(dir, file));
-    let slug = path.basename(file, path.extname(file));
+    let slug = parseSlug(path.basename(file, path.extname(file)));
 
     return {
       metadata,
