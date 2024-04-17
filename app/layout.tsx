@@ -3,8 +3,7 @@ import localFont from "next/font/local";
 import type { Metadata } from "next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
-import { Navbar } from "@/components/nav";
-import { Footer } from "@/components/footer";
+import { Footer, Navbar } from "@opensource-construction/components";
 
 export const metadata: Metadata = {
   title: {

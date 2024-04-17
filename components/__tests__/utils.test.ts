@@ -1,5 +1,5 @@
 import { test, expect } from "vitest";
-import { parseSlug } from "../components/utils";
+import { parseSlug } from "../src/utils";
 
 test("parses basic slug correctly", () => {
   expect(parseSlug("simple")).toBe("simple");

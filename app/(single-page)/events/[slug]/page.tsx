@@ -1,6 +1,5 @@
-import { getPosts } from "@/components/utils";
+import { Page, getPosts } from "@opensource-construction/components";
 import { notFound } from "next/navigation";
-import Page from "@/components/page";
 
 const namespace = "events";
 
