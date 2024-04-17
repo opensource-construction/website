@@ -15,6 +15,7 @@
   "dependencies": {
     "@vercel/analytics": "^1.2.2",
     "@vercel/speed-insights": "^1.0.10",
+    "@opensource-construction/components": "./components",
     "next": "14.2.1",
     "next-mdx-remote": "^4.4.1",
     "react": "^18",
@@ -38,5 +39,8 @@
     "tailwindcss": "^3.4.1",
     "typescript": "^5",
     "vitest": "^1.5.0"
-  }
+  },
+  "workspaces": [
+    "components"
+  ]
 }

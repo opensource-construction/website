@@ -1,5 +1,6 @@
-import { Metadata } from "./utils";
-import { CustomMDX } from "@/components/mdx";
+import type { Metadata } from "./utils";
+import { CustomMDX } from "./mdx";
+import React from "react";
 
 export default function Page({
   page,

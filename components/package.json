@@ -1,0 +1,21 @@
+{
+  "name": "@opensource-construction/components",
+  "version": "1.0.0",
+  "description": "opensource.construction components and design system",
+  "devDependencies": {},
+  "type": "module",
+  "scripts": {
+    "test": "vitest --run",
+    "test:watch": "vitest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/opensource-construction/website.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/opensource-construction/website/issues"
+  },
+  "homepage": "https://github.com/opensource-construction/website#readme"
+}

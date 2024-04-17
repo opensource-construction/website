@@ -1,4 +1,4 @@
-import Button from "@/components/button";
+import { Button } from "@opensource-construction/components";
 
 export default function SinglePageLayout({
   children,
