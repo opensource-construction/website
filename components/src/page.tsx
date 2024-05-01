@@ -1,11 +1,14 @@
-import type { Metadata } from "./utils";
 import { CustomMDX } from "./mdx";
 import React from "react";
 
 export default function Page({
   page,
 }: {
-  page: { metadata: Metadata; slug: string; content: string };
+  page: {
+    metadata: { title: string; event?: object };
+    slug: string;
+    content: string;
+  };
 }) {
   return (
     <div>
