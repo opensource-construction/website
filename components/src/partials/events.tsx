@@ -5,16 +5,18 @@ import { Section } from "../section";
 export function EventsPartial() {
   let events = getPosts("events");
 
-  let parsedEvents = events.map((e) => {
-    let event = e.metadata.event;
+  let parsedEvents = events
+    .map((e) => {
+      let event = e.metadata.event;
 
-    event.title = e.metadata.title;
-    event.slug = e.slug;
-    event.start = new Date(event.start);
-    event.isPast = event.start < Date.now();
+      event.title = e.metadata.title;
+      event.slug = e.slug;
+      event.start = new Date(event.start);
+      event.isPast = event.start < Date.now();
 
-    return event;
-  });
+      return event;
+    })
+    .sort((a, b) => (a.start < b.start ? 1 : -1));
 
   let futureEvents = parsedEvents.filter((e) => !e.isPast);
   let pastEvents = parsedEvents.filter((e) => e.isPast);

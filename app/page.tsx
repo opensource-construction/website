@@ -99,6 +99,7 @@ export default function Home() {
         </div>
       </section>
       <EventsPartial />
+      <section className="bg-osc-primary"></section>
     </div>
   );
 }
