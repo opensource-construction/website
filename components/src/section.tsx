@@ -1,4 +1,5 @@
 import { PropsWithChildren } from "react";
+import * as slugify from "slugify";
 
 type SectionProps = {
   title?: string;
@@ -9,10 +10,13 @@ type SectionProps = {
 export function Section(props: PropsWithChildren<SectionProps>) {
   return (
     <section
-      className={`${props.color ? `bg-osc-${props.color}` : ""} md:px-18 prose mx-auto min-h-48 max-w-screen-xl px-28 py-12 ${props.className}`}
+      id={props.title ? slugify.default(props.title).toLowerCase() : ""}
+      className={`${props.color ? `bg-osc-${props.color}` : ""} min-h-48 w-full py-12 ${props.className}`}
     >
-      {props.title ? <h3 className="text-xl">{props.title}</h3> : null}
-      {props.children}
+      <div className="md:px-18 prose mx-auto max-w-screen-xl px-28">
+        {props.title ? <h3 className="text-xl">{props.title}</h3> : null}
+        {props.children}
+      </div>
     </section>
   );
 }
