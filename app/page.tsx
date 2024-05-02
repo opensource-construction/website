@@ -1,5 +1,6 @@
 import {
   Section,
+  Button,
   EventsPartial,
   HeroPartial,
   ProjectsPartial,
@@ -15,7 +16,12 @@ export default function Home() {
         <ProjectsPartial />
       </Section>
       <EventsPartial />
-      <section className="bg-osc-primary"></section>
+      <Section color="primary">
+        &nbsp;
+        <Button href="https://discord.gg/jgph8WR6" type="primary">
+          Talk to us on discord
+        </Button>
+      </Section>
     </div>
   );
 }
