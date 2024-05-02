@@ -1,5 +1,5 @@
 import { getPosts } from "../utils";
-import { EventCard } from "../event-card";
+import { Card } from "../card";
 import { Section } from "../section";
 
 export function EventsPartial() {
@@ -8,11 +8,16 @@ export function EventsPartial() {
   let parsedEvents = events
     .map((e) => {
       let event = e.metadata.event;
+      let eventStart = new Date(event.start);
 
       event.title = e.metadata.title;
       event.slug = e.slug;
-      event.start = new Date(event.start);
-      event.isPast = event.start < Date.now();
+
+      event.start = Intl.DateTimeFormat("en-UK", {
+        dateStyle: "short",
+        timeZone: "Europe/Zurich",
+      }).format(new Date(eventStart));
+      event.isPast = eventStart.getTime() < Date.now();
 
       return event;
     })
@@ -39,11 +44,11 @@ export function EventsPartial() {
           {!futureEvents.length
             ? "No pending events"
             : futureEvents.map((e) => (
-                <EventCard
+                <Card
                   key={e.start}
                   title={e.title}
+                  subtitle={e.start}
                   slug={e.slug}
-                  date={new Date(e.start)}
                 />
               ))}
         </div>
@@ -54,11 +59,11 @@ export function EventsPartial() {
           {!pastEvents.length
             ? "No past events"
             : pastEvents.map((e) => (
-                <EventCard
+                <Card
                   key={e.start}
                   title={e.title}
+                  subtitle={e.start}
                   slug={e.slug}
-                  date={new Date(e.start)}
                 />
               ))}
         </div>
