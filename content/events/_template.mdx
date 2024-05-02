@@ -1,0 +1,48 @@
+---
+title: Template Event
+event:
+  # required: start and either duration or end (but not both)
+  # ideal to have: organizer, location, status
+  # automatically set: url
+  # all possible attributes: https://www.npmjs.com/package/ics#attributes
+  start: 2024-04-30T16:00:00+01:00
+  # duration can be combination of seconds, minutes, hours, days, weeks
+  duration:
+    hours: 2
+  # address
+  location: Bloxhub, Bryghuspladsen 8, 1473 Copenhagen
+  geo:
+    lon: 55.6721040
+    lat: 12.5789120
+  # can be TENTATIVE, CONFIRMED or CANCELLED
+  status: CONFIRMED
+  organizer:
+    email: info@bloxhub.org
+    name: Bloxhub
+---
+
+Teaser and description of the event. What is the agenda?
+
+## Organiser
+
+Who is organising the event?
+
+## Location
+
+Where is the event happening?
+
+Bryghuspladsen 8<br />
+3rd floor<br />
+DK-1473 Copenhagen
+
+## Date
+
+April 30, 2024<br />
+16:00 – 18:00
+
+<Button
+  href="https://bloxhub.org/event/open-source-in-aec/"
+  label="Sign up here"
+  type="primary"
+  icon="right"
+/>
