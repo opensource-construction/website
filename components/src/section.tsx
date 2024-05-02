@@ -1,7 +1,7 @@
 import { PropsWithChildren } from "react";
 
 type SectionProps = {
-  color: string | null;
+  color?: string | null;
 };
 
 export function Section(props: PropsWithChildren<SectionProps>) {
