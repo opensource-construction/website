@@ -23,7 +23,6 @@ export async function generateStaticParams() {
 }
 
 export default function SinglePage({ params }: { params: SinglePageType }) {
-  console.log(params);
   let page = getPosts(params.pageType).find(
     (page) => page.slug === params.slug,
   );

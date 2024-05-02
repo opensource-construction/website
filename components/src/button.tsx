@@ -17,7 +17,7 @@ export default function Button({
       <Link
         href={href}
         className={`${type === "secondary" ? "bg-osc-gray-500" : "bg-black font-bold text-white no-underline hover:text-white"} px-8 py-3`}
-        target={type === "primary" ? "_blank" : "_self"}
+        target={href.startsWith("http") ? "_blank" : "_self"}
         rel="noopener noreferrer"
       >
         <span>
