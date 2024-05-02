@@ -12,7 +12,7 @@ export default function Button({
   label?: string;
   type: "primary" | "secondary";
   icon?: "left" | "right";
-  children: ReactElement;
+  children?: ReactElement;
 }) {
   return (
     <div className="mt-8">
