@@ -1,13 +1,12 @@
 import { getPosts } from "../utils";
 
-import Button from "../button";
 import { Card } from "../card";
 
 export function ProjectsPartial() {
   let projects = getPosts("projects");
 
   let parsedProjects = projects.map((e) => {
-    let project = e.metadata.project;
+    let project = { ...e.metadata.project };
 
     project.title = e.metadata.title;
     project.slug = e.slug;
