@@ -13,7 +13,7 @@ export default function Button({
   icon?: "left" | "right";
 }) {
   return (
-    <div className="mb-4">
+    <div className="mt-8">
       <Link
         href={href}
         className={`${type === "secondary" ? "bg-osc-gray-500" : "bg-black font-bold text-white no-underline hover:text-white"} px-8 py-3`}

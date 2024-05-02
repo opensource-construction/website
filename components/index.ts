@@ -9,3 +9,4 @@ export { CustomMDX, Button, Page, Footer, Navbar };
 export { getPosts, parseSlug };
 
 export { EventsPartial } from "./src/partials/events";
+export { ProjectsPartial } from "./src/partials/projects";
