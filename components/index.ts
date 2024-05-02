@@ -7,3 +7,5 @@ import { getPosts, parseSlug } from "./src/utils";
 
 export { CustomMDX, Button, Page, Footer, Navbar };
 export { getPosts, parseSlug };
+
+export { EventsPartial } from "./src/partials/events";
