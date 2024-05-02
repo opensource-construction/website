@@ -2,6 +2,12 @@ import fs from "fs";
 import path from "path";
 import YAML from "yaml";
 
+export type Post = {
+  metadata: any;
+  slug: string;
+  content: string;
+};
+
 function parseFrontmatter(fileContent: string) {
   let frontmatterRegex = /---\s*([\s\S]*?)\s*---/;
   let match = frontmatterRegex.exec(fileContent);
@@ -29,7 +35,7 @@ export function parseSlug(fileBasename: string) {
   return fileBasename;
 }
 
-function getMDXData(dir: string) {
+function getMDXData(dir: string): Post[] {
   let mdxFiles = getMDXFiles(dir);
   return mdxFiles.map((file) => {
     let { metadata, content } = readMDXFile(path.join(dir, file));
