@@ -20,6 +20,7 @@ const config: Config = {
         "osc-primary": "#ffed00",
         "osc-gray-500": "#f5f5f5",
         "osc-gray-700": "#737373",
+        "osc-white": "#ffffff",
       },
     },
   },

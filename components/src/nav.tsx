@@ -6,7 +6,7 @@ const navItems = {
   "/#open-source": { name: "Open Source" },
   "/#projects": { name: "Projects" },
   "/#events": { name: "Events" },
-  "/#about-us": { name: "About us" },
+  "/#who-is-behind-the-initiative": { name: "About us" },
 };
 
 export function Navbar() {
