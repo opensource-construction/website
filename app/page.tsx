@@ -1,7 +1,7 @@
 import Image from "next/image";
 import svgHero from "@/public/hero.svg";
 import svgIntro from "@/public/intro.svg";
-import { EventsPartial } from "@/components";
+import { EventsPartial, ProjectsPartial } from "@/components";
 
 export default function Home() {
   return (
@@ -98,6 +98,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <ProjectsPartial />
       <EventsPartial />
       <section className="bg-osc-primary"></section>
     </div>
