@@ -6,6 +6,7 @@ const navItems = {
   "/#open-source": { name: "Open Source" },
   "/#projects": { name: "Projects" },
   "/#events": { name: "Events" },
+  "/trainings": { name: "Trainings" },
   "/#who-is-behind-the-initiative": { name: "About us" },
 };
 
