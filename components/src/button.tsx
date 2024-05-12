@@ -18,13 +18,13 @@ export default function Button({
     <div className="mt-8">
       <Link
         href={href}
-        className={`${type === "secondary" ? "bg-osc-gray-500" : "bg-black font-bold text-white no-underline hover:text-white"} px-8 py-3`}
+        className={`${type === "secondary" ? "bg-osc-gray-500" : "bg-black pl-8 text-white hover:text-white"} py-3 pr-8 font-bold no-underline`}
         target={href.startsWith("http") ? "_blank" : "_self"}
         rel="noopener noreferrer"
       >
         <span>
           {icon === "left" ? (
-            <span className="font-icon before:relative before:top-0.5 before:inline-block before:rotate-180 before:leading-none before:content-['A'] after:pr-4"></span>
+            <span className="pl-8 font-icon before:relative before:top-0.5 before:inline-block before:rotate-180 before:leading-none before:content-['A'] after:pr-4"></span>
           ) : null}
           {children ? children : <span>{label}</span>}
           {icon === "right" ? (

@@ -18,7 +18,7 @@ export function Card({
 }) {
   return (
     <div className={`bg-osc-${color}`}>
-      <div className="mb-32 p-5">
+      <div className="mb-4 p-5">
         <h4 className="mb-2 mt-0 text-xl">{title}</h4>
         <div className="mb-12">{subtitle}</div>
         {slug ? (

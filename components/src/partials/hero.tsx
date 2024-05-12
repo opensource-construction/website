@@ -8,14 +8,14 @@ export function HeroPartial() {
       <Image
         src={svgHero}
         alt="hero animation"
-        className="absolute -z-10 mx-auto -mt-48 box-border flex w-96 justify-center px-14 md:w-full"
+        className="absolute -z-10 mx-auto -mt-48 box-border flex w-96 justify-center px-14"
       />
-      <div className="prose mx-auto flex max-w-screen-xl flex-col items-end px-2 md:h-screen md:px-10 lg:flex-row lg:items-start">
-        <div className="w-full px-4 lg:w-7/12">
+      <div className="prose mx-auto flex max-w-screen-xl flex-col items-end px-2 lg:flex-row lg:items-start">
+        <div className="w-full lg:w-7/12">
           <h2>
             Sharing and learning is becoming the driver of radical innovation
           </h2>
-          <p>
+          <p className="text-lg">
             We go ahead and share ideas, develop projects together and inspire
             the construction industry. Join us and walk the path into the new
             world of open source tools and open data.
@@ -27,8 +27,8 @@ export function HeroPartial() {
           </div>
         </div>
       </div>
-      <div className="prose mx-auto max-w-screen-xl px-2 py-64 md:px-10">
-        <div className="mx-auto mt-12 w-8/12 px-8">
+      <div className="prose mx-auto mt-96 max-w-screen-xl px-2 pb-64 lg:px-10">
+        <div className="mx-auto lg:w-9/12 lg:px-8">
           <h2>Open source in the construction industry</h2>
           <p>
             The construction industry is characterized by numerous small and
@@ -79,7 +79,7 @@ export function HeroPartial() {
             </ul>
           </div>
         </div>
-        <div className="mx-auto w-8/12 px-8">
+        <div className="mx-auto lg:w-9/12 lg:px-8">
           <h3>Collaboration as an unfair advantage</h3>
           <p>
             By institutionalising open collaboration across companies with
