@@ -21,7 +21,7 @@ export function EventsPartial({ showPast = false }: { showPast?: boolean }) {
       return event;
     })
     .sort((a, b) => (a.start < b.start ? 1 : -1))
-    .filter((e) => showPast && e.isPast);
+    .filter((e) => (e.isPast && showPast) || (!e.isPast && !showPast));
 
   return (
     <div className="py-10">
