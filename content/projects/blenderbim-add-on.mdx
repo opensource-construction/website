@@ -1,0 +1,56 @@
+---
+title: BlenderBIM Add-on
+links:
+  - url: https://blenderbim.org
+    label: Website
+  - url: http://ifcopenshell.org/
+    label: IFC openshell
+  - url: http://github.com/ifcopenshell/ifcopenshell
+    label: Github
+---
+
+### Problem
+
+The industry and general public cannot design, engineer, construction, operate, renovate, and demolish our built environment using BIM technologies without access to expensive, non-cross-platform, primarily subscription based, proprietary tools with lock-in formats.
+
+### Solution
+
+An ecosystem of cross-platform and interface-agnostic tools are built to manipulate BIM data, each tool specialised towards different usecases. A primary graphical native IFC authoring platform is built on top of Blender. Tools include BIM modeling, drawing generation, model auditing, connection to structural simulation software, MEP systems analysis, cost planning, construction scheduling, collection of commissioning and facility management handover data, and more.
+
+<iframe width="1100" height="560" src="https://www.youtube.com/embed/Ooh05WF__80" title="Technical demonstrations of Native IFC authoring with free software - buildingSMART UK+I" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+### Why Open Source?
+
+Our industry is incredibly interdependent. We need to work together to collectively decide what the future of our digital built environment workflows look like. It is impossible to understate how important or complex the decisions are behind what we build – and it is no different behind our tools. No one company knows the answer to what our industry needs.
+
+### Technology
+
+OpenCASCADE and CGAL geometry kernels, wrapped with IfcOpenShell. SWIG Python bindings which then have a ecosystem of Unix-style utilities built around it. Each utility has a stack of its own. For example, tabular spreadsheet reporting connects IfcOpenShell to Pandas / Openpyxl and odfpy. Clash detection connects IfcOpenShell’s geometry tree as a broadphase filter with hppfcl as a narrowphase filter. There is also an extensive high level API. Blender is then used as a primary interface, with the BlenderBIM Add-on primarily written with Python code.
+
+### Operatin Model
+
+_How do you maintain and update your solution?_<br />
+Issues are reported on Github and standard git practices are used.
+
+_Who contributes to your solution (team members of your companies / users and other volunteers / …)?_<br />
+Over 150 contributors across many companies and disciplines, including industry practitioners, pure software developers, academics, students, etc.
+
+_Who are your typical customers?_<br />
+Everyone dealing with BIM information.
+
+_How do you earn money?_<br />
+Primarily unpaid volunteers. Currently 1300USD per month of donations from over 100 financial contributors. Occasionally some grant funding (e.g. Epic Megagrants, Cesium Ecosystem Grants) or other indirect funding (e.g. individual contributors might get paid for using their contributions in their jobs / consultancy / etc).
+
+### About the team
+
+Thomas Krijnen started the IfcOpenShell project in 2011 and writes / maintains the vast majority of the C++ codebase.
+
+Dion Moult started the BlenderBIM Add-on project in 2019 and writes / maintains the vast majority of the Python codebase.
+
+Andrej is our first full time sponsored developer and works on the Python codebase in all aspects.
+
+Stinkfist0 has made numerous C++ contributions. Gorgious56 has made numerous contributions to the Blender interface. Berndhahnebach has made numerous contributions across many utilities. Johltn has made significant contributions to geometry testing. Vulevukusej has made significant contributions to many utilities in Python. maxfb87 has made significant contributions to many utilities in Python. Krande has made many contributions to build systems. Jesusbill has made many contributions to structural analysis aspects. Brunopostle has made many contributions specifically on Git integration. Atomczak has made many contributions related to IDS.
+
+### Contact
+
+You can reach out to [dion@thinkmoult.com](mailto:dion@thinkmoult.com) or just post an issue on Github / on community.osarch.org.
