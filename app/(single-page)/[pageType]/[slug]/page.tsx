@@ -1,7 +1,7 @@
 import { Page, getPosts } from "@opensource-construction/components";
 import { notFound } from "next/navigation";
 
-type PageType = "events" | "projects";
+type PageType = "events" | "projects" | "trainings";
 
 type SinglePageType = {
   pageType: PageType;
@@ -17,6 +17,9 @@ export async function generateStaticParams() {
     }),
     ...getPosts("events").map((p) => {
       return { slug: p.slug, pageType: "events" as PageType };
+    }),
+    ...getPosts("trainings").map((p) => {
+      return { slug: p.slug, pageType: "trainings" as PageType };
     }),
   ];
   return posts;
