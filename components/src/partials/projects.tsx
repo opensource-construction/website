@@ -17,7 +17,7 @@ export function ProjectsPartial() {
 
   return (
     <div>
-      <div className="grid grid-cols-2 gap-32 py-10">
+      <div className="grid gap-12 py-10 md:grid-cols-2 md:gap-32">
         {!parsedProjects.length
           ? "No published projects"
           : parsedProjects.map((e) => (

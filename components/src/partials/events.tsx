@@ -24,7 +24,7 @@ export function EventsPartial({ showPast = false }: { showPast?: boolean }) {
     .filter((e) => (e.isPast && showPast) || (!e.isPast && !showPast));
 
   return (
-    <div className="grid grid-cols-2 gap-32 py-10">
+    <div className="grid gap-12 py-10 md:grid-cols-2 md:gap-32">
       {!parsedEvents.length
         ? "No pending events"
         : parsedEvents.map((e) => (

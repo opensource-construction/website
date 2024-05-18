@@ -11,12 +11,12 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="prose-h2:mt-0 md:prose-h2:text-2xl md:prose-h3:text-xl">
+    <div>
       <Section fullWidth={true}>
         <HeroPartial />
       </Section>
       <Section title="Projects">
-        <div className="w-full py-10 md:w-9/12">
+        <div>
           <p>
             The exciting thing about the open source movement is the diversity
             of possible projects.
@@ -55,8 +55,8 @@ export default function Home() {
         <ProjectsPartial />
       </Section>
       <Section title="Events" color="primary">
-        <div className="w-full md:w-7/12">
-          <p className="py-10">
+        <div>
+          <p>
             Talk. Share. Do.
             <br />
             Knowing what works and exchanging ideas with others is often the
@@ -80,16 +80,22 @@ export default function Home() {
         />
       </Section>
       <Section color="primary">
-        <div className="text-center">
-          <p>Our mission at opensource.construction</p>
-          <h3>Making collaboration in the AECO tech communicty SUCCESSFUL</h3>
+        <div className="pb-24 pt-12 text-center">
+          <p className="text-sm md:text-base">
+            Our mission at opensource.construction
+          </p>
+          <h3 className="font-bold">
+            Making collaboration in the AECO tech communicty SUCCESSFUL
+          </h3>
         </div>
-        <Button href="https://discord.gg/jgph8WR6" type="primary">
-          Any questions? We are here to help!
-        </Button>
+        <div className="pb-12">
+          <Button href="https://discord.gg/jgph8WR6" type="primary">
+            Any questions? We are here to help!
+          </Button>
+        </div>
       </Section>
       <Section fullWidth={true}>
-        <div className="w-full px-24 md:w-10/12">
+        <div className="prose px-4 py-8">
           <h3>Together for an open, innovative construction industry.</h3>
           <p>
             Open innovation has given rise to many of the software innovations
@@ -153,7 +159,7 @@ export default function Home() {
         </Card>
       </Section>
       <Section color="gray-500" fullWidth={true}>
-        <div className="flex flex-col gap-24 md:flex-row">
+        <div className="flex flex-col gap-0 pb-24 md:flex-row md:gap-24">
           <div className="flex-1">
             <Image
               src="/images/partials/Open-Source-Day-069.jpg.webp"
@@ -163,7 +169,7 @@ export default function Home() {
               className="py-12"
             />
           </div>
-          <div className="flex-1">
+          <div className="prose flex-1 px-4">
             <h3>Who is behind the initiative?</h3>
             <p>
               opensource.construction is a non-profit organisation based in
@@ -181,7 +187,8 @@ export default function Home() {
           </div>
         </div>
       </Section>
-      <Section color="primary" title="Our current core team" fullWidth={true}>
+      <Section color="primary" fullWidth={true}>
+        <h2 className="px-4 pt-10 text-xl font-bold">Our current core team</h2>
         <Image
           src={svgTeam}
           alt="Opening event of the Zurich AEC Hackathon"
@@ -191,9 +198,30 @@ export default function Home() {
         />
       </Section>
       <Section title="Community Partner">
-        <Card title="Opendata.ch" />
-        <Card title="CH Open" />
-        <Card title="OSArch" />
+        <Card title="OSArch">
+          <Image
+            src="/osarch.webp"
+            alt="OpenData Logo"
+            width={285}
+            height={133}
+          />
+        </Card>
+        <Card title="Opendata.ch">
+          <Image
+            src="/opendata.webp"
+            alt="OpenData Logo"
+            width={285}
+            height={133}
+          />
+        </Card>
+        <Card title="CH Open">
+          <Image
+            src="/ch-open.webp"
+            alt="CH Open Logo"
+            width={285}
+            height={133}
+          />
+        </Card>
       </Section>
       <Section
         title="Are you interested in the role of open-source in the building
@@ -201,9 +229,11 @@ export default function Home() {
       ></Section>
       <Section color="primary">
         &nbsp;
-        <Button href="https://discord.gg/jgph8WR6" type="primary">
-          Talk to us on discord
-        </Button>
+        <div className="py-12">
+          <Button href="https://discord.gg/jgph8WR6" type="primary">
+            Talk to us on discord
+          </Button>
+        </div>
       </Section>
       {/* Tree shaking workaround */}
       <div className="bg-osc-white"></div>

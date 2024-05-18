@@ -8,10 +8,6 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    fontSize: {
-      "2xl": ["3rem", "1.1"],
-      xl: ["2rem", "1.1"],
-    },
     extend: {
       fontFamily: {
         icon: ["var(--font-glyphter)"],
@@ -21,6 +17,9 @@ const config: Config = {
         "osc-gray-500": "#f5f5f5",
         "osc-gray-700": "#737373",
         "osc-white": "#ffffff",
+      },
+      width: {
+        "300": "300%",
       },
     },
   },

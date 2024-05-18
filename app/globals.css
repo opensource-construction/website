@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+svg#hero {
+  transition: all 3.2s cubic-bezier(0.19, 1, 0.22, 1) 0s;
+}
+
+svg[id*="bg"] g {
+  transition: transform 3.2s cubic-bezier(0.19, 1, 0.22, 1) 0s;
+}
+
+svg:not(:root) {
+  overflow-clip-margin: content-box;
+  overflow: hidden;
+}

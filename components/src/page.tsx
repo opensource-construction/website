@@ -31,10 +31,17 @@ export default function Page({
       </Section>
       {page.metadata.links ? (
         <Section color="primary">
-          {" "}
-          {page.metadata.links.map((l) => (
-            <Button key={l.label} href={l.url} label={l.label} type="primary" />
-          ))}{" "}
+          <div className="mt-12 py-4">
+            {" "}
+            {page.metadata.links.map((l) => (
+              <Button
+                key={l.label}
+                href={l.url}
+                label={l.label}
+                type="primary"
+              />
+            ))}{" "}
+          </div>
         </Section>
       ) : null}
     </div>
