@@ -14,7 +14,7 @@ export function Section(props: PropsWithChildren<SectionProps>) {
       id={props.title ? slugify.default(props.title).toLowerCase() : ""}
       className={`${props.color ? `bg-osc-${props.color}` : ""} ${props.fullWidth ? "lg:px-10" : "px-4 md:px-12 lg:px-28"} md:py-6`}
     >
-      <div>
+      <div className="xl:m-auto xl:max-w-6xl">
         {props.title ? (
           <h3 className="md:text-3xl py-6 text-xl font-bold">{props.title}</h3>
         ) : null}
