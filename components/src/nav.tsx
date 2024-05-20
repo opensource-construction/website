@@ -31,7 +31,7 @@ export function Navbar() {
           {Object.entries(navItems).map(([path, { name }]) => {
             return (
               <li key={path} className="mx-4 pt-14">
-                <Link href={path} className="text-lg">
+                <Link href={path} className="text-base lg:text-lg font-bold">
                   {name}
                 </Link>
               </li>

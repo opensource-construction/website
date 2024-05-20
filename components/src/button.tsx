@@ -18,7 +18,7 @@ export default function Button({
     <div className="mt-4">
       <Link
         href={href}
-        className={`${type === "secondary" ? "bg-osc-gray-500" : "bg-black pl-3 text-white hover:text-white md:pl-8"} text-sm inline-block py-3 pr-3 font-bold no-underline md:pr-8`}
+        className={`${type === "secondary" ? "bg-osc-gray-500" : "bg-black pl-3 text-white hover:text-white md:pl-8"} text-sm md:text-base inline-block py-3 pr-3 font-bold no-underline md:pr-8`}
         target={href.startsWith("http") ? "_blank" : "_self"}
         rel="noopener noreferrer"
       >

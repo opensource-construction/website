@@ -12,11 +12,11 @@ export function Section(props: PropsWithChildren<SectionProps>) {
   return (
     <section
       id={props.title ? slugify.default(props.title).toLowerCase() : ""}
-      className={`${props.color ? `bg-osc-${props.color}` : ""} ${props.fullWidth ? null : "px-4"}`}
+      className={`${props.color ? `bg-osc-${props.color}` : ""} ${props.fullWidth ? "lg:px-10" : "px-4 md:px-12 lg:px-28"} md:py-6`}
     >
       <div>
         {props.title ? (
-          <h3 className="py-6 text-xl font-bold">{props.title}</h3>
+          <h3 className="md:text-3xl py-6 text-xl font-bold">{props.title}</h3>
         ) : null}
         {props.children}
       </div>

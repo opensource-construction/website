@@ -16,7 +16,7 @@ export default function Home() {
         <HeroPartial />
       </Section>
       <Section title="Projects">
-        <div>
+        <div className="prose md:w-5/6">
           <p>
             The exciting thing about the open source movement is the diversity
             of possible projects.
@@ -41,16 +41,18 @@ export default function Home() {
             Click on the projects to get more details about the projects, the
             authors and their communication channels.
           </p>
-          <Button
-            href="https://www.opensource.construction/#"
-            label="Want to submit a project yourself?"
-            type="primary"
-          />
-          <Button
-            href="https://wiki.osarch.org/index.php?title=AEC_Free_Software_directory"
-            label="AEC Free Software directory"
-            type="primary"
-          />
+          <div className="pt-4">
+            <Button
+              href="https://www.opensource.construction/#"
+              label="Want to submit a project yourself?"
+              type="primary"
+            />
+            <Button
+              href="https://wiki.osarch.org/index.php?title=AEC_Free_Software_directory"
+              label="AEC Free Software directory"
+              type="primary"
+            />
+          </div>
         </div>
         <ProjectsPartial />
       </Section>
@@ -81,10 +83,10 @@ export default function Home() {
       </Section>
       <Section color="primary">
         <div className="pb-24 pt-12 text-center">
-          <p className="text-sm md:text-base">
+          <p className="text-sm md:text-base lg:text-2xl">
             Our mission at opensource.construction
           </p>
-          <h3 className="font-bold">
+          <h3 className="lg:text-3xl font-bold">
             Making collaboration in the AECO tech communicty SUCCESSFUL
           </h3>
         </div>
@@ -95,8 +97,10 @@ export default function Home() {
         </div>
       </Section>
       <Section fullWidth={true}>
-        <div className="prose px-4 py-8">
-          <h3>Together for an open, innovative construction industry.</h3>
+        <div className="prose px-4 py-8 md:px-10 lg:px-28">
+          <h3 className="md:text-3xl ">
+            Together for an open, innovative construction industry.
+          </h3>
           <p>
             Open innovation has given rise to many of the software innovations
             that are transforming the real estate and construction industry—from
@@ -159,7 +163,7 @@ export default function Home() {
         </Card>
       </Section>
       <Section color="gray-500" fullWidth={true}>
-        <div className="flex flex-col gap-0 pb-24 md:flex-row md:gap-24">
+        <div className="flex flex-col gap-0 pb-24 lg:flex-row lg:gap-24">
           <div className="flex-1">
             <Image
               src="/images/partials/Open-Source-Day-069.jpg.webp"
@@ -169,8 +173,8 @@ export default function Home() {
               className="py-12"
             />
           </div>
-          <div className="prose flex-1 px-4">
-            <h3>Who is behind the initiative?</h3>
+          <div className="prose flex-1 px-4 md:px-10">
+            <h3 className="md:text-3xl">Who is behind the initiative?</h3>
             <p>
               opensource.construction is a non-profit organisation based in
               Zurich, Switzerland, with active members across the globe.
@@ -188,7 +192,9 @@ export default function Home() {
         </div>
       </Section>
       <Section color="primary" fullWidth={true}>
-        <h2 className="px-4 pt-10 text-xl font-bold">Our current core team</h2>
+        <h2 className="md:text-3xl px-4 pt-10 text-xl font-bold md:px-10">
+          Our current core team
+        </h2>
         <Image
           src={svgTeam}
           alt="Opening event of the Zurich AEC Hackathon"

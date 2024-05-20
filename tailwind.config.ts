@@ -9,6 +9,11 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontSize: {
+        "2xl": ["1.9em", "1.14em"],
+        "3xl": ["2.8em", "1.14em"],
+        "4xl": ["3em", "1.14em"],
+      },
       fontFamily: {
         icon: ["var(--font-glyphter)"],
       },
@@ -19,6 +24,7 @@ const config: Config = {
         "osc-white": "#ffffff",
       },
       width: {
+        "122": "122%",
         "300": "300%",
       },
     },
