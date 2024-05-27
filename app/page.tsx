@@ -18,6 +18,7 @@ export default function Home() {
       <Section title="Projects">
         <div className="w-full py-10 md:w-7/12">
           <p>
+            Test
             The exciting thing about the open source movement is the diversity
             of possible projects. From small, local projects to large,
             transnational projects, from simple database solutions to complex
