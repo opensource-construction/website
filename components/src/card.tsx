@@ -11,7 +11,7 @@ export function Card({
 }: {
   title: string;
   slug?: string;
-  type?: "event" | "project";
+  type?: "event" | "project" | "faq";
   color?: string;
   subtitle?: string;
   children?: ReactNode;
