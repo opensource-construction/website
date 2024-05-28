@@ -1,7 +1,7 @@
 import { Page, getPosts } from "@opensource-construction/components";
 import { notFound } from "next/navigation";
 
-type PageType = "events" | "projects" | "trainings";
+type PageType = "events" | "projects" | "trainings" | "faqs";
 
 type SinglePageType = {
   pageType: PageType;
@@ -30,7 +30,7 @@ export default function SinglePage({ params }: { params: SinglePageType }) {
     (page) => page.slug === params.slug,
   );
 
-  if (!page) {
+  if (!page || params.pageType === "faqs") {
     notFound();
   }
 
