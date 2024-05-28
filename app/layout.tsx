@@ -69,13 +69,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${corbert.className} ${glyphter.variable} scroll-smooth font-bold selection:bg-osc-primary selection:bg-opacity-70`}
+      className={`${corbert.className} ${glyphter.variable} scroll-smooth selection:bg-osc-primary selection:bg-opacity-70`}
     >
       <body>
         <header>
           <Navbar />
         </header>
-        <main>{children}</main>
+        <main className="relative overflow-hidden">{children}</main>
         <footer>
           <Footer />
         </footer>

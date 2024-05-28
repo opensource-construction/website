@@ -13,7 +13,7 @@ const navItems = {
 export function Navbar() {
   return (
     <nav className="flex justify-between p-6 md:p-10">
-      <div className="h-32 w-48">
+      <div className="h-24 w-14 md:w-48">
         <h1>
           <Link href="/" title="https://www.opensource.construction">
             <Image
@@ -31,7 +31,7 @@ export function Navbar() {
           {Object.entries(navItems).map(([path, { name }]) => {
             return (
               <li key={path} className="mx-4 pt-14">
-                <Link href={path} className="text-lg">
+                <Link href={path} className="text-base lg:text-lg font-bold">
                   {name}
                 </Link>
               </li>
