@@ -6,7 +6,7 @@ export function HeroPartial() {
     <div className="relative block w-full overflow-visible">
       <svg
         id="bg-hero"
-        className="w-300 md:w-122 absolute left-1/2 -z-10 mx-auto -mt-16 box-border flex -translate-x-1/2 justify-center align-middle"
+        className="absolute left-1/2 -z-10 mx-auto -mt-16 box-border flex w-300 -translate-x-1/2 justify-center align-middle md:w-122"
         data-animate-y-space="200"
         data-animate-y-space2="12"
         viewBox="0 0 1789.13 1658.87"
@@ -130,7 +130,7 @@ export function HeroPartial() {
 
       <div className="prose mx-auto flex max-w-full flex-col items-end px-4 md:px-8 lg:flex-row lg:items-start lg:px-16">
         <div className="w-full lg:w-7/12">
-          <h2 className="text-4xl mt-1 md:mt-8">
+          <h2 className="mt-1 text-4xl md:mt-8">
             Sharing and learning is becoming the driver of radical innovation
           </h2>
           <p className="text-lg font-bold md:text-xl">
@@ -145,9 +145,9 @@ export function HeroPartial() {
           </div>
         </div>
       </div>
-      <div className="prose mx-auto mt-96 max-w-full px-4 md:px-8 md:pb-64 lg:px-28">
+      <div className="prose mx-auto mt-96 max-w-full px-4 md:px-8 lg:px-28">
         <div className="mx-auto lg:w-9/12">
-          <h2 className="md:text-3xl mb-6 text-xl">
+          <h2 className="mb-6 text-xl md:text-3xl">
             Open source in the construction industry
           </h2>
           <p>
