@@ -47,12 +47,12 @@ export default function Home() {
           </p>
           <div className="pt-4">
             <Button
-              href="https://www.opensource.construction/#"
+              target="https://www.opensource.construction/#"
               label="Want to submit a project yourself?"
               type="primary"
             />
             <Button
-              href="https://wiki.osarch.org/index.php?title=AEC_Free_Software_directory"
+              target="https://wiki.osarch.org/index.php?title=AEC_Free_Software_directory"
               label="AEC Free Software directory"
               type="primary"
             />
@@ -95,7 +95,7 @@ export default function Home() {
           </h3>
         </div>
         <div className="pb-12">
-          <Button href="https://discord.gg/jgph8WR6" type="primary">
+          <Button target="https://discord.gg/jgph8WR6" type="primary">
             Any questions? We are here to help!
           </Button>
         </div>
@@ -240,7 +240,7 @@ export default function Home() {
       <Section color="primary">
         &nbsp;
         <div className="py-12">
-          <Button href="https://discord.gg/jgph8WR6" type="primary">
+          <Button target="https://discord.gg/jgph8WR6" type="primary">
             Talk to us on discord
           </Button>
         </div>
