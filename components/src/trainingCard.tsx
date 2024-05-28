@@ -28,7 +28,7 @@ export function TrainingCard({
           {slug ? (
             <Button
               label="More about the training"
-              href={`/trainings/${slug}`}
+              target={`/trainings/${slug}`}
               type="primary"
             />
           ) : null}
