@@ -1,6 +1,5 @@
 import Image from "next/image";
 import svgHero from "@/public/hero.svg";
-import svgIntro from "@/public/intro.svg";
 
 export function TrainingsPartial() {
   return (
@@ -22,7 +21,7 @@ export function TrainingsPartial() {
           </p>
         </div>
         <div className="px-14 lg:w-5/12">
-          <div className="text-lg hidden aspect-square w-64 items-center justify-center rounded-full bg-black p-2 text-center text-white md:flex lg:w-full xl:text-xl">
+          <div className="hidden aspect-square w-64 items-center justify-center rounded-full bg-black p-2 text-center text-lg text-white md:flex lg:w-full xl:text-xl">
             Training in Open Source Tools
           </div>
         </div>

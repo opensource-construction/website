@@ -13,3 +13,4 @@ export { getPosts, parseSlug };
 export { HeroPartial } from "./src/partials/hero";
 export { EventsPartial } from "./src/partials/events";
 export { ProjectsPartial } from "./src/partials/projects";
+export { FAQPartial } from "./src/partials/faq";

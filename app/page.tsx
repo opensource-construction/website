@@ -6,6 +6,7 @@ import {
   EventsPartial,
   HeroPartial,
   ProjectsPartial,
+  FAQPartial,
 } from "@opensource-construction/components";
 import Image from "next/image";
 
@@ -14,6 +15,9 @@ export default function Home() {
     <div>
       <Section fullWidth={true}>
         <HeroPartial />
+      </Section>
+      <Section>
+        <FAQPartial />
       </Section>
       <Section title="Projects">
         <div className="prose md:w-5/6">
@@ -43,12 +47,12 @@ export default function Home() {
           </p>
           <div className="pt-4">
             <Button
-              href="https://www.opensource.construction/#"
+              target="https://www.opensource.construction/#"
               label="Want to submit a project yourself?"
               type="primary"
             />
             <Button
-              href="https://wiki.osarch.org/index.php?title=AEC_Free_Software_directory"
+              target="https://wiki.osarch.org/index.php?title=AEC_Free_Software_directory"
               label="AEC Free Software directory"
               type="primary"
             />
@@ -86,12 +90,12 @@ export default function Home() {
           <p className="text-sm md:text-base lg:text-2xl">
             Our mission at opensource.construction
           </p>
-          <h3 className="lg:text-3xl font-bold">
+          <h3 className="font-bold lg:text-3xl">
             Making collaboration in the AECO tech communicty SUCCESSFUL
           </h3>
         </div>
         <div className="pb-12">
-          <Button href="https://discord.gg/jgph8WR6" type="primary">
+          <Button target="https://discord.gg/jgph8WR6" type="primary">
             Any questions? We are here to help!
           </Button>
         </div>
@@ -192,7 +196,7 @@ export default function Home() {
         </div>
       </Section>
       <Section color="primary" fullWidth={true}>
-        <h2 className="md:text-3xl px-4 pt-10 text-xl font-bold md:px-10">
+        <h2 className="px-4 pt-10 text-xl font-bold md:px-10 md:text-3xl">
           Our current core team
         </h2>
         <Image
@@ -236,7 +240,7 @@ export default function Home() {
       <Section color="primary">
         &nbsp;
         <div className="py-12">
-          <Button href="https://discord.gg/jgph8WR6" type="primary">
+          <Button target="https://discord.gg/jgph8WR6" type="primary">
             Talk to us on discord
           </Button>
         </div>

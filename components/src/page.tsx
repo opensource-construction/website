@@ -23,8 +23,8 @@ export default function Page({
   return (
     <div>
       <Section>
-        <Button href="/" label="Go back" type="secondary" icon="left" />
-        <h1 className="md:text-3xl mb-8 mt-12 text-2xl font-bold md:mt-16">
+        <Button target="/" label="Go back" type="secondary" icon="left" />
+        <h1 className="mb-8 mt-12 text-2xl font-bold md:mt-16 md:text-3xl">
           {page.metadata.title}
         </h1>
         <article className="prose prose-li:marker:text-osc-primary md:prose-h3:text-2xl">
@@ -38,7 +38,7 @@ export default function Page({
             {page.metadata.links.map((l) => (
               <Button
                 key={l.label}
-                href={l.url}
+                target={l.url}
                 label={l.label}
                 type="primary"
               />

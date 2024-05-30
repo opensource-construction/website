@@ -1,25 +1,35 @@
 import Link from "next/link";
-import React, { ReactElement } from "react";
+import { MouseEventHandler } from "react";
 
 export default function Button({
-  href,
-  label,
   type,
+  target,
+  label,
   icon = "right",
   children,
 }: {
-  href: string;
+  type: "primary" | "secondary" | "sidebar";
+  target?: string | Function;
   label?: string;
-  type: "primary" | "secondary";
   icon?: "left" | "right";
   children?: string;
 }) {
   return (
     <div className="mt-4">
       <Link
-        href={href}
-        className={`${type === "secondary" ? "bg-osc-gray-500" : "bg-black pl-3 text-white hover:text-white md:pl-8"} text-sm md:text-base inline-block py-3 pr-3 font-bold no-underline md:pr-8`}
-        target={href.startsWith("http") ? "_blank" : "_self"}
+        href={type !== "sidebar" && typeof target === "string" ? target : ""}
+        scroll={type === "sidebar" ? false : true}
+        onClick={
+          type === "sidebar" && typeof target === "function"
+            ? (target as MouseEventHandler)
+            : undefined
+        }
+        className={`${["secondary", "sidebar"].includes(type) ? "bg-osc-gray-500" : "bg-black pl-3 text-white hover:text-white md:pl-8"} inline-block py-3 pr-3 text-sm font-bold no-underline md:pr-8 md:text-base`}
+        target={
+          target && typeof target === "string" && target.startsWith("http")
+            ? "_blank"
+            : "_self"
+        }
         rel="noopener noreferrer"
       >
         {icon === "left" ? (
