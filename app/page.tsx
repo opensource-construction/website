@@ -208,7 +208,7 @@ export default function Home() {
         />
       </Section>
       <Section title="Community Partner">
-        <Card title="OSArch">
+        <Card title="OSArch" type="partner">
           <Image
             src="/osarch.webp"
             alt="OpenData Logo"
@@ -216,7 +216,7 @@ export default function Home() {
             height={133}
           />
         </Card>
-        <Card title="Opendata.ch">
+        <Card title="Opendata.ch" type="partner">
           <Image
             src="/opendata.webp"
             alt="OpenData Logo"
@@ -224,7 +224,7 @@ export default function Home() {
             height={133}
           />
         </Card>
-        <Card title="CH Open">
+        <Card title="CH Open" type="partner">
           <Image
             src="/ch-open.webp"
             alt="CH Open Logo"
