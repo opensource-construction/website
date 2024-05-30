@@ -27,6 +27,7 @@
     "yaml": "^2.4.2"
   },
   "devDependencies": {
+    "@tailwindcss/forms": "^0.5.7",
     "@tailwindcss/typography": "^0.5.12",
     "@testing-library/react": "^15.0.2",
     "@types/node": "^20",
