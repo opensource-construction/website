@@ -55,10 +55,8 @@ export function Card({
             faq: (
               <Button
                 label="Learn more here"
-                target={() => {
-                  setOpen(true);
-                }}
-                type="secondary"
+                target={() => setOpen(true)}
+                type="sidebar"
               />
             ),
           }[type]
