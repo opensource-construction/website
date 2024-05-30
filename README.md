@@ -61,7 +61,7 @@ This is based on a [Next.js](https://nextjs.org/) project bootstrapped with [`cr
 Install dependencies
 
 ```bash
-npm run dev
+npm install
 ```
 
 To run the development server:

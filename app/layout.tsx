@@ -1,9 +1,11 @@
 import "./globals.css";
-import localFont from "next/font/local";
 import type { Metadata } from "next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
-import { Footer, Navbar } from "@opensource-construction/components";
+import { Footer, Navbar, Button } from "@opensource-construction/components";
+import { corbert, glyphter } from "@/components/src/tokens/fonts";
+
+import logoSvg from "@/public/opensource_construction_logo.svg";
 
 export const metadata: Metadata = {
   title: {
@@ -29,37 +31,12 @@ export const metadata: Metadata = {
   },
 };
 
-const corbert = localFont({
-  src: [
-    {
-      path: "./fonts/Corbert-Regular.woff2",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "./fonts/Corbert-RegularItalic.woff2",
-      weight: "400",
-      style: "italic",
-    },
-    {
-      path: "./fonts/Corbert-Bold.woff2",
-      weight: "700",
-      style: "normal",
-    },
-    {
-      path: "./fonts/Corbert-BoldItalic.woff2",
-      weight: "700",
-      style: "italic",
-    },
-  ],
-  display: "swap",
-});
-
-const glyphter = localFont({
-  src: "./fonts/Glyphter.woff",
-  display: "swap",
-  variable: "--font-glyphter",
-});
+const navItems = [
+  { name: "Marketplace", target: "/#marketplace" },
+  { name: "Events", target: "/#events" },
+  { name: "Trainings", target: "/trainings" },
+  { name: "About us", target: "/#who-is-behind-the-initiative" },
+];
 
 export default function RootLayout({
   children,
@@ -69,11 +46,22 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${corbert.className} ${glyphter.variable} scroll-smooth selection:bg-osc-primary selection:bg-opacity-70`}
+      className={`${corbert.className} ${glyphter.variable} scroll-smooth selection:bg-primary-500 selection:bg-opacity-70`}
     >
       <body>
         <header>
-          <Navbar />
+          <Navbar
+            title="opensource.construction"
+            logo={logoSvg}
+            menuItems={navItems}
+          >
+            <Button
+              type="secondary"
+              size="small"
+              target="https://answer.opensource.construction"
+              label="Knowledge Hub"
+            />
+          </Navbar>
         </header>
         <main className="relative overflow-hidden">{children}</main>
         <footer>

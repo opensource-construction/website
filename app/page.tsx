@@ -1,4 +1,7 @@
 import svgTeam from "@/public/team.svg";
+import svgMission from "@/public/mission.svg";
+import svgActivities from "@/public/activities.svg";
+
 import { Card } from "@/components/src/card";
 import {
   Section,
@@ -11,6 +14,8 @@ import {
 import Image from "next/image";
 
 export default function Home() {
+  const discordLink = process.env.DISCORD_LINK || "";
+
   return (
     <div>
       <Section fullWidth={true}>
@@ -19,31 +24,31 @@ export default function Home() {
       <Section>
         <FAQPartial />
       </Section>
-      <Section title="Projects">
+      <Section color="primary-500">
+        <p className="pb-4 pt-10 text-2xl font-bold">
+          We like disruptive innovation.
+        </p>
+        <p className="pb-10 text-4xl font-bold">
+          But we also believe in empowering people to improve everyday – not in
+          theory, but in practise.
+        </p>
+      </Section>
+      <Section title="Marketplace">
         <div className="prose md:w-5/6">
           <p>
-            The exciting thing about the open source movement is the diversity
-            of possible projects.
-            <br />
-            From small, local projects to large, transnational projects, from
-            simple database solutions to complex software projects. As long as
-            the mindset is right, there is something for everyone – from
-            analogue dinosaurs to average users to absolute experts.
+            The os.c marketplace is THE place for you to find a lot of great
+            stuff.
           </p>
           <p>
-            At opensource.construction, we host and support projects in
-            different ways.
+            You will find open source solutions ready to be explored in detail.
           </p>
           <p>
-            Sandbox Projects are experimental projects that are not yet widely
-            tested in production. Incubating Projects are already used
-            successfully in production by a small number of users. Graduated
-            Projects considered stable, widely adopted and production ready,
-            attracting hundreds of users and contributors
+            You will find open collaboration possibilities, posted by peers that
+            are willing to take action and move forward together.
           </p>
           <p>
-            Click on the projects to get more details about the projects, the
-            authors and their communication channels.
+            And you will find heaps of talented people, ready to push the
+            industry further. Step by step and never stopping.
           </p>
           <div className="pt-4">
             <Button
@@ -52,15 +57,15 @@ export default function Home() {
               type="primary"
             />
             <Button
-              target="https://wiki.osarch.org/index.php?title=AEC_Free_Software_directory"
-              label="AEC Free Software directory"
+              target="https://www.opensource.construction/#"
+              label="Want to submit a challenge?"
               type="primary"
             />
           </div>
         </div>
         <ProjectsPartial />
       </Section>
-      <Section title="Events" color="primary">
+      <Section title="Events" color="primary-500">
         <div>
           <p>
             Talk. Share. Do.
@@ -73,19 +78,19 @@ export default function Home() {
         </div>
         <EventsPartial />
       </Section>
-      <Section title="Past Events" color="gray-500">
+      <Section title="Past Events" color="slate-300">
         <EventsPartial showPast={true} />
       </Section>
       <Section>
         <Image
-          src="/images/partials/AEC-Hackathon-091.jpg.webp"
+          src="/images/partials/AEC-Hackathon-091.jpg"
           alt="Opening event of the Zurich AEC Hackathon"
-          width="1024"
-          height="600"
+          width="1440"
+          height="900"
           className="py-12"
         />
       </Section>
-      <Section color="primary">
+      <Section color="primary-500">
         <div className="pb-24 pt-12 text-center">
           <p className="text-sm md:text-base lg:text-2xl">
             Our mission at opensource.construction
@@ -93,9 +98,18 @@ export default function Home() {
           <h3 className="font-bold lg:text-3xl">
             Making collaboration in the AECO tech communicty SUCCESSFUL
           </h3>
+          <div className="w-full">
+            <Image
+              src={svgMission}
+              alt="Users - Ecosystem - Developers"
+              width="750"
+              height="250"
+              className="m-auto"
+            />
+          </div>
         </div>
         <div className="pb-12">
-          <Button target="https://discord.gg/jgph8WR6" type="primary">
+          <Button target={discordLink} type="primary">
             Any questions? We are here to help!
           </Button>
         </div>
@@ -107,70 +121,58 @@ export default function Home() {
           </h3>
           <p>
             Open innovation has given rise to many of the software innovations
-            that are transforming the real estate and construction industry—from
-            the cloud, to big data, to simulation technologies. But all of these
-            came from outside. To spur this kind of innovation within our
-            industry, we first have to create the right environment for it. Our
-            goal is to break down barriers to collaboration—between stakeholders
-            along the value chain and even within individual firms—to enable the
-            cross-pollination of ideas necessary to spark transformative
-            solutions to shared problems.
+            that are transforming the real estate and construction industry —
+            from the cloud, to big data, to simulation technologies. But all of
+            these came from outside. To spur this kind of innovation within our
+            industry, we first have to create the right environment for it.
           </p>
           <p>
-            As a non-profit organisation, our Members’ contributions are the
-            fuel that help us garner contributions, promote adoption of our
-            projects and enable faster innovation in the industry through
-            collaborative resolution of AECO-wide challenges.
+            Our goal is to break down barriers to collaboration — between
+            stakeholders along the value chain and even within individual firms.
+            We do this to enable the cross-pollination of ideas necessary to
+            spark transformative solutions to shared problems.
           </p>
           <p>
-            Accordingly, the initiative’s activities revolve around the
-            following initiatives:
+            The role model for the opensource.construction initiative are
+            established open source foundations in the tech industry like the{" "}
+            <a href="https://www.linuxfoundation.org">LINUX foundation</a>, the{" "}
+            <a href="https://apache.org">APACHE foundation</a> or the{" "}
+            <a href="https://www.eclipse.org">ECLIPSE foundation</a>.
+          </p>
+          <p>
+            But you don&lsquo;t get there just like that. It takes time and
+            careful steps to continously grow and improve.
+          </p>
+          <p>
+            In the first phase, we focus on building infrastructure that is
+            needed to push open source and open collaboration in our industry.
+          </p>
+          <p>
+            We call it &ldquo;Innovation Infrastructure as a service&rdquo;. It
+            is there for you to make use of it and strive on your journey
+            towards empowered people throughout your organisation.
           </p>
         </div>
         <Card
-          color="gray-500"
-          title="Making the potential of open source tangible"
+          color="slate-300"
+          title='opensource.construction delivers "innovation infrastructure as a service"'
         >
-          <p>
-            The concept of open source has many facets. The initiative organises
-            events and communicates via website and social media with the aim of
-            making the potential behind open source code, tools and mindset
-            tangible for all stakeholders in the construction industry.
-          </p>
-        </Card>
-        <Card color="gray-500" title="Connecting people">
-          <p>
-            People with ideas are looking for people to help them implement
-            them. Because they lack technical know-how. Because they lack the
-            finishing touches for the idea. Because they lack resources and know
-            that it is easier to do it together than alone.
-          </p>
-          <p>
-            For this reason, opensource.construction facilitates networking
-            among its members, other interested parties, experts, sponsors,
-            private companies, public institutions, other initiatives, and
-            political figures.
-          </p>
-        </Card>
-        <Card color="gray-500" title="Enabling open projects">
-          <p>
-            An open source solution is only a good solution if it is used. The
-            main goal of the initiative is to turn ideas into concrete
-            solutions.
-          </p>
-          <p>
-            To this end, the initiative provides the technical and
-            organisational infrastructure that is needed to set up a project
-            that often spans several companies. Another important aid: access to
-            funding that facilitates implementation.
-          </p>
+          <div className="w-full">
+            <Image
+              src={svgActivities}
+              alt="What we do"
+              width="1050"
+              height="250"
+              className="m-auto"
+            />
+          </div>
         </Card>
       </Section>
-      <Section color="gray-500" fullWidth={true}>
+      <Section color="slate-300" fullWidth={true}>
         <div className="flex flex-col gap-0 pb-24 lg:flex-row lg:gap-24">
           <div className="flex-1">
             <Image
-              src="/images/partials/Open-Source-Day-069.jpg.webp"
+              src="/images/partials/Open-Source-Day-069.jpg"
               alt="Opening event of the Zurich AEC Hackathon"
               width="1024"
               height="600"
@@ -178,24 +180,42 @@ export default function Home() {
             />
           </div>
           <div className="prose flex-1 px-4 md:px-10">
+            <a id="who-is-behind-the-initiative"></a>
             <h3 className="md:text-3xl">Who is behind the initiative?</h3>
             <p>
               opensource.construction is a non-profit organisation based in
-              Zurich, Switzerland, with active members across the globe.
+              Zurich, Switzerland.
             </p>
             <p>
-              Architects, urban developers, investors, engineers and planners as
-              well as computational designers, software engineers and tech geeks
-              are behind the opensource.construction initiative. Together, they
-              have the goal of advancing the topic of open source in the
-              construction industry and developing collaborative projects in
-              participatory processes. The community meets regularly digitally
-              and physically to discuss and further develop concrete approaches.
+              The initiative was launched by Maximilian Vomhof in 2022 - out of
+              frustration with the current status quo of innovation in the
+              construction industry and with a strong passion for open
+              collaboration.
             </p>
+            <p>
+              Today, a group of committed individuals makes sure it grows slowly
+              but surely – always with a strong focus on delivering value to the
+              community of software developers, digital doers and established
+              organisations that seek to thrive.
+            </p>
+            <p>
+              We are open to anyone who wants to join or contribute – please
+              don&lsquo;t hesitate to get in touch!
+            </p>
+            <Button
+              type="primary"
+              target="https://drive.google.com/file/d/14pFi9vAwXEtnuklz4I-W-e99vH0Y1QoG/view?usp=sharing"
+              label="More about opensource.construction"
+            />
+            <Button
+              type="primary"
+              target="https://opencollective.com/opensource-construction"
+              label="Become a supporter"
+            />
           </div>
         </div>
       </Section>
-      <Section color="primary" fullWidth={true}>
+      <Section color="primary-500" fullWidth={true}>
         <h2 className="px-4 pt-10 text-xl font-bold md:px-10 md:text-3xl">
           Our current core team
         </h2>
@@ -208,7 +228,7 @@ export default function Home() {
         />
       </Section>
       <Section title="Community Partner">
-        <Card title="OSArch">
+        <Card title="OSArch" type="partner">
           <Image
             src="/osarch.webp"
             alt="OpenData Logo"
@@ -216,7 +236,7 @@ export default function Home() {
             height={133}
           />
         </Card>
-        <Card title="Opendata.ch">
+        <Card title="Opendata.ch" type="partner">
           <Image
             src="/opendata.webp"
             alt="OpenData Logo"
@@ -224,7 +244,7 @@ export default function Home() {
             height={133}
           />
         </Card>
-        <Card title="CH Open">
+        <Card title="CH Open" type="partner">
           <Image
             src="/ch-open.webp"
             alt="CH Open Logo"
@@ -237,18 +257,18 @@ export default function Home() {
         title="Are you interested in the role of open-source in the building
       industry? Get in touch with us today!"
       ></Section>
-      <Section color="primary">
+      <Section color="primary-500">
         &nbsp;
         <div className="py-12">
-          <Button target="https://discord.gg/jgph8WR6" type="primary">
+          <Button target={discordLink} type="primary">
             Talk to us on discord
           </Button>
         </div>
       </Section>
       {/* Tree shaking workaround */}
-      <div className="bg-osc-white"></div>
-      <div className="bg-osc-primary"></div>
-      <div className="bg-osc-gray-500"></div>
+      <div className="bg-white"></div>
+      <div className="bg-primary-500"></div>
+      <div className="bg-slate-300"></div>
     </div>
   );
 }

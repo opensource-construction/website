@@ -1,4 +1,4 @@
-import Button from "./src/button";
+import { Button } from "./src/button";
 import Page from "./src/page";
 import { Section } from "./src/section";
 import { Footer } from "./src/footer";

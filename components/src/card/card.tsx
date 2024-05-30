@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, ReactNode } from "react";
-import Button from "./button";
+import { Button } from "../button";
 
 import {
   Dialog,
@@ -15,14 +15,14 @@ import { XMarkIcon } from "@heroicons/react/24/outline";
 export function Card({
   title,
   slug,
-  type = "event",
+  type = "default",
   color = "white",
   subtitle,
   children,
 }: {
   title: string;
   slug?: string;
-  type?: "event" | "project" | "faq";
+  type?: "default" | "event" | "project" | "faq" | "partner";
   color?: string;
   subtitle?: string;
   children?: ReactNode;
@@ -30,12 +30,13 @@ export function Card({
   const [open, setOpen] = useState(false);
 
   return (
-    <div className={`bg-osc-${color}`}>
+    <div className={`bg-${color}`}>
       <div className="p-5">
         <h4 className="mb-2 mt-0 text-xl font-bold md:text-2xl">{title}</h4>
         <div className="mb-12">{subtitle}</div>
         {
           {
+            default: null,
             event: (
               <Button
                 label="More about the event"
@@ -48,7 +49,7 @@ export function Card({
               <Button
                 label="More about the project"
                 target={`/projects/${slug}`}
-                type="secondary"
+                type="card"
               />
             ),
 
@@ -59,6 +60,8 @@ export function Card({
                 type="sidebar"
               />
             ),
+
+            partner: null,
           }[type]
         }
         {type !== "faq" ? children : null}
@@ -92,13 +95,13 @@ export function Card({
                       <div className="flex h-full flex-col overflow-y-scroll bg-white py-10 shadow-xl">
                         <div className="px-4 sm:px-6">
                           <div className="flex items-start justify-between">
-                            <DialogTitle className="text-2xl font-semibold leading-6 text-gray-900">
+                            <DialogTitle className="text-2xl font-semibold leading-6 text-slate-700">
                               {title}
                             </DialogTitle>
                             <div className="ml-3 flex h-7 items-center">
                               <button
                                 type="button"
-                                className="relative rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                                className="relative rounded-md bg-white text-slate-300 hover:text-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                                 onClick={() => setOpen(false)}
                               >
                                 <span className="absolute -inset-2.5" />

@@ -1,23 +1,6 @@
-import { getPosts, HeroPartial, Section } from "@/components";
+import { getPosts, Section } from "@/components";
 import { TrainingsPartial } from "@/components/src/partials/trainings";
 import { TrainingCard } from "@/components/src/trainingCard";
-
-// export async function generateStaticParams() {
-//   let posts: SinglePageType[] = [];
-//   posts = [
-//     ...posts,
-//     ...getPosts("projects").map((p) => {
-//       return { slug: p.slug, pageType: "projects" as PageType };
-//     }),
-//     ...getPosts("events").map((p) => {
-//       return { slug: p.slug, pageType: "events" as PageType };
-//     }),
-//     ...getPosts("trainings").map((p) => {
-//       return { slug: p.slug, pageType: "trainings" as PageType };
-//     })
-//   ];
-//   return posts;
-// }
 
 export default function Trainings() {
   let trainings = getPosts("trainings");
@@ -26,7 +9,7 @@ export default function Trainings() {
       <Section>
         <TrainingsPartial />
       </Section>
-      <Section title="Trainings">
+      <Section title="Trainings" className="mb-32">
         {trainings.map(
           (
             { slug, metadata: { title, description, author, image } },

@@ -12,18 +12,23 @@ export function TrainingsPartial() {
       <div className="prose mx-auto flex max-w-screen-xl flex-col items-end px-2 md:px-10 lg:flex-row lg:items-start">
         <div className="w-full px-4 lg:w-7/12">
           <h2>
-            Sharing and learning is becoming the driver of radical innovation
+            Look ahead to all the great things that are there for you to be
+            learned
           </h2>
           <p>
-            We go ahead and share ideas, develop projects together and inspire
-            the construction industry. Join us and walk the path into the new
-            world of open source tools and open data.
+            Have you ever wondered how to get started with something technical?
+            Go and check out a growing library of tutorials and learning
+            content.
           </p>
-        </div>
-        <div className="px-14 lg:w-5/12">
-          <div className="hidden aspect-square w-64 items-center justify-center rounded-full bg-black p-2 text-center text-lg text-white md:flex lg:w-full xl:text-xl">
-            Training in Open Source Tools
-          </div>
+          <p>
+            Are you a contributor and produced content for your (or an other
+            open) solution? Reach out and we publish it here.
+          </p>
+          <p>
+            And no, not all content here is for free. Setting up valuable
+            content is work – which should be paid, if requested by the
+            publishers (who define the pricing).
+          </p>
         </div>
       </div>
     </div>

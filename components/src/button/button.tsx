@@ -1,19 +1,21 @@
 import Link from "next/link";
 import { MouseEventHandler } from "react";
 
-export default function Button({
+export const Button = ({
   type,
+  size = "default",
   target,
   label,
   icon = "right",
   children,
 }: {
-  type: "primary" | "secondary" | "sidebar";
+  type: "primary" | "secondary" | "sidebar" | "card";
+  size?: "default" | "small";
   target?: string | Function;
   label?: string;
   icon?: "left" | "right";
   children?: string;
-}) {
+}) => {
   return (
     <div className="mt-4">
       <Link
@@ -24,7 +26,7 @@ export default function Button({
             ? (target as MouseEventHandler)
             : undefined
         }
-        className={`${["secondary", "sidebar"].includes(type) ? "bg-osc-gray-500" : "bg-black pl-3 text-white hover:text-white md:pl-8"} inline-block py-3 pr-3 text-sm font-bold no-underline md:pr-8 md:text-base`}
+        className={`${["secondary", "sidebar", "card"].includes(type) ? "bg-slate-300" : "bg-black text-white hover:text-white md:pl-8"} inline-block ${size === "small" ? "py-2" : "py-3"} ${!["card", "sidebar"].includes(type) && icon !== "left" ? "pl-8" : undefined} pr-3 text-sm font-bold no-underline md:pr-8 md:text-base`}
         target={
           target && typeof target === "string" && target.startsWith("http")
             ? "_blank"
@@ -42,4 +44,4 @@ export default function Button({
       </Link>
     </div>
   );
-}
+};
