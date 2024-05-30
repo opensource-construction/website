@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { MouseEventHandler } from "react";
 
-export default function Button({
+export const Button = ({
   type,
   target,
   label,
@@ -13,7 +13,7 @@ export default function Button({
   label?: string;
   icon?: "left" | "right";
   children?: string;
-}) {
+}) => {
   return (
     <div className="mt-4">
       <Link
@@ -42,4 +42,4 @@ export default function Button({
       </Link>
     </div>
   );
-}
+};
