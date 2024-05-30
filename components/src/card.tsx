@@ -22,7 +22,7 @@ export function Card({
 }: {
   title: string;
   slug?: string;
-  type?: "event" | "project" | "faq";
+  type?: "event" | "project" | "faq" | "partner";
   color?: string;
   subtitle?: string;
   children?: ReactNode;
@@ -59,6 +59,8 @@ export function Card({
                 type="sidebar"
               />
             ),
+
+            partner: null,
           }[type]
         }
         {type !== "faq" ? children : null}
