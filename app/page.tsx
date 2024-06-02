@@ -7,6 +7,7 @@ import {
   HeroPartial,
   ProjectsPartial,
   FAQPartial,
+  Form,
 } from "@opensource-construction/components";
 import Image from "next/image";
 
@@ -235,10 +236,15 @@ export default function Home() {
           />
         </Card>
       </Section>
-      <Section
-        title="Are you interested in the role of open-source in the building
-      industry? Get in touch with us today!"
-      ></Section>
+      <Section>
+        <div className="prose">
+          <h2>
+            Are you interested in the role of open-source in the building
+            industry? Get in touch with us today!
+          </h2>
+          <Form route="/">Hi</Form>
+        </div>
+      </Section>
       <Section color="primary">
         &nbsp;
         <div className="py-12">
