@@ -8,24 +8,10 @@ type SinglePageType = {
   slug: string;
 };
 
-type PageProps = {
-  page: {
-    metadata: {
-      title: string;
-      description?: string;
-      event?: object;
-      project?: object;
-      links?: {
-        url: string;
-        label: string;
-      }[];
-      directMdLink?: string;
-    };
-    slug: string;
-    content: string;
-  };
-};
-
+/*
+ * This function fetches the markdown content from a given URL and returns it as a string.
+ * It also cleans the content by removing any HTML tags.
+ */
 async function fetchMarkdownContent(url: string): Promise<string> {
   const response = await fetch(url);
   if (!response.ok) {
@@ -38,11 +24,18 @@ async function fetchMarkdownContent(url: string): Promise<string> {
   return content;
 }
 
+/*
+ * This function removes HTML tags from a given markdown content.
+ */
 function cleanMarkdownContent(content: string): string {
   // Use a regex to remove problematic HTML tags
   return content.replace(/<[^>]*>/g, "");
 }
 
+/*
+ * This function fetches the page data for a given page type and slug.
+ * It also fetches the markdown content if the page has a directMdLink.
+ */
 async function fetchPageData(pageType: PageType, slug: string) {
   let page = getPosts(pageType).find((page) => page.slug === slug);
 
@@ -50,6 +43,7 @@ async function fetchPageData(pageType: PageType, slug: string) {
     return null;
   }
 
+  // Fetch the markdown content if the page has a directMdLink
   if (page.metadata.directMdLink) {
     try {
       console.log(
