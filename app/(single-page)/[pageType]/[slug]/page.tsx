@@ -6,7 +6,6 @@ type PageType = "events" | "projects" | "trainings" | "faqs";
 type SinglePageType = {
   pageType: PageType;
   slug: string;
-  directMdLink?: string;
 };
 
 type PageProps = {
@@ -81,21 +80,18 @@ export async function generateStaticParams() {
       return {
         slug: p.slug,
         pageType: "projects" as PageType,
-        directMdLink: p.metadata.directMdLink,
       };
     }),
     ...getPosts("events").map((p) => {
       return {
         slug: p.slug,
         pageType: "events" as PageType,
-        directMdLink: p.metadata.directMdLink,
       };
     }),
     ...getPosts("trainings").map((p) => {
       return {
         slug: p.slug,
         pageType: "trainings" as PageType,
-        directMdLink: p.metadata.directMdLink,
       };
     }),
   ];
