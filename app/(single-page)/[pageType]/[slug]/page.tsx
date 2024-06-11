@@ -27,6 +27,23 @@ type PageProps = {
   };
 };
 
+async function fetchMarkdownContent(url: string): Promise<string> {
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error(
+      `Failed to fetch content from ${url}: ${response.statusText}`,
+    );
+  }
+  let content = await response.text();
+  content = cleanMarkdownContent(content);
+  return content;
+}
+
+function cleanMarkdownContent(content: string): string {
+  // Use a regex to remove problematic HTML tags
+  return content.replace(/<[^>]*>/g, "");
+}
+
 async function fetchPageData(pageType: PageType, slug: string) {
   let page = getPosts(pageType).find((page) => page.slug === slug);
 
@@ -39,9 +56,7 @@ async function fetchPageData(pageType: PageType, slug: string) {
       console.log(
         `Fetching markdown content from ${page.metadata.directMdLink}`,
       );
-      const url = new URL(page.metadata.directMdLink);
-      const response = await fetch(url.toString());
-      const content = await response.text();
+      const content = await fetchMarkdownContent(page.metadata.directMdLink);
       page.content = content;
     } catch (error) {
       console.error(
