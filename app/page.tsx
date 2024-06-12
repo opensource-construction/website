@@ -11,6 +11,8 @@ import {
 import Image from "next/image";
 
 export default function Home() {
+  const discordLink = process.env.DISCORD_LINK || "";
+
   return (
     <div>
       <Section fullWidth={true}>
@@ -95,7 +97,7 @@ export default function Home() {
           </h3>
         </div>
         <div className="pb-12">
-          <Button target="https://discord.gg/jgph8WR6" type="primary">
+          <Button target={discordLink} type="primary">
             Any questions? We are here to help!
           </Button>
         </div>
@@ -240,7 +242,7 @@ export default function Home() {
       <Section color="primary">
         &nbsp;
         <div className="py-12">
-          <Button target="https://discord.gg/jgph8WR6" type="primary">
+          <Button target={discordLink} type="primary">
             Talk to us on discord
           </Button>
         </div>
