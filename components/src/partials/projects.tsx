@@ -7,7 +7,6 @@ export function ProjectsPartial() {
 
   let parsedProjects = projects.map((e) => {
     let project = { ...e.metadata.project };
-    console.log(project);
 
     project.title = e.metadata.title;
     project.description = e.metadata.description;
