@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, ReactNode } from "react";
-import { Button } from "./button";
+import { Button } from "../button";
 
 import {
   Dialog,
