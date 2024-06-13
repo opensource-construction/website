@@ -31,6 +31,7 @@ export function EventsPartial({ showPast = false }: { showPast?: boolean }) {
             <Card
               key={e.start}
               title={e.title}
+              type="event"
               color={"white"}
               subtitle={e.start}
               slug={e.slug}

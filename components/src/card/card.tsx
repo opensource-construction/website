@@ -15,14 +15,14 @@ import { XMarkIcon } from "@heroicons/react/24/outline";
 export function Card({
   title,
   slug,
-  type = "event",
+  type = "default",
   color = "white",
   subtitle,
   children,
 }: {
   title: string;
   slug?: string;
-  type?: "event" | "project" | "faq" | "partner";
+  type?: "default" | "event" | "project" | "faq" | "partner";
   color?: string;
   subtitle?: string;
   children?: ReactNode;
@@ -36,6 +36,7 @@ export function Card({
         <div className="mb-12">{subtitle}</div>
         {
           {
+            default: null,
             event: (
               <Button
                 label="More about the event"
