@@ -1,4 +1,4 @@
-import Button from "./button";
+import { Button } from "./button";
 import Image from "next/image";
 
 interface TrainingCardProps {
@@ -33,7 +33,9 @@ export function TrainingCard({
             />
           ) : null}
         </div>
-        {image ? <Image alt={title} src={image} width={300} height={300} /> : null}
+        {image ? (
+          <Image alt={title} src={image} width={300} height={300} />
+        ) : null}
       </div>
     </div>
   );

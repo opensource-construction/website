@@ -1,5 +1,5 @@
 import { CustomMDX } from "./mdx";
-import Button from "./button";
+import { Button } from "./button";
 import { Section } from "./section";
 import React from "react";
 

@@ -1,6 +1,6 @@
 import { MDXRemote } from "next-mdx-remote/rsc";
 import type { MDXRemoteProps } from "next-mdx-remote/rsc";
-import Button from "./button";
+import { Button } from "./button";
 import Link from "next/link";
 
 function CustomLink(props: React.ComponentProps<"a">) {
