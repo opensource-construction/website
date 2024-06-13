@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { allModes } from "../../../.storybook/modes";
 import { Footer } from "./footer";
 
 const meta = {
@@ -11,4 +12,22 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof Footer>;
 
-export const Default: Story = {};
+export const Default: Story = {
+  parameters: {
+    chromatic: {
+      modes: {
+        xsm: allModes["xsm"],
+        md: allModes["md"],
+        xl: allModes["xl"],
+        "2xl": allModes["2xl"],
+      },
+    },
+  },
+};
+
+export const Mobile: Story = {
+  parameters: {
+    viewport: { defaultViewport: "xsm" },
+    chromatic: { disableSnapshot: true },
+  },
+};
