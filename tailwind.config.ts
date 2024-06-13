@@ -15,6 +15,7 @@ const config: Config = {
         "4xl": ["3em", "1.14em"],
       },
       fontFamily: {
+        sans: ["var(--font-corbert)", "sans-serif"],
         icon: ["var(--font-glyphter)"],
       },
       colors: {
