@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
+import logoSvg from "@/public/opensource_construction_logo.svg";
+
 const navItems = {
   "/#open-source": { name: "Open Source" },
   "/#projects": { name: "Projects" },
@@ -17,7 +19,7 @@ export function Navbar() {
         <h1>
           <Link href="/" title="https://www.opensource.construction">
             <Image
-              src="/opensource_construction_logo.svg"
+              src={logoSvg}
               width="180"
               height="100"
               alt="opensource.construction Logo"
