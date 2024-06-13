@@ -1,11 +1,26 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { allModes } from "../../../.storybook/modes";
 import { Navbar as NavbarComponent } from "./nav";
+import { type MenuItem } from "../menu";
+
+import logoSvg from "@/public/opensource_construction_logo.svg";
+
+const navItems: MenuItem[] = [
+  { name: "Open Source", target: "/#open-source" },
+  { name: "Projects", target: "/#projects" },
+  { name: "Events", target: "/#events" },
+  { name: "Trainings", target: "/trainings" },
+  { name: "About us", target: "/#who-is-behind-the-initiative" },
+];
 
 const meta = {
   title: "Components/Organisms/Navbar",
   component: NavbarComponent,
-  args: {},
+  args: {
+    title: "opensource.construction",
+    logo: logoSvg,
+    menuItems: navItems,
+  },
   argTypes: {},
 } satisfies Meta;
 
