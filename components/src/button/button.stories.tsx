@@ -24,7 +24,7 @@ export const Primary: Story = {
 
 export const External: Story = {
   args: {
-    target: "https://openstreetmap.org",
+    target: "https://example.com",
     type: "primary",
   },
 };
