@@ -1,14 +1,14 @@
 export const allModes = {
   xsm: {
-    viewport: "x-small",
+    viewport: "xsm",
   },
   md: {
-    viewport: "medium",
+    viewport: "md",
   },
   xl: {
-    viewport: "x-large",
+    viewport: "xl",
   },
   "2xl": {
-    viewport: "2x-large",
+    viewport: "2xl",
   },
 };

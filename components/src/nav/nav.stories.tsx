@@ -28,11 +28,13 @@ export const Default: Story = {
 export const Mobile: Story = {
   parameters: {
     viewport: { defaultViewport: "xsm" },
+    chromatic: { disableSnapshot: true },
   },
 };
 
 export const Tablet: Story = {
   parameters: {
     viewport: { defaultViewport: "md" },
+    chromatic: { disableSnapshot: true },
   },
 };
