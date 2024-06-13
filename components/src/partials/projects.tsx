@@ -7,8 +7,10 @@ export function ProjectsPartial() {
 
   let parsedProjects = projects.map((e) => {
     let project = { ...e.metadata.project };
+    console.log(project);
 
     project.title = e.metadata.title;
+    project.description = e.metadata.description;
     project.slug = e.slug;
 
     return project;
@@ -24,6 +26,7 @@ export function ProjectsPartial() {
               <Card
                 key={e.slug}
                 title={e.title}
+                subtitle={e.description}
                 slug={e.slug}
                 color="gray-500"
                 type="project"
