@@ -14,7 +14,6 @@ function parseFrontmatter(fileContent: string) {
   let frontMatterBlock = match![1];
   let content = fileContent.replace(frontmatterRegex, "").trim();
   let metadata = YAML.parse(frontMatterBlock);
-  console.log(metadata);
 
   return { metadata, content };
 }
