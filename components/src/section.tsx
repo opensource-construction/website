@@ -16,7 +16,7 @@ export function Section(props: PropsWithChildren<SectionProps>) {
     >
       <div className="xl:m-auto xl:max-w-6xl">
         {props.title ? (
-          <h3 className="md:text-3xl py-6 text-xl font-bold">{props.title}</h3>
+          <h3 className="py-6 text-xl font-bold md:text-3xl">{props.title}</h3>
         ) : null}
         {props.children}
       </div>
