@@ -2,6 +2,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { allModes } from "../../../.storybook/modes";
 import { Menu } from "./menu";
 
+import { userEvent, within, expect } from "@storybook/test";
+
 const meta = {
   title: "Components/Molecules/Menu",
   component: Menu,
@@ -37,6 +39,20 @@ export const Mobile: Story = {
   parameters: {
     viewport: { defaultViewport: "xsm" },
     chromatic: { disableSnapshot: true },
+  },
+};
+
+export const MobileOpen: Story = {
+  play: async ({ canvasElement }) => {
+    await userEvent.click(within(canvasElement).getByTestId("hamburger-menu"));
+
+    await userEvent.click(within(canvasElement).getByTestId("hamburger-menu"));
+
+    await userEvent.click(within(canvasElement).getByTestId("hamburger-menu"));
+  },
+  parameters: {
+    viewport: { defaultViewport: "xsm" },
+    chromatic: { modes: { xsm: allModes["xsm"] } },
   },
 };
 
