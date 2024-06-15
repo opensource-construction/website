@@ -8,7 +8,7 @@ export const Button = ({
   icon = "right",
   children,
 }: {
-  type: "primary" | "secondary" | "sidebar";
+  type: "primary" | "secondary" | "sidebar" | "submit";
   target?: string | Function;
   label?: string;
   icon?: "left" | "right";
