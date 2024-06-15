@@ -1,6 +1,8 @@
 import { z } from "zod";
 import { ReactNode } from "react";
 
+import { TextField } from "../text-field";
+
 export function Form({
   route,
   children,
@@ -62,36 +64,18 @@ export function Form({
   return (
     <form action={saveFormWithRoute}>
       <div className="flex flex-col font-bold">
-        <input
-          name="firstname"
-          id="firstname"
-          type="text"
-          placeholder="Firstname*"
-          required
-          className="mt-4 rounded-md border-gray-300 bg-gray-100 p-5 placeholder:text-gray-400 focus:placeholder:text-gray-200"
-        />
-        <input
-          name="lastname"
-          id="lastname"
-          type="text"
-          placeholder="Lastname*"
-          required
-          className="mt-4 rounded-md border-gray-300 bg-gray-100 p-5 placeholder:text-gray-400 focus:placeholder:text-gray-200"
-        />
-        <input
-          name="email"
-          id="email"
+        <TextField type="text" label="Firstname" placeholder="John" required />
+        <TextField type="text" label="Lastname" placeholder="Doe" required />
+        <TextField
           type="email"
-          placeholder="E-Mail*"
+          label="E-Mail"
+          placeholder="john.doe@example.com"
           required
-          className="mt-4 rounded-md border-gray-300 bg-gray-100 p-5 placeholder:text-gray-400 focus:placeholder:text-gray-200"
         />
-        <input
-          name="organisation"
-          id="organisation"
+        <TextField
           type="text"
-          placeholder="Organisation / Company"
-          className="mt-4 rounded-md border-gray-300 bg-gray-100 p-5 placeholder:text-gray-400 focus:placeholder:text-gray-200"
+          label="Organisation / Company"
+          placeholder="ACME Inc"
         />
         {children}
         <div className="flex">
