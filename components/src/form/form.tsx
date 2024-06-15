@@ -1,5 +1,6 @@
 import { TextField } from "../text-field";
 import { CheckboxField } from "../checkbox-field";
+import { Button } from "../button";
 
 export function Form({ action }: React.HTMLProps<"form">) {
   return (
@@ -22,7 +23,7 @@ export function Form({ action }: React.HTMLProps<"form">) {
           name="accept-toc"
           label="I agree to the privacy agreement"
         />
-        <input type="submit" value="Register now" />
+        <Button type="submit" label="Register now" />
       </div>
     </form>
   );

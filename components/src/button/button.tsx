@@ -9,7 +9,7 @@ export const Button = ({
   icon = "right",
   children,
 }: {
-  type: "primary" | "secondary" | "sidebar" | "card";
+  type: "primary" | "secondary" | "sidebar" | "card" | "submit";
   size?: "default" | "small";
   target?: string | Function;
   label?: string;
