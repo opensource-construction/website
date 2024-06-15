@@ -2,11 +2,12 @@ import type { ComponentProps } from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import * as slugify from "slugify";
 
-import { Input } from "../input";
+import { TextInput } from "../text-input";
 
 type TextFieldProps = ComponentProps<"input"> &
   VariantProps<typeof variants> & {
     label: string;
+    placeholder?: string;
     details?: string;
     type?: "text" | "email";
   };
@@ -38,12 +39,12 @@ export const TextField = ({
     <label className="mb-4 flex flex-col gap-1.5">
       <span className={variants({ required })}>{label}</span>
 
-      <Input
+      <TextInput
         id={slugify.default(label)}
         name={slugify.default(label)}
         value={value}
         type={type}
-        placeholder={placeholder}
+        placeholder={placeholder ? placeholder : label}
         disabled={disabled}
         {...props}
       />
