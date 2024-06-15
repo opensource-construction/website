@@ -63,7 +63,7 @@ export function Form({
 
   return (
     <form action={saveFormWithRoute}>
-      <div className="flex flex-col font-bold">
+      <div className="flex flex-col">
         <TextField type="text" label="Firstname" placeholder="John" required />
         <TextField type="text" label="Lastname" placeholder="Doe" required />
         <TextField

@@ -9,7 +9,7 @@ type TextInputProps = ComponentProps<"input"> &
 
 export const variants = cva(
   [
-    "form-input rounded-md focus:border-gray-500 p-5 placeholder:text-gray-400 focus:placeholder:text-gray-200",
+    "form-input rounded-md font-bold focus:border-gray-500 p-5 placeholder:text-gray-400 focus:placeholder:text-gray-200",
   ],
   {
     variants: {
