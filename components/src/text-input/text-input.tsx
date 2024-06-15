@@ -1,7 +1,7 @@
 import type { ComponentProps } from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 
-type InputProps = ComponentProps<"input"> &
+type TextInputProps = ComponentProps<"input"> &
   VariantProps<typeof variants> & {
     id: string;
     name: string;
@@ -17,7 +17,7 @@ export const variants = cva(
   },
 );
 
-export const Input = ({
+export const TextInput = ({
   id,
   name,
   value,
@@ -25,7 +25,7 @@ export const Input = ({
   type = "text",
   disabled = false,
   ...props
-}: InputProps) => {
+}: TextInputProps) => {
   return (
     <input
       name={name}

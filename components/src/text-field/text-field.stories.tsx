@@ -7,7 +7,6 @@ const meta = {
   component: TextField,
   args: {
     label: "Example label",
-    placeholder: "Example placeholder",
     type: "text",
   },
   argTypes: {},
