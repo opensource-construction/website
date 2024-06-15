@@ -6,7 +6,6 @@ const meta = {
   title: "Components/Atoms/TextInput",
   component: TextInput,
   args: {
-    id: "example-id",
     name: "example-name",
   },
   argTypes: {},
@@ -36,15 +35,20 @@ export const WithPlaceholder: Story = {
 
 export const Email: Story = {
   args: {
-    id: "e-mail",
     name: "e-mail",
     placeholder: "john.doe@example.com",
     type: "email",
   },
 };
 
+export const Required: Story = {
+  args: {
+    variant: "required",
+  },
+};
+
 export const Disabled: Story = {
   args: {
-    disabled: true,
+    variant: "disabled",
   },
 };
