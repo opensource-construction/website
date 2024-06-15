@@ -3,38 +3,44 @@ import { cva, type VariantProps } from "class-variance-authority";
 
 type TextInputProps = ComponentProps<"input"> &
   VariantProps<typeof variants> & {
-    id: string;
     name: string;
-    type?: string;
+    id?: string;
   };
 
 export const variants = cva(
   [
-    "rounded-md border-gray-300 bg-gray-100 p-5 placeholder:text-gray-400 focus:placeholder:text-gray-200",
+    "form-input rounded-md focus:border-gray-500 p-5 placeholder:text-gray-400 focus:placeholder:text-gray-200",
   ],
   {
-    variants: {},
+    variants: {
+      variant: {
+        default: ["border-gray-300 bg-gray-100 text-black"],
+        disabled: ["border-gray-100 bg-gray-50"],
+        required: ["border-gray-300 bg-gray-100 text-black"],
+      },
+    },
   },
 );
 
 export const TextInput = ({
-  id,
   name,
   value,
   placeholder,
-  type = "text",
+  id,
+  variant = "default",
   disabled = false,
   ...props
 }: TextInputProps) => {
+  console.log(variant);
   return (
     <input
       name={name}
-      id={id}
+      id={id ? id : name}
       value={value}
-      type={type}
-      className={variants()}
+      className={variants({ variant })}
       placeholder={placeholder}
-      disabled={disabled}
+      required={variant === "required"}
+      disabled={variant === "disabled"}
       {...props}
     />
   );

@@ -16,10 +16,10 @@ export const variants = cva(
   ["inline-flex items-center gap-1 text-sm font-medium"],
   {
     variants: {
-      required: {
-        true: [
-          "after:bg-accent-500 after:h-1.5 after:w-1.5 after:rounded-full",
-        ],
+      variant: {
+        default: [],
+        required: [],
+        disabled: [],
       },
     },
   },
@@ -30,6 +30,7 @@ export const TextField = ({
   value,
   details,
   placeholder,
+  variant = "default",
   type = "text",
   required = false,
   disabled = false,
@@ -37,12 +38,16 @@ export const TextField = ({
 }: TextFieldProps) => {
   return (
     <label className="mb-4 flex flex-col gap-1.5">
-      <span className={variants({ required })}>{label}</span>
+      <span className={variants({ variant })}>
+        {label}
+        {variant === "required" ? "*" : undefined}
+      </span>
 
       <TextInput
         id={slugify.default(label)}
         name={slugify.default(label)}
         value={value}
+        variant={variant}
         type={type}
         placeholder={placeholder ? placeholder : label}
         disabled={disabled}

@@ -28,6 +28,13 @@ export const Default: Story = {
   },
 };
 
+export const Required: Story = {
+  args: {
+    label: "Required example",
+    variant: "required",
+  },
+};
+
 export const Email: Story = {
   args: {
     label: "E-Mail address",
