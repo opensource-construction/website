@@ -9,14 +9,18 @@ type TextInputProps = ComponentProps<"input"> &
 
 export const variants = cva(
   [
-    "form-input rounded-md font-bold focus:border-gray-500 p-5 placeholder:text-gray-400 focus:placeholder:text-gray-200",
+    "form-input transition-all duration-300 appearance-none rounded-md font-bold focus:bg-white focus:border-gray-500 p-5 placeholder:text-gray-400 focus:placeholder:text-gray-200",
   ],
   {
     variants: {
       variant: {
-        default: ["border-gray-300 bg-gray-100 text-black"],
+        default: [
+          "border-gray-300 bg-gray-100 hover:bg-white hover:border-gray-500 text-black",
+        ],
         disabled: ["border-gray-100 bg-gray-50"],
-        required: ["border-gray-300 bg-gray-100 text-black"],
+        required: [
+          "border-gray-300 bg-gray-100 hover:bg-white hover:border-gray-500 text-black",
+        ],
       },
     },
   },
@@ -31,7 +35,6 @@ export const TextInput = ({
   disabled = false,
   ...props
 }: TextInputProps) => {
-  console.log(variant);
   return (
     <input
       name={name}

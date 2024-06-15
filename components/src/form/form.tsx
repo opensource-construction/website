@@ -2,6 +2,7 @@ import { z } from "zod";
 import { ReactNode } from "react";
 
 import { TextField } from "../text-field";
+import { CheckboxField } from "../checkbox-field";
 
 export function Form({
   route,
@@ -78,20 +79,10 @@ export function Form({
           placeholder="ACME Inc"
         />
         {children}
-        <div className="flex">
-          <input
-            id="accept-toc"
-            name="accept-toc"
-            type="checkbox"
-            className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
-          />
-          <label
-            htmlFor="accept-toc"
-            className="block text-sm font-medium leading-6 text-gray-900"
-          >
-            I agree to the privacy agreement
-          </label>
-        </div>
+        <CheckboxField
+          name="accept-toc"
+          label="I agree to the privacy agreement"
+        />
         <input type="submit" value="Register now" />
       </div>
     </form>
