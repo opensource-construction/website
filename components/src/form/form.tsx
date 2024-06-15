@@ -1,84 +1,23 @@
-import { z } from "zod";
-import { ReactNode } from "react";
-
 import { TextField } from "../text-field";
 import { CheckboxField } from "../checkbox-field";
 
-export function Form({
-  route,
-  children,
-}: {
-  route: string;
-  children: ReactNode;
-}) {
-  async function saveForm(route: string, formData: FormData) {
-    "use server";
-
-    const schema = z.object({
-      firstname: z
-        .string({
-          invalid_type_error: "Invalid Firstname",
-        })
-        .min(2)
-        .max(25)
-        .trim(),
-      lastname: z
-        .string({
-          invalid_type_error: "Invalid Lastname",
-        })
-        .min(2)
-        .max(25)
-        .trim(),
-      email: z
-        .string({
-          invalid_type_error: "Invalid Email",
-        })
-        .email()
-        .max(35),
-      organisation: z
-        .string({
-          invalid_type_error: "Invalid Organisation",
-        })
-        .min(2)
-        .max(25)
-        .trim(),
-    });
-
-    const validatedFields = schema.safeParse({
-      firstname: formData.get("firstname"),
-      lastname: formData.get("lastname"),
-      email: formData.get("email"),
-      organisation: formData.get("organisation"),
-    });
-
-    if (!validatedFields.success) {
-      return {
-        errors: validatedFields.error.flatten().fieldErrors,
-      };
-    }
-
-    console.log(route, validatedFields);
-  }
-
-  const saveFormWithRoute = saveForm.bind(null, route);
-
+export function Form({ action }: React.HTMLProps<"form">) {
   return (
-    <form action={saveFormWithRoute}>
+    <form action={action ? action : undefined}>
       <div className="flex flex-col">
-        <TextField type="text" label="Firstname" placeholder="John" required />
-        <TextField type="text" label="Lastname" placeholder="Doe" required />
+        <TextField label="Firstname" placeholder="John" variant="required" />
+        <TextField label="Lastname" placeholder="Doe" variant="required" />
         <TextField
           type="email"
           label="E-Mail"
           placeholder="john.doe@example.com"
-          required
+          variant="required"
         />
         <TextField
           type="text"
           label="Organisation / Company"
           placeholder="ACME Inc"
         />
-        {children}
         <CheckboxField
           name="accept-toc"
           label="I agree to the privacy agreement"
