@@ -10,6 +10,9 @@ import {
 } from "@opensource-construction/components";
 import Image from "next/image";
 
+import missionSvg from "@/public/mission.svg";
+import activitiesSvg from "@/public/activities.svg";
+
 export default function Home() {
   const discordLink = process.env.DISCORD_LINK || "";
 
