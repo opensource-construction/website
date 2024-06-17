@@ -1,6 +1,6 @@
 export const colors = {
   primary: {
-    "500": "#ffed00",
+    "500": "#fbdf24",
   },
   secondary: {
     "500": "#0909ff",
