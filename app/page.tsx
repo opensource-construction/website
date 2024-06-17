@@ -62,7 +62,7 @@ export default function Home() {
         </div>
         <ProjectsPartial />
       </Section>
-      <Section title="Events" color="primary">
+      <Section title="Events" color="primary-500">
         <div>
           <p>
             Talk. Share. Do.
@@ -87,7 +87,7 @@ export default function Home() {
           className="py-12"
         />
       </Section>
-      <Section color="primary">
+      <Section color="primary-500">
         <div className="pb-24 pt-12 text-center">
           <p className="text-sm md:text-base lg:text-2xl">
             Our mission at opensource.construction
@@ -197,7 +197,7 @@ export default function Home() {
           </div>
         </div>
       </Section>
-      <Section color="primary" fullWidth={true}>
+      <Section color="primary-500" fullWidth={true}>
         <h2 className="px-4 pt-10 text-xl font-bold md:px-10 md:text-3xl">
           Our current core team
         </h2>
@@ -239,7 +239,7 @@ export default function Home() {
         title="Are you interested in the role of open-source in the building
       industry? Get in touch with us today!"
       ></Section>
-      <Section color="primary">
+      <Section color="primary-500">
         &nbsp;
         <div className="py-12">
           <Button target={discordLink} type="primary">

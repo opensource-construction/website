@@ -19,7 +19,7 @@ export function TrainingCard({
   image,
 }: TrainingCardProps) {
   return (
-    <div className={`bg-osc-${color}`}>
+    <div className={`bg-${color}`}>
       <div className="mb-8 flex flex-row p-5">
         <div className="mr-4">
           <h4 className="mb-2 mt-0 text-xl">{title}</h4>

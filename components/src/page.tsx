@@ -32,7 +32,7 @@ export default function Page({
         </article>
       </Section>
       {page.metadata.links ? (
-        <Section color="primary">
+        <Section color="primary-500">
           <h3 className="text-2xl font-bold">Links</h3>
           <div className="flex flex-col gap-2 py-4 md:flex-row">
             {page.metadata.links.map((l) => (
