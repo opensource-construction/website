@@ -14,7 +14,13 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-export const Default: Story = {};
+export const Secondary: Story = {};
+
+export const Card: Story = {
+  args: {
+    type: "card",
+  },
+};
 
 export const Primary: Story = {
   args: {

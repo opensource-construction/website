@@ -3,6 +3,7 @@ import Link from "next/link";
 import React from "react";
 
 import logoSvg from "@/public/opensource_construction_logo.svg";
+import { Button } from "../button";
 
 const navItems = {
   "/#open-source": { name: "Open Source" },
@@ -28,18 +29,27 @@ export function Navbar() {
         </h1>
       </div>
       <div className="flex-grow"></div>
-      <div className="hidden md:block">
-        <ul className="flex">
-          {Object.entries(navItems).map(([path, { name }]) => {
-            return (
-              <li key={path} className="mx-4 pt-14">
-                <Link href={path} className="text-base font-bold lg:text-lg">
-                  {name}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+      <div>
+        <div className="-mt-4 text-right">
+          <Button
+            type="secondary"
+            target="https://answer.opensource.construction"
+            label="Knowledge Hub"
+          />
+        </div>
+        <div className="hidden md:block">
+          <ul className="mt-4 flex">
+            {Object.entries(navItems).map(([path, { name }]) => {
+              return (
+                <li key={path} className="mx-4">
+                  <Link href={path} className="text-base font-bold lg:text-lg">
+                    {name}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       </div>
     </nav>
   );
