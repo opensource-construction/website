@@ -49,7 +49,7 @@ export function Card({
               <Button
                 label="More about the project"
                 target={`/projects/${slug}`}
-                type="secondary"
+                type="card"
               />
             ),
 
