@@ -17,13 +17,13 @@ export const Default: Story = {};
 
 export const Primary: Story = {
   args: {
-    color: "primary",
+    color: "primary-500",
   },
 };
 
 export const Secondary: Story = {
   args: {
-    color: "gray-500",
+    color: "slate-300",
   },
 };
 
@@ -43,6 +43,6 @@ export const PrimaryFullWidthWithTitle: Story = {
   args: {
     title: "Example Title",
     fullWidth: true,
-    color: "primary",
+    color: "primary-500",
   },
 };

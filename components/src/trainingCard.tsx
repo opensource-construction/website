@@ -13,7 +13,7 @@ interface TrainingCardProps {
 export function TrainingCard({
   title,
   slug,
-  color = "gray-500",
+  color = "slate-300",
   subtitle,
   author,
   image,

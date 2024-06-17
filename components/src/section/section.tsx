@@ -12,7 +12,7 @@ export function Section(props: PropsWithChildren<SectionProps>) {
   return (
     <section
       id={props.title ? slugify.default(props.title).toLowerCase() : ""}
-      className={`${props.color ? `bg-osc-${props.color}` : ""} ${props.fullWidth ? "lg:px-10" : "px-4 md:px-12 lg:px-28"} md:py-6`}
+      className={`${props.color ? `bg-${props.color}` : ""} ${props.fullWidth ? "lg:px-10" : "px-4 md:px-12 lg:px-28"} md:py-6`}
     >
       <div className="xl:m-auto xl:max-w-6xl">
         {props.title ? (

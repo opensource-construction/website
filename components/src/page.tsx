@@ -27,7 +27,7 @@ export default function Page({
         <h1 className="mb-8 mt-12 text-2xl font-bold md:mt-16 md:text-3xl">
           {page.metadata.title}
         </h1>
-        <article className="prose prose-li:marker:text-osc-primary md:prose-h3:text-2xl">
+        <article className="prose-li:marker:text-primary-500 prose md:prose-h3:text-2xl">
           <CustomMDX source={page.content} />
         </article>
       </Section>
