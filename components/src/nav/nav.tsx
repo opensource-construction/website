@@ -6,8 +6,7 @@ import logoSvg from "@/public/opensource_construction_logo.svg";
 import { Button } from "../button";
 
 const navItems = {
-  "/#open-source": { name: "Open Source" },
-  "/#projects": { name: "Projects" },
+  "/#marketplace": { name: "Marketplace" },
   "/#events": { name: "Events" },
   "/trainings": { name: "Trainings" },
   "/#who-is-behind-the-initiative": { name: "About us" },

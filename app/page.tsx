@@ -21,31 +21,31 @@ export default function Home() {
       <Section>
         <FAQPartial />
       </Section>
-      <Section title="Projects">
+      <Section color="primary-500">
+        <p className="pb-4 pt-10 text-2xl font-bold">
+          We like disruptive innovation.
+        </p>
+        <p className="pb-10 text-4xl font-bold">
+          But we also believe in empowring people to improve everyday – not in
+          theory, but in practise.
+        </p>
+      </Section>
+      <Section title="Marketplace">
         <div className="prose md:w-5/6">
           <p>
-            The exciting thing about the open source movement is the diversity
-            of possible projects.
-            <br />
-            From small, local projects to large, transnational projects, from
-            simple database solutions to complex software projects. As long as
-            the mindset is right, there is something for everyone – from
-            analogue dinosaurs to average users to absolute experts.
+            The os.c marketplace is THE place for you to find a lot of great
+            stuff.
           </p>
           <p>
-            At opensource.construction, we host and support projects in
-            different ways.
+            You will find open source solutions ready to be explored in detail.
           </p>
           <p>
-            Sandbox Projects are experimental projects that are not yet widely
-            tested in production. Incubating Projects are already used
-            successfully in production by a small number of users. Graduated
-            Projects considered stable, widely adopted and production ready,
-            attracting hundreds of users and contributors
+            You will find open collaboration possibilities, posted by peers that
+            are willing to take action and move forward together.
           </p>
           <p>
-            Click on the projects to get more details about the projects, the
-            authors and their communication channels.
+            And you will find heaps of talented people, ready to push the
+            industry further. Step by step and never stopping.
           </p>
           <div className="pt-4">
             <Button
@@ -54,8 +54,8 @@ export default function Home() {
               type="primary"
             />
             <Button
-              target="https://wiki.osarch.org/index.php?title=AEC_Free_Software_directory"
-              label="AEC Free Software directory"
+              target="https://www.opensource.construction/#"
+              label="Want to submit a challenge?"
               type="primary"
             />
           </div>
@@ -82,8 +82,8 @@ export default function Home() {
         <Image
           src="/images/partials/AEC-Hackathon-091.jpg.webp"
           alt="Opening event of the Zurich AEC Hackathon"
-          width="1024"
-          height="600"
+          width="2400"
+          height="1200"
           className="py-12"
         />
       </Section>
@@ -180,6 +180,7 @@ export default function Home() {
             />
           </div>
           <div className="prose flex-1 px-4 md:px-10">
+            <a id="who-is-behind-the-initiative"></a>
             <h3 className="md:text-3xl">Who is behind the initiative?</h3>
             <p>
               opensource.construction is a non-profit organisation based in
@@ -194,6 +195,16 @@ export default function Home() {
               participatory processes. The community meets regularly digitally
               and physically to discuss and further develop concrete approaches.
             </p>
+            <Button
+              type="primary"
+              target=""
+              label="More about opensource.construction"
+            />
+            <Button
+              type="primary"
+              target="https://opencollective.com/opensource-construction"
+              label="Become a supporter"
+            />
           </div>
         </div>
       </Section>
