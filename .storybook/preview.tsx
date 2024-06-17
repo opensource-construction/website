@@ -46,7 +46,7 @@ const preview: Preview = {
   decorators: [
     (Story, context) => (
       <div
-        className={`${corbert.className} ${glyphter.variable} selection:bg-osc-primary selection:bg-opacity-70`}
+        className={`${corbert.className} ${glyphter.variable} selection:bg-primary-500 selection:bg-opacity-70`}
       >
         <Story {...context} />
       </div>

@@ -1,5 +1,12 @@
 import type { Config } from "tailwindcss";
 import typography from "@tailwindcss/typography";
+import {
+  colors,
+  white,
+  black,
+  currentColor,
+  transparent,
+} from "./components/src/tokens/colors";
 
 const config: Config = {
   content: [
@@ -8,6 +15,13 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    colors: {
+      ...colors,
+      white,
+      black,
+      transparent,
+      currentColor,
+    },
     extend: {
       fontSize: {
         "2xl": ["1.9em", "1.14em"],
@@ -17,12 +31,6 @@ const config: Config = {
       fontFamily: {
         sans: ["var(--font-corbert)", "sans-serif"],
         icon: ["var(--font-glyphter)"],
-      },
-      colors: {
-        "osc-primary": "#ffed00",
-        "osc-gray-500": "#f5f5f5",
-        "osc-gray-700": "#737373",
-        "osc-white": "#ffffff",
       },
       width: {
         "122": "122%",

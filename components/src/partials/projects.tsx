@@ -27,7 +27,7 @@ export function ProjectsPartial() {
                 title={e.title}
                 subtitle={e.description}
                 slug={e.slug}
-                color="gray-500"
+                color="slate-300"
                 type="project"
               />
             ))}

@@ -4,7 +4,7 @@ import { Button } from "./button";
 import Link from "next/link";
 
 function CustomLink(props: React.ComponentProps<"a">) {
-  const linkStyle = "font-bold text-osc-gray-700 no-underline hover:text-black";
+  const linkStyle = "font-bold text-slate-700 no-underline hover:text-black";
 
   if (props.href && props.href.startsWith("/")) {
     return (

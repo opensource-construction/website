@@ -1,7 +1,25 @@
-import { Meta } from "@storybook/blocks";
+import { Meta, ColorPalette, ColorItem } from "@storybook/blocks";
+import { colors, white, black, currentColor, transparent } from './tokens/colors';
 
 <Meta title="Welcome" />
 
 # opensource.construction Design System
 
 Welcome to the opensource.construction design system and component library.
+
+## Colors
+
+<ColorPalette>
+  { Object.entries(colors).map(([color, variants]) => {
+    return (<ColorItem
+      title={color}
+      colors={Object.fromEntries(
+        Object.entries(variants).map(([variant, colorValue]) => {
+          return [variant, colorValue];
+        }),
+      )}
+    />)
+  })}
+  <ColorItem title="black" colors={{ "black": black }} />
+  <ColorItem title="white" colors={{ "white": white }} />
+</ColorPalette>

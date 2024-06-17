@@ -24,7 +24,7 @@ export const Button = ({
             ? (target as MouseEventHandler)
             : undefined
         }
-        className={`${["secondary", "sidebar", "card"].includes(type) ? "bg-osc-gray-500" : "bg-black text-white hover:text-white md:pl-8"} inline-block py-3 ${!["card", "sidebar"].includes(type) && icon !== "left" ? "pl-8" : undefined} pr-3 text-sm font-bold no-underline md:pr-8 md:text-base`}
+        className={`${["secondary", "sidebar", "card"].includes(type) ? "bg-slate-300" : "bg-black text-white hover:text-white md:pl-8"} inline-block py-3 ${!["card", "sidebar"].includes(type) && icon !== "left" ? "pl-8" : undefined} pr-3 text-sm font-bold no-underline md:pr-8 md:text-base`}
         target={
           target && typeof target === "string" && target.startsWith("http")
             ? "_blank"

@@ -14,7 +14,7 @@ export function FAQPartial() {
           : faqs.map((e) => (
               <Card
                 key={e.slug}
-                color="gray-500"
+                color="slate-300"
                 type="faq"
                 title={e.metadata.title}
               >

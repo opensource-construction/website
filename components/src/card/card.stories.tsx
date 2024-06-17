@@ -6,7 +6,7 @@ const meta = {
   component: Card,
   args: {
     title: "Example Title",
-    color: "gray-500",
+    color: "slate-300",
   },
   argTypes: {},
 } satisfies Meta;

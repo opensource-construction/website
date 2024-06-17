@@ -62,7 +62,7 @@ export default function Home() {
         </div>
         <ProjectsPartial />
       </Section>
-      <Section title="Events" color="primary">
+      <Section title="Events" color="primary-500">
         <div>
           <p>
             Talk. Share. Do.
@@ -75,7 +75,7 @@ export default function Home() {
         </div>
         <EventsPartial />
       </Section>
-      <Section title="Past Events" color="gray-500">
+      <Section title="Past Events" color="slate-300">
         <EventsPartial showPast={true} />
       </Section>
       <Section>
@@ -87,7 +87,7 @@ export default function Home() {
           className="py-12"
         />
       </Section>
-      <Section color="primary">
+      <Section color="primary-500">
         <div className="pb-24 pt-12 text-center">
           <p className="text-sm md:text-base lg:text-2xl">
             Our mission at opensource.construction
@@ -130,7 +130,7 @@ export default function Home() {
           </p>
         </div>
         <Card
-          color="gray-500"
+          color="slate-300"
           title="Making the potential of open source tangible"
         >
           <p>
@@ -140,7 +140,7 @@ export default function Home() {
             tangible for all stakeholders in the construction industry.
           </p>
         </Card>
-        <Card color="gray-500" title="Connecting people">
+        <Card color="slate-300" title="Connecting people">
           <p>
             People with ideas are looking for people to help them implement
             them. Because they lack technical know-how. Because they lack the
@@ -154,7 +154,7 @@ export default function Home() {
             political figures.
           </p>
         </Card>
-        <Card color="gray-500" title="Enabling open projects">
+        <Card color="slate-300" title="Enabling open projects">
           <p>
             An open source solution is only a good solution if it is used. The
             main goal of the initiative is to turn ideas into concrete
@@ -168,7 +168,7 @@ export default function Home() {
           </p>
         </Card>
       </Section>
-      <Section color="gray-500" fullWidth={true}>
+      <Section color="slate-300" fullWidth={true}>
         <div className="flex flex-col gap-0 pb-24 lg:flex-row lg:gap-24">
           <div className="flex-1">
             <Image
@@ -197,7 +197,7 @@ export default function Home() {
           </div>
         </div>
       </Section>
-      <Section color="primary" fullWidth={true}>
+      <Section color="primary-500" fullWidth={true}>
         <h2 className="px-4 pt-10 text-xl font-bold md:px-10 md:text-3xl">
           Our current core team
         </h2>
@@ -239,7 +239,7 @@ export default function Home() {
         title="Are you interested in the role of open-source in the building
       industry? Get in touch with us today!"
       ></Section>
-      <Section color="primary">
+      <Section color="primary-500">
         &nbsp;
         <div className="py-12">
           <Button target={discordLink} type="primary">
@@ -248,9 +248,9 @@ export default function Home() {
         </div>
       </Section>
       {/* Tree shaking workaround */}
-      <div className="bg-osc-white"></div>
-      <div className="bg-osc-primary"></div>
-      <div className="bg-osc-gray-500"></div>
+      <div className="bg-white"></div>
+      <div className="bg-primary-500"></div>
+      <div className="bg-slate-300"></div>
     </div>
   );
 }
