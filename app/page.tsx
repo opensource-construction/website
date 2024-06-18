@@ -29,7 +29,7 @@ export default function Home() {
           We like disruptive innovation.
         </p>
         <p className="pb-10 text-4xl font-bold">
-          But we also believe in empowring people to improve everyday – not in
+          But we also believe in empowering people to improve everyday – not in
           theory, but in practise.
         </p>
       </Section>
