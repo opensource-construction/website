@@ -1,3 +1,5 @@
+"use client";
+
 import { TextField } from "../text-field";
 import { CheckboxField } from "../checkbox-field";
 import { Button } from "../button";
