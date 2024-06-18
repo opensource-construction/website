@@ -16,6 +16,12 @@ type Story = StoryObj<typeof Button>;
 
 export const Secondary: Story = {};
 
+export const Small: Story = {
+  args: {
+    size: "small",
+  },
+};
+
 export const Card: Story = {
   args: {
     type: "card",
