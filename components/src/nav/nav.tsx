@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { Menu, type MenuItem } from "../menu";
+import { Button } from "../button";
 
 type NavbarProps = {
   title: string;
@@ -20,7 +21,7 @@ export function Navbar({ title, logo, menuItems }: NavbarProps) {
         </h1>
       </div>
       <div className="flex-grow"></div>
-	  <div>
+      <div>
         <div className="-mt-4 text-right">
           <Button
             type="secondary"
