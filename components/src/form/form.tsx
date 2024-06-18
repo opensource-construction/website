@@ -19,6 +19,7 @@ export function Form({ action }: React.HTMLProps<"form">) {
           label="Organisation / Company"
           placeholder="ACME Inc"
         />
+        <TextField type="text" label="Message" size="medium" />
         <CheckboxField
           name="accept-toc"
           label="I agree to the privacy agreement"

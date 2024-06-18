@@ -35,6 +35,14 @@ export const Required: Story = {
   },
 };
 
+export const Long: Story = {
+  args: {
+    label: "Long Text",
+    placeholder: "Longform message...",
+    size: "medium",
+  },
+};
+
 export const Email: Story = {
   args: {
     label: "E-Mail address",

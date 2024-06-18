@@ -33,6 +33,14 @@ export const WithPlaceholder: Story = {
   },
 };
 
+export const Long: Story = {
+  args: {
+    label: "Long Text",
+    placeholder: "Longform message...",
+    size: "medium",
+  },
+};
+
 export const Email: Story = {
   args: {
     name: "e-mail",
