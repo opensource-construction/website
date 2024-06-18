@@ -1,4 +1,7 @@
 import svgTeam from "@/public/team.svg";
+import svgMission from "@/public/mission.svg";
+import svgActivities from "@/public/activities.svg";
+
 import { Card } from "@/components/src/card";
 import {
   Section,
@@ -9,9 +12,6 @@ import {
   FAQPartial,
 } from "@opensource-construction/components";
 import Image from "next/image";
-
-import missionSvg from "@/public/mission.svg";
-import activitiesSvg from "@/public/activities.svg";
 
 export default function Home() {
   const discordLink = process.env.DISCORD_LINK || "";
@@ -98,6 +98,15 @@ export default function Home() {
           <h3 className="font-bold lg:text-3xl">
             Making collaboration in the AECO tech communicty SUCCESSFUL
           </h3>
+          <div className="w-full">
+            <Image
+              src={svgMission}
+              alt="Users - Ecosystem - Developers"
+              width="750"
+              height="250"
+              className="m-auto"
+            />
+          </div>
         </div>
         <div className="pb-12">
           <Button target={discordLink} type="primary">
@@ -112,63 +121,51 @@ export default function Home() {
           </h3>
           <p>
             Open innovation has given rise to many of the software innovations
-            that are transforming the real estate and construction industry—from
-            the cloud, to big data, to simulation technologies. But all of these
-            came from outside. To spur this kind of innovation within our
-            industry, we first have to create the right environment for it. Our
-            goal is to break down barriers to collaboration—between stakeholders
-            along the value chain and even within individual firms—to enable the
-            cross-pollination of ideas necessary to spark transformative
-            solutions to shared problems.
+            that are transforming the real estate and construction industry —
+            from the cloud, to big data, to simulation technologies. But all of
+            these came from outside. To spur this kind of innovation within our
+            industry, we first have to create the right environment for it.
           </p>
           <p>
-            As a non-profit organisation, our Members’ contributions are the
-            fuel that help us garner contributions, promote adoption of our
-            projects and enable faster innovation in the industry through
-            collaborative resolution of AECO-wide challenges.
+            Our goal is to break down barriers to collaboration — between
+            stakeholders along the value chain and even within individual firms.
+            We do this to enable the cross-pollination of ideas necessary to
+            spark transformative solutions to shared problems.
           </p>
           <p>
-            Accordingly, the initiative’s activities revolve around the
-            following initiatives:
+            The role model for the opensource.construction initiative are
+            established open source foundations in the tech industry like the{" "}
+            <a href="https://www.linuxfoundation.org">LINUX foundation</a>, the{" "}
+            <a href="https://apache.org">APACHE foundation</a> or the{" "}
+            <a href="https://www.eclipse.org">ECLIPSE foundation</a>.
+          </p>
+          <p>
+            But you don&lsquo;t get there just like that. It takes time and
+            careful steps to continously grow and improve.
+          </p>
+          <p>
+            In the first phase, we focus on building infrastructure that is
+            needed to push open source and open collaboration in our industry.
+          </p>
+          <p>
+            We call it &ldquo;Innovation Infrastructure as a service&rdquo;. It
+            is there for you to make use of it and strive on your journey
+            towards empowered people throughout your organisation.
           </p>
         </div>
         <Card
           color="slate-300"
-          title="Making the potential of open source tangible"
+          title='opensource.construction delivers "innovation infrastructure as a service"'
         >
-          <p>
-            The concept of open source has many facets. The initiative organises
-            events and communicates via website and social media with the aim of
-            making the potential behind open source code, tools and mindset
-            tangible for all stakeholders in the construction industry.
-          </p>
-        </Card>
-        <Card color="slate-300" title="Connecting people">
-          <p>
-            People with ideas are looking for people to help them implement
-            them. Because they lack technical know-how. Because they lack the
-            finishing touches for the idea. Because they lack resources and know
-            that it is easier to do it together than alone.
-          </p>
-          <p>
-            For this reason, opensource.construction facilitates networking
-            among its members, other interested parties, experts, sponsors,
-            private companies, public institutions, other initiatives, and
-            political figures.
-          </p>
-        </Card>
-        <Card color="slate-300" title="Enabling open projects">
-          <p>
-            An open source solution is only a good solution if it is used. The
-            main goal of the initiative is to turn ideas into concrete
-            solutions.
-          </p>
-          <p>
-            To this end, the initiative provides the technical and
-            organisational infrastructure that is needed to set up a project
-            that often spans several companies. Another important aid: access to
-            funding that facilitates implementation.
-          </p>
+          <div className="w-full">
+            <Image
+              src={svgActivities}
+              alt="What we do"
+              width="1050"
+              height="250"
+              className="m-auto"
+            />
+          </div>
         </Card>
       </Section>
       <Section color="slate-300" fullWidth={true}>
@@ -187,20 +184,27 @@ export default function Home() {
             <h3 className="md:text-3xl">Who is behind the initiative?</h3>
             <p>
               opensource.construction is a non-profit organisation based in
-              Zurich, Switzerland, with active members across the globe.
+              Zurich, Switzerland.
             </p>
             <p>
-              Architects, urban developers, investors, engineers and planners as
-              well as computational designers, software engineers and tech geeks
-              are behind the opensource.construction initiative. Together, they
-              have the goal of advancing the topic of open source in the
-              construction industry and developing collaborative projects in
-              participatory processes. The community meets regularly digitally
-              and physically to discuss and further develop concrete approaches.
+              The initiative was launched by Maximilian Vomhof in 2022 - out of
+              frustration with the current status quo of innovation in the
+              construction industry and with a strong passion for open
+              collaboration.
+            </p>
+            <p>
+              Today, a group of committed individuals makes sure it grows slowly
+              but surely – always with a strong focus on delivering value to the
+              community of software developers, digital doers and established
+              organisations that seek to thrive.
+            </p>
+            <p>
+              We are open to anyone who wants to join or contribute – please
+              don&lsquo;t hesitate to get in touch!
             </p>
             <Button
               type="primary"
-              target=""
+              target="https://drive.google.com/file/d/14pFi9vAwXEtnuklz4I-W-e99vH0Y1QoG/view?usp=sharing"
               label="More about opensource.construction"
             />
             <Button
