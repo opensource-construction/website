@@ -39,7 +39,7 @@ export const Long: Story = {
   args: {
     label: "Long Text",
     placeholder: "Longform message...",
-    size: "medium",
+    sizeClass: "medium",
   },
 };
 

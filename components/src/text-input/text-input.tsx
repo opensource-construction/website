@@ -5,7 +5,7 @@ type TextInputProps = ComponentProps<"input"> &
   VariantProps<typeof variants> & {
     name: string;
     id?: string;
-    size?: "small" | "medium";
+    sizeClass?: "small" | "medium";
   };
 
 export const variants = cva(
@@ -33,11 +33,11 @@ export const TextInput = ({
   placeholder,
   id,
   variant = "default",
-  size = "small",
+  sizeClass = "small",
   disabled = false,
   ...props
 }: TextInputProps) => {
-  return size && size !== "small" ? (
+  return sizeClass && sizeClass !== "small" ? (
     <textarea
       name={name}
       id={id ? id : name}
@@ -47,7 +47,6 @@ export const TextInput = ({
       placeholder={placeholder}
       required={variant === "required"}
       disabled={variant === "disabled"}
-      {...props}
     ></textarea>
   ) : (
     <input

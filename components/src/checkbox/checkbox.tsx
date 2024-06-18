@@ -2,6 +2,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 
 type TextInputProps = VariantProps<typeof variants> & {
   name: string;
+  checked?: boolean;
   id?: string;
 };
 
@@ -15,8 +16,9 @@ export const variants = cva(["rounded-sm p-2 form-checkbox"], {
 });
 
 export const Checkbox = ({
-  id,
   name,
+  checked = false,
+  id,
   variant = "default",
   ...props
 }: TextInputProps) => {
@@ -27,6 +29,7 @@ export const Checkbox = ({
       type="checkbox"
       className={variants({ variant })}
       disabled={variant === "disabled"}
+      checked={checked}
       {...props}
     />
   );

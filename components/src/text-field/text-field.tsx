@@ -10,7 +10,7 @@ type TextFieldProps = ComponentProps<"input"> &
     placeholder?: string;
     details?: string;
     type?: "text" | "email";
-    size?: "small" | "medium";
+    sizeClass?: "small" | "medium";
   };
 
 export const variants = cva(
@@ -33,7 +33,7 @@ export const TextField = ({
   placeholder,
   variant = "default",
   type = "text",
-  size = "small",
+  sizeClass = "small",
   required = false,
   disabled = false,
   ...props
@@ -51,12 +51,12 @@ export const TextField = ({
         value={value}
         variant={variant}
         type={type}
-        size={size}
+        sizeClass={sizeClass}
         placeholder={placeholder ? placeholder : label}
         disabled={disabled}
         {...props}
       />
-      {details && <span className="text-slate-500 text-xs">{details}</span>}
+      {details && <span className="text-xs text-slate-500">{details}</span>}
     </label>
   );
 };
