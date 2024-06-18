@@ -20,11 +20,6 @@ export function TrainingsPartial() {
             world of open source tools and open data.
           </p>
         </div>
-        <div className="px-14 lg:w-5/12">
-          <div className="hidden aspect-square w-64 items-center justify-center rounded-full bg-black p-2 text-center text-lg text-white md:flex lg:w-full xl:text-xl">
-            Training in Open Source Tools
-          </div>
-        </div>
       </div>
     </div>
   );
