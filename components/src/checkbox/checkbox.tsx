@@ -29,7 +29,7 @@ export const Checkbox = ({
       type="checkbox"
       className={variants({ variant })}
       disabled={variant === "disabled"}
-      checked={checked}
+      defaultChecked={checked}
       {...props}
     />
   );
