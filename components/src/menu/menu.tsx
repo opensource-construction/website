@@ -17,7 +17,7 @@ export function Menu({ items }: { items: MenuItem[] }) {
         <ul className="flex">
           {items.map(({ name, target }) => {
             return (
-              <li key={target} className="mx-4 pt-2">
+              <li key={target} className="mx-4 pt-4">
                 <Link href={target} className="text-base font-bold lg:text-lg">
                   {name}
                 </Link>

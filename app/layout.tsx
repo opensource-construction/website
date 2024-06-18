@@ -57,6 +57,7 @@ export default function RootLayout({
           >
             <Button
               type="secondary"
+              size="small"
               target="https://answer.opensource.construction"
               label="Knowledge Hub"
             />

@@ -47,6 +47,7 @@ export const WithCTA: Story = {
     children: (
       <Button
         type="secondary"
+        size="small"
         label="Knowledge Hub"
         target="https://answer.opensource.construction"
       />
