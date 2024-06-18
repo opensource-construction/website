@@ -83,10 +83,10 @@ export default function Home() {
       </Section>
       <Section>
         <Image
-          src="/images/partials/AEC-Hackathon-091.jpg.webp"
+          src="/images/partials/AEC-Hackathon-091.jpg"
           alt="Opening event of the Zurich AEC Hackathon"
-          width="2400"
-          height="1200"
+          width="1440"
+          height="900"
           className="py-12"
         />
       </Section>
@@ -172,7 +172,7 @@ export default function Home() {
         <div className="flex flex-col gap-0 pb-24 lg:flex-row lg:gap-24">
           <div className="flex-1">
             <Image
-              src="/images/partials/Open-Source-Day-069.jpg.webp"
+              src="/images/partials/Open-Source-Day-069.jpg"
               alt="Opening event of the Zurich AEC Hackathon"
               width="1024"
               height="600"
