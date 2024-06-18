@@ -28,7 +28,7 @@ export const CheckboxField = ({
   ...props
 }: CheckboxFieldProps) => {
   return (
-    <label className="mb-4 flex flex-col gap-1.5">
+    <label className="mb-4 flex flex-row gap-1.5">
       <Checkbox
         id={slugify.default(label)}
         name={slugify.default(label)}
