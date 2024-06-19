@@ -1,25 +1,12 @@
 ---
 title: AEC Hackathon Zurich
 event:
-  # required: 02.02.2024 - 04.02.2024 (but not both)
-  # ideal to have: opensource.construction, Zurich Winterthur, past event
-  # automatically set: url
-  # all possible attributes: https://www.npmjs.com/package/ics#attributes
-  start: 2024-04-30T16:00:00+01:00
-  # duration can be combination of seconds, minutes, hours, days, weeks
+  start: 2024-02-02
   duration:
-    hours: 2
-  # address
-  location: ZHAW Winterthur
-  geo:
-    lon: -
-    lat: -
-  # can be TENTATIVE, CONFIRMED or CANCELLED
+    days: 2
   status: CONFIRMED
-  organizer:
-    email: max@opensource.construction
-    name: opensource.construction
 ---
+
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/gfpWFBZmtFc?si=ujykeyWYH7EaUYvl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
