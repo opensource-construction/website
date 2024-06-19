@@ -148,70 +148,68 @@ export function HeroPartial() {
       <div className="prose mx-auto mt-96 max-w-full px-4 md:px-8 lg:px-28">
         <div className="mx-auto lg:w-9/12">
           <h2 className="mb-6 text-xl md:text-3xl">
-            Open source in the construction industry
+            Together for an open, innovative construction industry
           </h2>
           <p>
-            The construction industry is characterized by numerous small and
-            medium-sized companies that operate locally, adhere to existing
-            standards, and have limited or no budget for research and
-            development – certainly not for the development of digital
-            solutions. Consequently, each company attempts to independently
-            invent and implement solutions with constrained resources and only
-            within their silo. As a result, it becomes challenging to
-            effectively address the upcoming challenges related to ambitious
-            cost and sustainability goals.
+            Open innovation has given rise to many of the software innovations
+            that are transforming the real estate and construction industry —
+            from the cloud, to big data, to simulation technologies. But all of
+            these came from outside. To spur this kind of innovation within our
+            industry, we first have to create the right environment for it.
           </p>
           <p>
-            However, this situation can serve as an exciting starting point for
-            developing user-oriented tools that transcend individual companies,
-            adopting an open-source mindset.
+            Our goal is to break down barriers to collaboration — between
+            stakeholders along the value chain and even within individual firms.
+            We do this to enable the cross-pollination of ideas necessary to
+            spark transformative solutions to shared problems.
+          </p>
+          <p>
+            Why is this important? Enabling all stakeholders to participate in
+            digital processes and operate on common, open standards is key –
+            otherwise, high quality data and automated processes will not be
+            possible to achieve, even with the best internal solutions.
           </p>
         </div>
         <div className="flex flex-col gap-4 lg:flex-row lg:gap-12">
-          <div className="lg:w-6/12">
-            <Image src={svgIntro} alt="Intro SVG" />
+          <div className="lg:w-5/12">
+            <Image src={svgIntro} alt="Intro SVG" className="max-h-96" />
           </div>
-          <div className="lg:w-6/12">
+          <div className="lg:w-7/12">
             <h3 className="md:text-2xl">
-              77% of code used in software projects around the world originated
-              from open source
+              Open Source Foundations create a neutral ground for collaboration
             </h3>
             <p>
-              Issues like low efficiency and duplication of efforts in
-              transformation processes are well known in other domains as well.
               By facilitating open collaboration across companies, the open
-              source movement has proven to be a powerful approach to enable
-              continuous improvement also with limited resources.
+              source movement has proven to be a powerful innovation engine with
+              a strong focus on common standards and open tools – the modern web
+              as an example can not be imagined without these.
             </p>
             <p>
-              The movement has changed the way modern software is created.
-              Rather than re-implementing basic features again and again, the
-              limited number of developers within an organisation can focus on
-              features that are differentiating for the company in the market.
+              Therefore, the role model for the opensource.construction
+              initiative are established open source foundations in the tech
+              industry like the{" "}
+              <a href="https://www.linuxfoundation.org">LINUX foundation</a>,
+              the <a href="https://apache.org">APACHE foundation</a> or the{" "}
+              <a href="https://www.eclipse.org">ECLIPSE foundation</a>.
             </p>
-            <p>The key arguments to leverage open source are:</p>
-            <ul className="list-none pl-0">
-              <li>👉 do more with the same budget</li>
-              <li>👉 reduce maintenance efforts</li>
-              <li>👉 improve continuously</li>
-              <li>👉 attract (and keep) talents </li>
-              <li>👉 innovate faster</li>
-            </ul>
           </div>
         </div>
-        <div className="mx-auto lg:w-9/12">
-          <h3 className="md:text-2xl">Collaboration as an unfair advantage</h3>
+        <div className="mx-auto mb-36 lg:w-9/12">
+          <h3 className="md:text-2xl">Growing slowly but surely</h3>
           <p>
-            By institutionalising open collaboration across companies with
-            concrete output (code), open source has evolved into a movement that
-            extends beyond software development. The open source approach
-            doesn’t imply that everyone in the construction industry must learn
-            programming and become a geek. Quite the opposite, collaborative
-            development allows individuals to contribute their unique strengths
-            in the most effective manner possible. For some, this may involve
-            providing feedback on content while others may contribute in project
-            organization, software development or financial support to specific
-            projects.
+            In the first phase, we focus on building infrastructure that is
+            needed to make existing projects, communities and people visible.
+          </p>
+          <p>
+            Then, facilitating the launch of new communities and projects is
+            high on our list. Hosting these on neutral ground and enabling
+            reliability and accountability can be really relevant – as long as
+            there is need. Don&lsquo;t hesitate and get in touch, we would love
+            to hear your thoughts on this.
+          </p>
+          <p>
+            For now, let&lsquo;s make the most out of our marketplace, the
+            knowledge hub and the training section!
           </p>
         </div>
       </div>

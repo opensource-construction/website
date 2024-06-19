@@ -25,9 +25,9 @@ export default function Home() {
       <Section fullWidth={true}>
         <HeroPartial />
       </Section>
-      <Section>
+      {/* <Section>
         <FAQPartial />
-      </Section>
+      </Section> */}
       <Section color="primary-500">
         <p className="pb-4 pt-10 text-2xl font-bold">
           We like disruptive innovation.
@@ -112,63 +112,6 @@ export default function Home() {
             />
           </div>
         </div>
-      </Section>
-      <Section fullWidth={true}>
-        <div className="prose px-4 py-8 md:px-10 lg:px-28">
-          <h3 className="md:text-3xl ">
-            Together for an open, innovative construction industry.
-          </h3>
-          <p>
-            Open innovation has given rise to many of the software innovations
-            that are transforming the real estate and construction industry —
-            from the cloud, to big data, to simulation technologies. But all of
-            these came from outside. To spur this kind of innovation within our
-            industry, we first have to create the right environment for it.
-          </p>
-          <p>
-            Our goal is to break down barriers to collaboration — between
-            stakeholders along the value chain and even within individual firms.
-            We do this to enable the cross-pollination of ideas necessary to
-            spark transformative solutions to shared problems.
-          </p>
-          <p>
-            The role model for the opensource.construction initiative are
-            established open source foundations in the tech industry like the{" "}
-            <a href="https://www.linuxfoundation.org">LINUX foundation</a>, the{" "}
-            <a href="https://apache.org">APACHE foundation</a> or the{" "}
-            <a href="https://www.eclipse.org">ECLIPSE foundation</a>.
-          </p>
-          <p>
-            But you don&lsquo;t get there just like that. It takes time and
-            careful steps to continously grow and improve.
-          </p>
-          <p>
-            In the first phase, we focus on building infrastructure that is
-            needed to push open source and open collaboration in our industry.
-          </p>
-          <p>
-            We call it &ldquo;Innovation Infrastructure as a service&rdquo;. It
-            is there for you to make use of it and strive on your journey
-            towards empowered people throughout your organisation.
-          </p>
-          <Button target={discordLink} type="primary">
-            Any questions? We are here to help!
-          </Button>
-        </div>
-        <Card
-          color="slate-300"
-          title='opensource.construction delivers "innovation infrastructure as a service"'
-        >
-          <div className="w-full">
-            <Image
-              src={svgActivities}
-              alt="What we do"
-              width="1050"
-              height="250"
-              className="m-auto"
-            />
-          </div>
-        </Card>
       </Section>
       <Section color="slate-300" fullWidth={true}>
         <div className="flex flex-col gap-0 pb-24 lg:flex-row lg:gap-24">
