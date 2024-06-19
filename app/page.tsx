@@ -112,11 +112,6 @@ export default function Home() {
             />
           </div>
         </div>
-        <div className="pb-12">
-          <Button target={discordLink} type="primary">
-            Any questions? We are here to help!
-          </Button>
-        </div>
       </Section>
       <Section fullWidth={true}>
         <div className="prose px-4 py-8 md:px-10 lg:px-28">
@@ -156,6 +151,9 @@ export default function Home() {
             is there for you to make use of it and strive on your journey
             towards empowered people throughout your organisation.
           </p>
+          <Button target={discordLink} type="primary">
+            Any questions? We are here to help!
+          </Button>
         </div>
         <Card
           color="slate-300"
