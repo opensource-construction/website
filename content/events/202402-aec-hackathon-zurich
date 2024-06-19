@@ -1,1 +1,91 @@
+---
+title: AEC Hackathon Zurich
+event:
+  # required: 02.02.2024 - 04.02.2024 (but not both)
+  # ideal to have: opensource.construction, Zurich Winterthur, past event
+  # automatically set: url
+  # all possible attributes: https://www.npmjs.com/package/ics#attributes
+  start: 2024-04-30T16:00:00+01:00
+  # duration can be combination of seconds, minutes, hours, days, weeks
+  duration:
+    hours: 2
+  # address
+  location: ZHAW Winterthur
+  geo:
+    lon: -
+    lat: -
+  # can be TENTATIVE, CONFIRMED or CANCELLED
+  status: CONFIRMED
+  organizer:
+    email: max@opensource.construction
+    name: opensource.construction
+---
+
+It’s done!
+
+We are still a bit hyped from the overwhelmingly positive feedback we got 🙏.
+
+What made the event so special was the great mix of people we had on site.
+We welcomed around 250 participants and visitors.
+From Switzerland and all over Europe to Canada and India.
+From users to coders to #opensource solution providers to decision makers.
+
+Many came as first time hackers and many as first time open sourcers.
+Many left as keen enthusiasts 💪.
+
+👉 Here is a [link](https://drive.google.com/drive/folders/125QyjKjOee__k1lwp65jVWf7a5llrYvC?usp=sharing) to pictures from the event.
+
+It’s stunning to see what’s possible if a group of motivated individuals from different companies aligns on one goal and truly collaborates on a weekend. The degree of self organisation, the quality of the prototypes and the tools that are available today is nothing else than amazing 🚀.
+
+Everyone who participated in the Hack throughout the weekend can consider himself / herself a #winner. 20 (!) teams presented their work. Four teams got a special recognition from the jury members Edyta Augustynowicz, Philippe Block and Yashar Moradi.
+
+Here are the links to the final presentations:
+
+“Best overall project”:
+
+👉 [Team Identity](https://www.youtube.com/watch?v=z7B4WkNWfec&amp;list=PLS51jaYlMvfu0c1UYTqfU0YrdlWXLBo42&amp;index=15)
+
+“Best Hack for Humanity”:
+
+👉 [SIA_GPT Team 1](https://www.youtube.com/watch?v=iNwVwQ0YEbA&amp;list=PLS51jaYlMvfu0c1UYTqfU0YrdlWXLBo42&amp;index=7)
+
+“Best Mash-Up Project”:
+
+👉 [LCA Miro](https://www.youtube.com/watch?v=eSaVuwWMKCw&amp;list=PLS51jaYlMvfu0c1UYTqfU0YrdlWXLBo42&amp;index=13)
+
+“Best project that solves a big AEC problem”:
+
+👉 [Autodesk Cloud Speckle Connector](https://www.youtube.com/watch?v=h4j8Buya0w4&amp;list=PLS51jaYlMvfu0c1UYTqfU0YrdlWXLBo42&amp;index=16)
+
+👉 [BOOM](https://www.youtube.com/watch?v=I3ZKIVTPO9c&amp;list=PLS51jaYlMvfu0c1UYTqfU0YrdlWXLBo42&amp;index=18)
+
+
+
+
+
+Teaser and description of the event. What is the agenda?
+
+## Organiser
+
+Who is organising the event?
+
+## Location
+
+Where is the event happening?
+
+Bryghuspladsen 8<br />
+3rd floor<br />
+DK-1473 Copenhagen
+
+## Date
+
+April 30, 2024<br />
+16:00 – 18:00
+
+<Button
+  href="https://bloxhub.org/event/open-source-in-aec/"
+  label="Sign up here"
+  type="primary"
+  icon="right"
+/>
 
