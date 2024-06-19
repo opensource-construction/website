@@ -15,6 +15,7 @@ export const variants = cva(
     variants: {
       variant: {
         default: [],
+        required: [],
         disabled: [],
       },
     },
@@ -35,7 +36,10 @@ export const CheckboxField = ({
         variant={variant}
         {...props}
       />
-      <span className={variants({ variant })}>{label}</span>
+      <span className={variants({ variant })}>
+        {label}
+        {variant === "required" ? "*" : undefined}
+      </span>
     </label>
   );
 };

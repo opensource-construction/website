@@ -25,6 +25,7 @@ export function Form({ action }: React.HTMLProps<"form">) {
         <CheckboxField
           name="accept-toc"
           label="I agree to the privacy agreement"
+          required={true}
         />
         <Button type="submit" label="Register now" />
       </div>

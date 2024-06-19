@@ -46,8 +46,8 @@ export const TextField = ({
       </span>
 
       <TextInput
-        id={slugify.default(label)}
-        name={slugify.default(label)}
+        id={slugify.default(label).toLowerCase()}
+        name={slugify.default(label).toLowerCase()}
         value={value}
         variant={variant}
         type={type}

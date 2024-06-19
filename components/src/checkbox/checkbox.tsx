@@ -10,6 +10,7 @@ export const variants = cva(["rounded-sm p-2 form-checkbox"], {
   variants: {
     variant: {
       default: ["border-gray-300 bg-gray-100 text-black"],
+      required: ["border-gray-300 bg-gray-100 text-black"],
       disabled: ["border-gray-100 bg-gray-50"],
     },
   },
@@ -28,6 +29,7 @@ export const Checkbox = ({
       id={id ? id : name}
       type="checkbox"
       className={variants({ variant })}
+      required={variant === "required"}
       disabled={variant === "disabled"}
       defaultChecked={checked}
       {...props}
