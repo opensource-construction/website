@@ -10,10 +10,14 @@ import {
   HeroPartial,
   ProjectsPartial,
   FAQPartial,
+  Form,
 } from "@opensource-construction/components";
 import Image from "next/image";
 
+import { saveForm } from "./actions";
+
 export default function Home() {
+  const saveFormWithRoute = saveForm.bind(null, "/");
   const discordLink = process.env.DISCORD_LINK || "";
 
   return (
@@ -253,11 +257,14 @@ export default function Home() {
           />
         </Card>
       </Section>
-      <Section
-        title="Are you interested in the role of open-source in the building
-      industry? Get in touch with us today!"
-      ></Section>
-      <Section color="primary-500">
+      <Section>
+        <div className="prose">
+          <h2>
+            Are you interested in the role of open-source in the building
+            industry? Get in touch with us today!
+          </h2>
+          <Form action={saveFormWithRoute} />
+        </div>
         &nbsp;
         <div className="py-12">
           <Button target={discordLink} type="primary">
