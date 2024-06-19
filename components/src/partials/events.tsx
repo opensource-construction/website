@@ -12,6 +12,7 @@ export function EventsPartial({ showPast = false }: { showPast?: boolean }) {
       event.title = e.metadata.title;
       event.slug = e.slug;
 
+      event.startDate = eventStart;
       event.start = Intl.DateTimeFormat("en-UK", {
         dateStyle: "short",
         timeZone: "Europe/Zurich",
@@ -20,7 +21,7 @@ export function EventsPartial({ showPast = false }: { showPast?: boolean }) {
 
       return event;
     })
-    .sort((a, b) => (a.start < b.start ? 1 : -1))
+    .sort((a, b) => (a.startDate < b.startDate ? 1 : -1))
     .filter((e) => (e.isPast && showPast) || (!e.isPast && !showPast));
 
   return (
