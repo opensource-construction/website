@@ -1,8 +1,25 @@
 "use server";
 
+import { GoogleSpreadsheet } from "google-spreadsheet";
+import { JWT } from "google-auth-library";
 import { z } from "zod";
 
 export async function saveForm(route: string, formData: FormData) {
+  const serviceAccountAuth = new JWT({
+    email: process.env.GOOGLE_CLIENT_EMAIL,
+    key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, "\n"),
+    scopes: [
+      "https://www.googleapis.com/auth/spreadsheets",
+      "https://www.googleapis.com/auth/drive.file",
+    ],
+  });
+
+  const documentId = process.env.GOOGLE_DOCUMENT_ID || "";
+  const sheetId = process.env.GOOGLE_SHEET_ID || 0;
+  const document = new GoogleSpreadsheet(documentId, serviceAccountAuth);
+  await document.loadInfo();
+  const sheet = document.sheetsById[+sheetId];
+
   console.log(formData);
   const schema = z.object({
     firstname: z
@@ -48,5 +65,9 @@ export async function saveForm(route: string, formData: FormData) {
     };
   }
 
-  console.log(route, validatedFields);
+  await sheet.addRow({
+    created_at: new Date(),
+    route,
+    ...validatedFields.data,
+  });
 }
