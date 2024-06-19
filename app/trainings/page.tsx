@@ -5,7 +5,7 @@ import { TrainingCard } from "@/components/src/trainingCard";
 export default function Trainings() {
   let trainings = getPosts("trainings");
   return (
-    <div className="prose-h2:mt-0 md:prose-h2:text-2xl md:prose-h3:text-xl">
+    <div className="mt-28 prose-h2:mt-0 md:mt-0 md:prose-h2:text-2xl md:prose-h3:text-xl">
       <Section>
         <TrainingsPartial />
       </Section>

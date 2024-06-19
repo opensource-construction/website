@@ -20,7 +20,7 @@ export default function Home() {
   const discordLink = process.env.DISCORD_LINK || "";
 
   return (
-    <div>
+    <div className="mt-28 md:mt-0">
       <Section fullWidth={true}>
         <HeroPartial />
       </Section>

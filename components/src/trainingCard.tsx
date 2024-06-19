@@ -20,9 +20,9 @@ export function TrainingCard({
 }: TrainingCardProps) {
   return (
     <div className={`bg-${color}`}>
-      <div className="mb-8 flex flex-row p-5">
+      <div className="mb-8 flex flex-col p-5 md:flex-row">
         <div className="mr-4">
-          <h4 className="mb-2 mt-0 text-xl">{title}</h4>
+          <h4 className="mb-2 mt-0 text-xl font-bold">{title}</h4>
           <div className="mb-4">{subtitle}</div>
           <div className="mb-12">Taught by: {author}</div>
           {slug ? (
@@ -34,7 +34,13 @@ export function TrainingCard({
           ) : null}
         </div>
         {image ? (
-          <Image alt={title} src={image} width={300} height={300} />
+          <Image
+            alt={title}
+            src={image}
+            width={300}
+            height={300}
+            className="mt-8 md:mt-0"
+          />
         ) : null}
       </div>
     </div>

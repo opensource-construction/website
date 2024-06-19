@@ -13,7 +13,7 @@ type NavbarProps = {
 
 export function Navbar({ title, logo, menuItems, children }: NavbarProps) {
   return (
-    <nav className="fixed top-0 z-30 flex justify-between p-6 md:relative md:p-10">
+    <nav className="fixed top-0 z-30 flex w-full justify-between p-6 md:relative md:p-10">
       <div className="h-24 w-14 md:w-48">
         <h1>
           <Link href="/" title={title}>
@@ -22,7 +22,7 @@ export function Navbar({ title, logo, menuItems, children }: NavbarProps) {
         </h1>
       </div>
       <div className="flex-grow"></div>
-      <div>
+      <div className="flex flex-row">
         <div className="-mt-2 h-4 text-right md:h-12">{children}</div>
         <Menu items={menuItems} />
       </div>

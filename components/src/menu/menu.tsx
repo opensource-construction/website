@@ -30,13 +30,13 @@ export function Menu({ items }: { items: MenuItem[] }) {
         <a
           onClick={() => setMenuOpen(!menuOpen)}
           data-testid="hamburger-menu"
-          className=""
+          className="ml-2 mt-2 block h-9 w-14 bg-slate-300 pt-1 text-center align-middle"
         >
           {menuOpen ? "Close" : "Menu"}
         </a>
       </div>
       {menuOpen ? (
-        <div className="bg-osc-white fixed left-0 top-20 z-40 block h-screen w-screen p-0 md:hidden">
+        <div className="fixed left-0 top-20 z-40 block h-screen w-screen bg-white p-0 md:hidden">
           <div className="m-auto block text-center align-middle">
             {items.map(({ name, target }) => {
               return (
