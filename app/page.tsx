@@ -264,6 +264,8 @@ export default function Home() {
           <Form action={saveFormWithRoute} />
         </div>
         &nbsp;
+      </Section>
+      <Section color="primary-500">
         <div className="py-12">
           <Button target={discordLink} type="primary">
             Talk to us on discord

@@ -8,7 +8,10 @@ export function Footer() {
         <ul className="flex flex-col justify-between text-right text-sm md:flex-row">
           <li>© opensource.construction</li>
           <li>
-            <Link href="/imprint-and-data-protection/" className="md:ml-12">
+            <Link
+              href="/page/imprint-and-data-protection/"
+              className="md:ml-12"
+            >
               Imprint & Data Protection
             </Link>
           </li>
