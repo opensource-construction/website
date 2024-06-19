@@ -1,6 +1,5 @@
 import svgTeam from "@/public/team.svg";
 import svgMission from "@/public/mission.svg";
-import svgActivities from "@/public/activities.svg";
 
 import { Card } from "@/components/src/card";
 import {
@@ -56,12 +55,12 @@ export default function Home() {
           </p>
           <div className="pt-4">
             <Button
-              target="https://www.opensource.construction/#"
+              target="/#contact-us"
               label="Want to submit a project yourself?"
               type="primary"
             />
             <Button
-              target="https://www.opensource.construction/#"
+              target="/#contact-us"
               label="Want to submit a challenge?"
               type="primary"
             />
@@ -100,7 +99,7 @@ export default function Home() {
             Our mission at opensource.construction
           </p>
           <h3 className="font-bold lg:text-3xl">
-            Making collaboration in the AECO tech communicty SUCCESSFUL
+            Making collaboration in the AECO tech community SUCCESSFUL
           </h3>
           <div className="w-full">
             <Image
@@ -200,6 +199,7 @@ export default function Home() {
       </Section>
       <Section>
         <div className="prose">
+          <a id="contact-us"></a>
           <h2>
             Are you interested in the role of open-source in the building
             industry? Get in touch with us today!

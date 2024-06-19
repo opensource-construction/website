@@ -194,7 +194,7 @@ export function HeroPartial() {
             </p>
           </div>
         </div>
-        <div className="mx-auto mb-36 lg:w-9/12">
+        <div className="mx-auto mb-12 lg:w-9/12">
           <h3 className="md:text-2xl">Growing slowly but surely</h3>
           <p>
             In the first phase, we focus on building infrastructure that is
