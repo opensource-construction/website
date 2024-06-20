@@ -12,7 +12,7 @@ export default function ClusterPage() {
             <Section title="Clusters" className="mb-32">
                 {clusters.map(
                     (
-                        { slug, metadata: { title, description, author, image } },
+                        { slug, metadata: { title, description, image } },
                         index,
                     ) => (
                         <ClusterCard
@@ -20,7 +20,6 @@ export default function ClusterPage() {
                             slug={slug}
                             title={title}
                             subtitle={description}
-                            author={author}
                             image={image}
                         />
                     ),
