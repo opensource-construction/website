@@ -1,18 +1,9 @@
+/* eslint-disable storybook/prefer-pascal-case */
+
 import { Button } from "./button";
 import type { Meta, StoryObj } from "@storybook/react";
 
-/**
- * The metadata for the Button component story.
- *
- * @type {Object}
- * @property {string} title - The title of the story.
- * @property {React.ComponentType} component - The Button component.
- * @property {Object} args - The arguments for the Button component.
- * @property {React.ReactNode} args.children - The children of the Button component.
- * @property {string} args.type - The type of the Button component.
- * @property {Object} argTypes - The argument types for the Button component.
- */
-export const ButtonMetadata: Meta = {
+export const meta = {
   title: "Components/Atoms/Button",
   component: Button,
   args: {
@@ -22,7 +13,7 @@ export const ButtonMetadata: Meta = {
   argTypes: {},
 };
 
-export default ButtonMetadata;
+export default meta;
 
 /**
  * Represents a story object for the Button component.

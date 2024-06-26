@@ -2,19 +2,7 @@ import { Card } from "./card";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
-/**
- * Metadata for the Card component story.
- *
- * @typedef {Object} Meta
- * @property {string} title - The title of the story.
- * @property {React.ComponentType} component - The Card component.
- * @property {Object} args - The arguments for the story.
- * @property {string} args.title - The title of the Card component.
- * @property {string} args.color - The color of the Card component.
- * @property {Object} argTypes - The argument types for the story.
- */
-
-const CardMeta = {
+const meta = {
   title: "Components/Molecules/Card",
   component: Card,
   args: {
@@ -24,7 +12,7 @@ const CardMeta = {
   argTypes: {},
 } satisfies Meta;
 
-export default CardMeta;
+export default meta;
 
 /**
  * Represents a story object for the Card component.
