@@ -19,7 +19,7 @@ const ContactCard = (contactProps: ContactProps) => {
             <div className="flex-wrap">
 
                 <img src={`images/team/${contactProps.image}`} alt={contactProps.name}
-                     className="w-24 h-24 m-6 rounded-full border border-slate-500 shadow-lg"/>
+                     className="w-24 h-24 min-w-24 m-6 rounded-full border border-slate-500 shadow-lg object-contain"/>
                 <CountryFlag countryCode={contactProps.country}
                              className="w-10 h-10 rounded-full ml-24 -mt-12 shadow-lg"/>
             </div>

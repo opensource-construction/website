@@ -1,6 +1,4 @@
 import svgMission from "@/public/mission.svg";
-
-import { Card } from "@/components/src/card";
 import {
     Button,
     EventsPartial,
@@ -11,9 +9,11 @@ import {
 } from "@opensource-construction/components";
 import Image from "next/image";
 import team from "../content/team.json";
+import partners from "../content/partners.json";
 
 import { saveForm } from "./actions";
 import ContactCard from "@/components/src/contactCard";
+import PartnerCard from "@/components/src/partnerCard";
 
 export default function Home() {
     const saveFormWithRoute = saveForm.bind(null, "/");
@@ -169,31 +169,29 @@ export default function Home() {
                     ))}
                 </div>
             </Section>
-            <Section title="Community Partner">
-                <Card title="OSArch" type="partner">
-                    <Image
-                        src="/osarch.webp"
-                        alt="OpenData Logo"
-                        width={285}
-                        height={133}
-                    />
-                </Card>
-                <Card title="Opendata.ch" type="partner">
-                    <Image
-                        src="/opendata.webp"
-                        alt="OpenData Logo"
-                        width={285}
-                        height={133}
-                    />
-                </Card>
-                <Card title="CH Open" type="partner">
-                    <Image
-                        src="/ch-open.webp"
-                        alt="CH Open Logo"
-                        width={285}
-                        height={133}
-                    />
-                </Card>
+            <Section>
+                <div className="pb-24 pt-12 text-center">
+                    <p className="text-sm md:text-base lg:text-2xl">
+                        Our Partners
+                    </p>
+                    <h3 className="font-bold lg:text-2xl my-10">
+                        Community Partners
+                    </h3>
+                    <div className="flex flex-wrap justify-center">
+                        {partners.filter(partner => partner.type === "community").map((partner) => (
+                            <PartnerCard key={partner.logo} {...partner} />
+                        ))};
+                    </div>
+
+                    <h3 className="font-bold lg:text-2xl my-10">
+                        Industry Partners
+                    </h3>
+                    <div className="flex flex-wrap justify-center">
+                        {partners.filter(partner => partner.type === "industry").map((partner) => (
+                            <PartnerCard key={partner.logo} {...partner} />
+                        ))};
+                    </div>
+                </div>
             </Section>
             <Section>
                 <div className="prose">
