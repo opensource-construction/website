@@ -57,5 +57,3 @@ export const Button = ({
     </div>
   );
 };
-
-export default Button; // TODO: @n0rdlicht do we want to use default exports or index named exports as a convention?
