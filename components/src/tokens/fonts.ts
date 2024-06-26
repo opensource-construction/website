@@ -1,5 +1,8 @@
 import localFont from "next/font/local";
 
+/**
+ * Represents the Corbert font.
+ */
 export const corbert = localFont({
   src: [
     {

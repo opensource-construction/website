@@ -1,7 +1,20 @@
-import type { Meta, StoryObj } from "@storybook/react";
 import { Card } from "./card";
 
-const meta = {
+import type { Meta, StoryObj } from "@storybook/react";
+
+/**
+ * Metadata for the Card component story.
+ *
+ * @typedef {Object} Meta
+ * @property {string} title - The title of the story.
+ * @property {React.ComponentType} component - The Card component.
+ * @property {Object} args - The arguments for the story.
+ * @property {string} args.title - The title of the Card component.
+ * @property {string} args.color - The color of the Card component.
+ * @property {Object} argTypes - The argument types for the story.
+ */
+
+const CardMeta = {
   title: "Components/Molecules/Card",
   component: Card,
   args: {
@@ -11,11 +24,21 @@ const meta = {
   argTypes: {},
 } satisfies Meta;
 
-export default meta;
+export default CardMeta;
+
+/**
+ * Represents a story object for the Card component.
+ */
 type Story = StoryObj<typeof Card>;
 
+/**
+ * Default story for the card component.
+ */
 export const Default: Story = {};
 
+/**
+ * Represents an event card story.
+ */
 export const EventCard: Story = {
   args: {
     title: "Example Event",
@@ -31,6 +54,9 @@ export const EventCard: Story = {
   },
 };
 
+/**
+ * Represents a story for the ProjectCard component.
+ */
 export const ProjectCard: Story = {
   args: {
     title: "Example Project",
@@ -39,6 +65,9 @@ export const ProjectCard: Story = {
   },
 };
 
+/**
+ * Represents a story for the FAQ card component.
+ */
 export const FAQCard: Story = {
   args: {
     title: "Example Question",
@@ -47,4 +76,13 @@ export const FAQCard: Story = {
   },
 };
 
-// TODO: add partner type
+/**
+ * Represents a story for the Partner card component.
+ */
+export const PartnerCard: Story = {
+  args: {
+    title: "Example Partner",
+    type: "partner",
+    slug: "example-partner-slug",
+  },
+};
