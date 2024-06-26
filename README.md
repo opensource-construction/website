@@ -19,6 +19,14 @@ The information about the core members are stored in JSON format under [content/
 Each team member should also include a picture inside `public/images/team`.
 
 
+### To edit the partners
+The information about the partners are stored in JSON format under [content/partners.json](/content/partners.json).
+
+Each partner can have a type: `community`, `industry` or `academia`.
+
+Each partner should also include a logo inside `public/images/partners`.
+
+
 ### New event or project
 
 To publish a new event or projectx:

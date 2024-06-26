@@ -21,7 +21,13 @@
     "name": "NCCR Digital Fabrication",
     "logo": "dfab.png",
     "url": "https://www.dfab.ch",
-    "type": "industry"
+    "type": "academia"
+  },
+  {
+    "name": "ZHAW",
+    "logo": "zhaw.png",
+    "url": "https://www.zhaw.ch/de/archbau/",
+    "type": "academia"
   },
   {
     "name": "Compas",

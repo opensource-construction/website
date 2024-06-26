@@ -175,21 +175,30 @@ export default function Home() {
                         Our Partners
                     </p>
                     <h3 className="font-bold lg:text-2xl my-10">
-                        Community Partners
+                        Community
                     </h3>
                     <div className="flex flex-wrap justify-center">
                         {partners.filter(partner => partner.type === "community").map((partner) => (
                             <PartnerCard key={partner.logo} {...partner} />
-                        ))};
+                        ))}
                     </div>
 
                     <h3 className="font-bold lg:text-2xl my-10">
-                        Industry Partners
+                        Industry
                     </h3>
                     <div className="flex flex-wrap justify-center">
                         {partners.filter(partner => partner.type === "industry").map((partner) => (
                             <PartnerCard key={partner.logo} {...partner} />
-                        ))};
+                        ))}
+                    </div>
+
+                    <h3 className="font-bold lg:text-2xl my-10">
+                        Academia
+                    </h3>
+                    <div className="flex flex-wrap justify-center">
+                        {partners.filter(partner => partner.type === "academia").map((partner) => (
+                            <PartnerCard key={partner.logo} {...partner} />
+                        ))}
                     </div>
                 </div>
             </Section>
