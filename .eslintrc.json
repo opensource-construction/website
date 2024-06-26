@@ -1,3 +1,12 @@
+/**
+ * Configuration file for ESLint.
+ *
+ * This file specifies the ESLint rules and configurations for the project.
+ * It extends the following configurations:
+ * - next/core-web-vitals: Configurations for Next.js core web vitals.
+ * - plugin:mdx/recommended: Configurations for MDX files.
+ * - plugin:storybook/recommended: Configurations for Storybook.
+ */
 {
   "extends": [
     "next/core-web-vitals",

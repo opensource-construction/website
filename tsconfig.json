@@ -1,26 +1,102 @@
+/**
+ * TypeScript configuration file for the project.
+ *
+ * This file specifies the compiler options and settings for the TypeScript compiler.
+ * It is used to configure how TypeScript code is transpiled into JavaScript.
+ *
+ * @module tsconfig
+ * @see {@link https://www.typescriptlang.org/tsconfig}
+ */
+
 {
+  // Compiler options
   "compilerOptions": {
+    /**
+     * The libraries to include when compiling the TypeScript code.
+     * In this case, it includes the DOM, DOM Iterable, and ESNext libraries.
+     */
     "lib": ["dom", "dom.iterable", "esnext"],
+
+    /**
+     * Allows JavaScript files to be included in the TypeScript project.
+     */
     "allowJs": true,
+
+    /**
+     * Skips type checking of all declaration files (*.d.ts).
+     */
     "skipLibCheck": true,
+
+    /**
+     * Enables strict type checking.
+     */
     "strict": true,
+
+    /**
+     * Does not emit any JavaScript files during the compilation process.
+     */
     "noEmit": true,
+
+    /**
+     * Enables interoperability between CommonJS and ES Modules.
+     */
     "esModuleInterop": true,
+
+    /**
+     * Specifies the module system for the generated JavaScript code.
+     * In this case, it uses ES Modules.
+     */
     "module": "esnext",
+
+    /**
+     * Specifies the module resolution strategy.
+     * In this case, it uses a bundler for module resolution.
+     */
     "moduleResolution": "bundler",
+
+    /**
+     * Allows importing JSON files as modules.
+     */
     "resolveJsonModule": true,
+
+    /**
+     * Treats each file as a separate module.
+     */
     "isolatedModules": true,
+
+    /**
+     * Specifies the JSX factory function to use.
+     * In this case, it preserves the JSX syntax.
+     */
     "jsx": "preserve",
+
+    /**
+     * Enables incremental compilation.
+     */
     "incremental": true,
+
+    /**
+     * Specifies the plugins to use during compilation.
+     * In this case, it includes the "next" plugin.
+     */
     "plugins": [
       {
         "name": "next"
       }
     ],
+
+    /**
+     * Specifies the path mappings for module resolution.
+     * In this case, it maps the "@" symbol to the current directory.
+     */
     "paths": {
       "@/*": ["./*"]
     }
   },
+
+  // Files to include in the compilation process
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+
+  // Files to exclude from the compilation process
   "exclude": ["node_modules"]
 }

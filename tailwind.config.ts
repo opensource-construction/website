@@ -9,6 +9,9 @@ import {
   transparent,
 } from "./components/src/tokens/colors";
 
+/**
+ * Tailwind CSS configuration object.
+ */
 const config: Config = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",

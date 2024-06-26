@@ -1,21 +1,34 @@
+# This workflow is used to run Chromatic, a visual regression testing tool, when a push event occurs.
+
 name: "Chromatic"
 
 on: push
 
 jobs:
   chromatic:
+    # Description: This workflow runs Chromatic, a visual regression testing tool, on the latest version of Ubuntu.
     name: Run Chromatic
     runs-on: ubuntu-latest
+    # This workflow file contains steps to build and test the website using Chromatic.
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+        # This step checks out the code from the repository.
+
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+        # This step sets up the Node.js environment with version 20.
+
       - name: Install dependencies
         run: npm ci
+        # This step installs the project dependencies using npm ci.
+      # Runs Chromatic for visual regression testing.
+      # This step uses the chromaui/action GitHub Action to run Chromatic.
+      # It requires the CHROMATIC_PROJECT_TOKEN secret to be set in the repository's secrets.
       - name: Run Chromatic
         uses: chromaui/action@latest
         with:

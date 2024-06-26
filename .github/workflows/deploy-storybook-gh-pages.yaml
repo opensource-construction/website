@@ -1,3 +1,6 @@
+# This workflow is triggered when a push event occurs on the "main" branch.
+# It builds and publishes Storybook to GitHub Pages.
+
 name: Build and Publish Storybook to GitHub Pages
 
 on:
@@ -5,6 +8,7 @@ on:
     branches:
       - "main"
 
+# Define the required permissions for the workflow.
 permissions:
   contents: read
   pages: write
@@ -15,14 +19,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # Manual Checkout
+      # Check out the repository to the runner's workspace.
       - uses: actions/checkout@v4
 
       # Set up Node
+      # Set up Node.js environment with the specified version.
       - uses: actions/setup-node@v4
         with:
           node-version: "20.x"
 
       #👇 Add Storybook build and deploy to GitHub Pages as a step in the workflow
+      # Use the "bitovi/github-actions-storybook-to-github-pages" action to build and deploy Storybook to GitHub Pages.
+      # The built Storybook files will be located in the "storybook-static" directory.
       - uses: bitovi/github-actions-storybook-to-github-pages@v1.0.3
         with:
           path: storybook-static

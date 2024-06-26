@@ -1,3 +1,16 @@
+/**
+ * Configuration file for Chromatic.
+ *
+ * This file specifies the settings for Chromatic, a visual testing tool for UI components.
+ *
+ * @file chromatic.config.json
+ * @description This file contains the configuration options for Chromatic.
+ * @see {@link https://www.chromatic.com/} for more information about Chromatic.
+ *
+ * @property {boolean} onlyChanged - Specifies whether to only test changed components. Default is true.
+ * @property {string} projectId - The ID of the project in Chromatic. This is used to identify the project for testing. Example: "Project:666b054a8dd965e7a4c50c6c".
+ * @property {boolean} zip - Specifies whether to create a zip file of the test results. Default is true.
+ */
 {
   "onlyChanged": true,
   "projectId": "Project:666b054a8dd965e7a4c50c6c",

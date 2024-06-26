@@ -2,7 +2,11 @@ import type { Preview } from "@storybook/react";
 
 import "../app/globals.css";
 import { corbert, glyphter } from "../components/src/tokens/fonts";
+import React from "react";
 
+/**
+ * Represents the configuration for the Storybook preview.
+ */
 const preview: Preview = {
   parameters: {
     controls: {
