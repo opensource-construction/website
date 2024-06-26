@@ -1,0 +1,121 @@
+[
+  {
+    "name": "CH Open",
+    "logo": "ch-open.webp",
+    "url": "https://www.ch-open.ch/",
+    "type": "community"
+  },
+  {
+    "name": "OSArch",
+    "logo": "osarch.webp",
+    "url": "https://osarch.org/",
+    "type": "community"
+  },
+  {
+    "name": "opendata.ch/",
+    "logo": "opendata.webp",
+    "url": "https://opendata.ch/",
+    "type": "community"
+  },
+  {
+    "name": "NCCR Digital Fabrication",
+    "logo": "dfab.png",
+    "url": "https://www.dfab.ch",
+    "type": "academia"
+  },
+  {
+    "name": "ZHAW",
+    "logo": "zhaw.png",
+    "url": "https://www.zhaw.ch/de/archbau/",
+    "type": "academia"
+  },
+  {
+    "name": "Compas",
+    "logo": "compas.png",
+    "url": "https://compas.dev/",
+    "type": "industry"
+  },
+  {
+    "name": "That Open Company",
+    "logo": "thatopen.svg",
+    "url": "https://thatopen.com/",
+    "type": "industry"
+  },
+  {
+    "name": "Speckle",
+    "logo": "speckle.png",
+    "url": "https://speckle.systems/",
+    "type": "industry"
+  },{
+    "name": "Zeokit",
+    "logo": "xeokit.png",
+    "url": "https://xeokit.io/",
+    "type": "industry"
+  },
+  {
+    "name": "luucy",
+    "logo": "luucy.png",
+    "url": "https://www.luucy.ch",
+    "type": "industry"
+  },
+  {
+    "name": "MOD",
+    "logo": "mod.png",
+    "url": "https://mod.construction",
+    "type": "industry"
+  },
+  {
+    "name": "Gensler",
+    "logo": "gensler.png",
+    "url": "https://www.gensler.com/",
+    "type": "industry"
+  },
+  {
+    "name": "EBP",
+    "logo": "ebp.svg",
+    "url": "https://www.ebp.ch",
+    "type": "industry"
+  },
+  {
+    "name": "Implenia",
+    "logo": "implenia.jpg",
+    "url": "https://www.implenia.com",
+    "type": "industry"
+  },
+  {
+    "name": "vyzn",
+    "logo": "vyzn.png",
+    "url": "https://www.vyzn.ch",
+    "type": "industry"
+  },
+  {
+    "name": "BauenDigital",
+    "logo": "bauendigital.png",
+    "url": "https://bauen-digital.ch/",
+    "type": "industry"
+  },
+  {
+    "name": "SIA",
+    "logo": "sia.png",
+    "url": "https://www.sia.ch",
+    "type": "industry"
+  },
+  {
+    "name": "creoox",
+    "logo": "creoox.png",
+    "url": "https://www.creoox.com",
+    "type": "industry"
+  },
+  {
+    "name": "bldrs",
+    "logo": "bldrs.png",
+    "url": "https://www.bldrs.com",
+    "type": "industry"
+  },
+  {
+    "name": "beyondBIM",
+    "logo": "beyondbim.png",
+    "url": "https://www.beyondbim.ch",
+    "type": "industry"
+  }
+]
