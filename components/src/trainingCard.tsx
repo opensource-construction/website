@@ -1,6 +1,10 @@
-import { Button } from "./button";
 import Image from "next/image";
 
+import { Button } from "./button";
+
+/**
+ * Represents the props for the TrainingCard component.
+ */
 interface TrainingCardProps {
   title: string;
   slug?: string;
@@ -10,6 +14,18 @@ interface TrainingCardProps {
   image?: string;
 }
 
+/**
+ * Renders a training card component.
+ *
+ * @param {Object} props - The component props.
+ * @param {string} props.title - The title of the training.
+ * @param {string} props.slug - The slug of the training.
+ * @param {string} [props.color="slate-300"] - The background color of the card.
+ * @param {string} props.subtitle - The subtitle of the training.
+ * @param {string} props.author - The author of the training.
+ * @param {string} props.image - The image URL of the training.
+ * @returns {JSX.Element} The rendered training card component.
+ */
 export function TrainingCard({
   title,
   slug,
@@ -17,7 +33,7 @@ export function TrainingCard({
   subtitle,
   author,
   image,
-}: TrainingCardProps) {
+}: TrainingCardProps): JSX.Element {
   return (
     <div className={`bg-${color}`}>
       <div className="mb-8 flex flex-col p-5 md:flex-row">

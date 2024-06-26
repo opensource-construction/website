@@ -1,3 +1,14 @@
+/**
+ * @file package.json
+ * @description Configuration file for the @opensource-construction/components package.
+ *
+ * This file contains metadata and configuration options for the @opensource-construction/components package.
+ * It includes information such as the package name, version, description, dependencies, scripts, repository, author, license, bugs, and homepage.
+ *
+ * @version 1.0.0
+ * @license ISC
+ * @see {@link https://github.com/opensource-construction/website#readme} for more information.
+ */
 {
   "name": "@opensource-construction/components",
   "version": "1.0.0",

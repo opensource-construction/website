@@ -1,5 +1,6 @@
-import { Button } from "./src/button";
 import Page from "./src/page";
+
+import { Button } from "./src/button";
 import { Section } from "./src/section";
 import { Footer } from "./src/footer";
 import { CustomMDX } from "./src/mdx";
@@ -7,18 +8,22 @@ import { Navbar } from "./src/nav";
 import { Form } from "./src/form";
 import { getPosts, parseSlug, Post } from "./src/utils";
 
-export type { Post };
+/**
+ * @module components
+ * @description This module exports various components used in the website.
+ */
 
 /**
- * This module exports the following components:
- * - CustomMDX: A custom MDX component.
- * - Button: A button component.
- * - Section: A section component.
- * - Page: A page component.
- * - Footer: A footer component.
- * - Navbar: A navbar component.
- * - Form: A form component.
+ * @typedef {import('./CustomMDX').CustomMDX} CustomMDX
+ * @typedef {import('./Button').Button} Button
+ * @typedef {import('./Section').Section} Section
+ * @typedef {import('./Page').Page} Page
+ * @typedef {import('./Footer').Footer} Footer
+ * @typedef {import('./Navbar').Navbar} Navbar
+ * @typedef {import('./Form').Form} Form
  */
+
+export type { Post };
 
 export { CustomMDX, Button, Section, Page, Footer, Navbar, Form };
 export { getPosts, parseSlug };

@@ -1,8 +1,25 @@
+import React from "react";
+
 import { CustomMDX } from "./mdx";
 import { Button } from "./button";
 import { Section } from "./section";
-import React from "react";
 
+/**
+ * Renders a page component.
+ *
+ * @param {Object} props - The component props.
+ * @param {Object} props.page - The page data.
+ * @param {Object} props.page.metadata - The metadata of the page.
+ * @param {string} props.page.metadata.title - The title of the page.
+ * @param {Object} [props.page.metadata.event] - The event associated with the page.
+ * @param {Object} [props.page.metadata.project] - The project associated with the page.
+ * @param {Object[]} [props.page.metadata.links] - The links associated with the page.
+ * @param {string} props.page.metadata.links.url - The URL of the link.
+ * @param {string} props.page.metadata.links.label - The label of the link.
+ * @param {string} props.page.slug - The slug of the page.
+ * @param {string} props.page.content - The content of the page.
+ * @returns {JSX.Element} The rendered page component.
+ */
 export default function Page({
   page,
 }: {
@@ -19,7 +36,7 @@ export default function Page({
     slug: string;
     content: string;
   };
-}) {
+}): JSX.Element {
   return (
     <div>
       <Section>
