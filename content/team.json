@@ -1,0 +1,90 @@
+[
+  {
+    "name": "Maximilian Vomhof",
+    "image": "maxvomhof.jpeg",
+    "country": "CH",
+    "title1": "Managing Director",
+    "title2": "Country Lead Switzerland",
+    "externalTitle": "CEO",
+    "externalCompany": "anytwo",
+    "linkedinProfile": "https://www.linkedin.com/in/maximilian-vomhof/",
+    "githubProfile": "https://github.com/MaximilianVomhof"
+  },
+  {
+    "name": "Yashar Moradi",
+    "image": "yasharmoradi.jpeg",
+    "country": "DE",
+    "title1": "Lead Resources",
+    "title2": "Country Lead Germany",
+    "externalTitle": "Co-founder & CTO",
+    "externalCompany": "MOD",
+    "linkedinProfile": "https://www.linkedin.com/in/yasharmoradi/",
+    "githubProfile": "https://github.com/maveric1977"
+  },
+  {
+    "name": "Christian Kongsgaard",
+    "image": "christiankongsgaard.jpeg",
+    "country": "DK",
+    "title1": "Lead Trainings",
+    "title2": "Local Lead Copenhagen",
+    "externalTitle": "CEO",
+    "externalCompany": "ApS",
+    "linkedinProfile": "https://www.linkedin.com/in/christian-kongsgaard/",
+    "githubProfile": "https://github.com/ocni-dtu"
+  },
+  {
+    "name": "Karim Daw",
+    "image": "karimdaw.jpeg",
+    "country": "GB",
+    "title1": "Lead Marketplace",
+    "title2": "Local Lead London",
+    "externalTitle": "Design Computation Leader",
+    "externalCompany": "Gensler",
+    "linkedinProfile": "https://www.linkedin.com/in/karim-daw-3b645184/",
+    "githubProfile": "https://github.com/karim-daw"
+  },
+  {
+    "name": "Thorben Westerhuys",
+    "image": "thorbenwesterhuys.jpeg",
+    "country": "CH",
+    "title1": "Lead Website",
+    "title2": "Team Zurich",
+    "externalTitle": "CTO",
+    "externalCompany": "luucy",
+    "linkedinProfile": "https://www.linkedin.com/in/twesterhuys/",
+    "githubProfile": "https://github.com/n0rdlicht"
+  },
+  {
+    "name": "Lukas Fuhrimann",
+    "image": "lukasfuhrimann.jpeg",
+    "country": "CH",
+    "title1": "Lead Communication",
+    "title2": "Team Zurich",
+    "externalTitle": "Software Engineer",
+    "externalCompany": "EBP",
+    "linkedinProfile": "https://www.linkedin.com/in/lfuhrimann/",
+    "githubProfile": "https://github.com/Lukasfuh"
+  },
+  {
+    "name": "Ryan Hughes",
+    "image": "ryanhughes.jpeg",
+    "country": "DK",
+    "title1": "Lead Trainings",
+    "title2": "Local Lead Copenhagen",
+    "externalTitle": "CEO",
+    "externalCompany": "graph.xyz",
+    "linkedinProfile": "https://www.linkedin.com/in/whoisryan/",
+    "githubProfile": "https://github.com/rhughes42"
+  },
+  {
+    "name": "Karel van Eechoud",
+    "image": "karelvaneechoud.jpeg",
+    "country": "CH",
+    "title1": "Lead Industry",
+    "title2": "Team Zurich",
+    "externalTitle": "Head of Innovation",
+    "externalCompany": "Implenia",
+    "linkedinProfile": "https://www.linkedin.com/in/karelvaneechoud/",
+    "githubProfile": "https://github.com/KVANE88"
+  }
+]

@@ -13,6 +13,12 @@ Making open collaboration successful opensource.construction creates a center of
 
 All text content is stored in `/content`, while images are in `/public/images`.
 
+### To edit the core team members
+The information about the core members are stored in JSON format under [content/team.json](/content/team.json).
+
+Each team member should also include a picture inside `public/images/team`.
+
+
 ### New event or project
 
 To publish a new event or projectx:
