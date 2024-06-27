@@ -30,29 +30,6 @@
     "type": "academia"
   },
   {
-    "name": "Compas",
-    "logo": "compas.png",
-    "url": "https://compas.dev/",
-    "type": "industry"
-  },
-  {
-    "name": "That Open Company",
-    "logo": "thatopen.svg",
-    "url": "https://thatopen.com/",
-    "type": "industry"
-  },
-  {
-    "name": "Speckle",
-    "logo": "speckle.png",
-    "url": "https://speckle.systems/",
-    "type": "industry"
-  },{
-    "name": "Zeokit",
-    "logo": "xeokit.png",
-    "url": "https://xeokit.io/",
-    "type": "industry"
-  },
-  {
     "name": "luucy",
     "logo": "luucy.png",
     "url": "https://www.luucy.ch",
@@ -62,12 +39,6 @@
     "name": "MOD",
     "logo": "mod.png",
     "url": "https://mod.construction",
-    "type": "industry"
-  },
-  {
-    "name": "Gensler",
-    "logo": "gensler.png",
-    "url": "https://www.gensler.com/",
     "type": "industry"
   },
   {
@@ -89,10 +60,22 @@
     "type": "industry"
   },
   {
+    "name": "Compas",
+    "logo": "compas.png",
+    "url": "https://compas.dev/",
+    "type": "industry"
+  },
+  {
+    "name": "Zeokit",
+    "logo": "xeokit.png",
+    "url": "https://xeokit.io/",
+    "type": "industry"
+  },
+  {
     "name": "BauenDigital",
     "logo": "bauendigital.png",
     "url": "https://bauen-digital.ch/",
-    "type": "industry"
+    "type": "community"
   },
   {
     "name": "SIA",
@@ -104,12 +87,6 @@
     "name": "creoox",
     "logo": "creoox.png",
     "url": "https://www.creoox.com",
-    "type": "industry"
-  },
-  {
-    "name": "bldrs",
-    "logo": "bldrs.png",
-    "url": "https://www.bldrs.com",
     "type": "industry"
   },
   {
