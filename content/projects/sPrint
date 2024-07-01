@@ -1,0 +1,50 @@
+---
+title: sPrint
+description: Batch print your documents from the Autodesk Construction Cloud in no time!
+links:
+  - url: https://github.com/PerkinsAndWill-IO/sPrint
+    label: GitHub
+---
+
+### Problem
+Printing PDFs from Autodesk Cloud (BIM360/ACC) is slow and cumbersome. 
+It involves manually going through all the drawings and requesting PDFs, which is time-consuming for BIM managers who need to ensure the quality of large drawing sets.
+
+### Solution
+sPrint is a Chrome extension that allows batch printing of PDFs and downloading derivatives from Autodesk Cloud platforms, 
+significantly speeding up the process and improving efficiency for BIM managers.
+
+
+
+### Why Open Source?
+Making sPrint open source encourages collaboration and continuous improvement from the global community. 
+It allows users to customize and enhance the tool to better fit their specific needs, fostering innovation and shared knowledge in the industry.
+
+### License
+MIT License
+
+### Technology
+Chrome Extension
+TypeScript / Vue / Tailwind
+AWS Lambda
+Autodesk Platform Services API
+
+### Operating Model
+Maintenance and Updates: Regular updates are pushed to the GitHub repository based on user feedback and new feature requests.
+Contributors: The main contributors are team members from Perkins&Will, along with users and other volunteers from the open source community.
+
+Potential Customers:
+BIM Managers
+Architects
+Construction professionals
+Any users of Autodesk Cloud platforms (BIM360/ACC)
+
+### About the team
+Zuzanna Czapla
+Elton Gjata
+Mario Romero
+Luc Deckinga
+Daniel Boba
+
+### Contact
+For more info, please reach out to: Daniel Boba dbo@shl.dk
