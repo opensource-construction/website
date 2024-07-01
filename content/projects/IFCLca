@@ -1,0 +1,38 @@
+---
+title: Example project
+description: Example description (Max 1 sentence)
+links:
+  - url: https://example.com
+    label: Website
+  - url: https://github.com/org
+    label: GitHub
+---
+
+### Problem
+
+### Solution
+
+### Why Open Source?
+
+### License
+
+### Operating Model
+
+### About the team
+
+### Contact
+
+Logo (replace w
+Welcome to IfcLCA, an innovative web platform designed specifically for conducting Life Cycle Assessments (LCAs) on Swiss construction projects. Utilizing Industry Foundation Classes (IFC) files, our platform simplifies the process of analyzing building elements' carbon footprints. With a user-friendly dashboard, IfcLCA presents a comprehensive overview of projects, making sustainability evaluations both accessible and impactful.
+Project Overview 🏢
+IfcLCA is crafted with sustainability at its core, offering real-time LCA calculations based on currently established methodology in Switzerland (SIA 2032). This ensures users can make environmentally sound decisions in alignment with construction regulations and standards (adding more environmental databases is straightforward, but underlying methodologies can differ quite a bit, depending on where you perform an LCA).
+
+Process Diagram
+
+Key Features 🔑
+Open Standards Support: Leveraging IFC for interoperability and integration.
+Real-time LCA Calculations: Assessing embodied carbon promptly (more to come).
+User-Friendly Dashboard: Streamlining project overviews and environmental impacts.
+Material Matching: Automatically match sustainable materials within projects.
+Reporting: Effortlessly export essential data and gain insights (planned in future release).
+Data Flow
