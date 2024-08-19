@@ -24,7 +24,7 @@ function getMDXFiles(dir: string) {
     .filter(
       (file) =>
         path.extname(file) === ".mdx" &&
-        !path.basename(file).includes("_template"),
+        !path.basename(file).startsWith("_"),
     );
 }
 
