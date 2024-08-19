@@ -1,0 +1,29 @@
+---
+title: AEC Hackathon Zurich 2025
+event:
+  # required: start and either duration or end (but not both)
+  # ideal to have: organizer, location, status
+  # automatically set: url
+  # all possible attributes: https://www.npmjs.com/package/ics#attributes
+  start: 2025-02-02T14:00:00+01:00
+  end: 2025-02-04T18:00:00+01:00
+  # duration can be combination of seconds, minutes, hours, days, weeks
+  duration:
+    hours: 2
+  # address
+  location: ZHAW Halle 150, Tössfeldstrasse 11, 8400 Winterthur Switzerland
+  geo:
+    lon: 55.6721040
+    lat: 12.5789120
+  # can be TENTATIVE, CONFIRMED or CANCELLED
+  status: CONFIRMED
+  organizer:
+    email: info@opensource.construction
+    name: opensource.construction
+---
+
+Yes, it will happen again.
+
+We are preparing issue #2 – get ready for another amazing tech & learning experience.
+
+More info soon!
