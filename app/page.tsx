@@ -53,8 +53,10 @@ export default function Home() {
                         We will include your project in the newsletter and organise an community call to make you and your code known. 
                     </p>
                     <p>
-                        This way, you will find code. But heaps of talented people, ready to push the
-                        industry further. Step by step and never stopping.
+                        This way, you will find code.
+                        But also heaps of talented people, ready to push the
+                        industry further. 
+                        Step by step and never stopping.
                     </p>
                     <div className="pt-4">
                         <Button
