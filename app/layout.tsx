@@ -1,3 +1,4 @@
+import Friendly from "@/utils/Friendly";
 import "./globals.css";
 import type { Metadata } from "next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -66,6 +67,7 @@ export default function RootLayout({
         <footer>
           <Footer />
         </footer>
+        <Friendly />
         <SpeedInsights />
       </body>
     </html>
