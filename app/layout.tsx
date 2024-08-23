@@ -1,7 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Analytics } from "@vercel/analytics/react";
 import { Footer, Navbar, Button } from "@opensource-construction/components";
 import { corbert, glyphter } from "@/components/src/tokens/fonts";
 
@@ -68,7 +67,6 @@ export default function RootLayout({
           <Footer />
         </footer>
         <SpeedInsights />
-        <Analytics />
       </body>
     </html>
   );
