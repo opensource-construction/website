@@ -39,19 +39,24 @@ export default function Home() {
             <Section title="Projects">
                 <div className="prose md:w-5/6">
                     <p>
-                        The os.c projects is THE place for you to find a lot of great
-                        stuff.
+                        The os.c marketplace is THE place to publish open source code with one idea in mind:
+                        To reduce the incredible duplication of efforts that really slows down innovation in the AECO industry.
                     </p>
                     <p>
-                        You will find open source solutions ready to be explored in detail.
+                        The idea of this space is to collect a mix of open source projects. 
+                        Small scripts, that you wish you would have at hand instead of building it yourself.
+                        Larger projects, that help you move faster.
+                        Any code, that is helpful to others.
                     </p>
                     <p>
-                        You will find open collaboration possibilities, posted by peers that
-                        are willing to take action and move forward together.
+                        Very soon, you will be able to push your open source code via GitHub to our website. 
+                        We will include your project in the newsletter and organise an community call to make you and your code known. 
                     </p>
                     <p>
-                        And you will find heaps of talented people, ready to push the
-                        industry further. Step by step and never stopping.
+                        This way, you will find code.
+                        But also heaps of talented people, ready to push the
+                        industry further. 
+                        Step by step and never stopping.
                     </p>
                     <div className="pt-4">
                         <Button
@@ -59,11 +64,13 @@ export default function Home() {
                             label="Want to submit a project yourself?"
                             type="primary"
                         />
+                  
                         <Button
                             target="/#contact-us"
                             label="Want to submit a challenge?"
                             type="primary"
                         />
+             
                     </div>
                 </div>
                 <ProjectsPartial/>
