@@ -62,13 +62,13 @@ export default function Home() {
                             label="Want to submit a project yourself?"
                             type="primary"
                         />
-                        <!-- 
+                  
                         <Button
                             target="/#contact-us"
                             label="Want to submit a challenge?"
                             type="primary"
                         />
-                        -->
+             
                     </div>
                 </div>
                 <ProjectsPartial/>
