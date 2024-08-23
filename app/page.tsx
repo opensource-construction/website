@@ -36,10 +36,10 @@ export default function Home() {
                     theory, but in practise.
                 </p>
             </Section>
-            <Section title="Marketplace">
+            <Section title="Projects">
                 <div className="prose md:w-5/6">
                     <p>
-                        The os.c marketplace is THE place for you to find a lot of great
+                        The os.c projects is THE place for you to find a lot of great
                         stuff.
                     </p>
                     <p>

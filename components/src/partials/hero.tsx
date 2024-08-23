@@ -208,7 +208,7 @@ export function HeroPartial() {
             to hear your thoughts on this.
           </p>
           <p>
-            For now, let&lsquo;s make the most out of our marketplace, the
+            For now, let&lsquo;s make the most out of our projects, the
             knowledge hub and the training section!
           </p>
         </div>
