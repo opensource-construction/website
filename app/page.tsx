@@ -67,8 +67,8 @@ export default function Home() {
                             target="/#contact-us"
                             label="Want to submit a challenge?"
                             type="primary"
-                        -->
                         />
+                        -->
                     </div>
                 </div>
                 <ProjectsPartial/>
