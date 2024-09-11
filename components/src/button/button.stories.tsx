@@ -1,9 +1,18 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { allModes } from "../../../.storybook/modes";
 import { Button } from "./button";
 
 const meta = {
   title: "Components/Atoms/Button",
   component: Button,
+  parameters: {
+    chromatic: {
+      modes: {
+        xsm: allModes["xsm"],
+        md: allModes["md"],
+      },
+    },
+  },
   args: {
     children: "Button",
     type: "secondary",
@@ -55,5 +64,12 @@ export const SidebarOverlay: Story = {
     target: () => {
       console.log("button fired");
     },
+  },
+};
+
+export const Submit: Story = {
+  args: {
+    type: "submit",
+    label: "Submit",
   },
 };
