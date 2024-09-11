@@ -15,8 +15,8 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@headlessui/react": "^2.0.4",
-    "@heroicons/react": "^2.1.3",
+    "@headlessui/react": "^2.1.6",
+    "@heroicons/react": "^2.1.5",
     "@opensource-construction/components": "./components",
     "@socialgouv/matomo-next": "^1.9.0",
     "@vercel/speed-insights": "^1.0.10",
