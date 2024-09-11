@@ -4,7 +4,12 @@ import { GoogleSpreadsheet } from "google-spreadsheet";
 import { JWT } from "google-auth-library";
 import { z } from "zod";
 
-export async function saveForm(route: string, formData: FormData) {
+export type Status = {
+  type: "default" | "loading" | "success" | "error";
+  errors?: object;
+};
+
+export async function saveForm(previousState: Status, formData: FormData) {
   const serviceAccountAuth = new JWT({
     email: process.env.GOOGLE_CLIENT_EMAIL,
     key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, "\n"),
@@ -60,14 +65,16 @@ export async function saveForm(route: string, formData: FormData) {
 
   if (!validatedFields.success) {
     console.error(validatedFields.error.flatten().fieldErrors);
-    return {
-      errors: validatedFields.error.flatten().fieldErrors,
-    };
+    previousState.type = "error";
   }
 
   await sheet.addRow({
     created_at: new Date(),
-    route,
+    route: "/", //route,
     ...validatedFields.data,
   });
+
+  previousState.type = "success";
+
+  return previousState;
 }

@@ -16,7 +16,6 @@ import ContactCard from "@/components/src/contactCard";
 import PartnerCard from "@/components/src/partnerCard";
 
 export default function Home() {
-    const saveFormWithRoute = saveForm.bind(null, "/");
     const discordLink = process.env.DISCORD_LINK || "";
 
     return (
@@ -216,7 +215,7 @@ export default function Home() {
                         Are you interested in the role of open-source in the building
                         industry? Get in touch with us today!
                     </h2>
-                    <Form action={saveFormWithRoute}/>
+                    <Form />
                 </div>
                 &nbsp;
             </Section>

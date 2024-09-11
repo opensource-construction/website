@@ -1,4 +1,5 @@
-import Flags, { ElementAttributes, HTMLSVGElement } from "country-flag-icons/react/1x1";
+import { ElementAttributes, HTMLSVGElement } from "country-flag-icons/react/1x1";
+import * as Flags from "country-flag-icons/react/1x1";
 
 export interface FlagProps extends ElementAttributes<HTMLSVGElement> {
     countryCode: string;
