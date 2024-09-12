@@ -71,5 +71,6 @@ export const Submit: Story = {
   args: {
     type: "submit",
     label: "Submit",
+    children: undefined,
   },
 };
