@@ -7,18 +7,16 @@ import { MouseEventHandler } from "react";
 import { useFormStatus } from "react-dom";
 
 export const button = cva(
-  [
-    "inline-block pr-3 text-sm font-bold no-underline pl-8 md:pr-8 md:text-base",
-  ],
+  ["inline-block pr-3 text-sm font-bold no-underline md:text-base"],
   {
     variants: {
       type: {
-        primary: ["bg-black text-white hover:text-white"],
-        secondary: ["bg-slate-300"],
-        card: ["bg-slate-300 pl-0"],
-        sidebar: ["bg-slate-300 pl-0"],
+        primary: ["bg-black text-white hover:text-white pl-8 md:pr-8"],
+        secondary: ["bg-slate-300 pl-8 md:pr-8"],
+        card: ["bg-slate-300"],
+        sidebar: ["bg-slate-300"],
         submit: [
-          "disabled:bg-red-600 bg-black text-white hover:text-white disabled:text-white aria-disabled:cursor-not-allowed aria-disabled:opacity-50",
+          "disabled:bg-red-600 bg-black pl-8 md:pr-8 text-white hover:text-white disabled:text-white aria-disabled:cursor-not-allowed aria-disabled:opacity-50",
         ],
       },
       size: {
