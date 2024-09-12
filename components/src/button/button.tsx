@@ -1,11 +1,58 @@
 "use client";
 
+import { cva, type VariantProps } from "class-variance-authority";
+
 import Link from "next/link";
 import { MouseEventHandler } from "react";
 import { useFormStatus } from "react-dom";
 
+export const button = cva(
+  ["inline-block pr-3 md:pr-8 text-sm font-bold no-underline md:text-base"],
+  {
+    variants: {
+      type: {
+        primary: ["bg-black text-white hover:text-white"],
+        secondary: ["bg-slate-300"],
+        card: ["bg-slate-300"],
+        sidebar: ["bg-slate-300"],
+        submit: [
+          "disabled:bg-red-600 bg-black md:pr-8 text-white hover:text-white disabled:text-white aria-disabled:cursor-not-allowed aria-disabled:opacity-50",
+        ],
+      },
+      size: {
+        default: ["py-3"],
+        small: ["py-2"],
+      },
+      icon: {
+        left: [],
+        right: [],
+      },
+    },
+    compoundVariants: [
+      {
+        type: ["primary", "secondary", "submit"],
+        icon: "right",
+        className: ["pl-8"],
+      },
+    ],
+  },
+);
+
+export const iconClasses = cva(["font-icon"], {
+  variants: {
+    icon: {
+      left: [
+        "pl-8 before:relative before:top-0.5 before:inline-block before:rotate-180 before:leading-none before:content-['A'] after:pr-4",
+      ],
+      right: [
+        "before:pr-4 after:relative after:top-0.5 after:inline-block after:leading-none after:content-['A']",
+      ],
+    },
+  },
+});
+
 export const Button = ({
-  type,
+  type = "secondary",
   size = "default",
   target,
   label,
@@ -28,10 +75,17 @@ export const Button = ({
           type="submit"
           disabled={pending}
           aria-disabled={pending}
-          className="disabled:bg-red-600 inline-block bg-black py-3 pl-8 pr-3 text-sm font-bold text-white no-underline hover:text-white disabled:text-white aria-disabled:cursor-not-allowed aria-disabled:opacity-50 md:pl-8 md:pr-8 md:text-base"
+          className={button({ type, size, icon })}
         >
-          {label}
-          <span className="font-icon before:pr-4 after:relative after:top-0.5 after:inline-block after:leading-none after:content-['A']"></span>
+          {icon === "left" ? (
+            <span className={iconClasses({ icon })}></span>
+          ) : null}
+
+          {children ? children : <span>{label}</span>}
+
+          {icon === "right" ? (
+            <span className={iconClasses({ icon })}></span>
+          ) : null}
         </button>
       ) : (
         <Link
@@ -42,7 +96,7 @@ export const Button = ({
               ? (target as MouseEventHandler)
               : undefined
           }
-          className={`${["secondary", "sidebar", "card"].includes(type) ? "bg-slate-300" : "bg-black text-white hover:text-white md:pl-8"} inline-block ${size === "small" ? "py-2" : "py-3"} ${!["card", "sidebar"].includes(type) && icon !== "left" ? "pl-8" : undefined} pr-3 text-sm font-bold no-underline md:pr-8 md:text-base`}
+          className={button({ type, size, icon })}
           target={
             target && typeof target === "string" && target.startsWith("http")
               ? "_blank"
@@ -51,13 +105,13 @@ export const Button = ({
           rel="noopener noreferrer"
         >
           {icon === "left" ? (
-            <span className="pl-8 font-icon before:relative before:top-0.5 before:inline-block before:rotate-180 before:leading-none before:content-['A'] after:pr-4"></span>
+            <span className={iconClasses({ icon })}></span>
           ) : null}
 
           {children ? children : <span>{label}</span>}
 
           {icon === "right" ? (
-            <span className="font-icon before:pr-4 after:relative after:top-0.5 after:inline-block after:leading-none after:content-['A']"></span>
+            <span className={iconClasses({ icon })}></span>
           ) : null}
         </Link>
       )}
