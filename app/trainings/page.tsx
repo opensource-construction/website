@@ -9,7 +9,7 @@ export default function Trainings() {
       <Section>
         <TrainingsPartial />
       </Section>
-      <Section title="Trainings" className="mb-32">
+      <Section title="Trainings">
         {trainings.map(
           (
             { slug, metadata: { title, description, author, image } },
@@ -25,6 +25,19 @@ export default function Trainings() {
             />
           ),
         )}
+      </Section>
+      <Section>
+        <div className="prose mx-auto mb-32 flex max-w-screen-xl flex-col items-end px-2 md:px-10 lg:flex-row lg:items-start">
+          <div>
+            <div>
+              Do you have a training that you want featured on this here?
+            </div>
+            <div>
+              Contact us{" "}
+              <a href="mailto:christian@opensource.construction">here</a>
+            </div>
+          </div>
+        </div>
       </Section>
     </div>
   );

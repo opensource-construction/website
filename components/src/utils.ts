@@ -23,8 +23,7 @@ function getMDXFiles(dir: string) {
     .readdirSync(dir)
     .filter(
       (file) =>
-        path.extname(file) === ".mdx" &&
-        !path.basename(file).startsWith("_"),
+        path.extname(file) === ".mdx" && !path.basename(file).startsWith("_"),
     );
 }
 
