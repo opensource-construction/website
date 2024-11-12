@@ -1,5 +1,8 @@
 import projectMapJson from "../../content/project-map.json";
 
+//TODO: Put this file in the correct location
+//TODO: Improve import path for projectMapJson
+
 export interface ProjectMap {
   title: string;
   slug: string;
@@ -7,6 +10,7 @@ export interface ProjectMap {
   maturity: string;
 }
 
+//TODO: Maybe rename this to something else than Project
 export interface Project {
   title: string;
   slug: string;

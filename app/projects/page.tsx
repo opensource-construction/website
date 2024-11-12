@@ -17,6 +17,8 @@ export default function Projects() {
     {},
   );
 
+  //TODO: Improve the layout of this page especially regarding visual hierarchy
+
   return (
     <div className="mt-28 prose-h2:mt-0 md:mt-0 md:prose-h2:text-2xl md:prose-h3:text-xl">
       <Section>
