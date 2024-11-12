@@ -2,13 +2,6 @@ import { getPosts } from "../utils";
 import { Card } from "../card";
 import { parseProjects } from "../projectUtils";
 
-export interface ProjectMap {
-  title: string;
-  slug: string;
-  highlighted: boolean;
-  state: string;
-}
-
 export function ProjectsPartial() {
   let projects = getPosts("projects");
   const parsedProjects = parseProjects(projects);

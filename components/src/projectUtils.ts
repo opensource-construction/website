@@ -4,14 +4,14 @@ export interface ProjectMap {
   title: string;
   slug: string;
   highlighted: boolean;
-  state: string;
+  maturity: string;
 }
 
 export interface Project {
   title: string;
   slug: string;
   highlighted: boolean;
-  state: string;
+  maturity: string;
   description: string;
 }
 
