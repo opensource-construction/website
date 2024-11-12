@@ -1,0 +1,68 @@
+[
+  {
+    "title": "Bonsai",
+    "slug": "bonsai",
+    "highlighted": true,
+    "state": "sandbox"
+  },
+  {
+    "title": "Compas",
+    "slug": "compas",
+    "highlighted": true,
+    "state": "sandbox"
+  },
+  {
+    "title": "IFC Model Checker",
+    "slug": "ifc-model-checker",
+    "highlighted": true,
+    "state": "sandbox"
+  },
+  {
+    "title": "PyRevit",
+    "slug": "pyrevit",
+    "highlighted": false,
+    "state": "sandbox"
+  },
+  {
+    "title": "Sprint",
+    "slug": "sprint",
+    "highlighted": false,
+    "state": "sandbox"
+  },
+  {
+    "title": "Vyssuals",
+    "slug": "vyssuals",
+    "highlighted": false,
+    "state": "sandbox"
+  },
+  {
+    "title": "Circular Construction Co-Pilot",
+    "slug": "circular-construction-co-pilot",
+    "highlighted": false,
+    "state": "sandbox"
+  },
+  {
+    "title": "IFC LCA",
+    "slug": "ifc-lca",
+    "highlighted": false,
+    "state": "sandbox"
+  },
+  {
+    "title": "LCAX and EPDX",
+    "slug": "lcax-and-epdx",
+    "highlighted": false,
+    "state": "sandbox"
+  },
+  {
+    "title": "Speckle",
+    "slug": "speckle",
+    "highlighted": false,
+    "state": "sandbox"
+  },
+  {
+    "title": "That Open Company",
+    "slug": "that-open-company",
+    "highlighted": false,
+    "state": "sandbox"
+  }
+]

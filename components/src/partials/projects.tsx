@@ -1,27 +1,28 @@
 import { getPosts } from "../utils";
-
 import { Card } from "../card";
+import { parseProjects } from "../projectUtils";
+
+export interface ProjectMap {
+  title: string;
+  slug: string;
+  highlighted: boolean;
+  state: string;
+}
 
 export function ProjectsPartial() {
   let projects = getPosts("projects");
+  const parsedProjects = parseProjects(projects);
 
-  let parsedProjects = projects.map((e) => {
-    let project = { ...e.metadata.project };
-
-    project.title = e.metadata.title;
-    project.description = e.metadata.description;
-    project.slug = e.slug;
-
-    return project;
-  });
-  // .sort((a, b) => (a.start < b.start ? 1 : -1));
+  let highlightedProjects = parsedProjects.filter(
+    (project) => project.highlighted,
+  );
 
   return (
     <div>
       <div className="grid gap-12 py-10 md:mt-16 lg:grid-cols-2 lg:gap-32">
-        {!parsedProjects.length
+        {!highlightedProjects.length
           ? "No published projects"
-          : parsedProjects.map((e) => (
+          : highlightedProjects.map((e) => (
               <Card
                 key={e.slug}
                 title={e.title}
