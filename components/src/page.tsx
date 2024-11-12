@@ -23,7 +23,12 @@ export default function Page({
   return (
     <div>
       <Section>
-        <Button target="/" label="Go back" type="secondary" icon="left" />
+        <Button
+          target="/projects"
+          label="Go back"
+          type="secondary"
+          icon="left"
+        />
         <h1 className="mb-8 mt-12 text-2xl font-bold md:mt-16 md:text-3xl">
           {page.metadata.title}
         </h1>

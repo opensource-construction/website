@@ -25,6 +25,14 @@ export function ProjectsPartial() {
                 type="project"
               />
             ))}
+
+        <Card
+          title="All Projects"
+          subtitle="View all projects"
+          slug={"/projects"}
+          type="link"
+          color="slate-300"
+        />
       </div>
     </div>
   );

@@ -22,7 +22,7 @@ export function Card({
 }: {
   title: string;
   slug?: string;
-  type?: "default" | "event" | "project" | "faq" | "partner";
+  type?: "default" | "event" | "project" | "faq" | "partner" | "link";
   color?: string;
   subtitle?: string;
   children?: ReactNode;
@@ -59,6 +59,10 @@ export function Card({
                 target={() => setOpen(true)}
                 type="sidebar"
               />
+            ),
+
+            link: (
+              <Button label="To the Projects" target={`${slug}`} type="card" />
             ),
 
             partner: null,
