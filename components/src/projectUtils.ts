@@ -25,6 +25,9 @@ const projectMapBySlug = new Map(
   projectMapJson.map((project) => [project.slug, project])
 );
 
+
+
+
 /**
  * Function to parse and merge project data with additional metadata from the json file
  * @param projects - Array of raw project data from getPosts function
@@ -38,7 +41,7 @@ const projectMapBySlug = new Map(
  * 
  * const rawProjects = getPosts("projects");
  * const parsedProjects = parseProjects(rawProjects);
- * ```
+ * ``` 
  */
 export function parseProjects(projects: any[]): Project[] {
   return projects.map((e) => {
@@ -51,10 +54,18 @@ export function parseProjects(projects: any[]): Project[] {
       title,
       description,
       slug,
+      maturity: e.maturity as Maturity,
     };
 
     // Merge extra data from projectMapBySlug
     const extraData = projectMapBySlug.get(slug);
-    return extraData ? { ...baseProject, ...extraData } : baseProject;
+    if (extraData) {
+      return {
+        ...baseProject,
+        ...extraData,
+        maturity: extraData.maturity as Maturity,
+      };
+    }
+    return baseProject;
   });
 }

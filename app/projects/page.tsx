@@ -1,10 +1,9 @@
-import { getPosts, Section } from "@/components";
+import { Button, getPosts, Section } from "@/components";
 import {
   Maturity,
   parseProjects,
   Project,
 } from "@/components/src/projectUtils";
-import { Card } from "@/components/src/card";
 
 export default function Projects() {
   let projects = getPosts("projects");
@@ -36,18 +35,51 @@ export default function Projects() {
   };
 
   //TODO: Improve the layout of this page especially regarding visual hierarchy
+  //TODO: Either create a special card for projects in the project dir  or use a different layout
 
   return (
     <div className="mt-28 prose-h2:mt-0 md:mt-0 md:prose-h2:text-2xl md:prose-h3:text-xl">
+      <Section>
+        <h1 className="py-6 text-xl font-bold  md:text-4xl">Projects</h1>
+        <p>
+          The os.c marketplace is THE place to publish open source code with one
+          idea in mind: To reduce the incredible duplication of efforts that
+          really slows down innovation in the AECO industry. The idea of this
+          space is to collect a mix of open source projects. Small scripts, that
+          you wish you would have at hand instead of building it yourself.
+          Larger projects, that help you move faster. Any code, that is helpful
+          to others. Very soon, you will be able to push your open source code
+          via GitHub to our website. We will include your project in the
+          newsletter and organise an community call to make you and your code
+          known. This way, you will find code. But also heaps of talented
+          people, ready to push the industry further. Step by step and never
+          stopping.
+        </p>
+
+        <div className="pt-4">
+          <Button
+            target="/#contact-us"
+            label="Want to submit a project yourself?"
+            type="primary"
+          />
+
+          <Button
+            target="/#contact-us"
+            label="Want to submit a challenge?"
+            type="primary"
+          />
+        </div>
+      </Section>
+
       {Object.entries(projectsByMaturity).map(([projectMaturity, projects]) => (
         <Section
           key={projectMaturity}
           color={maturityColors[projectMaturity as Maturity]}
         >
           <div className="mb-16">
-            <h2 className="py-6 text-xl font-bold md:text-3xl">
+            <h1 className="py-6 text-xl font-bold  md:text-3xl">
               {projectMaturity}
-            </h2>
+            </h1>
 
             <p className="text-gray-500 text-sm">
               {maturitySubtext[projectMaturity as Maturity]}
@@ -55,14 +87,23 @@ export default function Projects() {
 
             <div className="grid gap-12 py-10 md:mt-16 lg:grid-cols-2 lg:gap-32">
               {projects.map(({ slug, title, description }, index) => (
-                <Card
+                <div
+                  className={`bg-${projectMaturity === "Sandbox" ? "slate-300" : "white"}`}
                   key={index}
-                  slug={slug}
-                  title={title}
-                  subtitle={description}
-                  color={projectMaturity === "Sandbox" ? "slate-300" : "white"}
-                  type="project"
-                />
+                >
+                  <div className="p-5">
+                    <h4 className="mb-2 mt-0 text-xl font-bold md:text-2xl">
+                      {title}
+                    </h4>
+                    <div className="mb-12">{description}</div>
+
+                    <Button
+                      label="More about the project"
+                      target={`/projects/${slug}`}
+                      type="primary"
+                    />
+                  </div>
+                </div>
               ))}
             </div>
           </div>
