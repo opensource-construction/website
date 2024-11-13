@@ -7,7 +7,7 @@ export interface ProjectMap {
   title: string;
   slug: string;
   highlighted: boolean;
-  maturity: string;
+  maturity: Maturity;
 }
 
 //TODO: Maybe rename this to something else than Project
@@ -15,9 +15,11 @@ export interface Project {
   title: string;
   slug: string;
   highlighted: boolean;
-  maturity: string;
+  maturity: Maturity;
   description: string;
 }
+
+export type Maturity = "Sandbox" | "Incubation" | "Graduated";
 
 const projectMapBySlug = new Map(
   projectMapJson.map((project) => [project.slug, project])

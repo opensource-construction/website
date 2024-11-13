@@ -15,7 +15,7 @@
     "title": "IFC Model Checker",
     "slug": "ifc-model-checker",
     "highlighted": true,
-    "maturity": "Growth"
+    "maturity": "Graduated"
   },
   {
     "title": "PyRevit",
@@ -39,13 +39,13 @@
     "title": "Circular Construction Co-Pilot",
     "slug": "circular-construction-co-pilot",
     "highlighted": false,
-    "maturity": "Sandbox"
+    "maturity": "Incubation"
   },
   {
     "title": "IFC LCA",
     "slug": "ifc-lca",
     "highlighted": false,
-    "maturity": "Incubation "
+    "maturity": "Incubation"
   },
   {
     "title": "LCAX and EPDX",
@@ -57,7 +57,7 @@
     "title": "Speckle",
     "slug": "speckle",
     "highlighted": false,
-    "maturity": "Growth"
+    "maturity": "Graduated"
   },
   {
     "title": "That Open Company",
