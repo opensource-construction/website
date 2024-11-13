@@ -55,12 +55,6 @@ export default function RootLayout({
             logo={logoSvg}
             menuItems={navItems}
           >
-            <Button
-              type="secondary"
-              size="small"
-              target="https://answer.opensource.construction"
-              label="Knowledge Hub"
-            />
           </Navbar>
         </header>
         <main className="relative overflow-hidden">{children}</main>
