@@ -1,5 +1,5 @@
 ---
-title: Example project
+title: Share by bldrs.ai
 description: Example description (Max 1 sentence)
 links:
   - url: https://example.com
@@ -40,4 +40,3 @@ Please insert download link(s) here:
 Link1
 Link2
 …
-
