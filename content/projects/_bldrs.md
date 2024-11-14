@@ -134,6 +134,6 @@ Let's Build Every Thing Together!
 - info@bldrs.ai
 
 
-### Image / Video Footage
+### Screenshot of Bldrs Share
 
-.. uploaded screenshot ..
+![image](https://github.com/user-attachments/assets/c49149f5-6816-4d25-9f64-b7d43c63fa2e)
