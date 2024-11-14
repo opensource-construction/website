@@ -11,7 +11,7 @@ links:
 
 ### Problem
 
-Architcture, Engineering and Construction teams have been tethered to outdated
+Architecture, Engineering and Construction teams have been tethered to outdated
 desktop CAD tools, proprietary formats, and sluggish expensive SaaS solutions
 with dated file management and minimal support for cross-functional,
 cross-format workflows.
