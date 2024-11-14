@@ -7,7 +7,11 @@ links:
   - url: http://github.com/bldrs-ai/Share
     label: GitHub
 ---
-
+<img
+  src="https://raw.githubusercontent.com/bldrs-ai/Share/main/src/assets/LogoB.svg"
+  alt="Logo"
+  width="100"
+/>
 
 ### Problem
 
