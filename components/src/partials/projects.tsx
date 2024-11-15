@@ -13,10 +13,10 @@ export function ProjectsPartial() {
 
   const numberOfProjects = 3;
 
-  let showHighlighted = false;
+  let showFeatured = false;
 
-  const filteredProjects = showHighlighted
-    ? parsedProjects.filter((project) => project.highlighted)
+  const filteredProjects = showFeatured
+    ? parsedProjects.filter((project) => project.featured)
     : getRandomItems(parsedProjects, numberOfProjects);
 
   return (

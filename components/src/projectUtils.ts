@@ -6,7 +6,7 @@ import projectMapJson from "../../content/project-map.json";
 export interface ProjectMap {
   title: string;
   slug: string;
-  highlighted: boolean;
+  featured: boolean;
   maturity: Maturity;
 }
 
@@ -14,7 +14,7 @@ export interface ProjectMap {
 export interface Project {
   title: string;
   slug: string;
-  highlighted: boolean;
+  featured: boolean;
   maturity: Maturity;
   description: string;
 }
