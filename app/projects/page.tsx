@@ -28,6 +28,13 @@ export default function Projects() {
       "Projects considered stable, widely adopted and production ready, attracting hundreds of users and contributors",
   };
 
+  const maturityOrder: Maturity[] = ["Sandbox", "Incubation", "Graduated"];
+  const sortedProjectsByMaturity = Object.entries(projectsByMaturity).sort(
+    ([a], [b]) =>
+      maturityOrder.indexOf(a as Maturity) -
+      maturityOrder.indexOf(b as Maturity),
+  );
+
   const maturityColors: Record<Maturity, string> = {
     Sandbox: "",
     Incubation: "slate-300",
@@ -62,16 +69,10 @@ export default function Projects() {
             label="Want to submit a project yourself?"
             type="primary"
           />
-
-          <Button
-            target="/#contact-us"
-            label="Want to submit a challenge?"
-            type="primary"
-          />
         </div>
       </Section>
 
-      {Object.entries(projectsByMaturity).map(([projectMaturity, projects]) => (
+      {sortedProjectsByMaturity.map(([projectMaturity, projects]) => (
         <Section
           key={projectMaturity}
           color={maturityColors[projectMaturity as Maturity]}
@@ -85,7 +86,7 @@ export default function Projects() {
               {maturitySubtext[projectMaturity as Maturity]}
             </p>
 
-            <div className="grid gap-12 py-10 md:mt-16 lg:grid-cols-2 lg:gap-32">
+            <div className="grid gap-12 py-10 md:mt-16 lg:grid-cols-2 lg:gap-5">
               {projects.map(({ slug, title, description }, index) => (
                 <div
                   className={`bg-${projectMaturity === "Sandbox" ? "slate-300" : "white"}`}

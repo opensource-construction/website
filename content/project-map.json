@@ -3,43 +3,43 @@
     "title": "Bonsai",
     "slug": "bonsai",
     "highlighted": true,
-    "maturity": "Sandbox"
+    "maturity": "Graduated"
   },
   {
     "title": "Compas",
     "slug": "compas",
     "highlighted": true,
-    "maturity": "Sandbox"
+    "maturity": "Graduated"
   },
   {
     "title": "IFC Model Checker",
     "slug": "ifc-model-checker",
     "highlighted": true,
-    "maturity": "Graduated"
+    "maturity": "Sandbox"
   },
   {
     "title": "PyRevit",
     "slug": "pyrevit",
     "highlighted": false,
-    "maturity": "Sandbox"
+    "maturity": "Graduated"
   },
   {
     "title": "Sprint",
     "slug": "sprint",
     "highlighted": false,
-    "maturity": "Sandbox"
+    "maturity": "Incubation"
   },
   {
     "title": "Vyssuals",
     "slug": "vyssuals",
     "highlighted": false,
-    "maturity": "Sandbox"
+    "maturity": "Incubation"
   },
   {
     "title": "Circular Construction Co-Pilot",
     "slug": "circular-construction-co-pilot",
     "highlighted": false,
-    "maturity": "Incubation"
+    "maturity": "Sandbox"
   },
   {
     "title": "IFC LCA",
@@ -63,6 +63,12 @@
     "title": "That Open Company",
     "slug": "that-open-company",
     "highlighted": false,
-    "maturity": "Sandbox"
+    "maturity": "Graduated"
+  },
+  {
+    "title": "Calc",
+    "slug": "calc",
+    "highlighted": false,
+    "maturity": "Incubation"
   }
 ]

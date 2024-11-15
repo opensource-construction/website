@@ -11,7 +11,6 @@ import Image from "next/image";
 import team from "../content/team.json";
 import partners from "../content/partners.json";
 
-import { saveForm } from "./actions";
 import ContactCard from "@/components/src/contactCard";
 import PartnerCard from "@/components/src/partnerCard";
 
@@ -61,12 +60,6 @@ export default function Home() {
             <Button
               target="/#contact-us"
               label="Want to submit a project yourself?"
-              type="primary"
-            />
-
-            <Button
-              target="/#contact-us"
-              label="Want to submit a challenge?"
               type="primary"
             />
           </div>

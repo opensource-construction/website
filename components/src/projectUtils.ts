@@ -25,9 +25,6 @@ const projectMapBySlug = new Map(
   projectMapJson.map((project) => [project.slug, project])
 );
 
-
-
-
 /**
  * Function to parse and merge project data with additional metadata from the json file
  * @param projects - Array of raw project data from getPosts function

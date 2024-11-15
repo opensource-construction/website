@@ -62,7 +62,11 @@ export function Card({
             ),
 
             link: (
-              <Button label="To the Projects" target={`${slug}`} type="card" />
+              <Button
+                label="See all Projects"
+                target={`${slug}`}
+                type="primary"
+              />
             ),
 
             partner: null,
