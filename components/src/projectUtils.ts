@@ -1,5 +1,7 @@
 import projectMapJson from "../../content/project-map.json";
 
+const defaultMaturity: Maturity = "sandbox";
+
 //TODO: Put this file in the correct location
 //TODO: Improve import path for projectMapJson
 
@@ -19,11 +21,20 @@ export interface Project {
   description: string;
 }
 
-export type Maturity = "Sandbox" | "Incubation" | "Graduated";
+export const validMaturities = ["sandbox", "incubation", "graduated"] as const;
+export type Maturity = typeof validMaturities[number];
+
 
 const projectMapBySlug = new Map(
   projectMapJson.map((project) => [project.slug, project])
 );
+
+function parseMaturity(maturity: string): Maturity {
+  const cleanedMaturity = maturity.trim().toLowerCase();
+  return validMaturities.includes(cleanedMaturity as Maturity)
+    ? (cleanedMaturity as Maturity)
+    : defaultMaturity;
+}
 
 /**
  * Function to parse and merge project data with additional metadata from the json file
@@ -60,7 +71,7 @@ export function parseProjects(projects: any[]): Project[] {
       return {
         ...baseProject,
         ...extraData,
-        maturity: extraData.maturity as Maturity,
+        maturity: parseMaturity(extraData.maturity),
       };
     }
     return baseProject;

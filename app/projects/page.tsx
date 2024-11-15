@@ -3,7 +3,12 @@ import {
   Maturity,
   parseProjects,
   Project,
+  validMaturities,
 } from "@/components/src/projectUtils";
+
+function capitalizeFirstLetter(string: string): string {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
 export default function Projects() {
   let projects = getPosts("projects");
@@ -20,25 +25,25 @@ export default function Projects() {
     {} as Record<Maturity, Project[]>,
   );
 
-  const maturitySubtext: Record<Maturity, string> = {
-    Sandbox: "Experimental projects not yet widely tested in production",
-    Incubation:
-      "Projects used successfully in production by a small number of users",
-    Graduated:
-      "Projects considered stable, widely adopted and production ready, attracting hundreds of users and contributors",
-  };
-
-  const maturityOrder: Maturity[] = ["Sandbox", "Incubation", "Graduated"];
   const sortedProjectsByMaturity = Object.entries(projectsByMaturity).sort(
     ([a], [b]) =>
-      maturityOrder.indexOf(a as Maturity) -
-      maturityOrder.indexOf(b as Maturity),
+      validMaturities.indexOf(a as Maturity) -
+      validMaturities.indexOf(b as Maturity),
   );
 
+  //Set the color of the section based on the maturity of the projects
   const maturityColors: Record<Maturity, string> = {
-    Sandbox: "",
-    Incubation: "slate-300",
-    Graduated: "primary-500",
+    sandbox: "",
+    incubation: "slate-300",
+    graduated: "primary-500",
+  };
+
+  const maturitySubtext: Record<Maturity, string> = {
+    sandbox: "Experimental projects not yet widely tested in production",
+    incubation:
+      "Projects used successfully in production by a small number of users",
+    graduated:
+      "Projects considered stable, widely adopted and production ready, attracting hundreds of users and contributors",
   };
 
   //TODO: Improve the layout of this page especially regarding visual hierarchy
@@ -79,7 +84,7 @@ export default function Projects() {
         >
           <div className="mb-16">
             <h1 className="py-6 text-xl font-bold  md:text-3xl">
-              {projectMaturity}
+              {capitalizeFirstLetter(projectMaturity)}
             </h1>
 
             <p className="text-gray-500 text-sm">

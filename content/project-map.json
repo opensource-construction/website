@@ -3,72 +3,72 @@
     "title": "Bonsai",
     "slug": "bonsai",
     "featured": true,
-    "maturity": "Graduated"
+    "maturity": "graduated"
   },
   {
     "title": "Compas",
     "slug": "compas",
     "featured": true,
-    "maturity": "Graduated"
+    "maturity": "graduated"
   },
   {
     "title": "IFC Model Checker",
     "slug": "ifc-model-checker",
     "featured": true,
-    "maturity": "Sandbox"
+    "maturity": "sandbox"
   },
   {
     "title": "PyRevit",
     "slug": "pyrevit",
     "featured": false,
-    "maturity": "Graduated"
+    "maturity": "graduated"
   },
   {
     "title": "Sprint",
     "slug": "sprint",
     "featured": false,
-    "maturity": "Incubation"
+    "maturity": "incubation"
   },
   {
     "title": "Vyssuals",
     "slug": "vyssuals",
     "featured": false,
-    "maturity": "Incubation"
+    "maturity": "incubation"
   },
   {
     "title": "Circular Construction Co-Pilot",
     "slug": "circular-construction-co-pilot",
     "featured": false,
-    "maturity": "Sandbox"
+    "maturity": "sandbox"
   },
   {
     "title": "IFC LCA",
     "slug": "ifc-lca",
     "featured": false,
-    "maturity": "Incubation"
+    "maturity": "incubation"
   },
   {
     "title": "LCAX and EPDX",
     "slug": "lcax-and-epdx",
     "featured": false,
-    "maturity": "Sandbox"
+    "maturity": "sandbox"
   },
   {
     "title": "Speckle",
     "slug": "speckle",
     "featured": false,
-    "maturity": "Graduated"
+    "maturity": "graduated"
   },
   {
     "title": "That Open Company",
     "slug": "that-open-company",
     "featured": false,
-    "maturity": "Graduated"
+    "maturity": "graduated"
   },
   {
     "title": "Calc",
     "slug": "calc",
     "featured": false,
-    "maturity": "Incubation"
+    "maturity": "incubation"
   }
 ]

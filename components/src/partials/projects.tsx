@@ -1,6 +1,8 @@
 import { getPosts } from "../utils";
 import { Card } from "../card";
 import { parseProjects } from "../projectUtils";
+import { Button } from "../button";
+import Link from "next/link";
 
 function getRandomItems<T>(array: T[], numItems: number): T[] {
   const shuffled = array.sort(() => 0.5 - Math.random());
@@ -35,13 +37,20 @@ export function ProjectsPartial() {
               />
             ))}
 
-        <Card
-          title="All Projects"
-          subtitle="View all projects"
-          slug={"/projects"}
-          type="link"
-          color="primary-500"
-        />
+        <div className={`bg-slate-300`}>
+          <div className="flex h-full flex-col p-5">
+            <h4 className="mb-2 mt-0 text-xl font-bold md:text-2xl">
+              All Projects
+            </h4>
+            <div className="mt-auto">
+              <Button
+                type="primary"
+                label="See all projects"
+                target={"./projects"}
+              ></Button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
