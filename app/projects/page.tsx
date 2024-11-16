@@ -94,7 +94,7 @@ export default function Projects() {
             <div className="grid gap-12 py-10 md:mt-16 lg:grid-cols-2 lg:gap-5">
               {projects.map(({ slug, title, description }, index) => (
                 <div
-                  className={`bg-${projectMaturity === "Sandbox" ? "slate-300" : "white"}`}
+                  className={`bg-${projectMaturity === "sandbox" ? "slate-300" : "white"}`}
                   key={index}
                 >
                   <div className="p-5">
