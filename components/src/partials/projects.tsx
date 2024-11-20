@@ -1,27 +1,32 @@
 import { getPosts } from "../utils";
-
 import { Card } from "../card";
+import { parseProjects } from "../projectUtils";
+import { Button } from "../button";
+import Link from "next/link";
+
+function getRandomItems<T>(array: T[], numItems: number): T[] {
+  const shuffled = array.sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, numItems);
+}
 
 export function ProjectsPartial() {
   let projects = getPosts("projects");
+  const parsedProjects = parseProjects(projects);
 
-  let parsedProjects = projects.map((e) => {
-    let project = { ...e.metadata.project };
+  const numberOfProjects = 3;
 
-    project.title = e.metadata.title;
-    project.description = e.metadata.description;
-    project.slug = e.slug;
+  let showFeatured = false;
 
-    return project;
-  });
-  // .sort((a, b) => (a.start < b.start ? 1 : -1));
+  const filteredProjects = showFeatured
+    ? parsedProjects.filter((project) => project.featured)
+    : getRandomItems(parsedProjects, numberOfProjects);
 
   return (
     <div>
       <div className="grid gap-12 py-10 md:mt-16 lg:grid-cols-2 lg:gap-32">
-        {!parsedProjects.length
+        {!filteredProjects.length
           ? "No published projects"
-          : parsedProjects.map((e) => (
+          : filteredProjects.map((e) => (
               <Card
                 key={e.slug}
                 title={e.title}
@@ -31,6 +36,21 @@ export function ProjectsPartial() {
                 type="project"
               />
             ))}
+
+        <div className={`bg-slate-300`}>
+          <div className="flex h-full flex-col p-5">
+            <h4 className="mb-2 mt-0 text-xl font-bold md:text-2xl">
+              All Projects
+            </h4>
+            <div className="mt-auto">
+              <Button
+                type="primary"
+                label="See all projects"
+                target={"./projects"}
+              ></Button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

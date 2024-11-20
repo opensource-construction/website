@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 };
 
 const navItems = [
-  { name: "Projects", target: "/#projects" },
+  { name: "Projects", target: "/projects" },
   { name: "Events", target: "/#events" },
   { name: "Trainings", target: "/trainings" },
   { name: "About us", target: "/#who-is-behind-the-initiative" },
