@@ -61,7 +61,7 @@ export default function Projects() {
         <p>
           The idea of this space is twofolded:
           <br />
-          1. it's a collaborative repository to collect any code that is open and helpful to others in the AECO sector. 
+          1. it&lsquo;s a collaborative repository to collect any code that is open and helpful to others in the AECO sector. 
           Projects range from small scripts, that you wish you would have at hand instead of building it yourself 
           to larger projects, that help you move faster. 
         </p>
@@ -70,7 +70,7 @@ export default function Projects() {
           that is recorded and also shared on the website.
           <br />
         </p>
-        <p> Let's keep pushing the industry further. Step by step and never
+        <p> Let&lsquo;s keep pushing the industry further. Step by step and never
           stopping.
         </p>
 
