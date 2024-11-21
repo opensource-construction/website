@@ -54,17 +54,20 @@ export default function Projects() {
       <Section>
         <h1 className="py-6 text-xl font-bold  md:text-4xl">Projects</h1>
         <p>
-          The os.c marketplace is THE place to publish open source code with one
+          The os.c marketplace is the place to publish open source projects with one
           idea in mind: To reduce the incredible duplication of efforts that
-          really slows down innovation in the AECO industry. The idea of this
-          space is to collect a mix of open source projects. Small scripts, that
-          you wish you would have at hand instead of building it yourself.
-          Larger projects, that help you move faster. Any code, that is helpful
-          to others. Very soon, you will be able to push your open source code
-          via GitHub to our website. We will include your project in the
-          newsletter and organise an community call to make you and your code
-          known. This way, you will find code. But also heaps of talented
-          people, ready to push the industry further. Step by step and never
+          really slows down innovation in the AECO industry. 
+          
+          The idea of this space is twofolded: 
+          1. it's a collaborative repository to collect any code that is open and helpful to others in the AECO sector. 
+          Projects range from small scripts, that you wish you would have at hand instead of building it yourself 
+          to larger projects, that help you move faster. 
+
+          2. get to know the people behind the projects. Learn about their motivation to publish code open source and about the models they have 
+          found to make the work on it sustainable. In addition to the publication on the website, we offer the possibility to set up a community call 
+          that is recorded and also shared on the website.
+
+          Let's keep pushing the industry further. Step by step and never
           stopping.
         </p>
 
