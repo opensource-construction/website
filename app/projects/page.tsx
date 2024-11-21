@@ -68,6 +68,7 @@ export default function Projects() {
         <p> 2. get to know the people behind the projects. Learn about their motivation to publish code open source and about the models they have 
           found to make the work on it sustainable. In addition to the publication on the website, we offer the possibility to set up a community call 
           that is recorded and also shared on the website.
+          <br />
         </p>
         <p> Let's keep pushing the industry further. Step by step and never
           stopping.
