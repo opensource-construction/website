@@ -56,18 +56,15 @@ export default function Projects() {
         <p>
           The os.c marketplace is the place to publish open source projects with one
           idea in mind: To reduce the incredible duplication of efforts that
-          really slows down innovation in the AECO industry. 
-          
-          The idea of this space is twofolded: 
-          1. it's a collaborative repository to collect any code that is open and helpful to others in the AECO sector. 
+          really slows down innovation in the AECO industry. <br></p>
+          <p>The idea of this space is twofolded:</p>
+          <p>1. it's a collaborative repository to collect any code that is open and helpful to others in the AECO sector. 
           Projects range from small scripts, that you wish you would have at hand instead of building it yourself 
-          to larger projects, that help you move faster. 
-
-          2. get to know the people behind the projects. Learn about their motivation to publish code open source and about the models they have 
+          to larger projects, that help you move faster. </p>
+          <p> 2. get to know the people behind the projects. Learn about their motivation to publish code open source and about the models they have 
           found to make the work on it sustainable. In addition to the publication on the website, we offer the possibility to set up a community call 
-          that is recorded and also shared on the website.
-
-          Let's keep pushing the industry further. Step by step and never
+          that is recorded and also shared on the website.<br></p>
+          <p>Let's keep pushing the industry further. Step by step and never
           stopping.
         </p>
 
