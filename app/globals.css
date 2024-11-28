@@ -21,9 +21,12 @@
   --color-transparent: transparent;
   --color-current-color: currentColor;
 
-  --text-2xl: 1.9em, 1.14em;
-  --text-3xl: 2.8em, 1.14em;
-  --text-4xl: 3em, 1.14em;
+  --text-2xl: 1.9em;
+  --text-2xl--line-height: 1.14em;
+  --text-3xl: 2.8em;
+  --text-3xl--line-height: 1.14em;
+  --text-4xl: 3em;
+  --text-4xl--line-height: 1.14em;
 
   --font-sans: var(--font-corbert), sans-serif;
   --font-icon: var(--font-glyphter);
