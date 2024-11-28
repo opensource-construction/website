@@ -1,5 +1,8 @@
 @import 'tailwindcss';
 
+@plugin "@tailwindcss/typography";
+@plugin "@tailwindcss/forms";
+
 @theme {
   --color-*: initial;
   --color-primary-500: #fbdf24;
