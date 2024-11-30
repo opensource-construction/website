@@ -1,6 +1,57 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@plugin "@tailwindcss/typography";
+@plugin "@tailwindcss/forms";
+
+@theme {
+  --color-*: initial;
+  --color-primary-500: #fbdf24;
+
+  --color-secondary-500: #0909ff;
+
+  --color-warning-500: #f715f7;
+
+  --color-slate-100: #f2f2f2;
+  --color-slate-300: #f5f5f5;
+  --color-slate-500: #cccccc;
+  --color-slate-700: #737373;
+
+  --color-white: #ffffff;
+  --color-black: #010209;
+  --color-transparent: transparent;
+  --color-current-color: currentColor;
+
+  --text-2xl: 1.9em;
+  --text-2xl--line-height: 1.14em;
+  --text-3xl: 2.8em;
+  --text-3xl--line-height: 1.14em;
+  --text-4xl: 3em;
+  --text-4xl--line-height: 1.14em;
+
+  --font-sans: var(--font-corbert), sans-serif;
+  --font-icon: var(--font-glyphter);
+
+  --width-122: 122%;
+  --width-300: 300%;
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
 
 svg#hero {
   transition: all 3.2s cubic-bezier(0.19, 1, 0.22, 1) 0s;

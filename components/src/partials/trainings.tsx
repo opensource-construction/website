@@ -9,7 +9,7 @@ export function TrainingsPartial() {
         alt="hero animation"
         className="absolute -z-10 mx-auto -mt-48 box-border flex w-96 justify-center px-14 md:w-full"
       />
-      <div className="prose mx-auto flex max-w-screen-xl flex-col items-end px-2 md:px-10 lg:flex-row lg:items-start">
+      <div className="prose mx-auto flex max-w-(--breakpoint-xl) flex-col items-end px-2 md:px-10 lg:flex-row lg:items-start">
         <div className="w-full px-4 lg:w-7/12">
           <h2>
             Look ahead to all the great things that are there for you to be

@@ -21,7 +21,7 @@ export function Navbar({ title, logo, menuItems, children }: NavbarProps) {
           </Link>
         </h1>
       </div>
-      <div className="flex-grow"></div>
+      <div className="grow"></div>
       <div className="flex flex-row">
         <div className="-mt-2 h-4 text-right md:h-12">{children}</div>
         <Menu items={menuItems} />

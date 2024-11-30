@@ -43,7 +43,7 @@ export function Form() {
         />
         <div className="flex flex-col gap-4 text-sm md:flex-row md:text-base">
           <Button type="submit" label="Register now" />
-          <div className="mt-4 flex-grow">
+          <div className="mt-4 grow">
             {state.type === "success" ? (
               <p
                 aria-live="polite"

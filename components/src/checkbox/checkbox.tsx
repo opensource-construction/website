@@ -6,7 +6,7 @@ type TextInputProps = VariantProps<typeof variants> & {
   id?: string;
 };
 
-export const variants = cva(["rounded-sm p-2 form-checkbox"], {
+export const variants = cva(["rounded-xs p-2 form-checkbox"], {
   variants: {
     variant: {
       default: ["border-gray-300 bg-gray-100 text-black"],
