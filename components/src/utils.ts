@@ -2,11 +2,21 @@ import fs from "fs";
 import path from "path";
 import YAML from "yaml";
 
+//Generic utility function to parse frontmatter from a file
+
 export type Post = {
   metadata: any;
   slug: string;
   content: string;
 };
+
+export function parseSlug(filename: string): string {
+  return filename
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '');
+}
+
 
 function parseFrontmatter(fileContent: string) {
   let frontmatterRegex = /---\s*([\s\S]*?)\s*---/;
@@ -30,14 +40,6 @@ function getMDXFiles(dir: string) {
 function readMDXFile(filePath: string) {
   let rawContent = fs.readFileSync(filePath, "utf-8");
   return parseFrontmatter(rawContent);
-}
-
-export function parseSlug(fileBasename: string) {
-  let prefix = fileBasename.indexOf("-");
-  if (prefix && +fileBasename.slice(0, prefix)) {
-    return fileBasename.slice(prefix + 1);
-  }
-  return fileBasename;
 }
 
 function getMDXData(dir: string): Post[] {

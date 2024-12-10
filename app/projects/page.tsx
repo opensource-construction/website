@@ -1,28 +1,32 @@
-import { Button, getPosts, Section } from "@/components";
+import { Button, Section } from "@/components";
 import {
-  Maturity,
   parseProjects,
-  Project,
   validMaturities,
-} from "@/components/src/projectUtils";
+  MdxProject,
+  Maturity,
+  getProjects,
+} from "@opensource-construction/components/src/projectMdxParser";
 
 function capitalizeFirstLetter(string: string): string {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 export default function Projects() {
-  let projects = getPosts("projects");
+  let projects = getProjects("projects");
   let parsedProjects = parseProjects(projects);
 
-  const projectsByMaturity = parsedProjects.reduce<Record<Maturity, Project[]>>(
+  const projectsByMaturity = parsedProjects.reduce<
+    Record<Maturity, MdxProject[]>
+  >(
     (acc, project) => {
-      if (!acc[project.maturity]) {
-        acc[project.maturity] = [];
+      const maturity = project.metadata.maturity; // Access maturity through project.project
+      if (!acc[maturity]) {
+        acc[maturity] = [];
       }
-      acc[project.maturity].push(project);
+      acc[maturity].push(project);
       return acc;
     },
-    {} as Record<Maturity, Project[]>,
+    {} as Record<Maturity, MdxProject[]>,
   );
 
   const sortedProjectsByMaturity = Object.entries(projectsByMaturity).sort(
@@ -54,23 +58,30 @@ export default function Projects() {
       <Section>
         <h1 className="py-6 text-xl font-bold  md:text-4xl">Projects</h1>
         <p>
-          The os.c marketplace is the place to publish open source projects with one
-          idea in mind: To reduce the incredible duplication of efforts that
-          really slows down innovation in the AECO industry. 
+          The os.c marketplace is the place to publish open source projects with
+          one idea in mind: To reduce the incredible duplication of efforts that
+          really slows down innovation in the AECO industry.
         </p>
         <p>
           The idea of this space is twofolded:
           <br />
-          1. it&lsquo;s a collaborative repository to collect any code that is open and helpful to others in the AECO sector. 
-          Projects range from small scripts, that you wish you would have at hand instead of building it yourself 
-          to larger projects, that help you move faster. 
+          1. it&lsquo;s a collaborative repository to collect any code that is
+          open and helpful to others in the AECO sector. Projects range from
+          small scripts, that you wish you would have at hand instead of
+          building it yourself to larger projects, that help you move faster.
         </p>
-        <p> 2. get to know the people behind the projects. Learn about their motivation to publish code open source and about the models they have 
-          found to make the work on it sustainable. In addition to the publication on the website, we offer the possibility to set up a community call 
-          that is recorded and also shared on the website.
+        <p>
+          {" "}
+          2. get to know the people behind the projects. Learn about their
+          motivation to publish code open source and about the models they have
+          found to make the work on it sustainable. In addition to the
+          publication on the website, we offer the possibility to set up a
+          community call that is recorded and also shared on the website.
           <br />
         </p>
-        <p> Let&lsquo;s keep pushing the industry further. Step by step and never
+        <p>
+          {" "}
+          Let&lsquo;s keep pushing the industry further. Step by step and never
           stopping.
         </p>
 
