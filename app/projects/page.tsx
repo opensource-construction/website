@@ -1,23 +1,19 @@
 import { Button, Section } from "@/components";
+import { loadProjects } from "@opensource-construction/components/src/mdxParser/contentParser";
 import {
-  parseProjects,
-  validMaturities,
-  MdxProject,
   Maturity,
-  getProjects,
-} from "@opensource-construction/components/src/projectMdxParser";
+  Project,
+  validMaturities,
+} from "@/components/src/types/parserTypes";
 
 function capitalizeFirstLetter(string: string): string {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 export default function Projects() {
-  let projects = getProjects("projects");
-  let parsedProjects = parseProjects(projects);
+  let projects = loadProjects();
 
-  const projectsByMaturity = parsedProjects.reduce<
-    Record<Maturity, MdxProject[]>
-  >(
+  const projectsByMaturity = projects.reduce<Record<Maturity, Project[]>>(
     (acc, project) => {
       const maturity = project.metadata.maturity; // Access maturity through project.project
       if (!acc[maturity]) {
@@ -26,7 +22,7 @@ export default function Projects() {
       acc[maturity].push(project);
       return acc;
     },
-    {} as Record<Maturity, MdxProject[]>,
+    {} as Record<Maturity, Project[]>,
   );
 
   const sortedProjectsByMaturity = Object.entries(projectsByMaturity).sort(
@@ -71,7 +67,6 @@ export default function Projects() {
           building it yourself to larger projects, that help you move faster.
         </p>
         <p>
-          {" "}
           2. get to know the people behind the projects. Learn about their
           motivation to publish code open source and about the models they have
           found to make the work on it sustainable. In addition to the
@@ -80,7 +75,6 @@ export default function Projects() {
           <br />
         </p>
         <p>
-          {" "}
           Let&lsquo;s keep pushing the industry further. Step by step and never
           stopping.
         </p>

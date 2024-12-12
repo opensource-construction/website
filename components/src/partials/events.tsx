@@ -1,4 +1,4 @@
-import { getPosts } from "../utils";
+import { getPosts } from "../mdxParser/contentParser";
 import { Card } from "../card";
 
 export function EventsPartial({ showPast = false }: { showPast?: boolean }) {

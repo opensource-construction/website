@@ -1,10 +1,10 @@
 import { CustomMDX } from "../mdx";
-import { getPosts } from "../utils";
+import { processPosts } from "../utils";
 
 import { Card } from "../card";
 
 export function FAQPartial() {
-  const faqs = getPosts("faqs");
+  const faqs = processPosts("faqs");
 
   return (
     <div>

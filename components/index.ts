@@ -5,7 +5,9 @@ import { Footer } from "./src/footer";
 import { CustomMDX } from "./src/mdx";
 import { Navbar } from "./src/nav";
 import { Form } from "./src/form";
-import { getPosts, parseSlug, Post } from "./src/utils";
+import { Post } from "./src/mdxParser/contentParser";
+import { getPosts } from "./src/mdxParser/contentParser";
+import { parseSlug } from "./src/mdxParser/contentParser";
 
 export type { Post };
 export { CustomMDX, Button, Section, Page, Footer, Navbar, Form };
