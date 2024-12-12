@@ -1,18 +1,28 @@
-import { Training, Event, Project, ContentType, Maturity, validMaturities, Content } from "../types/parserTypes";
-import { ContentValidator } from "./contentParser";
+import {
+  Training,
+  Event,
+  Project,
+  ContentType,
+  Maturity,
+  validMaturities,
+  Content,
+  TrainingTag,
+} from "./mdxParserTypes";
+import { ContentValidator } from "./mdxParserTypes";
 
 export function validatePostMetadata(metadata: any) {
   return metadata || {};
 
   /**
    * An object containing various metadata validation functions.
-   * 
+   *
    * @property {Function} project - Validates project metadata.
    * @property {Function} training - Validates training metadata.
    * @property {Function} post - Validates post metadata.
    * @property {Function} event - Validates event metadata.
    */
-} export const validators = {
+}
+export const validators = {
   project: validateProjectMetadata,
   training: validateTrainingMetadata,
   post: validatePostMetadata,
@@ -28,21 +38,26 @@ export function validatePostMetadata(metadata: any) {
  * @param defaultContent - The default content to fall back on if raw content is missing.
  * @returns The validated and structured training content.
  */
-const validateTraining: ContentValidator<Training> = (raw, slug, content, defaultContent) => ({
+export const validateTraining: ContentValidator<Training> = (
+  raw,
+  slug,
+  content,
+  defaultContent,
+) => ({
   ...defaultContent,
   title: raw?.title || defaultContent.title,
   description: raw?.description || defaultContent.description,
   slug,
   content,
-  author: raw?.author || '',
-  image: raw?.image || '',
+  author: raw?.author || "",
+  image: raw?.image || "",
   links: raw?.links || [],
   tags: Array.isArray(raw?.tags) ? raw.tags : [],
   metadata: {
     ...defaultContent.metadata,
-    level: raw?.metadata?.level || 'beginner',
-    duration: raw?.metadata?.duration || '1h',
-  }
+    level: raw?.metadata?.level || "beginner",
+    duration: raw?.metadata?.duration || "1h",
+  },
 });
 
 export function validateTrainingMetadata(metadata: any) {
@@ -58,7 +73,12 @@ export function validateTrainingMetadata(metadata: any) {
  * @param defaultContent - The default content to use if certain fields are missing in the raw data.
  * @returns A validated and structured Event object.
  */
-const validateEvent: ContentValidator<Event> = (raw, slug, content, defaultContent) => ({
+const validateEvent: ContentValidator<Event> = (
+  raw,
+  slug,
+  content,
+  defaultContent,
+) => ({
   ...defaultContent,
   title: raw?.title || defaultContent.title,
   description: raw?.description || defaultContent.description,
@@ -71,16 +91,15 @@ const validateEvent: ContentValidator<Event> = (raw, slug, content, defaultConte
     end: raw?.event?.end,
     location: raw?.event?.location,
     geo: raw?.event?.geo,
-    status: raw?.event?.status || 'TENTATIVE',
+    status: raw?.event?.status || "TENTATIVE",
     organizer: raw?.event?.organizer,
-    url: raw?.event?.url
-  }
+    url: raw?.event?.url,
+  },
 });
 
 export function validateEventMetadata(metadata: any) {
   return metadata || {};
 }
-
 
 /**
  * Validates and constructs a Project object by merging raw input data with default content.
@@ -91,7 +110,12 @@ export function validateEventMetadata(metadata: any) {
  * @param defaultContent - The default content to fall back on if raw data is incomplete.
  * @returns A validated and merged Project object.
  */
-const validateProject: ContentValidator<Project> = (raw, slug, content, defaultContent) => ({
+const validateProject: ContentValidator<Project> = (
+  raw,
+  slug,
+  content,
+  defaultContent,
+) => ({
   ...defaultContent,
   title: raw?.title || defaultContent.title,
   description: raw?.description || defaultContent.description,
@@ -101,8 +125,8 @@ const validateProject: ContentValidator<Project> = (raw, slug, content, defaultC
   metadata: {
     ...defaultContent.metadata,
     featured: raw?.metadata?.featured || false,
-    maturity: raw?.metadata?.maturity || 'sandbox',
-  }
+    maturity: raw?.metadata?.maturity || "sandbox",
+  },
 });
 
 export function validateProjectMetadata(metadata: any) {
@@ -113,24 +137,26 @@ export function validateProjectMetadata(metadata: any) {
 }
 
 function parseMaturity(maturity: any): Maturity {
-  const cleanedMaturity = String(maturity || '').trim().toLowerCase();
+  const cleanedMaturity = String(maturity || "")
+    .trim()
+    .toLowerCase();
   return validMaturities.includes(cleanedMaturity as Maturity)
     ? (cleanedMaturity as Maturity)
-    : 'sandbox';
+    : "sandbox";
 }
 
 /**
  * A record of content validators for different content types.
- * Each validator function takes raw content, a slug, processed content, 
+ * Each validator function takes raw content, a slug, processed content,
  * and default content, and returns the validated content.
- * 
+ *
  * @type {Record<ContentType, ContentValidator<any>>}
- * 
+ *
  * @property {ContentValidator<any>} training - Validator for training content.
  * @property {ContentValidator<any>} event - Validator for event content.
  * @property {ContentValidator<any>} project - Validator for project content.
  * @property {ContentValidator<any>} post - Validator for post content.
- * 
+ *
  * The `post` validator function:
  * @param {any} raw - The raw content data.
  * @param {string} slug - The slug for the content.
@@ -144,22 +170,37 @@ export const contentValidators: Record<ContentType, ContentValidator<any>> = {
   project: validateProject,
   post: (raw, slug, content, defaultContent) => ({
     ...defaultContent,
-    title: raw?.title || '',
-    description: raw?.description || '',
+    title: raw?.title || "",
+    description: raw?.description || "",
     slug,
     content,
-    metadata: raw?.metadata || {}
-  })
+    metadata: raw?.metadata || {},
+  }),
 };
+
+/**
+ * Validates the metadata of the given content.
+ *
+ * @template T - The type of the content.
+ * @param raw - The raw metadata to be validated.
+ * @param slug - The slug of the content.
+ * @param content - The content to be validated.
+ * @param defaultContent - The default content to fall back on if validation fails.
+ * @param type - The type of the content.
+ * @returns The validated content.
+ */
 export function validateMetadata<T extends Content>(
   raw: any,
   slug: string,
   content: string,
   defaultContent: T,
-  type: ContentType): T {
+  type: ContentType,
+): T {
   const validator = contentValidators[type];
   return validator(raw, slug, content, defaultContent);
 }
 
-
+export function isValidTrainingTag(tag: string): tag is TrainingTag {
+  return /^(type|tool|cost|mode)::.+$/.test(tag);
+}
 

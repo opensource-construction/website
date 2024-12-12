@@ -4,7 +4,7 @@ import {
   Maturity,
   Project,
   validMaturities,
-} from "@/components/src/types/parserTypes";
+} from "@opensource-construction/components/src/mdxParser/parserTypes";
 
 function capitalizeFirstLetter(string: string): string {
   return string.charAt(0).toUpperCase() + string.slice(1);

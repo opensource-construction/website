@@ -2,7 +2,7 @@ import { getPosts, Section } from "@/components";
 import { loadTrainings } from "@opensource-construction/components/src/mdxParser/contentParser";
 import { TrainingsPartial } from "@/components/src/partials/trainings";
 import { TrainingCard } from "@/components/src/trainingCard";
-import { Training } from "@/components/src/types/parserTypes";
+import { Training } from "@opensource-construction/components/src/mdxParser/parserTypes";
 
 export default function Trainings() {
   let trainings = loadTrainings();
