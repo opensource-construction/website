@@ -2,8 +2,8 @@ import {
   loadPosts,
   loadProjects,
   loadTrainings,
-} from "@opensource-construction/components/src/mdxParser/contentParser";
-import { Page, getPosts } from "@opensource-construction/components";
+} from "@/components/src/mdxParser/mdxParsers";
+import { Page } from "@opensource-construction/components";
 import { notFound } from "next/navigation";
 
 type PageType = "events" | "projects" | "trainings" | "faqs" | "page";
@@ -20,13 +20,13 @@ export async function generateStaticParams() {
     ...loadProjects().map((p) => {
       return { slug: p.slug, pageType: "projects" as PageType };
     }),
-    ...getPosts("events").map((p) => {
+    ...loadPosts("events").map((p) => {
       return { slug: p.slug, pageType: "events" as PageType };
     }),
     ...loadTrainings().map((p) => {
       return { slug: p.slug, pageType: "trainings" as PageType };
     }),
-    ...getPosts("page").map((p) => {
+    ...loadPosts("page").map((p) => {
       return { slug: p.slug, pageType: "page" as PageType };
     }),
   ];

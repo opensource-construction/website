@@ -10,6 +10,7 @@ import {
   ContentType,
   Parser,
   Post,
+  Event
 } from "./mdxParserTypes";
 import { validateMetadata } from "./mdxValidators";
 
@@ -61,7 +62,7 @@ export function loadContent<T extends Content>(
             defaultContent,
             type,
           )
-          : { ...defaultContent, slug };
+          : { ...defaultContent, slug } as unknown as T; // Changed 'as T' to 'as unknown as T'
       });
   } catch (error) {
     console.error(`Error loading ${type}:`, error);
@@ -70,10 +71,14 @@ export function loadContent<T extends Content>(
 }
 
 export const loadProjects = () =>
-  loadContent("projects", "project") as Project[];
+  loadContent<Project>("projects", "project");
 
 export const loadTrainings = () =>
-  loadContent("trainings", "training") as Training[];
+  loadContent<Training>("trainings", "training");
+
+export const loadEvents = (): Event[] => {
+  return loadContent<Event>("events", "event");
+};
 
 export const loadPosts = (dir: string) => loadContent(dir, "post") as Post[];
 

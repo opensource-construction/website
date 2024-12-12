@@ -3,6 +3,9 @@
 export const validMaturities = ["sandbox", "incubation", "graduated"] as const;
 export type ContentType = "project" | "training" | "post" | "event";
 
+export type Content = Project | Training | Post | Event;
+
+
 // Base Types
 interface BaseContent {
   title?: string;
@@ -25,7 +28,12 @@ interface WithLinks {
   links: Array<{ url: string; label: string }>;
 }
 
-// Project Metadata
+// Project 
+export interface Project extends BaseContent, WithDescription, WithSlug, WithContent, WithLinks {
+  type: "project";
+  metadata: ProjectMetadata;
+}
+
 interface ProjectMetadata {
   featured: boolean;
   maturity: Maturity;
@@ -33,13 +41,26 @@ interface ProjectMetadata {
 
 export type Maturity = (typeof validMaturities)[number];
 
-// Training Metadata
+// Training
+export interface Training extends BaseContent, WithDescription, WithSlug, WithContent, WithLinks {
+  type: "training";
+  author: string;
+  image: string;
+  tags: TrainingTag[];
+  metadata: TrainingMetadata;
+}
+
 interface TrainingMetadata {
   level?: string;
   duration?: string;
 }
 
-// Event Metadata
+// Event
+export interface Event extends BaseContent, WithDescription, WithSlug, WithContent {
+  type: "event";
+  metadata: EventMetadata;
+}
+
 interface EventMetadata {
   start: string;
   duration?: Duration;
@@ -49,6 +70,8 @@ interface EventMetadata {
   status?: EventStatus;
   organizer?: Organizer;
   url?: string;
+  isPast: boolean;
+  startDate: Date;
 }
 
 type EventStatus = "TENTATIVE" | "CONFIRMED" | "CANCELLED";
@@ -71,24 +94,10 @@ interface Duration {
   weeks?: number;
 }
 
-
-// Tag Types
 export type TagCategory = "type" | "tool" | "cost" | "mode";
 export type TrainingTag = `${TagCategory}::${string}`;
 
-// Content Types
-export interface Project extends BaseContent, WithDescription, WithSlug, WithContent, WithLinks {
-  type: "project";
-  metadata: ProjectMetadata;
-}
 
-export interface Training extends BaseContent, WithDescription, WithSlug, WithContent, WithLinks {
-  type: "training";
-  author: string;
-  image: string;
-  tags: TrainingTag[];
-  metadata: TrainingMetadata;
-}
 
 //TODO: for the time being use custom post -> Should be replaced with the below interface
 export interface Post {
@@ -99,18 +108,10 @@ export interface Post {
   description?: string;
 }
 
-
 // export interface Post extends BaseContent, WithDescription, WithSlug, WithContent {
 //   type: "post";
 //   metadata: Record<string, unknown>;
 // }
-
-export interface Event extends BaseContent, WithDescription, WithSlug, WithContent {
-  type: "event";
-  metadata: EventMetadata;
-}
-
-export type Content = Project | Training | Post | Event;
 
 // Defaults
 export const contentDefaults = {
@@ -132,10 +133,10 @@ export const contentDefaults = {
     description: "",
     slug: "",
     content: "",
-    author: "",
-    image: "",
-    tags: [],
     metadata: {
+      author: "",
+      image: "",
+      tags: [],
       level: "beginner",
       duration: "1h",
     },
@@ -155,8 +156,14 @@ export const contentDefaults = {
     slug: "",
     content: "",
     metadata: {
-      start: new Date().toISOString(),
       status: "TENTATIVE" as EventStatus,
+      startDate: new Date(),
+      start: Intl.DateTimeFormat("en-UK", {
+        dateStyle: "short",
+        timeStyle: "short",
+        timeZone: "Europe/Zurich",
+      }).format(new Date()),
+      isPast: false,
     },
   },
 }; export type ContentValidator<T extends Content> = (

@@ -1,10 +1,10 @@
 import { Button, Section } from "@/components";
-import { loadProjects } from "@opensource-construction/components/src/mdxParser/contentParser";
+import { loadProjects } from "@/components/src/mdxParser/mdxParsers";
 import {
   Maturity,
   Project,
   validMaturities,
-} from "@opensource-construction/components/src/mdxParser/parserTypes";
+} from "@/components/src/mdxParser/mdxParserTypes";
 
 function capitalizeFirstLetter(string: string): string {
   return string.charAt(0).toUpperCase() + string.slice(1);
@@ -15,7 +15,7 @@ export default function Projects() {
 
   const projectsByMaturity = projects.reduce<Record<Maturity, Project[]>>(
     (acc, project) => {
-      const maturity = project.metadata.maturity; // Access maturity through project.project
+      const maturity = project.metadata.maturity;
       if (!acc[maturity]) {
         acc[maturity] = [];
       }

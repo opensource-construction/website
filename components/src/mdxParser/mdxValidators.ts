@@ -12,16 +12,8 @@ import { ContentValidator } from "./mdxParserTypes";
 
 export function validatePostMetadata(metadata: any) {
   return metadata || {};
-
-  /**
-   * An object containing various metadata validation functions.
-   *
-   * @property {Function} project - Validates project metadata.
-   * @property {Function} training - Validates training metadata.
-   * @property {Function} post - Validates post metadata.
-   * @property {Function} event - Validates event metadata.
-   */
 }
+
 export const validators = {
   project: validateProjectMetadata,
   training: validateTrainingMetadata,
@@ -49,14 +41,14 @@ export const validateTraining: ContentValidator<Training> = (
   description: raw?.description || defaultContent.description,
   slug,
   content,
-  author: raw?.author || "",
-  image: raw?.image || "",
-  links: raw?.links || [],
-  tags: Array.isArray(raw?.tags) ? raw.tags : [],
   metadata: {
     ...defaultContent.metadata,
     level: raw?.metadata?.level || "beginner",
     duration: raw?.metadata?.duration || "1h",
+    author: raw?.author || "",
+    image: raw?.image || "",
+    links: raw?.links || [],
+    tags: Array.isArray(raw?.tags) ? raw.tags : [],
   },
 });
 
@@ -73,32 +65,64 @@ export function validateTrainingMetadata(metadata: any) {
  * @param defaultContent - The default content to use if certain fields are missing in the raw data.
  * @returns A validated and structured Event object.
  */
-const validateEvent: ContentValidator<Event> = (
+export const validateEvent: ContentValidator<Event> = (
   raw,
   slug,
   content,
   defaultContent,
-) => ({
-  ...defaultContent,
-  title: raw?.title || defaultContent.title,
-  description: raw?.description || defaultContent.description,
-  slug,
-  content,
-  metadata: {
-    ...defaultContent.metadata,
-    start: raw?.event?.start || new Date().toISOString(),
-    duration: raw?.event?.duration,
-    end: raw?.event?.end,
-    location: raw?.event?.location,
-    geo: raw?.event?.geo,
-    status: raw?.event?.status || "TENTATIVE",
-    organizer: raw?.event?.organizer,
-    url: raw?.event?.url,
-  },
-});
+) => {
+  const eventStart = new Date(raw?.event?.start || defaultContent.metadata.start);
+  const isPast = eventStart.getTime() < Date.now();
+  const formattedStart = Intl.DateTimeFormat("en-UK", {
+    dateStyle: "short",
+    timeStyle: "short",
+    timeZone: "Europe/Zurich",
+  }).format(eventStart);
+
+  return {
+    ...defaultContent,
+    type: "event",
+    title: raw?.title || defaultContent.title,
+    description: raw?.description || defaultContent.description,
+    slug,
+    content,
+    metadata: {
+      ...defaultContent.metadata,
+      duration: raw?.event?.duration || { hours: 1 },
+      location: raw?.event?.location,
+      geo: raw?.event?.geo,
+      status: raw?.event?.status || "TENTATIVE",
+      organizer: raw?.event?.organizer,
+      url: raw?.event?.url,
+      start: formattedStart,
+      isPast: isPast,
+    },
+  };
+};
 
 export function validateEventMetadata(metadata: any) {
-  return metadata || {};
+  return {
+    duration: metadata?.duration,
+    end: metadata?.end,
+    location: metadata?.location,
+    geo: metadata?.geo,
+    status: metadata?.status || "TENTATIVE",
+    organizer: metadata?.organizer,
+    url: metadata?.url,
+    isPast: new Date(metadata?.start).getTime() < Date.now(),
+    startDate: metadata?.start ? new Date(metadata.start) : new Date(),
+    start: metadata?.start
+      ? Intl.DateTimeFormat("en-UK", {
+        dateStyle: "short",
+        timeStyle: "short",
+        timeZone: "Europe/Zurich",
+      }).format(new Date(metadata.start))
+      : Intl.DateTimeFormat("en-UK", {
+        dateStyle: "short",
+        timeStyle: "short",
+        timeZone: "Europe/Zurich",
+      }).format(new Date()),
+  };
 }
 
 /**
