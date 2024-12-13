@@ -31,7 +31,7 @@
     "react-icons": "^5.2.1",
     "slugify": "^1.6.6",
     "yaml": "^2.4.2",
-    "zod": "^3.23.8"
+    "zod": "^3.24.0"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.5.0",
