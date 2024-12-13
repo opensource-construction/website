@@ -3,16 +3,25 @@ import fs from "fs";
 import path from "path";
 import YAML from "yaml";
 import {
-  Content,
-  Project,
-  Training,
+  OscProject,
+  OscTraining,
   contentDefaults,
   ContentType,
   Parser,
-  Post,
-  Event
+  OscPost,
+  OscEvent,
+  Page,
+  ContentValidator
 } from "./mdxParserTypes";
-import { validateMetadata } from "./mdxValidators";
+import { contentValidators } from "./mdxValidators";
+
+type ContentTypeMap = {
+  training: OscTraining;
+  event: OscEvent;
+  project: OscProject;
+  post: OscPost;
+  page: Page;
+};
 
 export function parseSlug(fileBasename: string) {
   let prefix = fileBasename.indexOf("-");
@@ -37,10 +46,10 @@ function parseFrontmatter(content: string) {
   }
 }
 
-export function loadContent<T extends Content>(
+export function loadContent<T extends ContentType>(
   dir: string,
-  type: ContentType,
-): T[] {
+  type: T,
+): ContentTypeMap[T][] {
   const contentDir = path.join(process.cwd(), "content", dir);
 
   try {
@@ -51,25 +60,23 @@ export function loadContent<T extends Content>(
         const content = fs.readFileSync(path.join(contentDir, file), "utf-8");
         const slug = parseSlug(path.basename(file, ".mdx"));
         const parsed = parseFrontmatter(content);
-
-        const defaultContent = contentDefaults[type] as T;
+        const validator = contentValidators[type] as ContentValidator<ContentTypeMap[T]>;
+        const defaultContent = contentDefaults[type] as ContentTypeMap[T];
 
         return parsed
-          ? validateMetadata<T>(
+          ? validator(
             parsed.data,
             slug,
             parsed.body,
-            defaultContent,
-            type,
+            defaultContent
           )
-          : { ...defaultContent, slug } as unknown as T; // Changed 'as T' to 'as unknown as T'
+          : { ...defaultContent, slug };
       });
   } catch (error) {
     console.error(`Error loading ${type}:`, error);
     return [];
   }
 }
-
 
 export function getMDXFiles(dir: string): string[] {
   try {
@@ -90,15 +97,10 @@ export function readFile<T>(
   validationFn: Parser<T>,
   options = { encoding: "utf-8" as const },
 ): T {
-  try {
-    const rawContent = fs.readFileSync(filePath, options);
-    const slug = parseSlug(path.basename(filePath, path.extname(filePath)));
-    const { metadata, content } = parseMdxFile(rawContent);
-    return validationFn(content, slug, metadata);
-  } catch (error) {
-    console.error("Error reading file:", error);
-    throw error;
-  }
+  const rawContent = fs.readFileSync(filePath, options);
+  const slug = parseSlug(path.basename(filePath, path.extname(filePath)));
+  const { metadata, content } = parseMdxFile(rawContent);
+  return validationFn(content, slug, metadata);
 }
 
 export function parseMdxFile(fileContent: string): {
@@ -128,16 +130,15 @@ export function parseMdxFile(fileContent: string): {
   }
 }
 
-
 /**
  * @deprecated Use specified `loaders` instead.
  */
-export function getPosts(dir?: string): Post[] {
+export function getPosts(dir?: string): OscPost[] {
   const contentDir = path.join(process.cwd(), "content", dir || "");
   try {
     const files = getMDXFiles(contentDir);
     return files.map((file) =>
-      readFile<Post>(
+      readFile<OscPost>(
         path.join(contentDir, file),
         (content, slug, metadata) => ({
           metadata: metadata as Record<string, unknown>,
@@ -152,19 +153,17 @@ export function getPosts(dir?: string): Post[] {
   }
 }
 
-//Loaders
+//LOADERS
+export const loadProjects = () => loadContent("projects", "project");
 
-export const loadProjects = () =>
-  loadContent<Project>("projects", "project");
+export const loadTrainings = () => loadContent("trainings", "training");
 
-export const loadTrainings = () =>
-  loadContent<Training>("trainings", "training");
+export const loadEvents = () => loadContent("events", "event");
 
-export const loadEvents = (): Event[] => {
-  return loadContent<Event>("events", "event");
-};
+export const loadPages = () => loadContent("page", "page");
 
-export const loadPages = () => loadContent("page", "page") as Post[];
+export const loadPosts = (dir: string) => loadContent(dir, "post") as OscPost[];
 
-export const loadPosts = (dir: string) => loadContent(dir, "post") as Post[];
+//TODO: Implement this loader
+export const loadFaqs = () => loadPosts("faqs");
 

@@ -1,5 +1,6 @@
 import { getPosts, Section } from "@/components";
 import { ClusterCard } from "@/components/src/clusterCard";
+import { loadPosts } from "@/components/src/mdxParser/mdxParsers";
 import { ClustersPartial } from "@/components/src/partials/clusters";
 
 export default function ClusterPage() {

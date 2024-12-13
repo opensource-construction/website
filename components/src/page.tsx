@@ -7,10 +7,10 @@ export default function Page({
   page,
 }: {
   page: {
+    title: string;
+    event?: object;
+    project?: object;
     metadata: {
-      title: string;
-      event?: object;
-      project?: object;
       links?: {
         url: string;
         label: string;
@@ -30,7 +30,7 @@ export default function Page({
           icon="left"
         />
         <h1 className="mb-8 mt-12 text-2xl font-bold md:mt-16 md:text-3xl">
-          {page.metadata.title}
+          {page.title}
         </h1>
         <article className="prose mb-16 prose-li:marker:text-primary-500 md:prose-h3:text-2xl">
           <CustomMDX source={page.content} />

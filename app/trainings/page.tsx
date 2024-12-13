@@ -1,8 +1,8 @@
-import { getPosts, Section } from "@/components";
-import { loadTrainings } from "@opensource-construction/components/src/mdxParser/contentParser";
+import { Section } from "@/components";
+import { loadTrainings } from "@/components/src/mdxParser/mdxParsers";
+import { OscTraining } from "@/components/src/mdxParser/mdxParserTypes";
 import { TrainingsPartial } from "@/components/src/partials/trainings";
 import { TrainingCard } from "@/components/src/trainingCard";
-import { Training } from "@opensource-construction/components/src/mdxParser/parserTypes";
 
 export default function Trainings() {
   let trainings = loadTrainings();
@@ -12,14 +12,14 @@ export default function Trainings() {
         <TrainingsPartial />
       </Section>
       <Section title="Trainings">
-        {trainings.map((training: Training, index) => (
+        {trainings.map((training: OscTraining, index) => (
           <TrainingCard
             key={index}
             slug={training.slug}
             title={training.title}
             subtitle={training.description}
-            author={training.author}
-            image={training.image}
+            author={training.metadata.author}
+            image={training.metadata.image}
           />
         ))}
       </Section>

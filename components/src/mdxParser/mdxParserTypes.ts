@@ -1,169 +1,140 @@
+// Constants as union types
+export const VALID_MATURITIES = ["sandbox", "incubation", "graduated"] as const;
+export const CONTENT_TYPES = ["project", "training", "post", "event", "page"] as const;
+export const EVENT_STATUSES = ["TENTATIVE", "CONFIRMED", "CANCELLED"] as const;
+export const TAG_CATEGORIES = ["type", "tool", "cost", "mode"] as const;
 
-// Constants
-export const validMaturities = ["sandbox", "incubation", "graduated"] as const;
-export type ContentType = "project" | "training" | "post" | "event" | "page";
+// Type Definitions
+export type ContentType = (typeof CONTENT_TYPES)[number];
+export type Maturity = (typeof VALID_MATURITIES)[number];
+export type EventStatus = (typeof EVENT_STATUSES)[number];
+export type TagCategory = (typeof TAG_CATEGORIES)[number];
+export type TrainingTag = `${TagCategory}::${string}`;
 
-export type Content = Project | Training | Post | Event | Page;
+// Common Types
+export type ContentLink = {
+  url: string;
+  label: string;
+};
 
+type BaseMetadata = {
+  links: ContentLink[];
+};
 
-// Base Types
-interface BaseContent {
-  title: string;
-  type: ContentType;
-}
-
-interface WithDescription {
-  description: string;
-}
-
-interface WithSlug {
-  slug: string;
-}
-
-interface WithContent {
-  content: string;
-}
-
-interface WithLinks {
-  links: Array<{ url: string; label: string }>;
-}
-
-// Project 
-export interface Project extends BaseContent, WithDescription, WithSlug, WithContent {
-  type: "project";
-  metadata: ProjectMetadata;
-}
-
-interface ProjectMetadata extends WithLinks {
+// Metadata Types
+type ProjectMetadata = BaseMetadata & {
   featured: boolean;
   maturity: Maturity;
-}
+};
 
-export type Maturity = (typeof validMaturities)[number];
-
-// Training
-export interface Training extends BaseContent, WithDescription, WithSlug, WithContent {
-  type: "training";
-  metadata: TrainingMetadata;
-}
-
-interface TrainingMetadata extends WithLinks {
-  level?: string;
-  duration?: string;
+type TrainingMetadata = BaseMetadata & {
+  level: string;
+  duration: string;
   author: string;
   image: string;
   tags: TrainingTag[];
-}
+};
 
-// Event
-export interface Event extends BaseContent, WithDescription, WithSlug, WithContent {
-  type: "event";
-  metadata: EventMetadata;
-}
-
-interface EventMetadata {
-  start: string;
-  duration?: Duration;
-  end?: string;
+type EventMetadata = BaseMetadata & {
+  start: Date;
+  duration?: {
+    seconds?: number;
+    minutes?: number;
+    hours?: number;
+    days?: number;
+    weeks?: number;
+  };
+  end?: Date;
   location?: string;
-  geo?: GeoLocation;
-  status?: EventStatus;
-  organizer?: Organizer;
+  geo?: {
+    lat: number;
+    lon: number;
+  };
+  status: EventStatus;
+  organizer?: {
+    name: string;
+    email: string;
+  };
   url?: string;
   isPast: boolean;
-  startDate: Date;
-}
+};
 
-type EventStatus = "TENTATIVE" | "CONFIRMED" | "CANCELLED";
+type PageMetadata = BaseMetadata & {
+  event?: Record<string, unknown>;
+  project?: Record<string, unknown>;
+};
 
-interface GeoLocation {
-  lat: number;
-  lon: number;
-}
+// Base Content Type
+type BaseContent = {
+  title: string;
+  type: ContentType;
+  description: string;
+  slug: string;
+  content: string;
+};
 
-interface Organizer {
-  name: string;
-  email: string;
-}
+// Content Types
+export type OscProject = BaseContent & {
+  type: "project";
+  metadata: ProjectMetadata;
+};
 
-interface Duration {
-  seconds?: number;
-  minutes?: number;
-  hours?: number;
-  days?: number;
-  weeks?: number;
-}
+export type OscTraining = BaseContent & {
+  type: "training";
+  metadata: TrainingMetadata;
+};
 
-export type TagCategory = "type" | "tool" | "cost" | "mode";
-export type TrainingTag = `${TagCategory}::${string}`;
+export type OscEvent = BaseContent & {
+  type: "event";
+  metadata: EventMetadata;
+};
 
-export interface Page extends BaseContent, WithContent {
+export type Page = BaseContent & {
   type: "page";
   metadata: PageMetadata;
-}
+};
 
-interface PageMetadata extends WithLinks {
-  event?: object;
-  project?: object;
-}
-
-
-// metadata: {
-//   title: string;
-//   event?: object;
-//   project?: object;
-//   links?: {
-//       url: string;
-//       label: string;
-//   }[];
-// };
-
-//TODO: for the time being use custom post -> Should be replaced with the below interface
-export interface Post {
+export type OscPost = {
   metadata: Record<string, unknown>;
   slug: string;
   content: string;
   title?: string;
   description?: string;
-}
-
-// export interface Post extends BaseContent, WithDescription, WithSlug, WithContent {
-//   type: "post";
-//   metadata: Record<string, unknown>;
-// }
-
-type ContentDefaults = {
-  [K in ContentType]: DefaultContent<K>;
 };
 
-type DefaultContent<T extends ContentType> = T extends "project"
-  ? Omit<Project, keyof BaseContent> & { type: "project" }
-  : T extends "training"
-  ? Omit<Training, keyof BaseContent> & { type: "training" }
-  : T extends "event"
-  ? Omit<Event, keyof BaseContent> & { type: "event" }
-  : T extends "page"
-  ? Omit<Page, keyof BaseContent> & { type: "page" }
-  : T extends "post"
-  ? Omit<Post, keyof BaseContent> & { type: "post" }
-  : never;
+export type Content = OscProject | OscTraining | OscPost | OscEvent | Page;
 
+// Validator and Parser Types
+export type ContentValidator<T extends Content> = (
+  raw: any,
+  slug: string,
+  content: string,
+  defaultContent: T
+) => T;
 
-// Defaults
-export const contentDefaults: ContentDefaults = {
+export type Parser<T> = (
+  content: string,
+  slug: string,
+  metadata: unknown
+) => T;
+
+// Default content with proper typing
+export const contentDefaults: Record<ContentType, Content> = {
   project: {
-    type: "project" as const,
+    type: "project",
+    title: "",
     description: "",
     slug: "",
     content: "",
     metadata: {
       featured: false,
-      maturity: "sandbox" as Maturity,
+      maturity: "sandbox",
       links: [],
     },
   },
   training: {
-    type: "training" as const,
+    type: "training",
+    title: "",
     description: "",
     slug: "",
     content: "",
@@ -177,46 +148,35 @@ export const contentDefaults: ContentDefaults = {
     },
   },
   post: {
-    type: "post" as const,
+    title: "",
     description: "",
     slug: "",
     content: "",
     metadata: {},
   },
   event: {
-    type: "event" as const,
+    type: "event",
+    title: "",
     description: "",
     slug: "",
     content: "",
     metadata: {
-      status: "TENTATIVE" as EventStatus,
-      startDate: new Date(),
-      start: Intl.DateTimeFormat("en-UK", {
-        dateStyle: "short",
-        timeStyle: "short",
-        timeZone: "Europe/Zurich",
-      }).format(new Date()),
+      status: "TENTATIVE",
+      start: new Date(),
       isPast: false,
+      links: [],
     },
   },
   page: {
-    type: "page" as const,
+    type: "page",
+    title: "",
+    description: "",
+    slug: "",
     content: "",
     metadata: {
       links: [],
       event: {},
       project: {},
     },
-  }
-};
-
-export type ContentValidator<T extends Content> = (
-  raw: any,
-  slug: string,
-  content: string,
-  defaultContent: T
-) => T;
-export interface Parser<T> {
-  (content: string, slug: string, metadata: unknown): T;
-}
-
+  },
+} as const;

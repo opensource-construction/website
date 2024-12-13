@@ -5,11 +5,11 @@ import { Footer } from "./src/footer";
 import { CustomMDX } from "./src/mdx";
 import { Navbar } from "./src/nav";
 import { Form } from "./src/form";
-import { Post } from "./src/mdxParser/mdxParserTypes";
+import { OscPost } from "./src/mdxParser/mdxParserTypes";
 import { getPosts } from "./src/mdxParser/mdxParsers";
 import { parseSlug } from "./src/mdxParser/mdxParsers";
 
-export type { Post };
+export type { OscPost as Post };
 export { CustomMDX, Button, Section, Page, Footer, Navbar, Form };
 export { getPosts, parseSlug };
 

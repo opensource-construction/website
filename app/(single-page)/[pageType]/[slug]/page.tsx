@@ -1,5 +1,7 @@
 import {
   loadEvents,
+  loadFaqs,
+  loadPages,
   loadPosts,
   loadProjects,
   loadTrainings,
@@ -7,7 +9,7 @@ import {
 import { Page } from "@opensource-construction/components";
 import { notFound } from "next/navigation";
 
-type PageType = "events" | "projects" | "trainings" | "faqs" | "page";
+type PageType = "projects" | "events" | "trainings" | "page" | "post" | "faqs";
 
 type SinglePageType = {
   pageType: PageType;
@@ -16,30 +18,62 @@ type SinglePageType = {
 
 export async function generateStaticParams() {
   let posts: SinglePageType[] = [];
+
+  // Ensure all loader functions are called synchronously
+  const projects = loadProjects();
+  const events = loadEvents();
+  const trainings = loadTrainings();
+  const pages = loadPages();
+  const faqs = loadFaqs();
+
   posts = [
     ...posts,
-    ...loadProjects().map((p) => {
-      return { slug: p.slug, pageType: "projects" as PageType };
-    }),
-    ...loadEvents().map((p) => {
-      return { slug: p.slug, pageType: "events" as PageType };
-    }),
-    ...loadTrainings().map((p) => {
-      return { slug: p.slug, pageType: "trainings" as PageType };
-    }),
-    ...loadPosts("page").map((p) => {
-      return { slug: p.slug, pageType: "page" as PageType };
-    }),
+    ...projects.map((p) => ({
+      slug: p.slug,
+      pageType: "projects" as PageType,
+    })),
+    ...events.map((e) => ({ slug: e.slug, pageType: "events" as PageType })),
+    ...trainings.map((t) => ({
+      slug: t.slug,
+      pageType: "trainings" as PageType,
+    })),
+    ...pages.map((p) => ({ slug: p.slug, pageType: "page" as PageType })),
+    ...faqs.map((f) => ({ slug: f.slug, pageType: "faqs" as PageType })),
   ];
+
   return posts;
 }
 
-export default function SinglePage({ params }: { params: SinglePageType }) {
-  let page = loadPosts(params.pageType).find(
-    (page) => page.slug === params.slug,
-  );
+export default async function SinglePage({
+  params,
+}: {
+  params: SinglePageType;
+}) {
+  const { pageType, slug } = params;
 
-  if (!page || params.pageType === "faqs") {
+  //TODO:FIX ANY
+  let page: any;
+
+  switch (pageType) {
+    case "projects":
+      page = loadProjects().find((p) => p.slug === slug);
+      break;
+    case "trainings":
+      page = loadTrainings().find((t) => t.slug === slug);
+      break;
+    case "events":
+      page = loadEvents().find((e) => e.slug === slug);
+      break;
+    case "faqs":
+      page = loadFaqs().find((f) => f.slug === slug);
+      break;
+    default:
+      page = loadPosts(pageType).find((p) => p.slug === slug);
+  }
+
+  if (!page) {
+    notFound();
+  } else if (pageType === "faqs") {
     notFound();
   }
 

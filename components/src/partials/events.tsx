@@ -5,7 +5,7 @@ export function EventsPartial({ showPast = false }: { showPast?: boolean }) {
   let eventsParsed = loadEvents();
 
   let es = eventsParsed
-    .sort((a, b) => (a.metadata.startDate < b.metadata.startDate ? 1 : -1))
+    .sort((a, b) => (a.metadata.start < b.metadata.start ? 1 : -1))
     .filter(
       (e) =>
         (e.metadata.isPast && showPast) || (!e.metadata.isPast && !showPast),
@@ -17,11 +17,11 @@ export function EventsPartial({ showPast = false }: { showPast?: boolean }) {
         ? "No pending events"
         : es.map((e) => (
             <Card
-              key={e.metadata.start}
+              key={e.metadata.start.toLocaleDateString("en-GB")}
               title={e.title || ""}
               type="event"
               color={"white"}
-              subtitle={e.metadata.start}
+              subtitle={e.metadata.start.toLocaleDateString("en-GB")}
               slug={e.slug}
             />
           ))}

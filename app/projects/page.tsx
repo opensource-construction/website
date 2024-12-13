@@ -2,8 +2,8 @@ import { Button, Section } from "@/components";
 import { loadProjects } from "@/components/src/mdxParser/mdxParsers";
 import {
   Maturity,
-  Project,
-  validMaturities,
+  OscProject,
+  VALID_MATURITIES,
 } from "@/components/src/mdxParser/mdxParserTypes";
 
 function capitalizeFirstLetter(string: string): string {
@@ -13,7 +13,7 @@ function capitalizeFirstLetter(string: string): string {
 export default function Projects() {
   let projects = loadProjects();
 
-  const projectsByMaturity = projects.reduce<Record<Maturity, Project[]>>(
+  const projectsByMaturity = projects.reduce<Record<Maturity, OscProject[]>>(
     (acc, project) => {
       const maturity = project.metadata.maturity;
       if (!acc[maturity]) {
@@ -22,13 +22,13 @@ export default function Projects() {
       acc[maturity].push(project);
       return acc;
     },
-    {} as Record<Maturity, Project[]>,
+    {} as Record<Maturity, OscProject[]>,
   );
 
   const sortedProjectsByMaturity = Object.entries(projectsByMaturity).sort(
     ([a], [b]) =>
-      validMaturities.indexOf(a as Maturity) -
-      validMaturities.indexOf(b as Maturity),
+      VALID_MATURITIES.indexOf(a as Maturity) -
+      VALID_MATURITIES.indexOf(b as Maturity),
   );
 
   //Set the color of the section based on the maturity of the projects

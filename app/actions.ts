@@ -25,7 +25,6 @@ export async function saveForm(previousState: Status, formData: FormData) {
   await document.loadInfo();
   const sheet = document.sheetsById[+sheetId];
 
-  console.log(formData);
   const schema = z.object({
     firstname: z
       .string({
