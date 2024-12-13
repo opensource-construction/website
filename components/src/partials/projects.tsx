@@ -1,6 +1,6 @@
 import { Card } from "../card";
 import { Button } from "../button";
-import { loadProjects } from "../mdxParser/mdxParsers";
+import { loadProjects } from "@lib/mdxParser/mdxParsers";
 
 function getRandomItems<T>(array: T[], numItems: number): T[] {
   const shuffled = array.sort(() => 0.5 - Math.random());

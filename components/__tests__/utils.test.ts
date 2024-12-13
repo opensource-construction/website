@@ -1,5 +1,5 @@
 import { test, expect } from "vitest";
-import { parseSlug } from "../src/mdxParser/mdxParsers";
+import { parseSlug } from "../../lib/mdxParser/mdxParsers";
 
 test("parses basic slug correctly", () => {
   expect(parseSlug("simple")).toBe("simple");

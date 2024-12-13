@@ -1,7 +1,7 @@
 import { CustomMDX } from "../mdx";
 
 import { Card } from "../card";
-import { getPosts } from "../mdxParser/mdxParsers";
+import { getPosts } from "../../../lib/mdxParser/mdxParsers";
 
 export function FAQPartial() {
   const faqs = getPosts("faqs");

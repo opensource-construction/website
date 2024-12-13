@@ -2,7 +2,6 @@ import { CustomMDX } from "./mdx";
 import { Button } from "./button";
 import { Section } from "./section";
 import React from "react";
-import { Content } from "./mdxParser/mdxParserTypes";
 
 export default function Page({
   page,

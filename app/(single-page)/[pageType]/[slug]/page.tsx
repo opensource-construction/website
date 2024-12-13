@@ -3,12 +3,10 @@ import {
   loadEvents,
   loadFaqs,
   loadPages,
-  loadPosts,
   loadProjects,
   loadTrainings,
-} from "@/components/src/mdxParser/mdxParsers";
-import { Content } from "@/components/src/mdxParser/mdxParserTypes";
-import { Page } from "@opensource-construction/components";
+} from "@/lib/mdxParser/mdxParsers";
+import { Content } from "@/lib/mdxParser/mdxParserTypes";
 import { notFound } from "next/navigation";
 
 type PageType = "projects" | "events" | "trainings" | "page" | "post" | "faqs";

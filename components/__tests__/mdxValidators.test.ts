@@ -1,6 +1,6 @@
 import { test, expect } from "vitest";
-import { OscTraining } from "../src/mdxParser/mdxParserTypes";
-import { validateTraining } from "../src/mdxParser/mdxValidators";
+import { OscTraining } from "../../lib/mdxParser/mdxParserTypes";
+import { validateTraining } from "../../lib/mdxParser/mdxValidators";
 
 const defaultTraining: OscTraining = {
   type: "training",

@@ -1,10 +1,10 @@
 import { Button, Section } from "@/components";
-import { loadProjects } from "@/components/src/mdxParser/mdxParsers";
+import { loadProjects } from "@/lib/mdxParser/mdxParsers";
 import {
   Maturity,
   OscProject,
   VALID_MATURITIES,
-} from "@/components/src/mdxParser/mdxParserTypes";
+} from "@/lib/mdxParser/mdxParserTypes";
 
 function capitalizeFirstLetter(string: string): string {
   return string.charAt(0).toUpperCase() + string.slice(1);

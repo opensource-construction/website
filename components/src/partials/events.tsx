@@ -1,5 +1,5 @@
 import { Card } from "../card";
-import { loadEvents } from "../mdxParser/mdxParsers";
+import { loadEvents } from "@lib/mdxParser/mdxParsers";
 
 export function EventsPartial({ showPast = false }: { showPast?: boolean }) {
   let eventsParsed = loadEvents();

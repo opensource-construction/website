@@ -9,7 +9,7 @@ import {
   OscPage,
   OscProject,
   OscTraining,
-} from "./mdxParser/mdxParserTypes";
+} from "@lib/mdxParser/mdxParserTypes";
 
 export default function DynamicPage({ page }: { page: Content }) {
   const renderMetadata = () => {

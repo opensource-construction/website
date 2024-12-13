@@ -1,6 +1,6 @@
 import { Section } from "@/components";
-import { loadTrainings } from "@/components/src/mdxParser/mdxParsers";
-import { OscTraining } from "@/components/src/mdxParser/mdxParserTypes";
+import { loadTrainings } from "@/lib/mdxParser/mdxParsers";
+import { OscTraining } from "@/lib/mdxParser/mdxParserTypes";
 import { TrainingsPartial } from "@/components/src/partials/trainings";
 import { TrainingCard } from "@/components/src/trainingCard";
 
