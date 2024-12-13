@@ -3,25 +3,13 @@ import fs from "fs";
 import path from "path";
 import YAML from "yaml";
 import {
-  OscProject,
-  OscTraining,
   contentDefaults,
   ContentType,
   Parser,
   OscPost,
-  OscEvent,
-  Page,
-  ContentValidator
+  ContentValidator,
 } from "./mdxParserTypes";
-import { contentValidators } from "./mdxValidators";
-
-type ContentTypeMap = {
-  training: OscTraining;
-  event: OscEvent;
-  project: OscProject;
-  post: OscPost;
-  page: Page;
-};
+import { ContentTypeMap, contentValidators } from "./mdxValidators";
 
 export function parseSlug(fileBasename: string) {
   let prefix = fileBasename.indexOf("-");
@@ -161,6 +149,8 @@ export const loadTrainings = () => loadContent("trainings", "training");
 export const loadEvents = () => loadContent("events", "event");
 
 export const loadPages = () => loadContent("page", "page");
+
+export const loadClusters = () => loadContent("clusters", "cluster");
 
 export const loadPosts = (dir: string) => loadContent(dir, "post") as OscPost[];
 

@@ -1,27 +1,25 @@
 import { getPosts, Section } from "@/components";
 import { ClusterCard } from "@/components/src/clusterCard";
-import { loadPosts } from "@/components/src/mdxParser/mdxParsers";
+import { loadClusters } from "@/components/src/mdxParser/mdxParsers";
 import { ClustersPartial } from "@/components/src/partials/clusters";
 
 export default function ClusterPage() {
-  let clusters = getPosts("clusters");
+  let clusters = loadClusters();
   return (
     <div className="mt-28 prose-h2:mt-0 md:mt-0 md:prose-h2:text-2xl md:prose-h3:text-xl">
       <Section>
         <ClustersPartial />
       </Section>
       <Section title="Clusters" className="mb-32">
-        {clusters.map(
-          ({ slug, metadata: { title, description, image } }, index) => (
-            <ClusterCard
-              key={index}
-              slug={slug}
-              title={title}
-              subtitle={description}
-              image={image}
-            />
-          ),
-        )}
+        {clusters.map((c, index) => (
+          <ClusterCard
+            key={index}
+            slug={c.slug}
+            title={c.title}
+            subtitle={c.description}
+            image={c.metadata.image}
+          />
+        ))}
       </Section>
     </div>
   );

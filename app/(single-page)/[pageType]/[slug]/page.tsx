@@ -1,3 +1,4 @@
+import DynamicPage from "@/components/src/dynamicPage";
 import {
   loadEvents,
   loadFaqs,
@@ -6,6 +7,7 @@ import {
   loadProjects,
   loadTrainings,
 } from "@/components/src/mdxParser/mdxParsers";
+import { Content } from "@/components/src/mdxParser/mdxParserTypes";
 import { Page } from "@opensource-construction/components";
 import { notFound } from "next/navigation";
 
@@ -52,7 +54,7 @@ export default async function SinglePage({
   const { pageType, slug } = params;
 
   //TODO:FIX ANY
-  let page: any;
+  let page: Content | undefined;
 
   switch (pageType) {
     case "projects":
@@ -68,7 +70,7 @@ export default async function SinglePage({
       page = loadFaqs().find((f) => f.slug === slug);
       break;
     default:
-      page = loadPosts(pageType).find((p) => p.slug === slug);
+    // page = loadPosts(pageType).find((p) => p.slug === slug);
   }
 
   if (!page) {
@@ -77,5 +79,5 @@ export default async function SinglePage({
     notFound();
   }
 
-  return <Page page={page} />;
+  return <DynamicPage page={page} />;
 }

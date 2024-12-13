@@ -1,6 +1,6 @@
 // Constants as union types
 export const VALID_MATURITIES = ["sandbox", "incubation", "graduated"] as const;
-export const CONTENT_TYPES = ["project", "training", "post", "event", "page"] as const;
+export const CONTENT_TYPES = ["project", "training", "post", "event", "page", "cluster"] as const;
 export const EVENT_STATUSES = ["TENTATIVE", "CONFIRMED", "CANCELLED"] as const;
 export const TAG_CATEGORIES = ["type", "tool", "cost", "mode"] as const;
 
@@ -89,12 +89,33 @@ export type OscEvent = BaseContent & {
   metadata: EventMetadata;
 };
 
-export type Page = BaseContent & {
+export type OscPage = BaseContent & {
   type: "page";
   metadata: PageMetadata;
 };
 
+export type OscCluster = BaseContent & {
+  type: "cluster";
+  metadata: OscClusterMetadata;
+}
+
+export type OscClusterMetadata = {
+  image?: string;
+  links?: ContentLink[];
+  partners?: OscClusterPartner[];
+  tags?: string[];
+}
+
+
+export type OscClusterPartner = {
+  url: string;
+  name: string;
+  log: string; // URL to logo
+}
+
+
 export type OscPost = {
+  type: "post";
   metadata: Record<string, unknown>;
   slug: string;
   content: string;
@@ -102,7 +123,7 @@ export type OscPost = {
   description?: string;
 };
 
-export type Content = OscProject | OscTraining | OscPost | OscEvent | Page;
+export type Content = OscProject | OscTraining | OscPost | OscEvent | OscPage | OscCluster;
 
 // Validator and Parser Types
 export type ContentValidator<T extends Content> = (
@@ -148,6 +169,7 @@ export const contentDefaults: Record<ContentType, Content> = {
     },
   },
   post: {
+    type: "post",
     title: "",
     description: "",
     slug: "",
@@ -177,6 +199,19 @@ export const contentDefaults: Record<ContentType, Content> = {
       links: [],
       event: {},
       project: {},
+    },
+  },
+  cluster: {
+    type: "cluster",
+    title: "",
+    description: "",
+    slug: "",
+    content: "",
+    metadata: {
+      image: "",
+      links: [],
+      partners: [],
+      tags: [],
     },
   },
 } as const;

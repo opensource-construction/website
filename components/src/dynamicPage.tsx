@@ -2,26 +2,37 @@ import { CustomMDX } from "./mdx";
 import { Button } from "./button";
 import { Section } from "./section";
 import React from "react";
-import { Content } from "./mdxParser/mdxParserTypes";
+import {
+  Content,
+  OscCluster,
+  OscEvent,
+  OscPage,
+  OscProject,
+  OscTraining,
+} from "./mdxParser/mdxParserTypes";
 
-export default function Page({
-  page,
-}: {
-  page: {
-    title: string;
-    event?: object;
-    project?: object;
-    type: string;
-    metadata: {
-      links?: {
-        url: string;
-        label: string;
-      }[];
-    };
-    slug: string;
-    content: string;
+export default function DynamicPage({ page }: { page: Content }) {
+  const renderMetadata = () => {
+    switch (page.type) {
+      case "project":
+        const project = page as OscProject;
+        return null;
+      case "training":
+        const training = page as OscTraining;
+        return null;
+      case "event":
+        const event = page as OscEvent;
+        return null;
+      case "cluster":
+        const cluster = page as OscCluster;
+        return null;
+      case "page":
+      default:
+        const pageContent = page as OscPage;
+        return null;
+    }
   };
-}) {
+
   return (
     <div>
       <Section>
@@ -37,8 +48,9 @@ export default function Page({
         <article className="prose mb-16 prose-li:marker:text-primary-500 md:prose-h3:text-2xl">
           <CustomMDX source={page.content} />
         </article>
+        {renderMetadata()}
       </Section>
-      {page.metadata.links ? (
+      {Array.isArray(page.metadata.links) && page.metadata.links.length > 0 && (
         <Section color="primary-500">
           <h3 className="text-2xl font-bold">Links</h3>
           <div className="flex flex-col gap-2 py-4 md:flex-row">
@@ -49,10 +61,10 @@ export default function Page({
                 label={l.label}
                 type="primary"
               />
-            ))}{" "}
+            ))}
           </div>
         </Section>
-      ) : null}
+      )}
     </div>
   );
 }

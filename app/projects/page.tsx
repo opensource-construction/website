@@ -46,9 +46,6 @@ export default function Projects() {
       "Projects considered stable, widely adopted and production ready, attracting hundreds of users and contributors",
   };
 
-  //TODO: Improve the layout of this page especially regarding visual hierarchy
-  //TODO: Either create a special card for projects in the project dir  or use a different layout
-
   return (
     <div className="mt-28 prose-h2:mt-0 md:mt-0 md:prose-h2:text-2xl md:prose-h3:text-xl">
       <Section>

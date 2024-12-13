@@ -6,20 +6,22 @@ import {
   Maturity,
   VALID_MATURITIES,
   TrainingTag,
-  Page,
+  OscPage,
   EventStatus,
   EVENT_STATUSES,
   ContentLink,
   OscPost,
+  OscCluster,
 } from "./mdxParserTypes";
 import { ContentValidator } from "./mdxParserTypes";
 
-type ContentTypeMap = {
+export type ContentTypeMap = {
   training: OscTraining;
   event: OscEvent;
   project: OscProject;
   post: OscPost;
-  page: Page;
+  page: OscPage;
+  cluster: OscCluster;
 };
 
 type ContentValidatorMap = {
@@ -164,6 +166,7 @@ export const validatePost: ContentValidator<OscPost> = (
   content: string,
   defaultContent: OscPost,
 ): OscPost => ({
+  ...defaultContent,
   title: ensureString(raw?.title),
   description: ensureString(raw?.description),
   slug,
@@ -171,12 +174,12 @@ export const validatePost: ContentValidator<OscPost> = (
   metadata: raw?.metadata || {},
 });
 
-export const validatePage: ContentValidator<Page> = (
+export const validatePage: ContentValidator<OscPage> = (
   raw: any,
   slug: string,
   content: string,
-  defaultContent: Page,
-): Page => ({
+  defaultContent: OscPage,
+): OscPage => ({
   ...defaultContent,
   type: "page",
   title: ensureString(raw?.title, defaultContent.title),
@@ -191,12 +194,33 @@ export const validatePage: ContentValidator<Page> = (
   },
 });
 
-// Export contentValidators with proper typing
+export const validateCluster: ContentValidator<OscCluster> = (
+  raw: any,
+  slug: string,
+  content: string,
+  defaultContent: OscCluster,
+): OscCluster => ({
+  ...defaultContent,
+  type: "cluster",
+  title: ensureString(raw?.title, defaultContent.title),
+  description: ensureString(raw?.description, defaultContent.description),
+  slug,
+  content,
+  metadata: {
+    ...defaultContent.metadata,
+    links: ensureLinks(raw?.links),
+    image: ensureString(raw?.image),
+    partners: raw?.partners || [],
+    tags: raw?.tags || [],
+  },
+});
+
 export const contentValidators: ContentValidatorMap = {
   training: validateTraining,
   event: validateEvent,
   project: validateProject,
   post: validatePost,
   page: validatePage,
+  cluster: validateCluster,
 };
 
