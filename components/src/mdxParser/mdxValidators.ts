@@ -7,6 +7,7 @@ import {
   validMaturities,
   Content,
   TrainingTag,
+  Page,
 } from "./mdxParserTypes";
 import { ContentValidator } from "./mdxParserTypes";
 
@@ -19,6 +20,7 @@ export const validators = {
   training: validateTrainingMetadata,
   post: validatePostMetadata,
   event: validateEventMetadata,
+  page: validatePageMetadata,
 };
 
 /**
@@ -169,24 +171,33 @@ function parseMaturity(maturity: any): Maturity {
     : "sandbox";
 }
 
+const validatePage: ContentValidator<Page> = (
+  raw,
+  slug,
+  content,
+  defaultContent,
+) => ({
+  ...defaultContent,
+  title: raw?.title || defaultContent.title,
+  content,
+  metadata: validatePageMetadata(raw?.metadata),
+  slug,
+
+});
+
+function validatePageMetadata(metadata: any) {
+  return {
+    ...metadata,
+    links: metadata?.links || [],
+    events: metadata?.events || [],
+    projects: metadata?.projects || [],
+  }
+}
+
 /**
  * A record of content validators for different content types.
  * Each validator function takes raw content, a slug, processed content,
  * and default content, and returns the validated content.
- *
- * @type {Record<ContentType, ContentValidator<any>>}
- *
- * @property {ContentValidator<any>} training - Validator for training content.
- * @property {ContentValidator<any>} event - Validator for event content.
- * @property {ContentValidator<any>} project - Validator for project content.
- * @property {ContentValidator<any>} post - Validator for post content.
- *
- * The `post` validator function:
- * @param {any} raw - The raw content data.
- * @param {string} slug - The slug for the content.
- * @param {any} content - The processed content.
- * @param {any} defaultContent - The default content structure.
- * @returns {any} - The validated content with title, description, slug, content, and metadata.
  */
 export const contentValidators: Record<ContentType, ContentValidator<any>> = {
   training: validateTraining,
@@ -200,6 +211,7 @@ export const contentValidators: Record<ContentType, ContentValidator<any>> = {
     content,
     metadata: raw?.metadata || {},
   }),
+  page: validatePage,
 };
 
 /**

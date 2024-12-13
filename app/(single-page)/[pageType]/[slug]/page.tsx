@@ -1,4 +1,5 @@
 import {
+  loadEvents,
   loadPosts,
   loadProjects,
   loadTrainings,
@@ -20,7 +21,7 @@ export async function generateStaticParams() {
     ...loadProjects().map((p) => {
       return { slug: p.slug, pageType: "projects" as PageType };
     }),
-    ...loadPosts("events").map((p) => {
+    ...loadEvents().map((p) => {
       return { slug: p.slug, pageType: "events" as PageType };
     }),
     ...loadTrainings().map((p) => {

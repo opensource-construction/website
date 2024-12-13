@@ -1,14 +1,14 @@
 
 // Constants
 export const validMaturities = ["sandbox", "incubation", "graduated"] as const;
-export type ContentType = "project" | "training" | "post" | "event";
+export type ContentType = "project" | "training" | "post" | "event" | "page";
 
-export type Content = Project | Training | Post | Event;
+export type Content = Project | Training | Post | Event | Page;
 
 
 // Base Types
 interface BaseContent {
-  title?: string;
+  title: string;
   type: ContentType;
 }
 
@@ -29,12 +29,12 @@ interface WithLinks {
 }
 
 // Project 
-export interface Project extends BaseContent, WithDescription, WithSlug, WithContent, WithLinks {
+export interface Project extends BaseContent, WithDescription, WithSlug, WithContent {
   type: "project";
   metadata: ProjectMetadata;
 }
 
-interface ProjectMetadata {
+interface ProjectMetadata extends WithLinks {
   featured: boolean;
   maturity: Maturity;
 }
@@ -42,17 +42,17 @@ interface ProjectMetadata {
 export type Maturity = (typeof validMaturities)[number];
 
 // Training
-export interface Training extends BaseContent, WithDescription, WithSlug, WithContent, WithLinks {
+export interface Training extends BaseContent, WithDescription, WithSlug, WithContent {
   type: "training";
-  author: string;
-  image: string;
-  tags: TrainingTag[];
   metadata: TrainingMetadata;
 }
 
-interface TrainingMetadata {
+interface TrainingMetadata extends WithLinks {
   level?: string;
   duration?: string;
+  author: string;
+  image: string;
+  tags: TrainingTag[];
 }
 
 // Event
@@ -97,7 +97,26 @@ interface Duration {
 export type TagCategory = "type" | "tool" | "cost" | "mode";
 export type TrainingTag = `${TagCategory}::${string}`;
 
+export interface Page extends BaseContent, WithContent {
+  type: "page";
+  metadata: PageMetadata;
+}
 
+interface PageMetadata extends WithLinks {
+  event?: object;
+  project?: object;
+}
+
+
+// metadata: {
+//   title: string;
+//   event?: object;
+//   project?: object;
+//   links?: {
+//       url: string;
+//       label: string;
+//   }[];
+// };
 
 //TODO: for the time being use custom post -> Should be replaced with the below interface
 export interface Post {
@@ -113,23 +132,38 @@ export interface Post {
 //   metadata: Record<string, unknown>;
 // }
 
+type ContentDefaults = {
+  [K in ContentType]: DefaultContent<K>;
+};
+
+type DefaultContent<T extends ContentType> = T extends "project"
+  ? Omit<Project, keyof BaseContent> & { type: "project" }
+  : T extends "training"
+  ? Omit<Training, keyof BaseContent> & { type: "training" }
+  : T extends "event"
+  ? Omit<Event, keyof BaseContent> & { type: "event" }
+  : T extends "page"
+  ? Omit<Page, keyof BaseContent> & { type: "page" }
+  : T extends "post"
+  ? Omit<Post, keyof BaseContent> & { type: "post" }
+  : never;
+
+
 // Defaults
-export const contentDefaults = {
+export const contentDefaults: ContentDefaults = {
   project: {
     type: "project" as const,
-    title: "",
     description: "",
     slug: "",
     content: "",
     metadata: {
       featured: false,
       maturity: "sandbox" as Maturity,
+      links: [],
     },
-    links: [],
   },
   training: {
     type: "training" as const,
-    title: "",
     description: "",
     slug: "",
     content: "",
@@ -139,11 +173,11 @@ export const contentDefaults = {
       tags: [],
       level: "beginner",
       duration: "1h",
+      links: [],
     },
   },
   post: {
     type: "post" as const,
-    title: "",
     description: "",
     slug: "",
     content: "",
@@ -151,7 +185,6 @@ export const contentDefaults = {
   },
   event: {
     type: "event" as const,
-    title: "",
     description: "",
     slug: "",
     content: "",
@@ -166,7 +199,18 @@ export const contentDefaults = {
       isPast: false,
     },
   },
-}; export type ContentValidator<T extends Content> = (
+  page: {
+    type: "page" as const,
+    content: "",
+    metadata: {
+      links: [],
+      event: {},
+      project: {},
+    },
+  }
+};
+
+export type ContentValidator<T extends Content> = (
   raw: any,
   slug: string,
   content: string,

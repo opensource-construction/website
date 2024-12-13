@@ -70,17 +70,6 @@ export function loadContent<T extends Content>(
   }
 }
 
-export const loadProjects = () =>
-  loadContent<Project>("projects", "project");
-
-export const loadTrainings = () =>
-  loadContent<Training>("trainings", "training");
-
-export const loadEvents = (): Event[] => {
-  return loadContent<Event>("events", "event");
-};
-
-export const loadPosts = (dir: string) => loadContent(dir, "post") as Post[];
 
 export function getMDXFiles(dir: string): string[] {
   try {
@@ -139,6 +128,10 @@ export function parseMdxFile(fileContent: string): {
   }
 }
 
+
+/**
+ * @deprecated Use specified `loaders` instead.
+ */
 export function getPosts(dir?: string): Post[] {
   const contentDir = path.join(process.cwd(), "content", dir || "");
   try {
@@ -158,3 +151,20 @@ export function getPosts(dir?: string): Post[] {
     return [];
   }
 }
+
+//Loaders
+
+export const loadProjects = () =>
+  loadContent<Project>("projects", "project");
+
+export const loadTrainings = () =>
+  loadContent<Training>("trainings", "training");
+
+export const loadEvents = (): Event[] => {
+  return loadContent<Event>("events", "event");
+};
+
+export const loadPages = () => loadContent("page", "page") as Post[];
+
+export const loadPosts = (dir: string) => loadContent(dir, "post") as Post[];
+
