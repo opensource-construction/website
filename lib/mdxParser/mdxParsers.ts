@@ -118,28 +118,28 @@ export function parseMdxFile(fileContent: string): {
   }
 }
 
-/**
- * @deprecated Use specified `loaders` instead.
- */
-export function getPosts(dir?: string): OscPost[] {
-  const contentDir = path.join(process.cwd(), "content", dir || "");
-  try {
-    const files = getMDXFiles(contentDir);
-    return files.map((file) =>
-      readFile<OscPost>(
-        path.join(contentDir, file),
-        (content, slug, metadata) => ({
-          metadata: metadata as Record<string, unknown>,
-          slug,
-          content,
-        }),
-      ),
-    );
-  } catch (error) {
-    console.error("Error loading posts:", error);
-    return [];
-  }
-}
+// /**
+//  * @deprecated Use specified `loaders` instead.
+//  */
+// export function getPosts(dir?: string): OscPost[] {
+//   const contentDir = path.join(process.cwd(), "content", dir || "");
+//   try {
+//     const files = getMDXFiles(contentDir);
+//     return files.map((file) =>
+//       readFile<OscPost>(
+//         path.join(contentDir, file),
+//         (content, slug, metadata) => ({
+//           metadata: metadata as Record<string, unknown>,
+//           slug,
+//           content,
+//         }),
+//       ),
+//     );
+//   } catch (error) {
+//     console.error("Error loading posts:", error);
+//     return [];
+//   }
+// }
 
 //LOADERS
 export const loadProjects = () => loadContent("projects", "project");
@@ -152,8 +152,8 @@ export const loadPages = () => loadContent("page", "page");
 
 export const loadClusters = () => loadContent("clusters", "cluster");
 
+export const loadFaqs = () => loadContent("faqs", "faqs");
+
 export const loadPosts = (dir: string) => loadContent(dir, "post") as OscPost[];
 
-//TODO: Implement this loader
-export const loadFaqs = () => loadPosts("faqs");
 
