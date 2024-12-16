@@ -2,6 +2,7 @@ import { CustomMDX } from "./mdx";
 import { Button } from "./button";
 import { Section } from "./section";
 import React from "react";
+
 import {
   Content,
   OscCluster,
@@ -9,7 +10,7 @@ import {
   OscPage,
   OscProject,
   OscTraining,
-} from "@lib/mdxParser/mdxParserTypes";
+} from "@/lib/mdxParser/mdxSchematas";
 
 export default function DynamicPage({ page }: { page: Content }) {
   const renderMetadata = () => {

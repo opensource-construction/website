@@ -6,7 +6,7 @@ import {
   loadProjects,
   loadTrainings,
 } from "@/lib/mdxParser/mdxParsers";
-import { Content } from "@/lib/mdxParser/mdxParserTypes";
+import { Content } from "@/lib/mdxParser/mdxSchematas";
 import { notFound } from "next/navigation";
 
 type PageType = "projects" | "events" | "trainings" | "page" | "post" | "faqs";

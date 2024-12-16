@@ -1,236 +1,130 @@
 import { z } from "zod";
-import { Content } from "./mdxParserTypes";
-
-// Constants as union types
 export const VALID_MATURITIES = ["sandbox", "incubation", "graduated"] as const;
 export const CONTENT_TYPES = ["project", "training", "post", "event", "page", "cluster", "faqs"] as const;
 export const EVENT_STATUSES = ["TENTATIVE", "CONFIRMED", "CANCELLED"] as const;
 export const TAG_CATEGORIES = ["type", "tool", "cost", "mode"] as const;
 
-// Type Definitions
-export type ContentType = (typeof CONTENT_TYPES)[number];
-export type Maturity = (typeof VALID_MATURITIES)[number];
-export type EventStatus = (typeof EVENT_STATUSES)[number];
-export type TagCategory = (typeof TAG_CATEGORIES)[number];
-export type TrainingTag = `${TagCategory}::${string}`;
-
-// Common Types
-export type ContentLink = {
-  url: string;
-  label: string;
-};
 
 const ContentLinkSchema = z.object({
-  url: z.string().url(),
+  url: z.string().url({
+    message: "Invalid URL format. Must start with http:// or https://"
+  }),
   label: z.string(),
 });
 
 const BaseMetadataSchema = z.object({
-  links: z.array(ContentLinkSchema),
+  links: z.array(ContentLinkSchema).default([]),
 });
 
-// Metadata Types
-const ProjectMetadataSchema = BaseMetadataSchema.extend({
-  featured: z.boolean(),
-  maturity: z.enum(VALID_MATURITIES),
-});
-
-const TrainingMetadataSchema = BaseMetadataSchema.extend({
-  level: z.string(),
-  duration: z.string(),
-  author: z.string(),
-  image: z.string(),
-  tags: z.array(z.string()),
-});
-
-const EventMetadataSchema = BaseMetadataSchema.extend({
-  start: z.date(),
-  duration: z.object({
-    seconds: z.number().optional(),
-    minutes: z.number().optional(),
-    hours: z.number().optional(),
-    days: z.number().optional(),
-    weeks: z.number().optional(),
-  }).optional(),
-  end: z.date().optional(),
-  location: z.string().optional(),
-  geo: z.object({
-    lat: z.number(),
-    lon: z.number(),
-  }).optional(),
-  status: z.enum(EVENT_STATUSES),
-  organizer: z.object({
-    name: z.string(),
-    email: z.string().email(),
-  }).optional(),
-  url: z.string().url().optional(),
-  isPast: z.boolean(),
-});
-
-const PageMetadataSchema = BaseMetadataSchema.extend({
-  event: z.record(z.unknown()).optional(),
-  project: z.record(z.unknown()).optional(),
-});
-
-// Base Content Type
 const BaseContentSchema = z.object({
-  title: z.string(),
+  title: z.string().default(""),
   type: z.enum(CONTENT_TYPES),
-  description: z.string(),
-  slug: z.string(),
-  content: z.string(),
+  description: z.string().default(""),
+  slug: z.string().default(""),
+  content: z.string().default(""),
 });
 
-// Content Types
-export const OscProjectSchema = BaseContentSchema.extend({
-  type: z.literal("project"),
-  metadata: ProjectMetadataSchema,
-});
-
-const OscTrainingSchema = BaseContentSchema.extend({
-  type: z.literal("training"),
-  metadata: TrainingMetadataSchema,
-});
-
-const OscEventSchema = BaseContentSchema.extend({
-  type: z.literal("event"),
-  metadata: EventMetadataSchema,
-});
-
-const OscPageSchema = BaseContentSchema.extend({
-  type: z.literal("page"),
-  metadata: PageMetadataSchema,
-});
-
-const OscClusterSchema = BaseContentSchema.extend({
-  type: z.literal("cluster"),
-  metadata: z.object({
-    image: z.string().optional(),
-    links: z.array(ContentLinkSchema).optional(),
-    partners: z.array(z.object({
-      url: z.string().url(),
-      name: z.string(),
-      log: z.string().url(),
-    })).optional(),
-    tags: z.array(z.string()).optional(),
+export const Schemas = {
+  project: BaseContentSchema.extend({
+    type: z.literal("project").default("project"),
+    metadata: BaseMetadataSchema.extend({
+      featured: z.boolean().default(false),
+      maturity: z.enum(VALID_MATURITIES).default("sandbox"),
+    }),
   }),
-});
 
-const OscPostSchema = BaseContentSchema.extend({
-  type: z.literal("post"),
-  metadata: z.record(z.unknown()),
-});
+  training: BaseContentSchema.extend({
+    type: z.literal("training").default("training"),
+    metadata: BaseMetadataSchema.extend({
+      author: z.string().default(""),
+      image: z.string().default(""),
+      tags: z.array(
+        z.string().refine(
+          (tag) => /^(type|tool|cost|mode)::.+$/.test(tag),
+          (val) => ({
+            message: `Invalid tag format: ${val}. Must be category::value where category is one of: type, tool, cost, mode`
+          })
+        )
+      ).default([]),
+    }),
+  }),
 
-const OscFaqsSchema = BaseContentSchema.extend({
-  type: z.literal("faqs"),
-  metadata: z.object({}),
-});
+  event: BaseContentSchema.extend({
+    type: z.literal("event").default("event"),
+    metadata: BaseMetadataSchema.extend({
+      start: z.date().default(() => new Date()),
+      status: z.enum(EVENT_STATUSES).default("TENTATIVE"),
+      isPast: z.boolean().default(false),
+      duration: z.object({
+        seconds: z.number(),
+        minutes: z.number(),
+        hours: z.number(),
+        days: z.number(),
+        weeks: z.number(),
+      }).partial().optional(),
+      end: z.date().optional(),
+      location: z.string().optional(),
+      geo: z.object({
+        lat: z.number(),
+        lon: z.number(),
+      }).optional(),
+      organizer: z.object({
+        name: z.string(),
+        email: z.string().email(),
+      }).optional(),
+      url: z.string().url().optional(),
+    }),
+  }),
 
-export const ContentSchema = z.union([
-  OscProjectSchema,
-  OscTrainingSchema,
-  OscEventSchema,
-  OscPageSchema,
-  OscClusterSchema,
-  OscPostSchema,
-  OscFaqsSchema,
-]);
+  page: BaseContentSchema.extend({
+    type: z.literal("page").default("page"),
+    metadata: BaseMetadataSchema.extend({
+      event: z.record(z.unknown()).optional(),
+      project: z.record(z.unknown()).optional(),
+    }),
+  }),
 
-// Validator and Parser Types
-export type ContentValidator<T extends Content> = (
-  raw: any,
-  slug: string,
-  content: string,
-  defaultContent: T
-) => T;
+  cluster: BaseContentSchema.extend({
+    type: z.literal("cluster").default("cluster"),
+    metadata: BaseMetadataSchema.extend({
+      image: z.string().optional(),
+      partners: z.array(z.object({
+        url: z.string().url(),
+        name: z.string(),
+        log: z.string().url(),
+      })).default([]),
+      tags: z.array(z.string()).default([]),
+    }),
+  }),
 
-export type Parser<T> = (
-  content: string,
-  slug: string,
-  metadata: unknown
-) => T;
+  post: BaseContentSchema.extend({
+    type: z.literal("post").default("post"),
+    metadata: z.record(z.unknown()).default({}),
+  }),
 
-// Default content with proper typing
-export const contentDefaults: Record<ContentType, Content> = {
-  project: {
-    type: "project",
-    title: "",
-    description: "",
-    slug: "",
-    content: "",
-    metadata: {
-      featured: false,
-      maturity: "sandbox",
-      links: [],
-    },
-  },
-  training: {
-    type: "training",
-    title: "",
-    description: "",
-    slug: "",
-    content: "",
-    metadata: {
-      author: "",
-      image: "",
-      tags: [],
-      level: "beginner",
-      duration: "1h",
-      links: [],
-    },
-  },
-  post: {
-    type: "post",
-    title: "",
-    description: "",
-    slug: "",
-    content: "",
-    metadata: {},
-  },
-  event: {
-    type: "event",
-    title: "",
-    description: "",
-    slug: "",
-    content: "",
-    metadata: {
-      status: "TENTATIVE",
-      start: new Date(),
-      isPast: false,
-      links: [],
-    },
-  },
-  page: {
-    type: "page",
-    title: "",
-    description: "",
-    slug: "",
-    content: "",
-    metadata: {
-      links: [],
-      event: {},
-      project: {},
-    },
-  },
-  cluster: {
-    type: "cluster",
-    title: "",
-    description: "",
-    slug: "",
-    content: "",
-    metadata: {
-      image: "",
-      links: [],
-      partners: [],
-      tags: [],
-    },
-  },
-  faqs: {
-    type: "faqs",
-    title: "",
-    slug: "",
-    content: "",
-    description: "",
-    metadata: {},
-  },
+  faqs: BaseContentSchema.extend({
+    type: z.literal("faqs").default("faqs"),
+    metadata: BaseMetadataSchema,
+  }),
 } as const;
+
+export const contentDefaults = Object.fromEntries(
+  Object.entries(Schemas).map(([key, schema]) => [
+    key,
+    schema.parse({
+      type: key,
+      metadata: {}
+    })
+  ])
+) as Record<ContentType, Content>;
+
+export type Content = z.infer<typeof Schemas[keyof typeof Schemas]>;
+export type ContentType = Content["type"];
+export type OscProject = z.infer<typeof Schemas.project>;
+export type OscTraining = z.infer<typeof Schemas.training>;
+export type OscEvent = z.infer<typeof Schemas.event>;
+export type OscPage = z.infer<typeof Schemas.page>;
+export type OscCluster = z.infer<typeof Schemas.cluster>;
+export type OscPost = z.infer<typeof Schemas.post>;
+export type OscFaqs = z.infer<typeof Schemas.faqs>;
+

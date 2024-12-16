@@ -3,13 +3,12 @@ import fs from "fs";
 import path from "path";
 import YAML from "yaml";
 import {
-  contentDefaults,
-  ContentType,
   Parser,
-  OscPost,
   ContentValidator,
 } from "./mdxParserTypes";
-import { ContentTypeMap, contentValidators } from "./mdxValidators";
+import { contentDefaults } from "./mdxSchematas";
+import { ContentTypeMap, contentValidators } from "./mdxMappers";
+import { ContentType, OscPost } from "./mdxSchematas";
 
 export function parseSlug(fileBasename: string) {
   let prefix = fileBasename.indexOf("-");
@@ -51,7 +50,7 @@ export function loadContent<T extends ContentType>(
         const validator = contentValidators[type] as ContentValidator<ContentTypeMap[T]>;
         const defaultContent = contentDefaults[type] as ContentTypeMap[T];
 
-        return parsed
+        const parsedContent = parsed
           ? validator(
             parsed.data,
             slug,
@@ -59,9 +58,10 @@ export function loadContent<T extends ContentType>(
             defaultContent
           )
           : { ...defaultContent, slug };
+        return parsedContent;
       });
   } catch (error) {
-    console.error(`Error loading ${type}:`, error);
+    console.error(`Error loading ${type} with the title ${dir}:`, JSON.stringify(error, null, 2));
     return [];
   }
 }
@@ -141,7 +141,6 @@ export function parseMdxFile(fileContent: string): {
 //   }
 // }
 
-//LOADERS
 export const loadProjects = () => loadContent("projects", "project");
 
 export const loadTrainings = () => loadContent("trainings", "training");

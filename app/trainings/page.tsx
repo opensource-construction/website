@@ -1,8 +1,8 @@
 import { Section } from "@/components";
 import { loadTrainings } from "@/lib/mdxParser/mdxParsers";
-import { OscTraining } from "@/lib/mdxParser/mdxParserTypes";
 import { TrainingsPartial } from "@/components/src/partials/trainings";
 import { TrainingCard } from "@/components/src/trainingCard";
+import { OscTraining } from "@/lib/mdxParser/mdxSchematas";
 
 export default function Trainings() {
   let trainings = loadTrainings();
