@@ -120,22 +120,23 @@ const metadataTransforms: MetadataTransformer = {
   event: (raw, defaultContent) => {
     const eventStart = ensureDate(raw?.event?.start || defaultContent.metadata.start);
     const isPast = eventStart.getTime() < Date.now();
+    console.log("EVENT", raw)
     return {
       ...defaultContent.metadata,
       start: eventStart,
       isPast: eventStart.getTime() < Date.now(),
-      duration: raw?.event?.duration || { hours: 1 },
-      location: ensureString(raw?.event?.location || raw?.location),
+      duration: raw?.event?.duration || { hours: 0 },
+      location: ensureString(raw?.event?.location),
       geo: (raw?.event?.geo || raw?.geo) ? {
-        lat: Number(raw?.event?.geo?.lat || raw?.geo?.lat) || 0,
-        lon: Number(raw?.event?.geo?.lon || raw?.geo?.lon) || 0,
+        lat: Number(raw?.event?.geo?.lat) || 0,
+        lon: Number(raw?.event?.geo?.lon) || 0,
       } : undefined,
-      status: ensureEventStatus(raw?.event?.status || raw?.status),
-      organizer: (raw?.event?.organizer || raw?.organizer) ? {
-        name: ensureString(raw?.event?.organizer?.name || raw?.organizer?.name),
-        email: ensureString(raw?.event?.organizer?.email || raw?.organizer?.email),
+      status: ensureEventStatus(raw?.event?.status),
+      organizer: (raw?.event?.organizer) ? {
+        name: ensureString(raw?.event?.organizer?.name),
+        email: ensureString(raw?.event?.organizer?.email),
       } : undefined,
-      ...(raw?.event?.url || raw?.url ? { url: ensureString(raw?.event?.url || raw?.url) } : {}),
+      ...(raw?.event?.url || raw?.url ? { url: ensureString(raw?.event?.url) } : {}),
       links: ensureLinks(raw?.links),
     };
   },

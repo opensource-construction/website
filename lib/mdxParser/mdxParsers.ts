@@ -3,7 +3,6 @@ import fs from "fs";
 import path from "path";
 import YAML from "yaml";
 import {
-  Parser,
   ContentValidator,
 } from "./mdxParserTypes";
 import { contentDefaults } from "./mdxSchematas";
@@ -50,6 +49,10 @@ export function loadContent<T extends ContentType>(
         const validator = contentValidators[type] as ContentValidator<ContentTypeMap[T]>;
         const defaultContent = contentDefaults[type] as ContentTypeMap[T];
 
+        if (dir === "events") {
+          console.log("parsed", parsed?.data);
+        }
+
         const parsedContent = parsed
           ? validator(
             parsed.data,
@@ -65,81 +68,6 @@ export function loadContent<T extends ContentType>(
     return [];
   }
 }
-
-export function getMDXFiles(dir: string): string[] {
-  try {
-    return fs
-      .readdirSync(dir)
-      .filter(
-        (file) =>
-          path.extname(file) === ".mdx" && !path.basename(file).startsWith("_"),
-      );
-  } catch (error) {
-    console.error("Error reading directory:", error);
-    return [];
-  }
-}
-
-export function readFile<T>(
-  filePath: string,
-  validationFn: Parser<T>,
-  options = { encoding: "utf-8" as const },
-): T {
-  const rawContent = fs.readFileSync(filePath, options);
-  const slug = parseSlug(path.basename(filePath, path.extname(filePath)));
-  const { metadata, content } = parseMdxFile(rawContent);
-  return validationFn(content, slug, metadata);
-}
-
-export function parseMdxFile(fileContent: string): {
-  metadata: Record<string, unknown>;
-  content: string;
-} {
-  try {
-    const frontmatterRegex = /---\s*([\s\S]*?)\s*---/;
-    const match = frontmatterRegex.exec(fileContent);
-
-    if (!match) {
-      throw new Error("No frontmatter found");
-    }
-
-    const frontMatterBlock = match[1];
-    const content = fileContent.replace(frontmatterRegex, "").trim();
-    const metadata = YAML.parse(frontMatterBlock);
-
-    if (typeof metadata !== "object" || metadata === null) {
-      throw new Error("Invalid frontmatter format");
-    }
-
-    return { metadata, content };
-  } catch (error) {
-    console.error("Error parsing MDX file:", error);
-    return { metadata: {}, content: fileContent };
-  }
-}
-
-// /**
-//  * @deprecated Use specified `loaders` instead.
-//  */
-// export function getPosts(dir?: string): OscPost[] {
-//   const contentDir = path.join(process.cwd(), "content", dir || "");
-//   try {
-//     const files = getMDXFiles(contentDir);
-//     return files.map((file) =>
-//       readFile<OscPost>(
-//         path.join(contentDir, file),
-//         (content, slug, metadata) => ({
-//           metadata: metadata as Record<string, unknown>,
-//           slug,
-//           content,
-//         }),
-//       ),
-//     );
-//   } catch (error) {
-//     console.error("Error loading posts:", error);
-//     return [];
-//   }
-// }
 
 export const loadProjects = () => loadContent("projects", "project");
 

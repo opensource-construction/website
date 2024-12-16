@@ -21,9 +21,3 @@ export type ContentValidator<T extends Content> = (
   defaultContent: T
 ) => T;
 
-export type Parser<T> = (
-  content: string,
-  slug: string,
-  metadata: unknown
-) => T;
-
