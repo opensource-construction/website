@@ -1,102 +1,128 @@
 import { expect, it, describe } from "vitest";
-import { contentDefaults } from "@/lib/mdxParser/mdxSchematas";
+import { contentDefaults } from "@/lib/mdxParser/mdxSchema";
 import { ZodError } from "zod";
-import { OscProject } from "@/lib/mdxParser/mdxSchematas";
+import { OscProject } from "@/lib/mdxParser/mdxSchema";
 import { mapContent } from "@/lib/mdxParser/mdxMappers";
 
-describe('validateProject', () => {
+describe("validateProject", () => {
   const defaultContent = contentDefaults.project as OscProject;
-  const validSlug = 'test-project';
-  const validContent = '# Test Content';
+  const validSlug = "test-project";
+  const validContent = "# Test Content";
 
-  it('should validate a correct project', () => {
+  it("should validate a correct project", () => {
     const rawData = {
-      title: 'Project Title',
-      description: 'Revolutionizes AEC',
-      metadata: { featured: false, maturity: 'graduated' },
-      links: [
-        { url: 'https://speckle.systems/', label: 'Website' },
-      ]
-    }
+      title: "Project Title",
+      description: "Revolutionizes AEC",
+      metadata: { featured: false, maturity: "graduated" },
+      links: [{ url: "https://speckle.systems/", label: "Website" }],
+    };
 
-    const result = mapContent("project", rawData, validSlug, validContent, defaultContent);
+    const result = mapContent(
+      "project",
+      rawData,
+      validSlug,
+      validContent,
+      defaultContent,
+    );
 
     expect(result).toEqual({
-      type: 'project',
-      title: 'Project Title',
-      description: 'Revolutionizes AEC',
+      type: "project",
+      title: "Project Title",
+      description: "Revolutionizes AEC",
       slug: validSlug,
       content: validContent,
       metadata: {
         featured: false,
-        maturity: 'graduated',
+        maturity: "graduated",
         links: [
           {
-            url: 'https://speckle.systems/',
-            label: 'Website'
-          }
-        ]
-      }
+            url: "https://speckle.systems/",
+            label: "Website",
+          },
+        ],
+      },
     });
   });
 
-  it('should use default values for missing fields', () => {
+  it("should use default values for missing fields", () => {
     const rawData = {
-      title: 'Test Project'
+      title: "Test Project",
     };
 
-    const result = mapContent("project", rawData, validSlug, validContent, defaultContent);
+    const result = mapContent(
+      "project",
+      rawData,
+      validSlug,
+      validContent,
+      defaultContent,
+    );
 
     expect(result).toEqual({
       ...defaultContent,
-      title: 'Test Project',
+      title: "Test Project",
       slug: validSlug,
       content: validContent,
       metadata: {
         featured: false,
-        maturity: 'sandbox',
-        links: []
-      }
+        maturity: "sandbox",
+        links: [],
+      },
     });
   });
 
-  it('should handle invalid maturity value', () => {
+  it("should handle invalid maturity value", () => {
     const rawData = {
-      title: 'Test Project',
+      title: "Test Project",
       metadata: {
-        maturity: 'invalid-maturity'
-      }
+        maturity: "invalid-maturity",
+      },
     };
 
-    const result = mapContent("project", rawData, validSlug, validContent, defaultContent);
+    const result = mapContent(
+      "project",
+      rawData,
+      validSlug,
+      validContent,
+      defaultContent,
+    );
 
     expect(result).toEqual({
       ...defaultContent,
-      title: 'Test Project',
+      title: "Test Project",
       slug: validSlug,
-      content: validContent
+      content: validContent,
     });
   });
 
-  it('should handle invalid URL in links', () => {
+  it("should handle invalid URL in links", () => {
     const rawData = {
-      links: [
-        { url: 'falsy link', label: 'Website' },
-      ],
+      links: [{ url: "falsy link", label: "Website" }],
     };
 
     expect(() => {
-      const result = mapContent("project", rawData, validSlug, validContent, defaultContent);
+      const result = mapContent(
+        "project",
+        rawData,
+        validSlug,
+        validContent,
+        defaultContent,
+      );
     }).toThrowError(ZodError);
   });
 
-  it('should handle null or undefined input', () => {
-    const result = mapContent("project", null, validSlug, validContent, defaultContent);
+  it("should handle null or undefined input", () => {
+    const result = mapContent(
+      "project",
+      null,
+      validSlug,
+      validContent,
+      defaultContent,
+    );
 
     expect(result).toEqual({
       ...defaultContent,
       slug: validSlug,
-      content: validContent
+      content: validContent,
     });
   });
 });

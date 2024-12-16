@@ -1,12 +1,17 @@
 import {
-  Maturity,
-  TrainingTag,
-  EventStatus,
+  ContentType,
+  OscCluster,
+  OscEvent,
+  OscFaqs,
+  OscPage,
+  OscPost,
+  OscProject,
+  OscTraining,
   ContentLink,
-} from "./mdxParserTypes";
-import { VALID_MATURITIES, EVENT_STATUSES, Schemas } from "./mdxSchematas";
-import { ContentValidator } from "./mdxParserTypes";
-import { ContentType, OscCluster, OscEvent, OscFaqs, OscPage, OscPost, OscProject, OscTraining } from "./mdxSchematas";
+  Maturity, TrainingTag, EventStatus,
+  VALID_MATURITIES, EVENT_STATUSES, ContentValidator,
+  Schemas
+} from "./mdxSchema";
 
 export type ContentTypeMap = {
   training: OscTraining;
@@ -15,7 +20,7 @@ export type ContentTypeMap = {
   post: OscPost;
   page: OscPage;
   cluster: OscCluster;
-  faqs: OscFaqs
+  faqs: OscFaqs;
 };
 
 type ContentValidatorMap = {
@@ -23,7 +28,7 @@ type ContentValidatorMap = {
 };
 
 function ensureString(value: any, defaultValue: string = ""): string {
-  if (typeof value === 'string') return value;
+  if (typeof value === "string") return value;
   return String(defaultValue);
 }
 
@@ -33,7 +38,7 @@ function ensureBoolean(value: any): boolean {
 
 function ensureDate(date: any): Date {
   if (date instanceof Date && !isNaN(date.getTime())) return date;
-  if (typeof date === 'string') {
+  if (typeof date === "string") {
     const parsed = new Date(date);
     if (!isNaN(parsed.getTime())) return parsed;
   }
@@ -42,12 +47,18 @@ function ensureDate(date: any): Date {
 
 function ensureLinks(links: any): ContentLink[] {
   if (!Array.isArray(links)) return [];
-  return links.filter(link =>
-    typeof link === 'object' &&
-    typeof link?.url === 'string' &&
-    typeof link?.label === 'string'
+  return links.filter(
+    (link) =>
+      typeof link === "object" &&
+      typeof link?.url === "string" &&
+      typeof link?.label === "string",
   );
 }
+
+const validateEmail = (email: string) => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email) ? email : undefined;
+};
 
 function ensureTrainingTags(tags: any): TrainingTag[] {
   if (!Array.isArray(tags)) return [];
@@ -71,7 +82,7 @@ function parseMaturity(maturity: any): Maturity {
 
 function ensureEventStatus(status: any): EventStatus {
   return EVENT_STATUSES.includes(status as EventStatus)
-    ? status as EventStatus
+    ? (status as EventStatus)
     : "TENTATIVE";
 }
 
@@ -80,17 +91,17 @@ export function mapContent<T extends ContentType>(
   raw: any,
   slug: string,
   content: string,
-  defaultContent: ContentTypeMap[T]
+  defaultContent: ContentTypeMap[T],
 ): ContentTypeMap[T] {
   const transformedData = {
     ...defaultContent,
-    type, // Ensure type is explicitly set from parameter
+    type,
     slug,
     content,
-    title: ensureString(raw?.title, defaultContent.title),
-    description: ensureString(raw?.description, defaultContent.description),
-    metadata: metadataTransforms[type](raw, defaultContent)
-  } as ContentTypeMap[T]; // Assert the transformed data matches expected type
+    title: ensureString(raw?.title, defaultContent.title), //TODO: check if this needs special formatting
+    description: raw?.description || undefined,
+    metadata: metadataTransforms[type](raw, defaultContent),
+  } as ContentTypeMap[T];
 
   return Schemas[type].parse(transformedData) as ContentTypeMap[T];
 }
@@ -98,14 +109,14 @@ export function mapContent<T extends ContentType>(
 type MetadataTransformer = {
   [K in ContentType]: (
     raw: any,
-    defaultContent: ContentTypeMap[K]
-  ) => ContentTypeMap[K]['metadata']
+    defaultContent: ContentTypeMap[K],
+  ) => ContentTypeMap[K]["metadata"];
 };
 
 const metadataTransforms: MetadataTransformer = {
   project: (raw, defaultContent) => ({
     ...defaultContent.metadata,
-    links: ensureLinks(raw?.links),
+    links: raw?.links || undefined,
     featured: ensureBoolean(raw?.metadata?.featured),
     maturity: parseMaturity(raw?.metadata?.maturity),
   }),
@@ -118,25 +129,30 @@ const metadataTransforms: MetadataTransformer = {
     tags: ensureTrainingTags(raw?.tags),
   }),
   event: (raw, defaultContent) => {
-    const eventStart = ensureDate(raw?.event?.start || defaultContent.metadata.start);
+    const eventStart = ensureDate(
+      raw?.event?.start || defaultContent.metadata.start,
+    );
     const isPast = eventStart.getTime() < Date.now();
-    console.log("EVENT", raw)
     return {
       ...defaultContent.metadata,
       start: eventStart,
       isPast: eventStart.getTime() < Date.now(),
-      duration: raw?.event?.duration || { hours: 0 },
-      location: ensureString(raw?.event?.location),
-      geo: (raw?.event?.geo || raw?.geo) ? {
-        lat: Number(raw?.event?.geo?.lat) || 0,
-        lon: Number(raw?.event?.geo?.lon) || 0,
-      } : undefined,
+      duration: raw?.event?.duration || undefined,
+      location: raw?.event?.location || undefined,
+      geo: raw?.event?.geo
+        ? {
+          lat: Number(raw?.event?.geo?.lat),
+          lon: Number(raw?.event?.geo?.lon),
+        }
+        : undefined,
       status: ensureEventStatus(raw?.event?.status),
-      organizer: (raw?.event?.organizer) ? {
-        name: ensureString(raw?.event?.organizer?.name),
-        email: ensureString(raw?.event?.organizer?.email),
-      } : undefined,
-      ...(raw?.event?.url || raw?.url ? { url: ensureString(raw?.event?.url) } : {}),
+      organizer: raw?.event?.organizer
+        ? {
+          name: ensureString(raw?.event?.organizer?.name),
+          email: validateEmail(raw?.event?.organizer?.email),
+        }
+        : undefined,
+      ...(raw?.event?.url ? { url: ensureString(raw?.event?.url) } : {}),
       links: ensureLinks(raw?.links),
     };
   },
@@ -147,33 +163,36 @@ const metadataTransforms: MetadataTransformer = {
     partners: raw?.partners || [],
     tags: raw?.tags || [],
   }),
-  page: (raw, defaultContent) => ({
-    ...defaultContent.metadata,
-    links: ensureLinks(raw?.links),
-    event: raw?.metadata?.event || {},
-    project: raw?.metadata?.project || {},
-  }),
-  post: (raw, defaultContent) => ({
+  page: (defaultContent) => ({
     ...defaultContent.metadata,
   }),
-  faqs: (raw, defaultContent) => ({
+  post: (defaultContent) => ({
+    ...defaultContent.metadata,
+  }),
+  faqs: (defaultContent) => ({
     ...defaultContent.metadata,
   }),
 };
 
 export const contentValidators: ContentValidatorMap = {
   project: (raw, slug, content, defaultContent) =>
-    mapContent('project', raw, slug, content, defaultContent),
+    mapContent("project", raw, slug, content, defaultContent),
+
   training: (raw, slug, content, defaultContent) =>
-    mapContent('training', raw, slug, content, defaultContent),
+    mapContent("training", raw, slug, content, defaultContent),
+
   event: (raw, slug, content, defaultContent) =>
-    mapContent('event', raw, slug, content, defaultContent),
+    mapContent("event", raw, slug, content, defaultContent),
+
   post: (raw, slug, content, defaultContent) =>
-    mapContent('post', raw, slug, content, defaultContent),
+    mapContent("post", raw, slug, content, defaultContent),
+
   page: (raw, slug, content, defaultContent) =>
-    mapContent('page', raw, slug, content, defaultContent),
+    mapContent("page", raw, slug, content, defaultContent),
+
   cluster: (raw, slug, content, defaultContent) =>
-    mapContent('cluster', raw, slug, content, defaultContent),
+    mapContent("cluster", raw, slug, content, defaultContent),
+
   faqs: (raw, slug, content, defaultContent) =>
-    mapContent('faqs', raw, slug, content, defaultContent),
+    mapContent("faqs", raw, slug, content, defaultContent),
 };

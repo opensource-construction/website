@@ -1,7 +1,7 @@
 import { Section } from "@/components";
 import { ClusterCard } from "@/components/src/clusterCard";
-import { loadClusters } from "@lib/mdxParser/mdxParsers";
 import { ClustersPartial } from "@/components/src/partials/clusters";
+import { loadClusters } from "@/lib/mdxParser/mdxParser";
 
 export default function ClusterPage() {
   let clusters = loadClusters();

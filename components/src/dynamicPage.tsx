@@ -10,7 +10,7 @@ import {
   OscPage,
   OscProject,
   OscTraining,
-} from "@/lib/mdxParser/mdxSchematas";
+} from "@/lib/mdxParser/mdxSchema";
 
 export default function DynamicPage({ page }: { page: Content }) {
   const renderMetadata = () => {

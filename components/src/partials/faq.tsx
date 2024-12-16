@@ -1,7 +1,6 @@
 import { CustomMDX } from "../mdx";
-
 import { Card } from "../card";
-import { loadFaqs } from "@lib/mdxParser/mdxParsers";
+import { loadFaqs } from "@/lib/mdxParser/mdxParser";
 
 export function FAQPartial() {
   const faqs = loadFaqs();

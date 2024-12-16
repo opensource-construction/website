@@ -2,12 +2,10 @@
 import fs from "fs";
 import path from "path";
 import YAML from "yaml";
-import {
-  ContentValidator,
-} from "./mdxParserTypes";
-import { contentDefaults } from "./mdxSchematas";
+import { ContentValidator } from "./mdxSchema";
+import { contentDefaults } from "./mdxSchema";
 import { ContentTypeMap, contentValidators } from "./mdxMappers";
-import { ContentType, OscPost } from "./mdxSchematas";
+import { ContentType, OscPost } from "./mdxSchema";
 
 export function parseSlug(fileBasename: string) {
   let prefix = fileBasename.indexOf("-");
@@ -46,25 +44,25 @@ export function loadContent<T extends ContentType>(
         const content = fs.readFileSync(path.join(contentDir, file), "utf-8");
         const slug = parseSlug(path.basename(file, ".mdx"));
         const parsed = parseFrontmatter(content);
-        const validator = contentValidators[type] as ContentValidator<ContentTypeMap[T]>;
+        const validator = contentValidators[type] as ContentValidator<
+          ContentTypeMap[T]
+        >;
         const defaultContent = contentDefaults[type] as ContentTypeMap[T];
 
-        if (dir === "events") {
+        if (dir === "page") {
           console.log("parsed", parsed?.data);
         }
 
         const parsedContent = parsed
-          ? validator(
-            parsed.data,
-            slug,
-            parsed.body,
-            defaultContent
-          )
+          ? validator(parsed.data, slug, parsed.body, defaultContent)
           : { ...defaultContent, slug };
         return parsedContent;
       });
   } catch (error) {
-    console.error(`Error loading ${type} with the title ${dir}:`, JSON.stringify(error, null, 2));
+    console.error(
+      `Error loading ${type} with the title ${dir}:`,
+      JSON.stringify(error, null, 2),
+    );
     return [];
   }
 }
@@ -82,5 +80,3 @@ export const loadClusters = () => loadContent("clusters", "cluster");
 export const loadFaqs = () => loadContent("faqs", "faqs");
 
 export const loadPosts = (dir: string) => loadContent(dir, "post") as OscPost[];
-
-

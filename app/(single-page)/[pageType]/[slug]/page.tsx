@@ -3,10 +3,11 @@ import {
   loadEvents,
   loadFaqs,
   loadPages,
+  loadPosts,
   loadProjects,
   loadTrainings,
-} from "@/lib/mdxParser/mdxParsers";
-import { Content } from "@/lib/mdxParser/mdxSchematas";
+} from "@/lib/mdxParser/mdxParser";
+import { Content } from "@/lib/mdxParser/mdxSchema";
 import { notFound } from "next/navigation";
 
 type PageType = "projects" | "events" | "trainings" | "page" | "post" | "faqs";
@@ -51,7 +52,6 @@ export default async function SinglePage({
 }) {
   const { pageType, slug } = params;
 
-  //TODO:FIX ANY
   let page: Content | undefined;
 
   switch (pageType) {
@@ -67,8 +67,11 @@ export default async function SinglePage({
     case "faqs":
       page = loadFaqs().find((f) => f.slug === slug);
       break;
+    case "page":
+      page = loadPages().find((p) => p.slug === slug);
+      break;
     default:
-    // page = loadPosts(pageType).find((p) => p.slug === slug);
+      page = loadPosts(pageType).find((p) => p.slug === slug);
   }
 
   if (!page) {
