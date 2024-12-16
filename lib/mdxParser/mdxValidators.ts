@@ -15,7 +15,6 @@ import {
   OscFaqs,
 } from "./mdxParserTypes";
 import { ContentValidator } from "./mdxParserTypes";
-import { OscProjectSchema } from "./mdxSchematas";
 
 export type ContentTypeMap = {
   training: OscTraining;
@@ -121,33 +120,24 @@ export const validateEvent: ContentValidator<OscEvent> = (
 };
 
 export const validateProject: ContentValidator<OscProject> = (
-  raw,
+  raw: any,
+  slug: string,
+  content: string,
+  defaultContent: OscProject,
+): OscProject => ({
+  ...defaultContent,
+  type: "project",
+  title: ensureString(raw?.title, defaultContent.title),
+  description: ensureString(raw?.description, defaultContent.description),
   slug,
   content,
-  defaultContent,
-): OscProject => {
-  const transformedData = {
-    type: "project",
-    title: raw?.title ?? defaultContent.title,
-    description: raw?.description ?? defaultContent.description,
-    slug,
-    content,
-    metadata: {
-      featured: raw?.metadata?.featured ?? defaultContent.metadata.featured,
-      maturity: raw?.metadata?.maturity ?? defaultContent.metadata.maturity,
-      links: raw?.metadata?.links ?? defaultContent.metadata.links,
-    },
-  };
-
-  const parsed = OscProjectSchema.safeParse(transformedData);
-
-  if (!parsed.success) {
-    console.error("Validation error:", parsed.error);
-    return defaultContent;
-  }
-
-  return parsed.data;
-};
+  metadata: {
+    ...defaultContent.metadata,
+    links: ensureLinks(raw?.links),
+    featured: ensureBoolean(raw?.metadata?.featured),
+    maturity: parseMaturity(raw?.metadata?.maturity),
+  },
+});
 
 export const validateTraining: ContentValidator<OscTraining> = (
   raw: any,

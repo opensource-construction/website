@@ -1,3 +1,5 @@
+import { link } from "fs";
+
 // Constants as union types
 export const VALID_MATURITIES = ["sandbox", "incubation", "graduated"] as const;
 export const CONTENT_TYPES = ["project", "training", "post", "event", "page", "cluster", "faqs"] as const;
@@ -26,8 +28,6 @@ type ProjectMetadata = BaseMetadata & {
   featured: boolean;
   maturity: Maturity;
 };
-
-
 
 type TrainingMetadata = BaseMetadata & {
   level: string;
@@ -108,11 +108,13 @@ export type OscClusterMetadata = {
   tags?: string[];
 }
 
+
 export type OscClusterPartner = {
   url: string;
   name: string;
   log: string; // URL to logo
 }
+
 
 export type OscPost = {
   type: "post";
@@ -129,7 +131,7 @@ export type OscFaqs = BaseContent & {
 }
 
 export type OscFaqsMetadata = {
-
+  links?: ContentLink[];
 }
 
 export type Content = OscProject | OscTraining | OscPost | OscEvent | OscPage | OscCluster | OscFaqs;
@@ -230,7 +232,7 @@ export const contentDefaults: Record<ContentType, Content> = {
     content: "",
     description: "",
     metadata: {
-
+      links: [],
     },
   },
 } as const;
