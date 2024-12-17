@@ -54,8 +54,7 @@ export default function RootLayout({
             title="opensource.construction"
             logo={logoSvg}
             menuItems={navItems}
-          >
-          </Navbar>
+          ></Navbar>
         </header>
         <main className="relative overflow-hidden">{children}</main>
         <footer>

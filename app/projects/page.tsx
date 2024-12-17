@@ -1,34 +1,34 @@
-import { Button, getPosts, Section } from "@/components";
+import { Button, Section } from "@/components";
+import { loadProjects } from "@/lib/mdxParser/mdxParser";
 import {
   Maturity,
-  parseProjects,
-  Project,
-  validMaturities,
-} from "@/components/src/projectUtils";
+  VALID_MATURITIES,
+  OscProject,
+} from "@/lib/mdxParser/mdxSchema";
 
 function capitalizeFirstLetter(string: string): string {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 export default function Projects() {
-  let projects = getPosts("projects");
-  let parsedProjects = parseProjects(projects);
+  let projects = loadProjects();
 
-  const projectsByMaturity = parsedProjects.reduce<Record<Maturity, Project[]>>(
+  const projectsByMaturity = projects.reduce<Record<Maturity, OscProject[]>>(
     (acc, project) => {
-      if (!acc[project.maturity]) {
-        acc[project.maturity] = [];
+      const maturity = project.metadata.maturity;
+      if (!acc[maturity]) {
+        acc[maturity] = [];
       }
-      acc[project.maturity].push(project);
+      acc[maturity].push(project);
       return acc;
     },
-    {} as Record<Maturity, Project[]>,
+    {} as Record<Maturity, OscProject[]>,
   );
 
   const sortedProjectsByMaturity = Object.entries(projectsByMaturity).sort(
     ([a], [b]) =>
-      validMaturities.indexOf(a as Maturity) -
-      validMaturities.indexOf(b as Maturity),
+      VALID_MATURITIES.indexOf(a as Maturity) -
+      VALID_MATURITIES.indexOf(b as Maturity),
   );
 
   //Set the color of the section based on the maturity of the projects
@@ -46,31 +46,33 @@ export default function Projects() {
       "Projects considered stable, widely adopted and production ready, attracting hundreds of users and contributors",
   };
 
-  //TODO: Improve the layout of this page especially regarding visual hierarchy
-  //TODO: Either create a special card for projects in the project dir  or use a different layout
-
   return (
     <div className="mt-28 prose-h2:mt-0 md:mt-0 md:prose-h2:text-2xl md:prose-h3:text-xl">
       <Section>
         <h1 className="py-6 text-xl font-bold  md:text-4xl">Projects</h1>
         <p>
-          The os.c marketplace is the place to publish open source projects with one
-          idea in mind: To reduce the incredible duplication of efforts that
-          really slows down innovation in the AECO industry. 
+          The os.c marketplace is the place to publish open source projects with
+          one idea in mind: To reduce the incredible duplication of efforts that
+          really slows down innovation in the AECO industry.
         </p>
         <p>
           The idea of this space is twofolded:
           <br />
-          1. it&lsquo;s a collaborative repository to collect any code that is open and helpful to others in the AECO sector. 
-          Projects range from small scripts, that you wish you would have at hand instead of building it yourself 
-          to larger projects, that help you move faster. 
+          1. it&lsquo;s a collaborative repository to collect any code that is
+          open and helpful to others in the AECO sector. Projects range from
+          small scripts, that you wish you would have at hand instead of
+          building it yourself to larger projects, that help you move faster.
         </p>
-        <p> 2. get to know the people behind the projects. Learn about their motivation to publish code open source and about the models they have 
-          found to make the work on it sustainable. In addition to the publication on the website, we offer the possibility to set up a community call 
-          that is recorded and also shared on the website.
+        <p>
+          2. get to know the people behind the projects. Learn about their
+          motivation to publish code open source and about the models they have
+          found to make the work on it sustainable. In addition to the
+          publication on the website, we offer the possibility to set up a
+          community call that is recorded and also shared on the website.
           <br />
         </p>
-        <p> Let&lsquo;s keep pushing the industry further. Step by step and never
+        <p>
+          Let&lsquo;s keep pushing the industry further. Step by step and never
           stopping.
         </p>
 
