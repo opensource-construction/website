@@ -1,6 +1,5 @@
 import { useMemo } from "react";
 import PartnerCard, { PartnerProps } from "../partnerCard";
-
 import goldPartners from "@/content/partners/gold-partners.json";
 import silverPartners from "@/content/partners/silver-partners.json";
 import bronzePartners from "@/content/partners/bronze-partners.json";
@@ -62,6 +61,7 @@ const PartnerSection = ({
         ))}
       </div>
       {!isLast && <hr className="my-5 border-solid opacity-10" />}
+      {isLast && <div className="h-5 border-solid opacity-0" />}
     </div>
   );
 };
