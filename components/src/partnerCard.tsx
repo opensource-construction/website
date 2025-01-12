@@ -21,7 +21,7 @@ const tierClasses = {
   bronze:
     "border-2 bg-white shadow-sm hover:shadow-md border-[hsl(30,60%,60%)] hover:border-[hsl(30,60%,50%)]",
   network_partner:
-    "border bg-white hover:shadow-sm border-gray-200 hover:border-[hsl(210,100%,50%)]",
+    "border bg-white hover:shadow-sm border-gray-200 hover:border-primary-500",
 };
 
 const PartnerCard = ({
@@ -39,7 +39,7 @@ const PartnerCard = ({
       rel="noopener noreferrer"
       className={`block  transition-all duration-300 ease-in-out ${tierClasses[tier]} ${className}`}
     >
-      <div className="flex flex-col items-center justify-center gap-2 p-4 sm:p-6">
+      <div className="flex  flex-col items-center justify-center gap-2 p-4 sm:p-6">
         <img
           src={`images/partners/${logo}`}
           alt={name}

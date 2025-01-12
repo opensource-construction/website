@@ -29,7 +29,7 @@
   },
   {
     "name": "Borm",
-    "logo": "borm.png",
+    "logo": "borm.svg",
     "url": "https://www.borm.com/",
     "type": "industry",
     "tier": "network_partner"
@@ -43,21 +43,21 @@
   },
   {
     "name": "Schär Holzbau",
-    "logo": "schaer.png",
+    "logo": "schaer.jpg",
     "url": "https://schaerholzbau.ch/",
     "type": "industry",
     "tier": "network_partner"
   },
   {
     "name": "DesignToProduction",
-    "logo": "dtp.png",
+    "logo": "dtp.jpg",
     "url": "https://www.designtoproduction.com/",
     "type": "industry",
     "tier": "network_partner"
   },
   {
     "name": "Cadwork",
-    "logo": "cadwork.png",
+    "logo": "cadwork.jpg",
     "url": "https://www.cadwork.com/",
     "type": "industry",
     "tier": "network_partner"
