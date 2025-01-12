@@ -31,39 +31,43 @@ export function Card({
 
   return (
     <div className={`bg-${color}`}>
-      <div className="p-5">
-        <h4 className="mb-2 mt-0 text-xl font-bold md:text-2xl">{title}</h4>
-        <div className="mb-12">{subtitle}</div>
-        {
+      <div className="flex h-full flex-col p-5">
+        <div>
+          <h4 className="mb-2 mt-0 text-xl font-bold md:text-2xl">{title}</h4>
+          <div className="mb-12">{subtitle}</div>
+        </div>
+        <div className="mt-auto">
           {
-            default: null,
-            event: (
-              <Button
-                label="More about the event"
-                target={`/events/${slug}`}
-                type="primary"
-              />
-            ),
+            {
+              default: null,
+              event: (
+                <Button
+                  label="More about the event"
+                  target={`/events/${slug}`}
+                  type="primary"
+                />
+              ),
 
-            project: (
-              <Button
-                label="More about the project"
-                target={`/projects/${slug}`}
-                type="primary"
-              />
-            ),
+              project: (
+                <Button
+                  label="More about the project"
+                  target={`/projects/${slug}`}
+                  type="card"
+                />
+              ),
 
-            faq: (
-              <Button
-                label="Learn more here"
-                target={() => setOpen(true)}
-                type="sidebar"
-              />
-            ),
+              faq: (
+                <Button
+                  label="Learn more here"
+                  target={() => setOpen(true)}
+                  type="sidebar"
+                />
+              ),
 
-            partner: null,
-          }[type]
-        }
+              partner: null,
+            }[type]
+          }
+        </div>
         {type !== "faq" ? children : null}
       </div>
       {type === "faq" ? (
