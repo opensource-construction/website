@@ -15,13 +15,13 @@ const sizeClasses = {
 } as const;
 
 const tierClasses = {
-  gold: "border-2 bg-white hover:shadow-xl border-[hsl(50,80%,60%)] hover:border-[hsl(50,80%,50%)]",
+  gold: "border-2 bg-white sm:hover:shadow-xl border-[hsl(50,80%,60%)] sm:hover:border-[hsl(50,80%,50%)]",
   silver:
-    "border-2 bg-white hover:shadow-lg border-[hsl(0,0%,75%)] hover:border-[hsl(0,0%,65%)]",
+    "border-2 bg-white sm:hover:shadow-lg border-[hsl(0,0%,75%)] sm:hover:border-[hsl(0,0%,65%)]",
   bronze:
-    "border-2 bg-white shadow-sm hover:shadow-md border-[hsl(30,60%,60%)] hover:border-[hsl(30,60%,50%)]",
+    "border-2 bg-white shadow-sm sm:hover:shadow-md border-[hsl(30,60%,60%)] sm:hover:border-[hsl(30,60%,50%)]",
   network_partner:
-    "border bg-white hover:shadow-sm border-gray-200 hover:border-primary-500",
+    "border bg-white sm:hover:shadow-sm border-gray-200 sm:hover:border-primary-500",
 };
 
 const PartnerCard = ({
