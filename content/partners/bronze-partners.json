@@ -28,6 +28,13 @@
     "tier": "bronze"
   },
   {
+    "name": "lignum",
+    "logo": "lignum.png",
+    "url": "https://www.lignum.ch",
+    "type": "industry",
+    "tier": "bronze"
+  },
+  {
     "name": "Zeokit",
     "logo": "xeokit.png",
     "url": "https://xeokit.io",

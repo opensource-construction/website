@@ -14,13 +14,6 @@
     "tier": "silver"
   },
   {
-    "name": "lignum",
-    "logo": "lignum.png",
-    "url": "https://www.lignum.ch",
-    "type": "industry",
-    "tier": "silver"
-  },
-  {
     "name": "EBP",
     "logo": "ebp.svg",
     "url": "https://www.ebp.ch",
