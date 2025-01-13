@@ -47,5 +47,12 @@
     "url": "https://www.ethz.ch",
     "type": "academia",
     "tier": "silver"
+  },
+  {
+    "name": "ZHAW",
+    "logo": "zhaw.png",
+    "url": "https://www.zhaw.ch/de/archbau/",
+    "type": "academia",
+    "tier": "silver"
   }
 ]

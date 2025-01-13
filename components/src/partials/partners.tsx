@@ -4,6 +4,7 @@ import goldPartners from "@/content/partners/gold-partners.json";
 import silverPartners from "@/content/partners/silver-partners.json";
 import bronzePartners from "@/content/partners/bronze-partners.json";
 import networkPartners from "@/content/partners/network-partners.json";
+import communityPartners from "@/content/partners/community-partners.json";
 
 const tierConfig = {
   gold: {
@@ -26,6 +27,12 @@ const tierConfig = {
   },
   network: {
     title: "Network Partners",
+    size: "small" as const,
+    gridCols: "grid-cols-2 sm:grid-cols-3 md:grid-cols-6",
+    cardWidth: "w-36",
+  },
+  community: {
+    title: "Community Partners",
     size: "small" as const,
     gridCols: "grid-cols-2 sm:grid-cols-3 md:grid-cols-6",
     cardWidth: "w-36",
@@ -73,6 +80,7 @@ export function PartnersPartial() {
       silver: silverPartners as PartnerProps[],
       bronze: bronzePartners as PartnerProps[],
       network: networkPartners as PartnerProps[],
+      community: communityPartners as PartnerProps[],
     }),
     [],
   );

@@ -2,7 +2,7 @@ export type PartnerProps = {
   name: string;
   logo: string;
   url: string;
-  tier: "bronze" | "silver" | "gold" | "network_partner";
+  tier: "bronze" | "silver" | "gold" | "network_partner" | "community_partner";
   type: "community" | "industry" | "academia";
   size?: "small" | "medium" | "large";
   className?: string;
@@ -21,6 +21,8 @@ const tierClasses = {
   bronze:
     "border-2 bg-white shadow-sm sm:hover:shadow-md border-[hsl(30,60%,60%)] sm:hover:border-[hsl(30,60%,50%)]",
   network_partner:
+    "border bg-white sm:hover:shadow-sm border-gray-200 sm:hover:border-primary-500",
+  community_partner:
     "border bg-white sm:hover:shadow-sm border-gray-200 sm:hover:border-primary-500",
 };
 
