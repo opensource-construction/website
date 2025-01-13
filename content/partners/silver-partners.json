@@ -1,0 +1,58 @@
+[
+  {
+    "name": "esri",
+    "logo": "esri.png",
+    "url": "https://www.esri.com",
+    "type": "industry",
+    "tier": "silver"
+  },
+  {
+    "name": "Implenia",
+    "logo": "implenia.jpg",
+    "url": "https://www.implenia.com",
+    "type": "industry",
+    "tier": "silver"
+  },
+  {
+    "name": "EBP",
+    "logo": "ebp.svg",
+    "url": "https://www.ebp.ch",
+    "type": "industry",
+    "tier": "silver"
+  },
+  {
+    "name": "SIA",
+    "logo": "sia.png",
+    "url": "https://www.sia.ch",
+    "type": "industry",
+    "tier": "silver"
+  },
+  {
+    "name": "Drees und Sommer",
+    "logo": "dreso.svg",
+    "url": "https://www.dreso.com",
+    "type": "industry",
+    "tier": "silver"
+  },
+  {
+    "name": "beyondBIM",
+    "logo": "beyondbim.png",
+    "url": "https://www.beyondbim.ch",
+    "type": "industry",
+    "tier": "silver"
+  },
+  {
+    "name": "ETH Zurich",
+    "logo": "eth.png",
+    "url": "https://www.ethz.ch",
+    "type": "academia",
+    "tier": "silver"
+  },
+  {
+    "name": "ZHAW",
+    "logo": "zhaw.png",
+    "url": "https://www.zhaw.ch/de/archbau/",
+    "type": "academia",
+    "tier": "silver"
+  }
+]
