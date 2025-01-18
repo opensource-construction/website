@@ -18,7 +18,7 @@ const ContactCard = (contactProps: ContactProps) => {
     <div className="grid grid-cols-3 gap-4">
       <div className="flex-wrap">
         <img
-          src={`images/team/${contactProps.image}`}
+          src={`/images/team/${contactProps.image}`}
           alt={contactProps.name}
           className="m-6 h-24 w-24 min-w-24 rounded-full border border-slate-500 object-contain shadow-lg"
         />

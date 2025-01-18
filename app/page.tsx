@@ -9,7 +9,6 @@ import {
 } from "@opensource-construction/components";
 import Image from "next/image";
 import team from "../content/team.json";
-
 import ContactCard from "@/components/src/contactCard";
 import { PartnersPartial } from "@/components/src/partials/partners";
 
