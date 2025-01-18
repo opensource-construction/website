@@ -43,7 +43,7 @@ const PartnerCard = ({
     >
       <div className="flex  flex-col items-center justify-center gap-2 p-4 sm:p-6">
         <img
-          src={`images/partners/${logo}`}
+          src={`/images/partners/${logo}`}
           alt={name}
           className={`object-contain transition-all duration-300 ${sizeClasses[size]}`}
         />
