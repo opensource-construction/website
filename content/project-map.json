@@ -76,5 +76,11 @@
     "slug": "bldrs",
     "featured": false,
     "maturity": "sandbox"
-  }
+  },
+  {
+    "title": "BetterCorrectFast",
+    "slug": "BetterCorrectFast",
+    "featured": false,
+    "maturity": "sandbox"
+  } 
 ]
