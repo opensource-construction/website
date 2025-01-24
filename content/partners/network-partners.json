@@ -1,0 +1,79 @@
+[
+  {
+    "name": "metaXD",
+    "logo": "metaxd.png",
+    "url": "https://www.metaxd.ch/",
+    "type": "industry",
+    "tier": "network_partner"
+  },
+  {
+    "name": "2050 materials",
+    "logo": "2050materials.png",
+    "url": "https://2050-materials.com/",
+    "type": "industry",
+    "tier": "network_partner"
+  },
+  {
+    "name": "Pirmin Jung",
+    "logo": "pirminjung.png",
+    "url": "https://www.pirminjung.ch/",
+    "type": "industry",
+    "tier": "network_partner"
+  },
+  {
+    "name": "Balteschwiler",
+    "logo": "balteschwiler.png",
+    "url": "https://balteschwiler.ch/",
+    "type": "industry",
+    "tier": "network_partner"
+  },
+  {
+    "name": "Borm",
+    "logo": "borm.png",
+    "url": "https://www.borm.com/",
+    "type": "industry",
+    "tier": "network_partner"
+  },
+  {
+    "name": "lignocam",
+    "logo": "lignocam.jpg",
+    "url": "https://lignocam.com/",
+    "type": "industry",
+    "tier": "network_partner"
+  },
+  {
+    "name": "Schär Holzbau",
+    "logo": "schaer.png",
+    "url": "https://schaerholzbau.ch/",
+    "type": "industry",
+    "tier": "network_partner"
+  },
+  {
+    "name": "DesignToProduction",
+    "logo": "dtp.png",
+    "url": "https://www.designtoproduction.com/",
+    "type": "industry",
+    "tier": "network_partner"
+  },
+  {
+    "name": "Cadwork",
+    "logo": "cadwork.png",
+    "url": "https://www.cadwork.com/",
+    "type": "industry",
+    "tier": "network_partner"
+  },
+  {
+    "name": "Gumpp & Maier",
+    "logo": "gumppmaier.png",
+    "url": "https://www.gumpp-maier.de/",
+    "type": "industry",
+    "tier": "network_partner"
+  },
+  {
+    "name": "Penzel Valier",
+    "logo": "penzelvalier.png",
+    "url": "https://www.penzelvalier.ch/",
+    "type": "industry",
+    "tier": "network_partner"
+  }
+]

@@ -13,6 +13,7 @@ import partners from "../content/partners.json";
 
 import ContactCard from "@/components/src/contactCard";
 import PartnerCard from "@/components/src/partnerCard";
+import { EventsIndexPartial } from "@/components/src/partials/events";
 
 export default function Home() {
   const discordLink = process.env.DISCORD_LINK || "";
@@ -77,11 +78,11 @@ export default function Home() {
             exchange – find them here + further events that we attend as well.
           </p>
         </div>
-        <EventsPartial />
+        <EventsIndexPartial />
       </Section>
-      <Section title="Past Events" color="slate-300">
-        <EventsPartial showPast={true} />
-      </Section>
+      {/* <Section title="Past Events" color="slate-300">
+        <EventsPartial showPast={true} maxEventCount={4} />
+      </Section> */}
       <Section>
         <Image
           src="/images/partials/AEC-Hackathon-091.jpg"
