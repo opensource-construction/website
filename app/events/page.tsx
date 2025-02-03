@@ -2,8 +2,6 @@ import { Button, EventsPartial, Section } from "@/components";
 import { loadEvents } from "@/lib/mdxParser/mdxParser";
 
 export default function Events({}: {}) {
-  const events = loadEvents();
-
   return (
     <div className="mt-28 prose-h2:mt-0 md:mt-0 md:prose-h2:text-2xl md:prose-h3:text-xl">
       <Section>
