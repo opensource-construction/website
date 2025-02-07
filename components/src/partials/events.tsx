@@ -2,10 +2,6 @@ import { Button } from "../button";
 import { Card } from "../card";
 import { loadEvents } from "@/lib/mdxParser/mdxParser";
 
-const isPastEvent = (date: Date) => {
-  return date.getTime() < Date.now();
-};
-
 export function EventsPartial({ showPast = false }: { showPast?: boolean }) {
   let eventsParsed = loadEvents();
 
@@ -17,19 +13,24 @@ export function EventsPartial({ showPast = false }: { showPast?: boolean }) {
     );
 
   return (
-    <div className="grid gap-12 py-10 md:mt-16 lg:grid-cols-2 lg:gap-32">
-      {!es.length
-        ? "No pending events"
-        : es.map((e) => (
-            <Card
-              key={e.metadata.start.toLocaleDateString("en-GB")}
-              title={e.title || ""}
-              type="event"
-              color={"white"}
-              subtitle={e.metadata.start.toLocaleDateString("en-GB")}
-              slug={e.slug}
-            />
-          ))}
+    <div className="mt-10 ">
+      <h2 className="text-gray-600 mb-12 text-2xl font-semibold">
+        {showPast ? "Past Events" : "Upcoming Events"}
+      </h2>
+      <div className="grid gap-12  md:mt-16 lg:grid-cols-2 lg:gap-32">
+        {!es.length
+          ? "No pending events"
+          : es.map((e) => (
+              <Card
+                key={e.metadata.start.toLocaleDateString("en-GB")}
+                title={e.title || ""}
+                type="event"
+                color={"white"}
+                subtitle={e.metadata.start.toLocaleDateString("en-GB")}
+                slug={e.slug}
+              />
+            ))}
+      </div>
     </div>
   );
 }
@@ -38,12 +39,12 @@ export function EventsIndexPartial() {
   let eventsParsed = loadEvents();
 
   const pastEvents = eventsParsed
-    .filter((e) => isPastEvent(e.metadata.start))
+    .filter((e) => e.metadata.isPast)
     .sort((a, b) => (a.metadata.start < b.metadata.start ? 1 : -1))
     .slice(0, 3);
 
   const futureEvents = eventsParsed
-    .filter((e) => !isPastEvent(e.metadata.start))
+    .filter((e) => !e.metadata.isPast)
     .sort((a, b) => (a.metadata.start < b.metadata.start ? 1 : -1));
 
   return (
@@ -101,7 +102,7 @@ export function EventsIndexPartial() {
                 <Button
                   type="primary"
                   label="See all events"
-                  target="./events"
+                  target="/events"
                 />
               </div>
             </div>

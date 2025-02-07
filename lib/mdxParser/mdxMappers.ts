@@ -152,7 +152,6 @@ const metadataTransforms: MetadataTransformer = {
 
     const isPast = eventEnd.getTime() < Date.now();
 
-
     return {
       ...defaultContent.metadata,
       start: eventStart,

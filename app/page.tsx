@@ -11,6 +11,7 @@ import Image from "next/image";
 import team from "../content/team.json";
 import ContactCard from "@/components/src/contactCard";
 import { PartnersPartial } from "@/components/src/partials/partners";
+import { EventsIndexPartial } from "@/components/src/partials/events";
 
 export default function Home() {
   const discordLink = process.env.DISCORD_LINK || "";
