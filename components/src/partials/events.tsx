@@ -1,40 +1,27 @@
-import { getPosts } from "../utils";
 import { Card } from "../card";
+import { loadEvents } from "@/lib/mdxParser/mdxParser";
 
 export function EventsPartial({ showPast = false }: { showPast?: boolean }) {
-  let events = getPosts("events");
+  let eventsParsed = loadEvents();
 
-  let parsedEvents = events
-    .map((e) => {
-      let event = e.metadata.event;
-      let eventStart = new Date(event.start);
-
-      event.title = e.metadata.title;
-      event.slug = e.slug;
-
-      event.startDate = eventStart;
-      event.start = Intl.DateTimeFormat("en-UK", {
-        dateStyle: "short",
-        timeZone: "Europe/Zurich",
-      }).format(new Date(eventStart));
-      event.isPast = eventStart.getTime() < Date.now();
-
-      return event;
-    })
-    .sort((a, b) => (a.startDate < b.startDate ? 1 : -1))
-    .filter((e) => (e.isPast && showPast) || (!e.isPast && !showPast));
+  let es = eventsParsed
+    .sort((a, b) => (a.metadata.start < b.metadata.start ? 1 : -1))
+    .filter(
+      (e) =>
+        (e.metadata.isPast && showPast) || (!e.metadata.isPast && !showPast),
+    );
 
   return (
     <div className="grid gap-12 py-10 md:mt-16 lg:grid-cols-2 lg:gap-32">
-      {!parsedEvents.length
+      {!es.length
         ? "No pending events"
-        : parsedEvents.map((e) => (
+        : es.map((e) => (
             <Card
-              key={e.start}
-              title={e.title}
+              key={e.metadata.start.toLocaleDateString("en-GB")}
+              title={e.title || ""}
               type="event"
               color={"white"}
-              subtitle={e.start}
+              subtitle={e.metadata.start.toLocaleDateString("en-GB")}
               slug={e.slug}
             />
           ))}

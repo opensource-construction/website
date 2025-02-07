@@ -1,10 +1,9 @@
 import { CustomMDX } from "../mdx";
-import { getPosts } from "../utils";
-
 import { Card } from "../card";
+import { loadFaqs } from "@/lib/mdxParser/mdxParser";
 
 export function FAQPartial() {
-  const faqs = getPosts("faqs");
+  const faqs = loadFaqs();
 
   return (
     <div>
@@ -12,12 +11,7 @@ export function FAQPartial() {
         {!faqs.length
           ? ""
           : faqs.map((e) => (
-              <Card
-                key={e.slug}
-                color="slate-300"
-                type="faq"
-                title={e.metadata.title}
-              >
+              <Card key={e.slug} color="slate-300" type="faq" title={e.title}>
                 {<CustomMDX source={e.content} />}
               </Card>
             ))}

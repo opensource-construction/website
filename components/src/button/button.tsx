@@ -6,6 +6,18 @@ import Link from "next/link";
 import { MouseEventHandler } from "react";
 import { useFormStatus } from "react-dom";
 
+const isValidUrl = (url: string): boolean => {
+  if (!url) return false;
+  // Allow relative paths
+  if (url.startsWith("/")) return true;
+  try {
+    const parsed = new URL(url);
+    return ["http:", "https:"].includes(parsed.protocol);
+  } catch {
+    return false;
+  }
+};
+
 export const button = cva(
   ["inline-block pr-3 md:pr-8 text-sm font-bold no-underline md:text-base"],
   {
@@ -68,6 +80,9 @@ export const Button = ({
 }) => {
   const { pending } = useFormStatus();
 
+  const sanitizedHref =
+    typeof target === "string" ? (isValidUrl(target) ? target : "/") : "";
+
   return (
     <div className="mt-4">
       {type === "submit" ? (
@@ -89,7 +104,11 @@ export const Button = ({
         </button>
       ) : (
         <Link
-          href={type !== "sidebar" && typeof target === "string" ? target : ""}
+          href={
+            type !== "sidebar" && typeof target === "string"
+              ? sanitizedHref
+              : ""
+          }
           scroll={type === "sidebar" ? false : true}
           onClick={
             type === "sidebar" && typeof target === "function"
