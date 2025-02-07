@@ -49,9 +49,6 @@ export function loadContent<T extends ContentType>(
         >;
         const defaultContent = contentDefaults[type] as ContentTypeMap[T];
 
-        if (dir === "page") {
-          console.log("parsed", parsed?.data);
-        }
 
         const parsedContent = parsed
           ? validator(parsed.data, slug, parsed.body, defaultContent)
