@@ -9,10 +9,8 @@ import {
 } from "@opensource-construction/components";
 import Image from "next/image";
 import team from "../content/team.json";
-import partners from "../content/partners.json";
-
 import ContactCard from "@/components/src/contactCard";
-import PartnerCard from "@/components/src/partnerCard";
+import { PartnersPartial } from "@/components/src/partials/partners";
 
 export default function Home() {
   const discordLink = process.env.DISCORD_LINK || "";
@@ -167,36 +165,8 @@ export default function Home() {
           ))}
         </div>
       </Section>
-      <Section>
-        <div className="pb-24 pt-12 text-center">
-          <p className="text-sm md:text-base lg:text-2xl">Our Partners</p>
-          <h3 className="my-10 font-bold lg:text-2xl">Community</h3>
-          <div className="flex flex-wrap justify-center">
-            {partners
-              .filter((partner) => partner.type === "community")
-              .map((partner) => (
-                <PartnerCard key={partner.logo} {...partner} />
-              ))}
-          </div>
-
-          <h3 className="my-10 font-bold lg:text-2xl">Industry</h3>
-          <div className="flex flex-wrap justify-center">
-            {partners
-              .filter((partner) => partner.type === "industry")
-              .map((partner) => (
-                <PartnerCard key={partner.logo} {...partner} />
-              ))}
-          </div>
-
-          <h3 className="my-10 font-bold lg:text-2xl">Academia</h3>
-          <div className="flex flex-wrap justify-center">
-            {partners
-              .filter((partner) => partner.type === "academia")
-              .map((partner) => (
-                <PartnerCard key={partner.logo} {...partner} />
-              ))}
-          </div>
-        </div>
+      <Section color="slate-300" title="Our Partners">
+        <PartnersPartial />
       </Section>
       <Section>
         <div className="prose">
