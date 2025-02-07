@@ -1,0 +1,51 @@
+[
+  {
+    "name": "HdeM",
+    "logo": "hdem.png",
+    "url": "https://www.herzogdemeuron.com",
+    "type": "industry",
+    "tier": "bronze"
+  },
+  {
+    "name": "MOD",
+    "logo": "mod.png",
+    "url": "https://mod.construction",
+    "type": "industry",
+    "tier": "bronze"
+  },
+  {
+    "name": "luucy",
+    "logo": "luucy.png",
+    "url": "https://www.luucy.ch",
+    "type": "industry",
+    "tier": "bronze"
+  },
+  {
+    "name": "vyzn",
+    "logo": "vyzn.png",
+    "url": "https://www.vyzn.ch",
+    "type": "industry",
+    "tier": "bronze"
+  },
+  {
+    "name": "lignum",
+    "logo": "lignum.png",
+    "url": "https://www.lignum.ch",
+    "type": "industry",
+    "tier": "bronze"
+  },
+  {
+    "name": "Zeokit",
+    "logo": "xeokit.png",
+    "url": "https://xeokit.io",
+    "type": "industry",
+    "tier": "bronze"
+  },
+  {
+    "name": "bldrs",
+    "logo": "bldrs.png",
+    "url": "https://www.bldrs.ai",
+    "type": "industry",
+    "tier": "bronze"
+  }
+]

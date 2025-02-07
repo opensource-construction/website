@@ -1,0 +1,30 @@
+[
+  {
+    "name": "CH Open",
+    "logo": "ch-open.webp",
+    "url": "https://www.ch-open.ch/",
+    "type": "community",
+    "tier": "community_partner"
+  },
+  {
+    "name": "OSArch",
+    "logo": "osarch.webp",
+    "url": "https://osarch.org/",
+    "type": "community",
+    "tier": "community_partner"
+  },
+  {
+    "name": "opendata.ch/",
+    "logo": "opendata.webp",
+    "url": "https://opendata.ch/",
+    "type": "community",
+    "tier": "community_partner"
+  },
+  {
+    "name": "BauenDigital",
+    "logo": "bauendigital.png",
+    "url": "https://bauen-digital.ch/",
+    "type": "community",
+    "tier": "community_partner"
+  }
+]

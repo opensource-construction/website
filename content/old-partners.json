@@ -1,0 +1,240 @@
+[
+  {
+    "name": "CH Open",
+    "logo": "ch-open.webp",
+    "url": "https://www.ch-open.ch/",
+    "type": "community",
+    "tier": "bronze"
+  },
+  {
+    "name": "OSArch",
+    "logo": "osarch.webp",
+    "url": "https://osarch.org/",
+    "type": "community",
+    "tier": "bronze"
+  },
+  {
+    "name": "opendata.ch/",
+    "logo": "opendata.webp",
+    "url": "https://opendata.ch/",
+    "type": "community",
+    "tier": "bronze"
+  },
+  {
+    "name": "NCCR Digital Fabrication",
+    "logo": "dfab.png",
+    "url": "https://www.dfab.ch",
+    "type": "academia",
+    "tier": "bronze"
+  },
+  {
+    "name": "ZHAW",
+    "logo": "zhaw.png",
+    "url": "https://www.zhaw.ch/de/archbau/",
+    "type": "academia",
+    "tier": "bronze"
+  },
+  {
+    "name": "luucy",
+    "logo": "luucy.png",
+    "url": "https://www.luucy.ch",
+    "type": "industry",
+    "tier": "bronze"
+  },
+  {
+    "name": "MOD",
+    "logo": "mod.png",
+    "url": "https://mod.construction",
+    "type": "industry",
+    "tier": "bronze"
+  },
+  {
+    "name": "EBP",
+    "logo": "ebp.svg",
+    "url": "https://www.ebp.ch",
+    "type": "industry",
+    "tier": "bronze"
+  },
+  {
+    "name": "Implenia",
+    "logo": "implenia.jpg",
+    "url": "https://www.implenia.com",
+    "type": "industry",
+    "tier": "bronze"
+  },
+  {
+    "name": "vyzn",
+    "logo": "vyzn.png",
+    "url": "https://www.vyzn.ch",
+    "type": "industry",
+    "tier": "bronze"
+  },
+  {
+    "name": "Compas",
+    "logo": "compas.png",
+    "url": "https://compas.dev/",
+    "type": "industry",
+    "tier": "bronze"
+  },
+  {
+    "name": "Zeokit",
+    "logo": "xeokit.png",
+    "url": "https://xeokit.io/",
+    "type": "industry",
+    "tier": "bronze"
+  },
+  {
+    "name": "BauenDigital",
+    "logo": "bauendigital.png",
+    "url": "https://bauen-digital.ch/",
+    "type": "community",
+    "tier": "bronze"
+  },
+  {
+    "name": "SIA",
+    "logo": "sia.png",
+    "url": "https://www.sia.ch",
+    "type": "industry",
+    "tier": "bronze"
+  },
+  {
+    "name": "creoox",
+    "logo": "creoox.png",
+    "url": "https://www.creoox.com",
+    "type": "industry",
+    "tier": "bronze"
+  },
+  {
+    "name": "beyondBIM",
+    "logo": "beyondbim.png",
+    "url": "https://www.beyondbim.ch",
+    "type": "industry",
+    "tier": "bronze"
+  },
+  {
+    "name": "Berner Fachhochschule",
+    "logo": "",
+    "url": "",
+    "type": "academia",
+    "tier": "bronze"
+  },
+  {
+    "name": "esri",
+    "logo": "",
+    "url": "",
+    "type": "industry",
+    "tier": "bronze"
+  },
+  {
+    "name": "lignum",
+    "logo": "",
+    "url": "",
+    "type": "industry",
+    "tier": "bronze"
+  },
+  {
+    "name": "Drees und Sommer",
+    "logo": "",
+    "url": "",
+    "type": "industry",
+    "tier": "bronze"
+  },
+  {
+    "name": "ETH Zurich",
+    "logo": "",
+    "url": "",
+    "type": "academia",
+    "tier": "bronze"
+  },
+  {
+    "name": "HdeM",
+    "logo": "",
+    "url": "",
+    "type": "industry",
+    "tier": "bronze"
+  },
+  {
+    "name": "bldrs",
+    "logo": "",
+    "url": "",
+    "type": "industry",
+    "tier": "bronze"
+  },
+  {
+    "name": "metaXD",
+    "logo": "",
+    "url": "",
+    "type": "industry",
+    "tier": "bronze"
+  },
+  {
+    "name": "2050 materials",
+    "logo": "",
+    "url": "",
+    "type": "industry",
+    "tier": "bronze"
+  },
+  {
+    "name": "Pirmin Jung",
+    "logo": "",
+    "url": "",
+    "type": "industry",
+    "tier": "bronze"
+  },
+  {
+    "name": "Balteschwiler",
+    "logo": "",
+    "url": "",
+    "type": "industry",
+    "tier": "bronze"
+  },
+  {
+    "name": "Borm",
+    "logo": "",
+    "url": "",
+    "type": "industry",
+    "tier": "bronze"
+  },
+  {
+    "name": "lignocam",
+    "logo": "",
+    "url": "",
+    "type": "industry",
+    "tier": "bronze"
+  },
+  {
+    "name": "Schär Holzbau",
+    "logo": "",
+    "url": "",
+    "type": "industry",
+    "tier": "bronze"
+  },
+  {
+    "name": "DesignToProduction",
+    "logo": "",
+    "url": "",
+    "type": "industry",
+    "tier": "bronze"
+  },
+  {
+    "name": "Cadwork",
+    "logo": "",
+    "url": "",
+    "type": "industry",
+    "tier": "bronze"
+  },
+  {
+    "name": "Gumpp & Maier",
+    "logo": "",
+    "url": "",
+    "type": "industry",
+    "tier": "bronze"
+  },
+  {
+    "name": "Penzel Valier",
+    "logo": "",
+    "url": "",
+    "type": "industry",
+    "tier": "bronze"
+  }
+]

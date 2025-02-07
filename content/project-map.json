@@ -1,0 +1,86 @@
+[
+  {
+    "title": "Bonsai",
+    "slug": "bonsai",
+    "featured": true,
+    "maturity": "graduated"
+  },
+  {
+    "title": "Compas",
+    "slug": "compas",
+    "featured": true,
+    "maturity": "graduated"
+  },
+  {
+    "title": "IFC Model Checker",
+    "slug": "ifc-model-checker",
+    "featured": true,
+    "maturity": "sandbox"
+  },
+  {
+    "title": "PyRevit",
+    "slug": "pyrevit",
+    "featured": false,
+    "maturity": "graduated"
+  },
+  {
+    "title": "Sprint",
+    "slug": "sprint",
+    "featured": false,
+    "maturity": "incubation"
+  },
+  {
+    "title": "Vyssuals",
+    "slug": "vyssuals",
+    "featured": false,
+    "maturity": "incubation"
+  },
+  {
+    "title": "Circular Construction Co-Pilot",
+    "slug": "circular-construction-co-pilot",
+    "featured": false,
+    "maturity": "sandbox"
+  },
+  {
+    "title": "IFC LCA",
+    "slug": "ifc-lca",
+    "featured": false,
+    "maturity": "incubation"
+  },
+  {
+    "title": "LCAX and EPDX",
+    "slug": "lcax-and-epdx",
+    "featured": false,
+    "maturity": "sandbox"
+  },
+  {
+    "title": "Speckle",
+    "slug": "speckle",
+    "featured": false,
+    "maturity": "graduated"
+  },
+  {
+    "title": "That Open Company",
+    "slug": "that-open-company",
+    "featured": false,
+    "maturity": "graduated"
+  },
+  {
+    "title": "Calc",
+    "slug": "calc",
+    "featured": false,
+    "maturity": "incubation"
+  },
+  {
+    "title": "Share by bldrs.ai",
+    "slug": "bldrs",
+    "featured": false,
+    "maturity": "sandbox"
+  },
+  {
+    "title": "BetterCorrectFast",
+    "slug": "BetterCorrectFast",
+    "featured": false,
+    "maturity": "sandbox"
+  }
+]
