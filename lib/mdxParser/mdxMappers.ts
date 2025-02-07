@@ -113,6 +113,16 @@ type MetadataTransformer = {
   ) => ContentTypeMap[K]["metadata"];
 };
 
+const getDurationInMinutes = (duration: any): number => {
+  if (!duration) return 0;
+
+  const days = duration.days || 0;
+  const hours = duration.hours || 0;
+  const minutes = duration.minutes || 0;
+
+  return (days * 24 * 60) + (hours * 60) + minutes;
+};
+
 const metadataTransforms: MetadataTransformer = {
   project: (raw, defaultContent) => ({
     ...defaultContent.metadata,
@@ -132,11 +142,21 @@ const metadataTransforms: MetadataTransformer = {
     const eventStart = ensureDate(
       raw?.event?.start || defaultContent.metadata.start,
     );
-    const isPast = eventStart.getTime() < Date.now();
+
+    const duration = raw?.event?.duration;
+    const durationInMinutes = getDurationInMinutes(duration);
+
+    const eventEnd = durationInMinutes > 0
+      ? new Date(eventStart.getTime() + durationInMinutes * 60 * 1000)
+      : eventStart;
+
+    const isPast = eventEnd.getTime() < Date.now();
+
+
     return {
       ...defaultContent.metadata,
       start: eventStart,
-      isPast: eventStart.getTime() < Date.now(),
+      isPast,
       duration: raw?.event?.duration || undefined,
       location: raw?.event?.location || undefined,
       geo: raw?.event?.geo
