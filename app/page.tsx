@@ -2,6 +2,7 @@ import svgMission from "@/public/mission.svg";
 import {
   Button,
   EventsPartial,
+  FAQPartial,
   Form,
   HeroPartial,
   ProjectsPartial,
@@ -20,9 +21,9 @@ export default function Home() {
       <Section fullWidth={true}>
         <HeroPartial />
       </Section>
-      {/* <Section>
+      <Section>
         <FAQPartial />
-      </Section> */}
+      </Section>
       <Section color="primary-500">
         <p className="pb-4 pt-10 text-2xl font-bold">
           We like disruptive innovation.
