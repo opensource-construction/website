@@ -1,5 +1,4 @@
-import { MDXRemote } from "next-mdx-remote/rsc";
-import type { MDXRemoteProps } from "next-mdx-remote/rsc";
+import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
 import { Button } from "./button";
 import Link from "next/link";
 
@@ -33,11 +32,12 @@ let components = {
   Button,
 };
 
-export function CustomMDX(props: MDXRemoteProps) {
+export async function CustomMDX(props: MDXRemoteProps) {
+  const MDXComponent = MDXRemote as any;
+
   return (
     <>
-      {/* @ts-expect-error - MDXRemote is a valid RSC component even though TypeScript doesn't recognize it */}
-      <MDXRemote
+      <MDXComponent
         {...props}
         components={{ ...components, ...(props.components || {}) }}
       />
