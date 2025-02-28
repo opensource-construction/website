@@ -82,5 +82,11 @@
     "slug": "BetterCorrectFast",
     "featured": false,
     "maturity": "sandbox"
+  },
+  {
+    "title": "Xeokit",
+    "slug": "xeokit",
+    "featured": false,
+    "maturity": "graduated"
   }
 ]
