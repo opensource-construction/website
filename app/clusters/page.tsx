@@ -11,13 +11,13 @@ export default function ClusterPage() {
         <ClustersPartial />
       </Section>
       <Section title="Clusters" className="mb-32">
-        {clusters.map((c, index) => (
+        {clusters.map((cluster, index) => (
           <ClusterCard
             key={index}
-            slug={c.slug}
-            title={c.title}
-            subtitle={c.description}
-            image={c.metadata.image}
+            slug={cluster.slug}
+            title={cluster.title}
+            subtitle={cluster.description}
+            image={cluster.metadata.image}
           />
         ))}
       </Section>
