@@ -36,6 +36,7 @@ let components = {
 export function CustomMDX(props: MDXRemoteProps) {
   return (
     <>
+      {/* @ts-expect-error - MDXRemote is a valid RSC component even though TypeScript doesn't recognize it */}
       <MDXRemote
         {...props}
         components={{ ...components, ...(props.components || {}) }}

@@ -1,14 +1,11 @@
 "use client";
 
-import { cva, type VariantProps } from "class-variance-authority";
-
+import { cva } from "class-variance-authority";
 import Link from "next/link";
 import { MouseEventHandler } from "react";
-import { useFormStatus } from "react-dom";
 
 const isValidUrl = (url: string): boolean => {
   if (!url) return false;
-  // Allow relative paths
   if (url.startsWith("/")) return true;
   try {
     const parsed = new URL(url);
@@ -70,6 +67,7 @@ export const Button = ({
   label,
   icon = "right",
   children,
+  disabled = false,
 }: {
   type: "primary" | "secondary" | "sidebar" | "card" | "submit";
   size?: "default" | "small";
@@ -77,9 +75,8 @@ export const Button = ({
   label?: string;
   icon?: "left" | "right";
   children?: string;
+  disabled?: boolean;
 }) => {
-  const { pending } = useFormStatus();
-
   const sanitizedHref =
     typeof target === "string" ? (isValidUrl(target) ? target : "/") : "";
 
@@ -88,8 +85,8 @@ export const Button = ({
       {type === "submit" ? (
         <button
           type="submit"
-          disabled={pending}
-          aria-disabled={pending}
+          disabled={disabled}
+          aria-disabled={disabled}
           className={button({ type, size, icon })}
         >
           {icon === "left" ? (
