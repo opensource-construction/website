@@ -15,18 +15,6 @@ const isValidUrl = (url: string): boolean => {
   }
 };
 
-const isValidUrl = (url: string): boolean => {
-  if (!url) return false;
-  // Allow relative paths
-  if (url.startsWith("/")) return true;
-  try {
-    const parsed = new URL(url);
-    return ["http:", "https:"].includes(parsed.protocol);
-  } catch {
-    return false;
-  }
-};
-
 export const button = cva(
   ["inline-block pr-3 md:pr-8 text-sm font-bold no-underline md:text-base"],
   {
@@ -89,9 +77,6 @@ export const Button = ({
   children?: string;
   disabled?: boolean;
 }) => {
-  const sanitizedHref =
-    typeof target === "string" ? (isValidUrl(target) ? target : "/") : "";
-
   const sanitizedHref =
     typeof target === "string" ? (isValidUrl(target) ? target : "/") : "";
 
