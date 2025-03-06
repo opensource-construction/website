@@ -1,10 +1,19 @@
 "use client";
 
-import { cva, type VariantProps } from "class-variance-authority";
-
+import { cva } from "class-variance-authority";
 import Link from "next/link";
 import { MouseEventHandler } from "react";
-import { useFormStatus } from "react-dom";
+
+const isValidUrl = (url: string): boolean => {
+  if (!url) return false;
+  if (url.startsWith("/")) return true;
+  try {
+    const parsed = new URL(url);
+    return ["http:", "https:"].includes(parsed.protocol);
+  } catch {
+    return false;
+  }
+};
 
 export const button = cva(
   ["inline-block pr-3 md:pr-8 text-sm font-bold no-underline md:text-base"],
@@ -58,6 +67,7 @@ export const Button = ({
   label,
   icon = "right",
   children,
+  disabled = false,
 }: {
   type: "primary" | "secondary" | "sidebar" | "card" | "submit";
   size?: "default" | "small";
@@ -65,16 +75,18 @@ export const Button = ({
   label?: string;
   icon?: "left" | "right";
   children?: string;
+  disabled?: boolean;
 }) => {
-  const { pending } = useFormStatus();
+  const sanitizedHref =
+    typeof target === "string" ? (isValidUrl(target) ? target : "/") : "";
 
   return (
     <div className="mt-4">
       {type === "submit" ? (
         <button
           type="submit"
-          disabled={pending}
-          aria-disabled={pending}
+          disabled={disabled}
+          aria-disabled={disabled}
           className={button({ type, size, icon })}
         >
           {icon === "left" ? (
@@ -89,7 +101,11 @@ export const Button = ({
         </button>
       ) : (
         <Link
-          href={type !== "sidebar" && typeof target === "string" ? target : ""}
+          href={
+            type !== "sidebar" && typeof target === "string"
+              ? sanitizedHref
+              : ""
+          }
           scroll={type === "sidebar" ? false : true}
           onClick={
             type === "sidebar" && typeof target === "function"

@@ -1,8 +1,6 @@
-import { getPosts } from "../utils";
 import { Card } from "../card";
-import { parseProjects } from "../projectUtils";
 import { Button } from "../button";
-import Link from "next/link";
+import { loadProjects } from "@/lib/mdxParser/mdxParser";
 
 function getRandomItems<T>(array: T[], numItems: number): T[] {
   const shuffled = array.sort(() => 0.5 - Math.random());
@@ -10,16 +8,15 @@ function getRandomItems<T>(array: T[], numItems: number): T[] {
 }
 
 export function ProjectsPartial() {
-  let projects = getPosts("projects");
-  const parsedProjects = parseProjects(projects);
+  let projects = loadProjects();
 
   const numberOfProjects = 3;
 
   let showFeatured = false;
 
   const filteredProjects = showFeatured
-    ? parsedProjects.filter((project) => project.featured)
-    : getRandomItems(parsedProjects, numberOfProjects);
+    ? projects.filter((project) => project.metadata.featured)
+    : getRandomItems(projects, numberOfProjects);
 
   return (
     <div>

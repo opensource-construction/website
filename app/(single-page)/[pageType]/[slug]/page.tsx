@@ -1,7 +1,16 @@
-import { Page, getPosts } from "@opensource-construction/components";
+import DynamicPage from "@/components/src/dynamicPage";
+import {
+  loadEvents,
+  loadFaqs,
+  loadPages,
+  loadPosts,
+  loadProjects,
+  loadTrainings,
+} from "@/lib/mdxParser/mdxParser";
+import { Content } from "@/lib/mdxParser/mdxSchema";
 import { notFound } from "next/navigation";
 
-type PageType = "events" | "projects" | "trainings" | "faqs" | "page";
+type PageType = "projects" | "events" | "trainings" | "page" | "post" | "faqs";
 
 type SinglePageType = {
   pageType: PageType;
@@ -10,32 +19,66 @@ type SinglePageType = {
 
 export async function generateStaticParams() {
   let posts: SinglePageType[] = [];
+
+  // Ensure all loader functions are called synchronously
+  const projects = loadProjects();
+  const events = loadEvents();
+  const trainings = loadTrainings();
+  const pages = loadPages();
+  const faqs = loadFaqs();
+
   posts = [
     ...posts,
-    ...getPosts("projects").map((p) => {
-      return { slug: p.slug, pageType: "projects" as PageType };
-    }),
-    ...getPosts("events").map((p) => {
-      return { slug: p.slug, pageType: "events" as PageType };
-    }),
-    ...getPosts("trainings").map((p) => {
-      return { slug: p.slug, pageType: "trainings" as PageType };
-    }),
-    ...getPosts("page").map((p) => {
-      return { slug: p.slug, pageType: "page" as PageType };
-    }),
+    ...projects.map((p) => ({
+      slug: p.slug,
+      pageType: "projects" as PageType,
+    })),
+    ...events.map((e) => ({ slug: e.slug, pageType: "events" as PageType })),
+    ...trainings.map((t) => ({
+      slug: t.slug,
+      pageType: "trainings" as PageType,
+    })),
+    ...pages.map((p) => ({ slug: p.slug, pageType: "page" as PageType })),
+    ...faqs.map((f) => ({ slug: f.slug, pageType: "faqs" as PageType })),
   ];
+
   return posts;
 }
 
-export default function SinglePage({ params }: { params: SinglePageType }) {
-  let page = getPosts(params.pageType).find(
-    (page) => page.slug === params.slug,
-  );
+export default async function SinglePage({
+  params,
+}: {
+  params: SinglePageType;
+}) {
+  const { pageType, slug } = params;
 
-  if (!page || params.pageType === "faqs") {
+  let page: Content | undefined;
+
+  switch (pageType) {
+    case "projects":
+      page = loadProjects().find((p) => p.slug === slug);
+      break;
+    case "trainings":
+      page = loadTrainings().find((t) => t.slug === slug);
+      break;
+    case "events":
+      page = loadEvents().find((e) => e.slug === slug);
+      break;
+    case "faqs":
+      page = loadFaqs().find((f) => f.slug === slug);
+      break;
+    case "page":
+      page = loadPages().find((p) => p.slug === slug);
+      break;
+    default:
+      page = loadPosts(pageType).find((p) => p.slug === slug);
+  }
+
+  if (!page) {
+    notFound();
+  } else if (pageType === "faqs") {
     notFound();
   }
 
-  return <Page page={page} />;
+  return <DynamicPage page={page} />;
 }

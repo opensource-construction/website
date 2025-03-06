@@ -1,30 +1,27 @@
-import { getPosts, Section } from "@/components";
+import { Section } from "@/components";
 import { TrainingsPartial } from "@/components/src/partials/trainings";
 import { TrainingCard } from "@/components/src/trainingCard";
+import { loadTrainings } from "@/lib/mdxParser/mdxParser";
+import { OscTraining } from "@/lib/mdxParser/mdxSchema";
 
 export default function Trainings() {
-  let trainings = getPosts("trainings");
+  let trainings = loadTrainings();
   return (
     <div className="mt-28 prose-h2:mt-0 md:mt-0 md:prose-h2:text-2xl md:prose-h3:text-xl">
       <Section>
         <TrainingsPartial />
       </Section>
       <Section title="Trainings">
-        {trainings.map(
-          (
-            { slug, metadata: { title, description, author, image } },
-            index,
-          ) => (
-            <TrainingCard
-              key={index}
-              slug={slug}
-              title={title}
-              subtitle={description}
-              author={author}
-              image={image}
-            />
-          ),
-        )}
+        {trainings.map((training: OscTraining, index) => (
+          <TrainingCard
+            key={index}
+            slug={training.slug}
+            title={training.title}
+            subtitle={training.description}
+            author={training.metadata.author}
+            image={training.metadata.image}
+          />
+        ))}
       </Section>
       <Section>
         <div className="prose mx-auto mb-32 flex max-w-screen-xl flex-col items-end px-2 md:px-10 lg:flex-row lg:items-start">
