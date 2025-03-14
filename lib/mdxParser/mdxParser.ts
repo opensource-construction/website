@@ -49,7 +49,6 @@ export function loadContent<T extends ContentType>(
         >;
         const defaultContent = contentDefaults[type] as ContentTypeMap[T];
 
-
         const parsedContent = parsed
           ? validator(parsed.data, slug, parsed.body, defaultContent)
           : { ...defaultContent, slug };
