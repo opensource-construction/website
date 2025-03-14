@@ -80,9 +80,11 @@ export function EventsIndexPartial() {
           </h2>
           <div className="grid gap-12  lg:grid-cols-2 lg:gap-32">
             {pastEvents.map((e) => (
-              <div className="opacity-80 hover:opacity-100">
+              <div
+                key={e.metadata.start.toLocaleDateString("en-GB")}
+                className="opacity-80 hover:opacity-100"
+              >
                 <Card
-                  key={e.metadata.start.toLocaleDateString("en-GB")}
                   title={e.title || ""}
                   type="event"
                   color="slate-300"
