@@ -8,9 +8,13 @@ import {
   OscProject,
   OscTraining,
   ContentLink,
-  Maturity, TrainingTag, EventStatus,
-  VALID_MATURITIES, EVENT_STATUSES, ContentValidator,
-  Schemas
+  Maturity,
+  TrainingTag,
+  EventStatus,
+  VALID_MATURITIES,
+  EVENT_STATUSES,
+  ContentValidator,
+  Schemas,
 } from "./mdxSchema";
 
 export type ContentTypeMap = {
@@ -120,7 +124,7 @@ const getDurationInMinutes = (duration: any): number => {
   const hours = duration.hours || 0;
   const minutes = duration.minutes || 0;
 
-  return (days * 24 * 60) + (hours * 60) + minutes;
+  return days * 24 * 60 + hours * 60 + minutes;
 };
 
 const metadataTransforms: MetadataTransformer = {
@@ -146,12 +150,12 @@ const metadataTransforms: MetadataTransformer = {
     const duration = raw?.event?.duration;
     const durationInMinutes = getDurationInMinutes(duration);
 
-    const eventEnd = durationInMinutes > 0
-      ? new Date(eventStart.getTime() + durationInMinutes * 60 * 1000)
-      : eventStart;
+    const eventEnd =
+      durationInMinutes > 0
+        ? new Date(eventStart.getTime() + durationInMinutes * 60 * 1000)
+        : eventStart;
 
     const isPast = eventEnd.getTime() < Date.now();
-
 
     return {
       ...defaultContent.metadata,
@@ -161,16 +165,16 @@ const metadataTransforms: MetadataTransformer = {
       location: raw?.event?.location || undefined,
       geo: raw?.event?.geo
         ? {
-          lat: Number(raw?.event?.geo?.lat),
-          lon: Number(raw?.event?.geo?.lon),
-        }
+            lat: Number(raw?.event?.geo?.lat),
+            lon: Number(raw?.event?.geo?.lon),
+          }
         : undefined,
       status: ensureEventStatus(raw?.event?.status),
       organizer: raw?.event?.organizer
         ? {
-          name: ensureString(raw?.event?.organizer?.name),
-          email: validateEmail(raw?.event?.organizer?.email),
-        }
+            name: ensureString(raw?.event?.organizer?.name),
+            email: validateEmail(raw?.event?.organizer?.email),
+          }
         : undefined,
       ...(raw?.event?.url ? { url: ensureString(raw?.event?.url) } : {}),
       links: ensureLinks(raw?.links),

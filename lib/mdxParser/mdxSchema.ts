@@ -153,6 +153,5 @@ export type ContentValidator<T extends Content> = (
   raw: any,
   slug: string,
   content: string,
-  defaultContent: T
+  defaultContent: T,
 ) => T;
-
