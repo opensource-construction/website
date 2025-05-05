@@ -43,7 +43,7 @@ export function ProjectsPartial() {
               <Button
                 type="primary"
                 label="See all projects"
-                target={"./projects"}
+                target={"/projects"}
               ></Button>
             </div>
           </div>
