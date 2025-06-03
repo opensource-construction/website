@@ -1,77 +1,129 @@
 ---
-title: IfcLCA 🌐
-description: Welcome to IfcLCA, an innovative web platform designed specifically for conducting Life Cycle Assessments (LCAs) on Swiss construction projects.
+title: IfcLCA
+description: Open source Life Cycle Assessment for the built environment using Industry Foundation Classes
 metadata:
   featured: false
   maturity: incubation
 links:
-  - url: https://ifclca.com/
-    label: Website
+  - url: https://Ifclca.com/
+    label: Live Application
   - url: https://github.com/IfcLCA/IfcLCA
-    label: GitHub
-  - url: https://github.com/IfcLCA/IfcLCA/blob/main/CONTRIBUTING.md
-    label: How to contribute
+    label: GitHub Repository
   - url: https://drive.google.com/file/d/1-48Ry6jGv1O6riFH_OiEhsQOLuOc3Dax/view?usp=sharing
     label: Slides Community Standup
 ---
 
+<div align="center">
+  <img
+    src="https://raw.githubusercontent.com/IfcLCA/IfcLCA/main/public/logo.png"
+    alt="IfcLCA Logo"
+    width="150"
+  />
+</div>
+
+# Problem
+
+The **construction industry** is responsible for more then **40% of global CO2 emissions** and consumes vast amounts of natural resources. Yet, most building projects lack comprehensive **environmental impact assessment** during the design phase, when changes can still be made cost-effectively.
+
+Architects and engineers need accessible tools to evaluate the **environmental footprint** of their designs using standardized **Life Cycle Assessment (LCA) methodologies**. However, existing solutions are often expensive, require specialized training, or don't integrate well with standard **BIM workflows** using Ifc models.
+
+We needed a solution that combines the **openBIM approach** with environmental data to make **sustainability analysis** as routine as checking structural loads or energy performance.
+
+# Solution
+
+**IfcLCA** leverages **openBIM** and **Open Data Standards** to analyze the environmental impact of construction projects directly from **Ifc files** using comprehensive **Swiss KBOB** environmental data from lcadata.ch.
+
+Our **web-based platform** allows architects, engineers, and sustainability consultants to upload Ifc models and immediately see the **environmental impact** of their material choices. Whether you're designing a single building or managing multiple projects, you can track **Global Warming Potential (GWP)**, **Primary Energy** consumption, and other key sustainability metrics.
+
+The tool requires **no specialized LCA training** and integrates seamlessly into existing BIM workflows. All processing happens **locally in your browser**, ensuring your project data remains private and secure.
+
+Key capabilities include:
+
+- **Project dashboard** for managing multiple building projects
+- **Ifc processing** with compplete material extraction
+- **Materials library** with comprehensive environmental data
+- **Interactive LCA charts** for visualizing and comparing environmental impacts
+
 <img
-  src="https://raw.githubusercontent.com/IfcLCA/IfcLCA/main/public/images/logo.png"
-  alt="Logo"
-  width="150"
+  src="https://raw.githubusercontent.com/IfcLCA/IfcLCA/25f7b90211057a7332b8a095f93517b5d50212e9/public/LandingPage.jpg"
+  alt="IfcLCA Landing Page showing the web interface for Life Cycle Assessment"
+  width="100%"
 />
 
-Welcome to IfcLCA, an innovative web platform designed specifically for conducting Life Cycle Assessments (LCAs) on Swiss construction projects.
-Utilizing Industry Foundation Classes (IFC) files, our platform simplifies the process of analyzing building elements' carbon footprints.
-With a user-friendly dashboard, IfcLCA presents a comprehensive overview of projects, making sustainability evaluations both accessible and impactful.
+# Why Open Source?
 
-### Project Overview 🏢
+**Sustainability is a team effort** that requires trust, transparency, and collaboration across the entire construction industry. Climate change is too urgent for proprietary solutions that limit access to essential environmental analysis tools.
 
-IfcLCA is crafted with sustainability at its core, offering real-time LCA calculations based on currently established methodology in Switzerland (SIA 2032). This ensures users can make environmentally sound decisions in alignment with construction regulations and standards (adding more environmental databases is straightforward, but underlying methodologies can differ quite a bit, depending on where you perform an LCA).
+By making IfcLCA open source, we ensure that:
 
-![Process Diagram](https://raw.githubusercontent.com/IfcLCA/IfcLCA/main/public/images/process.png)
+- **Transparency** in environmental calculations and methodologies
+- **Accessibility** for firms of all sizes, especially smaller practices
+- **Collaboration** on improving sustainability assessment methods
+- **Innovation** through community-driven development
+- **Trust** through open, auditable environmental data and calculations
 
-### Key Features 🔑
+The construction industry needs **standardized, open tools** for environmental assessment. Open source ensures these tools remain accessible and continuously improved by the global community working toward **sustainable construction**.
 
-- **Open Standards Support:** Leveraging IFC for interoperability and integration.
-- **Real-time LCA Calculations:** Assessing embodied carbon promptly (more to come).
-- **User-Friendly Dashboard:** Streamlining project overviews and environmental impacts.
-- **Material Matching:** Automatically match sustainable materials within projects.
-- **Reporting:** Effortlessly export essential data and gain insights (planned in future release).
+# Technology
 
-![Data Flow](https://raw.githubusercontent.com/IfcLCA/IfcLCA/main/public/images/WebAppDataFlow.png)
+IfcLCA is built as a modern web application combining **openBIM** standards with **environmental data science**:
 
-### Join the opensource LCA initiative 🚀
+#### Frontend Stack
 
-IfcLCA is steadfast in its commitment to open-source development, fostering a culture of collaboration and contribution. We believe in maintaining unwavering transparency, particularly when it comes to Life Cycle Assessments. Our platform's core features are, and always will be, openly available — allowing users and developers alike to scrutinize, enhance, and innovate within our shared ecosystem. This dedication not only fuels progress but also ensures accountability and integrity in our collective pursuit of sustainable construction practices. Whether you're a developer, architect, engineer, or a specialist in sustainability, your input is valuable in refining IfcLCA and reducing the carbon footprint in construction.
+- **[Next.js](https://nextjs.org/) with [React](https://react.dev/)** for server-side rendering and modern UI
+- **[TypeScript](https://www.typescriptlang.org/)** for type-safe development throughout the codebase
+- **[Tailwind CSS](https://tailwindcss.com/)** for utility-first styling and responsive design
+- **[Clerk](https://clerk.com/)** for user authentication
 
-### Licensing 📄
+#### Ifc Processing & LCA Engine
 
-IfcLCA is proudly licensed under the GNU Affero General Public License v3.0 (AGPLv3). This licensing ensures that all modifications and derivative works are freely available under the same terms, encouraging a vibrant community dedicated to advancing sustainable construction technologies.
+- **[IfcOpenShell WASM](https://Ifcopenshell.org/)** for client-side Ifc file parsing and processing
+- **[Pyodide](https://pyodide.org/)** for running Python LCA calculations in the browser
+- **[WebAssembly (WASM)](https://webassembly.org/)** for high-performance Ifc processing
+- **KBOB Database Integration** for Swiss environmental impact data from [lcadata.ch](https://lcadata.ch/)
 
-Our license allows users and developers to legally share and adapt the software, provided the same freedoms are preserved in derivative works.
+#### Data & Backend
 
-"Free as in Freedom, not just free beer." 🍻
+- **[MongoDB](https://www.mongodb.com/)** located in Zürich, for storing project data and materials
+- **Client-side Ifc processing** ensuring project data privacy
 
-Together, let's build a greener future with IfcLCA! 🌿
+# License
 
-### Contact
+This project is licensed under the **[AGPL-3.0 License](https://www.gnu.org/licenses/agpl-3.0.en.html)**, ensuring that all modifications and derivative works remain Open Source when distributed.
 
-Do you have a question? Please reach out to Louis Trümpler through admifclca@gmail.com
+This means:
 
-### Community Standup Session
+- **Free to use** for any purpose, including commercial projects
+- **Modify and distribute** the software freely
+- **Strong copyleft** ensuring derivative works remain open source
+- **Network use provisions** protecting against proprietary SaaS versions
 
-Learn more about the project and Louis through the recordings of our community stand up session.
+**Why AGPL-3.0?**
 
-[>>> Link to slides](https://drive.google.com/file/d/1-48Ry6jGv1O6riFH_OiEhsQOLuOc3Dax/view?usp=sharing)
+We chose the AGPL license to ensure that IfcLCA and any improvements to it remain **accessible to the entire construction community**. The AGPL's network provisions prevent companies from creating proprietary versions while benefiting from community contributions.
 
-<iframe
-  width="100%"
-  height="500"
-  src="https://www.youtube.com/embed/r31YEUAzAuE?si=sAvDo1McbBmx0aqE"
-  title="YouTube video player"
-  frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-  referrerpolicy="strict-origin-when-cross-origin"
-  allowfullscreen
-></iframe>
+This approach ensures that **sustainability tools remain open** and that improvements benefit everyone working toward more sustainable construction practices.
+
+# Operating Model
+
+- **Fully open source** with transparent LCA methodologies and calculations
+- **Community contributions** are more then welcome!
+- **Open environmental data** using standardized databases like KBOB
+- **Collaborative development** on GitHub with public issue tracking
+
+#### Privacy & Data Sovereignty
+
+- **Client-side processing** for Ifc files, no Ifc gets saved
+- **No vendor lock-in** with standard file formats and open APIs
+- **Project data control** remaining with users and organizations
+- **Free forever** for basic LCA functionality
+
+# About the team
+
+**IfcLCA** is developed by **Louis Trümpler**, a passionate advocate for **sustainable construction** and **open solutions**. Combining expertise in **modern software development** and **environmental assessment**, Louis created IfcLCA to make model-based Life Cycle Assessment accessible to the entire AEC community.
+
+The project welcomes contributions from **everyone** who share the vision of **transparent, accessible environmental assessment** for the built environment.
+
+# Contact
+
+For questions about LCA methodology, feature requests, or technical issues, please use [**GitHub Issues**](https://github.com/IfcLCA/IfcLCA/issues). For general inquiries about the project, visit the website at [**Ifclca.com**](https://Ifclca.com/) or reach out to Louis directly..
