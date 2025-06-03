@@ -11,47 +11,114 @@ links:
 
 # Problem
 
-In modern digital construction and planning processes, IFC models are a central source of truth. However, it's often unclear whether a delivered model actually meets the structural and organizational requirements needed for further use — whether for coordination, analysis, or downstream automation. This uncertainty can lead to delays, miscommunication, and a lack of trust in the data.
+In modern digital construction and planning processes, **IFC models** are a central source of truth. However, it's often unclear whether a delivered model actually meets the **structural and organizational requirements** needed for further use, be it for coordination, analysis, or downstream automation. This uncertainty can lead to **delays, miscommunication, and a lack of trust** in the data.
 
-We frequently encountered the need to quickly and easily verify the integrity and structure of IFC models — without relying on commercial software, complex installations, or time-consuming manual checks. We wanted a solution that empowers everyone involved in the planning process to validate models independently, transparently, and without technical or financial barriers.
+We frequently encountered the need to quickly and easily verify the **integrity and structure of IFC models**, without relying on commercial software, complex installations or time-consuming manual checks. We wanted a solution that empowers **everyone involved in the planning process** to validate models independently, transparently, and without technical or financial barriers.
 
 # Solution
 
-We developed this open-source model checker to make model validation truly accessible — for everyone involved in the planning and construction process. Whether you're an architect, engineer, BIM coordinator, or client representative, you should be able to check the structure and integrity of your IFC models instantly, securely, and without technical hurdles.
+We developed this **open-source model checker** to make model validation truly **accessible for everyone** involved in the planning and construction process. Whether you're an **architect, engineer, BIM coordinator, or client representative**, you should be able to check the structure and integrity of your IFC models **instantly, securely, and without technical hurdles**.
 
-Our tool requires no installation, no login, and stores no data. It runs directly in your browser — and thanks to WebAssembly, all data processing happens locally on your device. Your IFC files never leave your computer, ensuring maximum privacy and security. The data is fully encapsulated within the browser environment, so you stay in control at all times.
+Our tool requires **no installation, no login, and stores no data**. It runs directly in your browser, and thanks to **WebAssembly**, all data processing happens **locally on your device**. Your **IFC files never leave your computer**, ensuring maximum privacy and security. The data is fully encapsulated within the browser environment, so you **stay in control at all times**.
 
-In addition to basic structural checks, our model checker also supports IDS (Information Delivery Specification) validation. This allows users to verify whether their models meet specific information requirements — a crucial step for ensuring data quality and compliance in BIM-based processes.
+In addition to **basic structural checks**, our model checker also supports **[IDS (Information Delivery Specification)](https://www.buildingsmart.org/standards/bsi-standards/information-delivery-specification-ids/) validation**. This allows users to verify whether their models meet **specific information requirements**, a crucial step for ensuring **data quality and compliance** in BIM-based processes.
+
+<iframe
+  width="100%"
+  height="500"
+  src="https://www.youtube-nocookie.com/embed/6gTjv3sQo-U"
+  title="IFC Model Checker Demo"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+></iframe>
 
 # Why Open Source
 
-IFC is an open standard — and we believe that model checking should follow the same principle. While the core structure of a good model should always be consistent, the specific requirements can vary greatly between projects, disciplines, and phases. That’s why we need a validation tool that is not only transparent, but also adaptable and focused on what truly matters.
+**IFC is an open standard**, and we believe that model checking should follow the same principle. While the core structure of a good model should always be consistent, the **specific requirements can vary greatly** between projects, disciplines, and phases. That's why we need a validation tool that is not only **transparent**, but also **adaptable** and focused on what truly matters.
 
 By making our model checker open source, we ensure that it remains:
 
-- Transparent – everyone can see how it works and what it checks.
-- Adaptable – it can be extended or customized to meet evolving needs.
-- Secure – all data stays on the user’s device, with no hidden processes.
-- Accessible – free to use, without logins or other limitations.
+- **Transparent** – everyone can see how it works and what it checks.
+- **Adaptable** – it can be extended or customized to meet evolving needs.
+- **Secure** – all data stays on the user's device, with no hidden processes.
+- **Accessible** – free to use, without logins or other limitations.
 
-We deliberately focus on essential features that provide real value — not on offering as many functions as possible. The goal is to help users quickly and easily check what’s relevant, without distractions. Open source allows us to build a tool that is shaped by real-world needs, encourages collaboration, and puts the user first.
+We deliberately focus on **essential features that provide real value**, not on offering as many functions as possible. The goal is to help users quickly and easily check what's relevant, **without distractions**. Open source allows us to build a tool that is shaped by **real-world needs**, encourages collaboration, and **puts the user first**.
 
 # Technology
 
-coming soon
+The Model Checker is built as a modern web application with privacy and performance at its core:
+
+#### Frontend Stack
+- **[React 18](https://react.dev/) with [TypeScript](https://www.typescriptlang.org/)** for type-safe, component-based development
+- **[Vite 5](https://vitejs.dev/)** as the fast build tool and development server  
+- **[Mantine 7](https://mantine.dev/)** UI framework for beautiful, accessible components
+- **[React Router v6](https://reactrouter.com/)** for client-side routing and navigation
+- **[Internationalization with i18next](https://www.i18next.com/)** supporting 5 languages (English, German, French, Italian, Romansh)
+
+#### IFC Processing
+- **[Pyodide](https://pyodide.org/)** - Runs Python natively in the browser via WebAssembly
+- **[IfcOpenShell](https://ifcopenshell.org/)** - The industry-standard Python library for IFC file processing, loaded as a WASM wheel
+- **[IfcTester](https://github.com/IfcOpenShell/IfcOpenShell/tree/v0.8.0/src/ifctester)** - Python library for [IDS (Information Delivery Specification)](https://www.buildingsmart.org/standards/bsi-standards/information-delivery-specification-ids/) validation by IfcOpenShell
+- **[bcf-client](https://github.com/IfcOpenShell/IfcOpenShell/tree/v0.8.0/src/bcf)** - Python library for generating [BCF (BIM Collaboration Format)](https://www.buildingsmart.org/standards/bsi-standards/bim-collaboration-format-bcf/) reports by IfcOpenShell
+
+#### Core Architecture
+- **[Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API)** for non-blocking file processing
+- **[WebAssembly (WASM)](https://webassembly.org/)** technology for high-performance Python execution in the browser
+- **Client-side processing** - All IFC validation happens locally, no server communication
+- **Virtual file system** - Files are processed in memory without touching the user's local storage
 
 # License
 
-coming soon
+This project is licensed under the **[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)**, one of the **most permissive open source licenses** available.
+
+This means:
+- **Use the software for any purpose**, including **commercial use**
+- You can **modify and distribute** the software
+- It can be included in **proprietary products**
+- **Patent protection** for contributors and users
+
+**Why Apache 2.0?**
+
+We chose this license because it strikes a **balance between openness and flexibility**. It ensures the tool remains **free and accessible** while allowing organizations to integrate it into their workflows, whether for **internal use, client projects, or even commercial products**, without legal restrictions.
+
+The license includes **explicit patent grants**, protecting both **contributors and users**, making it ideal for **enterprise adoption** in the AEC industry.
 
 # Operating Model
 
-coming soon
+Our operating model is designed around community-driven development and maximum accessibility:
+
+#### Open Source First
+- **Fully open source on GitHub** with transparent development
+- **Community contributions** welcomed and actively encouraged
+- **Public Issue Management** on GitHub
+
+#### Privacy by Design
+- **Zero data collection** - no analytics, no tracking, no user accounts
+- **Client-side processing** - all IFC validation happens locally in your browser
+- **No server uploads** - your files never leave your device
+- **Complete data sovereignty** for users and organizations
+
+#### Sustainability
+- **Community maintained** by AEC professionals and open source developers
+- **Industry partnerships** with companies like Righetti Partner Group AG
+- **Focused scope** - we deliberately keep the tool **lean and purposeful**
+- **Continuous improvement** based on **real-world usage and feedback**
+
+#### Accessibility
+- **Free forever** - no subscriptions, no premium tiers, no hidden costs
+- **Web-based** - works on any modern browser, any operating system
+- **No installation required** - accessible instantly via URL
+- **Multi-language support** for diverse AEC teams
 
 # About the team
 
-Initiated by Mathias Probst and Righetti Partner Group AG and built by Christian Kongsgaard, Maximilian Vomhof, and Louis Trümpler.
+Initiated by **Mathias Probst** at **Righetti Partner Group AG** and built by **Christian Kongsgaard**, **Maximilian Vomhof**, and **Louis Trümpler**. The project brings together expertise from **architecture, software development, and BIM technology** to create accessible tools for the **AEC community**.
 
 # Contact
+
+For error messages or suggestions for improvements, please use [**GitHub Issues**](https://github.com/opensource-construction/model-checker/issues). For other questions, please contact **Mathias Probst**.
 
 For error messages or suggestions for improvement, please use Github. If you have any other questions, please contact Mathias Probst.
