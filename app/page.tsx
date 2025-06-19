@@ -32,7 +32,7 @@ export default function Home() {
           theory, but in practise.
         </p>
       </Section>
-      <Section title="Projects">
+      <Section title="Project Directory">
         <div className="prose md:w-5/6">
           <p>
             The os.c marketplace is THE place to publish open source code with
@@ -56,13 +56,17 @@ export default function Home() {
           </p>
           <div className="pt-4">
             <Button
-              target="/#contact-us"
-              label="Want to submit a project yourself?"
+              target="https://directory.opensource.construction/"
+              label="To the project directory"
               type="primary"
+            />
+            <Button
+              target="https://github.com/opensource-construction/osc-directory/blob/main/docs/submit-a-project.md"
+              label="Want to submit a project yourself?"
+              type="secondary"
             />
           </div>
         </div>
-        <ProjectsPartial />
       </Section>
       <Section title="Events" color="primary-500">
         <div>
