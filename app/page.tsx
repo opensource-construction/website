@@ -35,24 +35,25 @@ export default function Home() {
       <Section title="Project Directory">
         <div className="prose md:w-5/6">
           <p>
-            The os.c marketplace is THE place to publish open source code with
-            one idea in mind: To reduce the incredible duplication of efforts
-            that really slows down innovation in the AECO industry.
+            The os.c directory is the place to discover and share open source
+            projects built for the AEC industry — from small utilities to larger
+            tools that help tackle real-world challenges in architecture,
+            engineering, and construction.
           </p>
           <p>
-            The idea of this space is to collect a mix of open source projects.
-            Small scripts, that you wish you would have at hand instead of
-            building it yourself. Larger projects, that help you move faster.
-            Any code, that is helpful to others.
+            This space brings together a curated mix of open source AEC code.
+            Handy scripts that save you hours. Mature frameworks ready to plug
+            in. Tools created by and for practitioners who want to build better,
+            faster, and more collaboratively.
           </p>
           <p>
-            Very soon, you will be able to push your open source code via GitHub
-            to our website. We will include your project in the newsletter and
-            organise an community call to make you and your code known.
+            You can add your open source AEC project directly through GitHub.
+            Whether it’s a simple script or a full platform, the goal is to make
+            useful tools easier to find, use, and build upon.
           </p>
           <p>
-            This way, you will find code. But also heaps of talented people,
-            ready to push the industry further. Step by step and never stopping.
+            It’s not just about finding code — it’s about growing a community of
+            people solving hard problems in AEC, one open project at a time.
           </p>
           <div className="pt-4">
             <Button
