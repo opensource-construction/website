@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 };
 
 const navItems = [
-  { name: "Projects", target: "https://directory.opensource.construction/" },
+  { name: "Projects", target: "#project-directory" },
   { name: "Events", target: "/#events" },
   { name: "Trainings", target: "/trainings" },
   { name: "About us", target: "/#who-is-behind-the-initiative" },
